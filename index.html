@@ -17,45 +17,88 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <!-- Scroll progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Inline SVG icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="ico-music" viewBox="0 0 24 24">
+      <circle cx="9" cy="19" r="2"></circle>
+      <circle cx="17" cy="17" r="2"></circle>
+      <path d="M9 19V6l10-2v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol id="ico-book" viewBox="0 0 24 24">
+      <path d="M3 5a2 2 0 0 1 2-2h12v16H5a2 2 0 0 0-2 2z" fill="none" stroke="currentColor" stroke-width="2"></path>
+      <path d="M7 5h10" stroke="currentColor" stroke-width="2"></path>
+    </symbol>
+    <symbol id="ico-list" viewBox="0 0 24 24">
+      <path d="M8 6h13M8 12h13M8 18h13" stroke="currentColor" stroke-width="2"></path>
+      <circle cx="3" cy="6" r="2"></circle>
+      <circle cx="3" cy="12" r="2"></circle>
+      <circle cx="3" cy="18" r="2"></circle>
+    </symbol>
+    <symbol id="ico-play" viewBox="0 0 24 24">
+      <polygon points="5,3 19,12 5,21" fill="currentColor"></polygon>
+    </symbol>
+    <symbol id="ico-image" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" fill="none" stroke="currentColor" stroke-width="2"></rect>
+      <circle cx="9" cy="10" r="2"></circle>
+      <path d="M21 16l-6-6-6 6" fill="none" stroke="currentColor" stroke-width="2"></path>
+    </symbol>
+    <symbol id="ico-mic" viewBox="0 0 24 24">
+      <rect x="9" y="2" width="6" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"></rect>
+      <path d="M12 14v6M8 20h8M5 10v2a7 7 0 0 0 14 0v-2" fill="none" stroke="currentColor" stroke-width="2"></path>
+    </symbol>
+    <symbol id="ico-mail" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
+      <path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2"></path>
+    </symbol>
+  </svg>
+
   <header class="nav">
     <div class="container nav-inner">
       <a href="#inicio" class="brand" aria-label="Início">
         <span class="logo" aria-hidden="true"></span>
         <span>Laia Music</span>
       </a>
-      <nav aria-label="Principal">
-        <a href="#historia">História</a>
-        <a href="#discografia">Composições</a>
-        <a href="#playlists">Playlists</a>
-        <a href="#memorial">Memorial</a>
-        <a href="#makingof">Making Of</a>
-        <a href="#contato">Contato</a>
-      </nav>
+
+      <!-- Segmented navigation -->
+      <ul class="segmented" role="tablist" aria-label="Navegação principal">
+        <li><a href="#historia"><svg class="ico"><use href="#ico-book"></use></svg><span>História</span></a></li>
+        <li><a href="#discografia"><svg class="ico"><use href="#ico-list"></use></svg><span>Composições</span></a></li>
+        <li><a href="#playlists"><svg class="ico"><use href="#ico-play"></use></svg><span>Playlists</span></a></li>
+        <li><a href="#memorial"><svg class="ico"><use href="#ico-image"></use></svg><span>Memorial</span></a></li>
+        <li><a href="#makingof"><svg class="ico"><use href="#ico-mic"></use></svg><span>Making Of</span></a></li>
+        <li><a href="#contato"><svg class="ico"><use href="#ico-mail"></use></svg><span>Contato</span></a></li>
+      </ul>
     </div>
   </header>
 
   <main id="inicio">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero reveal">
       <div class="container">
         <span class="chip">Legado • Pagode • Brasil</span>
-        <h1 style="font-family: 'Anton', sans-serif; letter-spacing:.3px;">Laia Music —
-          <span style="background:linear-gradient(90deg,var(--accent),#ffd470); -webkit-background-clip:text; background-clip:text; color:transparent;">Legado de Edney Fernandes</span>
+        <h1 class="display">Laia Music —
+          <span class="gradient-text">Legado de Edney Fernandes</span>
         </h1>
-        <p>hiiiiiii baby Garry. I MISS UUUUUUU WELCOME TO LAIA MUSIC ' Site oficial para preservar e difundir a obra do compositor e cantor brasileiro <strong>Edney Fernandes</strong>: história, catálogo de composições, playlists, fotos e memória afetiva.</p>
+        <p>Site oficial para preservar e difundir a obra do compositor e cantor brasileiro <strong>Edney Fernandes</strong>: história, catálogo de composições, playlists, fotos e memória afetiva.</p>
         <div class="cta">
-          <a class="btn btn-primary" href="#discografia">Ver composições</a>
-          <a class="btn btn-outline" href="#contato">Contato</a>
+          <a class="btn btn-primary" href="#discografia"><svg class="ico"><use href="#ico-music"></use></svg> Ver composições</a>
+          <a class="btn btn-ghost" href="#contato"><svg class="ico"><use href="#ico-mail"></use></svg> Contato</a>
         </div>
       </div>
     </section>
 
     <!-- HISTÓRIA -->
-    <section id="historia">
+    <section id="historia" class="reveal">
       <div class="container">
-        <div class="grid" style="grid-template-columns: 1.2fr 1fr; align-items:center;">
+        <div class="section-head">
+          <div class="section-icon"><svg class="ico"><use href="#ico-book"></use></svg></div>
+          <h2 class="section-title">Conheça a história</h2>
+        </div>
+        <div class="grid two-col">
           <div>
-            <h2 class="section-title">Conheça a história</h2>
             <p>Um percurso pela vida e a obra de <strong>Edney Fernandes</strong>: origens, influências, bandas, discos e marcos criativos. Este espaço pode ganhar linha do tempo, fotos e recortes, além de letras manuscritas.</p>
             <ul class="muted">
               <li>✔ Linha do tempo com datas-chave.</li>
@@ -77,11 +120,14 @@
     </section>
 
     <!-- COMPOSIÇÕES (DESTAQUES) -->
-    <section id="discografia">
+    <section id="discografia" class="reveal">
       <div class="container">
-        <h2 class="section-title">Composições em destaque</h2>
+        <div class="section-head">
+          <div class="section-icon"><svg class="ico"><use href="#ico-list"></use></svg></div>
+          <h2 class="section-title">Composições em destaque</h2>
+        </div>
         <p class="muted">Obras com ano, intérpretes e ISRC (veja o catálogo completo abaixo).</p>
-        <div class="grid services">
+        <div class="grid services cards-hover">
           <div class="card service"><h3>Deixa Rolar</h3><p><strong>Ano:</strong> 2003 · <strong>Intérprete:</strong> Exaltasamba · <strong>ISRC:</strong> T0391600795</p></div>
           <div class="card service"><h3>Te Vejo na TV</h3><p><strong>Ano:</strong> 2003 · <strong>Intérprete:</strong> Exaltasamba · <strong>ISRC:</strong> T0391600706</p></div>
           <div class="card service"><h3>No Fundo dos Meus Olhos</h3><p><strong>Ano:</strong> 2001 · <strong>Intérpretes:</strong> Exaltasamba / Thiaguinho / Péricles · <strong>ISRC:</strong> T0391616548</p></div>
@@ -89,27 +135,41 @@
           <div class="card service"><h3>Manequim</h3><p><strong>Ano:</strong> 2004 · <strong>Intérprete:</strong> Ademir Fogaça / Chines / Edson Jr. · <strong>ISRC:</strong> T0403231082</p></div>
           <div class="card service"><h3>Vem Pra Curar</h3><p><strong>Ano:</strong> 2017 · <strong>ISRC:</strong> T0401884692</p></div>
         </div>
-        <p class="muted" style="margin-top:1rem;">Abaixo: <a href="#catalogo" style="color:var(--accent)">Catálogo completo</a> com 34 músicas (ISRC confirmados).</p>
+        <p class="muted" style="margin-top:1rem;">Abaixo: <a href="#catalogo" class="link-accent">Catálogo completo</a> com 34 músicas.</p>
       </div>
     </section>
 
     <!-- PLAYLISTS -->
-    <section id="playlists">
-      <div class="container card" style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;">
-        <div>
-          <h3>Ouça a playlist oficial</h3>
-          <p class="muted">Pagode autoral — Edney Fernandes & Ed e Tripulação.</p>
+    <section id="playlists" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-icon"><svg class="ico"><use href="#ico-play"></use></svg></div>
+          <h2 class="section-title">Playlists</h2>
         </div>
-        <a class="btn btn-primary" href="#" id="playlistLink" target="__blank" rel="noopener">Abrir playlist</a>
+        <div class="card row between center">
+          <div>
+            <h3>Ouça a playlist oficial</h3>
+            <p class="muted">Pagode autoral — Edney Fernandes & Ed e Tripulação.</p>
+          </div>
+          <div class="btn-group">
+            <a class="btn btn-primary" href="#" id="playlistLink" target="_blank" rel="noopener">
+              <svg class="ico"><use href="#ico-music"></use></svg> Abrir playlist
+            </a>
+            <a class="btn btn-ghost" href="/docs/Playlist.pdf" target="_blank" rel="noopener">Ver PDF</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- MEMORIAL -->
-    <section id="memorial">
+    <section id="memorial" class="reveal">
       <div class="container">
-        <h2 class="section-title">Memorial</h2>
+        <div class="section-head">
+          <div class="section-icon"><svg class="ico"><use href="#ico-image"></use></svg></div>
+          <h2 class="section-title">Memorial</h2>
+        </div>
         <p class="muted">Fotos, recortes e projetos em que Edney participou. Substitua as imagens pelos seus arquivos em <code>/images</code>.</p>
-        <div class="grid gallery">
+        <div class="grid gallery fancy-gallery">
           <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop" alt="Estúdio de gravação">
           <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop" alt="Discos e música">
           <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1200&auto=format&fit=crop" alt="Microfone retrô">
@@ -121,9 +181,12 @@
     </section>
 
     <!-- MAKING OF (áudios e notas de voz) -->
-    <section id="makingof">
+    <section id="makingof" class="reveal">
       <div class="container">
-        <h2 class="section-title">Making Of</h2>
+        <div class="section-head">
+          <div class="section-icon"><svg class="ico"><use href="#ico-mic"></use></svg></div>
+          <h2 class="section-title">Making Of</h2>
+        </div>
         <p class="muted">Trechos de ensaios, notas de voz e introduções do próprio Edney. Coloque seus arquivos em <code>/audio</code> (MP3/M4A) e ajuste as rotas.</p>
         <div class="grid services">
           <div class="card service">
@@ -142,87 +205,43 @@
             <p class="muted" style="margin-top:.5rem;">Registro caseiro de ensaio.</p>
           </div>
         </div>
-        <p class="muted" style="margin-top:1rem;">Podemos adicionar transcrições abaixo de cada áudio para acessibilidade.</p>
       </div>
     </section>
 
     <!-- CATÁLOGO COMPLETO -->
-    <section id="catalogo">
+    <section id="catalogo" class="reveal">
       <div class="container">
-        <h2 class="section-title">Catálogo completo (34 músicas)</h2>
+        <div class="section-head">
+          <div class="section-icon"><svg class="ico"><use href="#ico-list"></use></svg></div>
+          <h2 class="section-title">Catálogo completo (34 músicas)</h2>
+        </div>
         <p class="muted">Lista com ISRCs confirmados. Você pode disponibilizar o PDF na pasta <code>/docs</code> e linkar aqui.</p>
-        
-<table class="card" style="width:100%; border-collapse: collapse;">
-  <thead>
-    <tr style="text-align:left;">
-      <th>#</th><th>Música</th><th>Intérprete(s)</th><th>Editora</th><th>Ano</th><th>ISRC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>1</td><td>Deixa Rolar</td><td>Exaltasamba</td><td>Sony Music</td><td>2003</td><td>T0391600795</td></tr>
-<tr><td>2</td><td>Te Vejo na TV</td><td>Exaltasamba</td><td>Sony Music</td><td>2003</td><td>T0391600706</td></tr>
-<tr><td>3</td><td>No Fundo dos Meus Olhos</td><td>Exaltasamba / Thiaguinho / Péricles</td><td>Peermusic</td><td>2001</td><td>T0391616548</td></tr>
-<tr><td>4</td><td>História de Amor</td><td>Os Mulekes</td><td>Sony Music</td><td>2002</td><td>T0391484506</td></tr>
-<tr><td>5</td><td>É Só Saudade</td><td>Chrigor</td><td>Sony Music</td><td>2004</td><td>T0391585639</td></tr>
-<tr><td>6</td><td>Eu Choro</td><td>Karametade</td><td>Peermusic</td><td>2002</td><td>T0391612740</td></tr>
-<tr><td>7</td><td>Samba Rock</td><td>Grupo Kipaquera / Waguinho / Paulinho</td><td>Sony Music</td><td>2003</td><td>T0391599102</td></tr>
-<tr><td>8</td><td>Por Toda a Vida</td><td>Gamação</td><td>Mel Editora / 2M&G</td><td>2000</td><td>T0393043747</td></tr>
-<tr><td>9</td><td>Tema dos Namorados</td><td>Péricles / Salgadinho / Wilsinho</td><td>Sony / Abril / Deckdisc</td><td>2004</td><td>T0391502592</td></tr>
-<tr><td>10</td><td>Manequim</td><td>Ademir Fogaça / Chines / Edson Jr.</td><td>R.E. Produções</td><td>2004</td><td>T0403231082</td></tr>
-<tr><td>11</td><td>Então Pra Que Se Machucar</td><td>—</td><td>Deckdisc</td><td>2010</td><td>T0395688411</td></tr>
-<tr><td>12</td><td>Teu Coração</td><td>Tata Reis</td><td>Sony Music</td><td>2003</td><td>T0391600671</td></tr>
-<tr><td>13</td><td>Vem Pra Curar</td><td>—</td><td>Warner Chappell</td><td>2017</td><td>T0401884692</td></tr>
-<tr><td>14</td><td>Unhas e Dentes</td><td>—</td><td>Warner Chappell</td><td>2013</td><td>T3075357921</td></tr>
-<tr><td>15</td><td>Conversando com o Luar</td><td>—</td><td>Sony Music</td><td>2003</td><td>T0391451072</td></tr>
-<tr><td>16</td><td>Meu Maior Prazer</td><td>Mi Menor / Isaldo Souza</td><td>Peermusic</td><td>2005</td><td>T0391545860</td></tr>
-<tr><td>17</td><td>Sentir Você</td><td>—</td><td>Warner Chappell</td><td>2000</td><td>T0392096988</td></tr>
-<tr><td>18</td><td>Gesto de Carinho</td><td>—</td><td>Sony Music</td><td>2004</td><td>T0391545898</td></tr>
-<tr><td>19</td><td>Incerteza</td><td>—</td><td>Warner Chappell</td><td>2005</td><td>T0392134075</td></tr>
-<tr><td>20</td><td>Infinita Paixão</td><td>—</td><td>Warner Chappell</td><td>2005</td><td>T0392108740</td></tr>
-<tr><td>21</td><td>Meu Cobertor</td><td>—</td><td>CDI Music / Sum Records</td><td>2003</td><td>T0391555553</td></tr>
-<tr><td>22</td><td>Meu Desejo</td><td>—</td><td>Peermusic</td><td>2002</td><td>T0391611472</td></tr>
-<tr><td>23</td><td>Momentos de Tristeza</td><td>—</td><td>Warner Chappell</td><td>2002</td><td>T0391615550</td></tr>
-<tr><td>24</td><td>Noite de Verão</td><td>—</td><td>Peermusic</td><td>2003</td><td>T0391457801</td></tr>
-<tr><td>25</td><td>Noites de Verão</td><td>Bobby / Valtinho Jota</td><td>—</td><td>2004</td><td>T0391591457</td></tr>
-<tr><td>26</td><td>Nossa Canção</td><td>Pura Inocência</td><td>—</td><td>2004</td><td>T0391579001</td></tr>
-<tr><td>27</td><td>Paris</td><td>Tão Inocente</td><td>—</td><td>2004</td><td>T0391597108</td></tr>
-<tr><td>28</td><td>Por Trás de um Sorriso</td><td>—</td><td>Warner Chappell</td><td>2005</td><td>T0392112351</td></tr>
-<tr><td>29</td><td>Priscila</td><td>—</td><td>—</td><td>2003</td><td>T0391532090</td></tr>
-<tr><td>30</td><td>Quando Você Beija</td><td>Em Cima da Hora</td><td>—</td><td>2002</td><td>T0391512401</td></tr>
-<tr><td>31</td><td>Será Que É Pra Ficar</td><td>—</td><td>Warner Chappell</td><td>2002</td><td>T0391597788</td></tr>
-<tr><td>32</td><td>Solidão</td><td>—</td><td>Sony Music</td><td>2002</td><td>T0391447802</td></tr>
-<tr><td>33</td><td>Sua Volta</td><td>—</td><td>Warner Chappell</td><td>2002</td><td>T0391591999</td></tr>
-<tr><td>34</td><td>Um Doce Sabor</td><td>—</td><td>Warner Chappell</td><td>2004</td><td>T0391609901</td></tr>
-  </tbody>
-</table>
-
+        <div id="catalogo-table" class="card table-wrapper"></div>
+        <div class="btn-group" style="margin-top:1rem;">
+          <a class="btn btn-ghost" href="/docs/Catálogo_Edney_Fernandes.pdf" target="_blank" rel="noopener">Baixar Catálogo (PDF)</a>
+          <a class="btn btn-ghost" href="/docs/Branding_Edney_F..pdf" target="_blank" rel="noopener">Ver Branding (PDF)</a>
+        </div>
       </div>
     </section>
 
     <!-- CONTATO -->
-    <section id="contato">
+    <section id="contato" class="reveal">
       <div class="container">
-        <h2 class="section-title">Contato</h2>
-        <div class="grid" style="grid-template-columns: 1.1fr 1fr; align-items:start;">
+        <div class="section-head">
+          <div class="section-icon"><svg class="ico"><use href="#ico-mail"></use></svg></div>
+          <h2 class="section-title">Contato</h2>
+        </div>
+        <div class="grid two-col">
           <form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="card">
             <input type="hidden" name="form-name" value="contato" />
             <p class="sr-only">
               <label>Não preencha se você é humano: <input name="bot-field" /></label>
             </p>
-            <label>
-              <span class="sr-only">Nome</span>
-              <input name="nome" placeholder="Seu nome" required />
-            </label>
-            <label>
-              <span class="sr-only">Email</span>
-              <input type="email" name="email" placeholder="Seu e-mail" required />
-            </label>
-            <label>
-              <span class="sr-only">Mensagem</span>
-              <textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Enviar</button>
-            <p class="disclaimer">Ao enviar você aceita nossa <a href="#" style="color:var(--accent)">política de privacidade</a>.</p>
+            <label><span class="sr-only">Nome</span><input name="nome" placeholder="Seu nome" required /></label>
+            <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Seu e-mail" required /></label>
+            <label><span class="sr-only">Mensagem</span><textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea></label>
+            <button class="btn btn-primary" type="submit"><svg class="ico"><use href="#ico-mail"></use></svg> Enviar</button>
+            <p class="disclaimer">Ao enviar você aceita nossa <a href="#" class="link-accent">política de privacidade</a>.</p>
           </form>
 
           <div class="card">
@@ -246,13 +265,16 @@
         <strong>Laia Music</strong><br />
         <span class="muted">© <span id="y"></span> — Todos os direitos reservados.</span>
       </div>
-      <div style="justify-self:end; display:flex; gap:.6rem;">
+      <div class="socials">
         <a aria-label="Instagram" href="#" class="chip">Instagram</a>
         <a aria-label="Facebook" href="#" class="chip">Facebook</a>
         <a aria-label="E-mail" href="mailto:contato@seudominio.com" class="chip">Email</a>
       </div>
     </div>
   </footer>
+
+  <!-- Back to top -->
+  <a href="#inicio" id="backToTop" aria-label="Voltar ao topo">↑</a>
 
   <script src="/app.js"></script>
 </body>
