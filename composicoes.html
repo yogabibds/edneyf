@@ -1,66 +1,84 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Composições — Lyamusic</title>
-  <meta name="description" content="Lyamusic — legado de Edney Fernandes.">
+  <title>Composições — Laia Music</title>
+  <meta name="description" content="Laia Music — site oficial do legado de Edney Fernandes. História, composições, playlists, memorial, making of e contato.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="app.js"></script>
   <link rel="icon" href="favicon.ico">
-  <meta property="og:title" content="Lyamusic — Legado de Edney Fernandes">
-  <meta property="og:description" content="Lyamusic — site oficial do legado de Edney Fernandes: história, composições, playlists, memorial, making of e contato.">
+  <meta property="og:title" content="Laia Music — Legado de Edney Fernandes">
+  <meta property="og:description" content="Laia Music — site oficial do legado de Edney Fernandes.">
   <meta property="og:image" content="images/og-image.png">
   <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
 </head><body>
 <header class="nav">
   <div class="container nav-inner">
-    <a href="index.html" class="brand"><span class="logo"></span><span>Lyamusic</span></a>
+    <a href="index.html" class="brand"><span class="logo"></span><span>Laia Music</span></a>
     <nav class="menu">
-      <a href="historia.html" class="nav-item">
-        <svg viewBox="0 0 24 24" class="ico"><path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h12v2H3v-2z"/></svg> História
-      </a>
-      <a href="composicoes.html" class="nav-item active">
-        <svg viewBox="0 0 24 24" class="ico"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg> Composições
-      </a>
-      <a href="playlists.html" class="nav-item">
-        <svg viewBox="0 0 24 24" class="ico"><path d="M3 6h14v2H3V6zm0 4h14v2H3v-2zm0 4h10v2H3v-2zm14-2v6l5-3-5-3z"/></svg> Playlists
-      </a>
-      <a href="memorial.html" class="nav-item">
-        <svg viewBox="0 0 24 24" class="ico"><path d="M21 19V5a2 2 0 0 0-2-2H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2 .9 2 2z"/></svg> Memorial
-      </a>
-      <a href="makingof.html" class="nav-item">
-        <svg viewBox="0 0 24 24" class="ico"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg> Making Of
-      </a>
-      <a href="contato.html" class="nav-item">
-        <svg viewBox="0 0 24 24" class="ico"><path d="M21 8V7l-3 2-2-1-4 3-4-2-4 3v6h20V8z"/></svg> Contato
-      </a>
+      <a href="historia.html" class="nav-item"><svg viewBox="0 0 24 24" class="ico"><path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h12v2H3v-2z"/></svg> História</a>
+      <a href="composicoes.html" class="nav-item"><svg viewBox="0 0 24 24" class="ico"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg> Composições</a>
+      <a href="playlists.html" class="nav-item"><svg viewBox="0 0 24 24" class="ico"><path d="M3 6h14v2H3V6zm0 4h14v2H3v-2zm0 4h10v2H3v-2zm14-2v6l5-3-5-3z"/></svg> Playlists</a>
+      <a href="memorial.html" class="nav-item"><svg viewBox="0 0 24 24" class="ico"><path d="M21 19V5a2 2 0 0 0-2-2H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2 .9 2 2z"/></svg> Memorial</a>
+      <a href="makingof.html" class="nav-item"><svg viewBox="0 0 24 24" class="ico"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg> Making Of</a>
+      <a href="contato.html" class="nav-item"><svg viewBox="0 0 24 24" class="ico"><path d="M21 8V7l-3 2-2-1-4 3-4-2-4 3v6h20V8z"/></svg> Contato</a>
     </nav>
   </div>
 </header>
+
 <main class="page">
   <div class="container">
     <h1 class="page-title">Composições</h1>
 
-    <h2 class="section-title">Canções em destaque</h2>
+    <div class="gallery-hero"><img src="images/catalogo_arte.jpg" alt="Arte do Catálogo de Obras de Edney Fernandes"></div>
+
+    <h2>Canções em destaque</h2>
+    <div class="memorial-layout" style="grid-template-columns:1fr 1fr">
+      <div class="memorial-text">
+        <h3>Gravadas por Exaltasamba</h3>
+        <ul class="bullets">
+          <li>No Fundo dos Meus Olhos</li>
+          <li>Eu Choro</li>
+          <li>É Só Saudade</li>
+        </ul>
+      </div>
+      <div class="memorial-text">
+        <h3>Ed & a Tripulação</h3>
+        <ul class="bullets">
+          <li>História de Amor</li>
+          <li>Samba Rock</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Catálogo completo</h2>
     <ul class="bullets">
       <li><strong>Infinita Paixão</strong> — Edney Fernandes, Ronaldo Marques</li>
       <li><strong>Será Que É Pra Ficar</strong> — Edney Fernandes, Ronaldo Marques</li>
+      <li><strong>Haja Coração</strong> — Elias Muniz, Luiz Carlos</li>
+      <li><strong>Alô Amor</strong> — Alexandre Lucas, Caca Moraes, Fragoso</li>
       <li><strong>Por Trás de um Sorriso</strong> — Edney Fernandes, Ronaldo Marques</li>
+      <li><strong>Não É da Minha Conta</strong> — Arnaldo Saccomani, Thais Nascimento</li>
+      <li><strong>Baby</strong> — Altay Veloso</li>
+      <!-- Adicionaremos o restante assim que você enviar a lista consolidada -->
     </ul>
 
-    <h2 class="section-title" style="margin-top:1rem;">Catálogo completo</h2>
-    <p class="muted">Lista completa de obras registradas e lançadas (atualizaremos com links e ISRC/ISWC).</p>
-
-    <h2 class="section-title" style="margin-top:1rem;">Catálogo por editoras</h2>
-    <ul class="bullets">
-      <li><strong>Sony Music</strong> — títulos a confirmar</li>
-      <li><strong>Warner Chappell</strong> — títulos a confirmar</li>
-      <li><strong>Peer Music</strong> — títulos a confirmar</li>
-      <li><strong>Deckdisc</strong> — títulos a confirmar</li>
-    </ul>
+    <h2>Catálogo por editoras</h2>
+    <div class="memorial-layout" style="grid-template-columns:1fr 1fr">
+      <div class="memorial-text">
+        <h3>Sony Music / Warner Chappell</h3>
+        <ul class="bullets"><li>Obras: (preencher)</li></ul>
+      </div>
+      <div class="memorial-text">
+        <h3>Peer Music / Deckdisc</h3>
+        <ul class="bullets"><li>Obras: (preencher)</li></ul>
+      </div>
+    </div>
   </div>
 </main>
-<footer><div class="container"><p>&copy; <span id="y"></span> Lyamusic</p></div></footer>
+
+<footer><div class="container"><p>&copy; <span id="y"></span> Laia Music</p></div></footer>
 </body></html>

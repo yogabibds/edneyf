@@ -14,24 +14,26 @@ a{color:var(--text);text-decoration:none}
 .ico{width:18px;height:18px;fill:currentColor}
 /* HERO */
 .hero{padding:2.2rem 0 1.4rem;border-bottom:1px solid rgba(255,255,255,.06)}
-.hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:1.2rem;align-items:center}
-.chip{display:inline-block;padding:.25rem .5rem;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:#ddd;margin-bottom:.6rem;font-size:.85rem}
-.display{font-size:2.2rem}
-.highlight{color:var(--accent)}
+.hero-inner{display:grid;grid-template-columns:1fr;gap:1.2rem;align-items:center}
+.display{font-size:2.2rem}.highlight{color:var(--accent)}
 .hero-text p{color:#dfe3e7}
-.cta{display:flex;gap:.6rem;margin-top:1rem}
-.btn{appearance:none;border:none;border-radius:999px;padding:.6rem 1rem;font-weight:700;cursor:pointer;transition:transform .12s ease,box-shadow .2s ease}
+.cta{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+/* Buttons */
+.btn{appearance:none;border:none;border-radius:999px;padding:.6rem 1.2rem;font-weight:700;cursor:pointer;transition:transform .12s ease,box-shadow .2s ease}
 .btn:active{transform:translateY(1px)}
 .btn-primary{background:linear-gradient(135deg,#F6B301,#c48f03);color:#1a1a1a;box-shadow:0 6px 20px rgba(246,179,1,.35)}
 .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
-.hero-cover{width:100%;border-radius:16px;box-shadow:var(--shadow);border:2px solid rgba(63,95,69,.25)}
-.hero-card{background:var(--card);padding:.9rem;border-radius:16px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.btn-olive{background:var(--brand);color:#fff;border:2px solid var(--brand)}
+.btn-olive:hover,.btn-olive:focus{background:#2e4632;border-color:var(--accent)}
 /* PAGES */
 .page{padding:1.5rem 0}.page-title{font-size:1.8rem}
 .bullets{line-height:1.9}
-.gallery-hero img{width:100%;border-radius:14px;box-shadow:var(--shadow);border:2px solid rgba(63,95,69,.25);margin-top:.6rem}
+/* Spotify badge */
+.spotify-badge{width:20px;height:20px;fill:var(--accent);vertical-align:middle;margin-left:.35rem}
 /* MEMORIAL masonry */
+.memorial-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:1rem}
+@media(max-width:900px){.memorial-layout{grid-template-columns:1fr}}
+.memorial-text{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:1rem;box-shadow:var(--shadow)}
 .memorial-grid{column-count:1;column-gap:1rem}
 @media(min-width:640px){.memorial-grid{column-count:2}}@media(min-width:1024px){.memorial-grid{column-count:3}}
 .memorial-item{break-inside:avoid;margin-bottom:1rem;position:relative;overflow:hidden;border-radius:14px;box-shadow:var(--shadow);border:2px solid rgba(63,95,69,.25)}
@@ -41,161 +43,20 @@ a{color:var(--text);text-decoration:none}
 .toolbar{display:flex;gap:.6rem;margin:.6rem 0;flex-wrap:wrap}
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:80;padding:2.5rem}
-.lightbox.open{display:flex}
-.lb-figure{max-width:min(1200px,92vw);width:100%;text-align:center}
+.lightbox.open{display:flex}.lb-figure{max-width:min(1200px,92vw);width:100%;text-align:center}
 #lb-img{max-height:70vh;width:auto;max-width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
 #lb-cap{color:#eaeaea;margin-top:.8rem;font-size:1rem}
 .lb-btn{position:absolute;top:50%;transform:translateY(-50%);font-size:2rem;line-height:1;padding:.4rem .6rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:10px;cursor:pointer}
 .lb-prev{left:1rem}.lb-next{right:1rem}.lb-close{top:1rem;right:1rem;transform:none;font-size:2.2rem}
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+/* MANUSCRITOS */
+.gallery-rect{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.gallery-rect img{width:100%;border-radius:10px;box-shadow:var(--shadow);object-fit:cover}
+/* FORMS */
 .form{display:grid;gap:.6rem}
 .form input,.form textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:.7rem;color:#fff}
 footer{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 0;margin-top:2rem}
 
-/* Spotify badge no título */
-.spotify-badge{width:24px;height:24px;fill:var(--accent);vertical-align:middle;margin-left:.4rem}
 
-
-/* Making Of audio cards */
-.audio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
-.audio-card{background:var(--card);padding:1rem;border-radius:14px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
-.audio-card h3{margin:.2rem 0 .6rem}
-audio{width:100%;outline:none}
-
-
-/* === Brand refinements (verde-oliva & dourado aplicados globalmente) === */
-:root{
-  --brand:#3F5F45;           /* verde-oliva */
-  --brand-600:#324d38;
-  --accent:#F6B301;          /* dourado */
-  --accent-600:#c48f03;
-  --bg:#0e0f0f;
-  --text:#f8f8f8;
-  --muted:#b9c0c7;
-  --card:#121314;
-  --border: rgba(63,95,69,.25);
-  --shadow:0 12px 30px rgba(2,6,23,.30);
-}
-
-/* Links e estados */
-a{color:var(--text); text-decoration:none}
-a:hover{color:var(--accent)}
-a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px}
-
-/* Botões */
-.btn{appearance:none; border:none; border-radius:999px; padding:.6rem 1rem; font-weight:800; cursor:pointer; transition:transform .12s ease, box-shadow .2s ease, background .2s ease, color .2s ease}
-.btn:active{transform:translateY(1px)}
-.btn-primary{background:linear-gradient(135deg, var(--accent), var(--accent-600)); color:#1a1a1a; box-shadow:0 6px 20px rgba(246,179,1,.35)}
-.btn-primary:hover{filter:saturate(1.05); box-shadow:0 10px 24px rgba(246,179,1,.45)}
-.btn-ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.22)}
-.btn-ghost:hover{background:rgba(255,255,255,.08)}
-.btn-olive{background:var(--brand); color:#fff; border:1px solid var(--border)}
-.btn-olive:hover{background:var(--brand-600)}
-
-/* Chips e badges */
-.chip{border-color:rgba(255,255,255,.12)}
-.spotify-badge{fill:var(--accent)}
-
-/* Cartões e bordas */
-.hero-card, .audio-card, .card{border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
-.hero-cover, .gallery-hero img, .memorial-item{border:2px solid var(--border)}
-
-/* Navegação top (menu à direita) */
-.nav{background:rgba(14,15,15,.65); border-bottom:1px solid rgba(255,255,255,.06)}
-.nav-item{color:#e8e8e8}
-.nav-item:hover{border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.07); color:#fff}
-.nav-item.active{background:rgba(246,179,1,.14); color:#fff; border-color:rgba(246,179,1,.35)}
-
-/* Campos de formulário com foco dourado */
-.form input:focus, .form textarea:focus{outline:2px solid var(--accent); outline-offset:2px}
-
-/* Seleção de texto nas cores da marca */
-::selection{background:rgba(246,179,1,.35)}
-
-/* Scrollbar (WebKit) */
-::-webkit-scrollbar{height:10px;width:10px}
-::-webkit-scrollbar-track{background:#0f1113}
-::-webkit-scrollbar-thumb{background:#2c3f32;border-radius:10px}
-::-webkit-scrollbar-thumb:hover{background:#3F5F45}
-
-
-/* Bloco poético */
-.quote-section {
-  background: rgba(63, 95, 69, 0.85);
-  color: #fff;
-  padding: 3rem 1rem;
-  margin: 2rem 0;
-  text-align: center;
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-}
-.quote-section h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: 1.8rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-.quote-section p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0.6rem 0;
-}
-
-
-/* História - biografia em duas colunas */
-.two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:1.2rem;align-items:center}
-@media(max-width:900px){.two-col{grid-template-columns:1fr}}
-.portrait{display:flex;flex-direction:column;gap:.4rem;align-items:center}
-.portrait img{width:260px;height:260px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow);border:3px solid rgba(63,95,69,.35)}
-.portrait figcaption{color:var(--muted);font-weight:700}
-
-
-.grid.editors{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.grid.editors .card{background:var(--card);padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
-.grid.editors h3{margin:.2rem 0 .4rem}
-
-
-.playlist-buttons{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
-
-
-.album{display:grid;gap:1rem}
-.album-row{display:grid;grid-template-columns:260px 1fr;gap:1rem;align-items:center;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:.8rem}
-.album-row img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:2px solid rgba(63,95,69,.35);box-shadow:var(--shadow)}
-.album-text h3{margin:.1rem 0 .3rem}
-@media(max-width:800px){.album-row{grid-template-columns:1fr} .album-row img{height:auto}}
-
-
-/* Spotify button */
-.btn-spotify{
-  background:#1db954;
-  color:#0d0d0d;
-  display:inline-flex; align-items:center; gap:.4rem;
-  box-shadow:0 6px 20px rgba(29,185,84,.35);
-  font-weight:700;
-}
-.btn-spotify .ico{width:18px;height:18px;fill:currentColor}
-.btn-spotify:hover{filter:brightness(0.95)}
-
-
-/* Bio hero */
-.bio-hero{display:flex; align-items:center; gap:1rem; margin-top:1rem}
-.avatar-hero{width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid rgba(246,179,1,.6); box-shadow:var(--shadow)}
-.years{font-weight:800; color:var(--accent)}
-@media(max-width:700px){ .bio-hero{flex-direction:column; align-items:flex-start} }
-
-
-.grid-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-.blk{margin:1rem 0 1.2rem}
-
-
-.memorial-layout{display:grid;grid-template-columns:minmax(220px,0.9fr) 2.1fr; gap:1.2rem}
-.memorial-notes{background:var(--card);padding:1rem;border-radius:14px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
-@media(max-width:900px){ .memorial-layout{grid-template-columns:1fr} }
-
-
-/* História — retrato redondo e layout */
-.bio-flex{display:grid;grid-template-columns:1fr 1.4fr;gap:1rem;align-items:start;margin-top:1rem}
-.portrait{margin:0;text-align:center}
-.portrait-round{width:220px;height:220px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:var(--shadow)}
-@media(max-width:900px){.bio-flex{grid-template-columns:1fr}.portrait-round{width:180px;height:180px;margin:0 auto}}
+/* Memorial round style */
+.memorial-round img{ border-radius: 50%; border:3px solid var(--brand) }
+.memorial-round .memorial-caption{ display:none } /* sem legenda sobreposta nos círculos */
