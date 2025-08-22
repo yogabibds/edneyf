@@ -55,3 +55,66 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 0;margin-top:2r
 
 /* Spotify badge no título */
 .spotify-badge{width:24px;height:24px;fill:var(--accent);vertical-align:middle;margin-left:.4rem}
+
+
+/* Making Of audio cards */
+.audio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+.audio-card{background:var(--card);padding:1rem;border-radius:14px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
+.audio-card h3{margin:.2rem 0 .6rem}
+audio{width:100%;outline:none}
+
+
+/* === Brand refinements (verde-oliva & dourado aplicados globalmente) === */
+:root{
+  --brand:#3F5F45;           /* verde-oliva */
+  --brand-600:#324d38;
+  --accent:#F6B301;          /* dourado */
+  --accent-600:#c48f03;
+  --bg:#0e0f0f;
+  --text:#f8f8f8;
+  --muted:#b9c0c7;
+  --card:#121314;
+  --border: rgba(63,95,69,.25);
+  --shadow:0 12px 30px rgba(2,6,23,.30);
+}
+
+/* Links e estados */
+a{color:var(--text); text-decoration:none}
+a:hover{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px}
+
+/* Botões */
+.btn{appearance:none; border:none; border-radius:999px; padding:.6rem 1rem; font-weight:800; cursor:pointer; transition:transform .12s ease, box-shadow .2s ease, background .2s ease, color .2s ease}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:linear-gradient(135deg, var(--accent), var(--accent-600)); color:#1a1a1a; box-shadow:0 6px 20px rgba(246,179,1,.35)}
+.btn-primary:hover{filter:saturate(1.05); box-shadow:0 10px 24px rgba(246,179,1,.45)}
+.btn-ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.22)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-olive{background:var(--brand); color:#fff; border:1px solid var(--border)}
+.btn-olive:hover{background:var(--brand-600)}
+
+/* Chips e badges */
+.chip{border-color:rgba(255,255,255,.12)}
+.spotify-badge{fill:var(--accent)}
+
+/* Cartões e bordas */
+.hero-card, .audio-card, .card{border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
+.hero-cover, .gallery-hero img, .memorial-item{border:2px solid var(--border)}
+
+/* Navegação top (menu à direita) */
+.nav{background:rgba(14,15,15,.65); border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-item{color:#e8e8e8}
+.nav-item:hover{border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.07); color:#fff}
+.nav-item.active{background:rgba(246,179,1,.14); color:#fff; border-color:rgba(246,179,1,.35)}
+
+/* Campos de formulário com foco dourado */
+.form input:focus, .form textarea:focus{outline:2px solid var(--accent); outline-offset:2px}
+
+/* Seleção de texto nas cores da marca */
+::selection{background:rgba(246,179,1,.35)}
+
+/* Scrollbar (WebKit) */
+::-webkit-scrollbar{height:10px;width:10px}
+::-webkit-scrollbar-track{background:#0f1113}
+::-webkit-scrollbar-thumb{background:#2c3f32;border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:#3F5F45}
