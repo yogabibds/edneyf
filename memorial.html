@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<!DOCTYPE html><html lang="pt-BR"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home — Laia Music</title>
+  <title>Memorial — Laia Music</title>
   <meta name="description" content="Laia Music — legado de Edney Fernandes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +13,7 @@
   <meta property="og:description" content="Laia Music — site oficial do legado de Edney Fernandes: história, composições, playlists, memorial, making of e contato.">
   <meta property="og:image" content="images/og-image.png">
   <meta property="og:type" content="website">
-</head>
-<body>
+</head><body>
 <header class="nav">
   <div class="container nav-inner">
     <a href="index.html" class="brand"><span class="logo"></span><span>Laia Music</span></a>
@@ -42,34 +39,23 @@
     </nav>
   </div>
 </header>
-<main>
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <span class="chip">Legado • Pagode • Brasil</span>
-        <h1 class="display">Laia Music — <span class="highlight">Legado de Edney Fernandes</span></h1>
-        <p>Site oficial para preservar e difundir a obra do compositor e cantor brasileiro <strong>Edney Fernandes</strong>: história, catálogo de composições, playlists, fotos e memória afetiva.</p>
-        <div class="cta">
-          <a href="composicoes.html" class="btn btn-primary">
-            <svg viewBox="0 0 24 24" class="ico"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
-            Ver composições
-          </a>
-          <a href="contato.html" class="btn btn-ghost">Contato</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <img src="images/capa_cd.jpg" alt="Capa do CD Ed & a Tripulação" class="hero-cover">
-        <div class="hero-card-body">
-          <h3>CD — Ed & a Tripulação</h3>
-          <p>Faixas com composições de Edney Fernandes.</p>
-          <a class="btn btn-primary" href="https://open.spotify.com/playlist/0N4ki83JuTs7b5sSHozx8a" target="_blank" rel="noopener">
-            Ouvir no Spotify
-          </a>
-        </div>
-      </div>
+<main class="page">
+  <div class="container">
+    <h1 class="page-title">Memorial</h1>
+    <p class="muted">Momentos em família, estúdio e lembranças do Edney.</p>
+    <div class="toolbar"><button class="btn btn-primary" data-slideshow>Ver slideshow</button><button class="btn btn-ghost" data-grid>Ver em grade</button></div>
+    <div class="memorial-grid">
+      <figure class="memorial-item"><img src="images/familia_beijo_aniversario.jpg" alt="Abraço em família no aniversário" data-caption="Abraço em família no aniversário"><figcaption class="memorial-caption">Abraço em família no aniversário</figcaption></figure>
+      <figure class="memorial-item"><img src="images/estudio_grupo_1.jpg" alt="Edney em estúdio com amigos" data-caption="Edney em estúdio com amigos"><figcaption class="memorial-caption">Edney em estúdio com amigos</figcaption></figure>
+      <figure class="memorial-item"><img src="images/retrato_chaplin.jpg" alt="Edney sorrindo ao ar livre" data-caption="Edney sorrindo ao ar livre"><figcaption class="memorial-caption">Edney sorrindo ao ar livre</figcaption></figure>
     </div>
-  </section>
+  </div>
 </main>
+<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Fotos do Memorial">
+  <button class="lb-btn lb-close" aria-label="Fechar (Esc)">&times;</button>
+  <button class="lb-btn lb-prev" aria-label="Anterior">&#10094;</button>
+  <figure class="lb-figure"><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-btn lb-next" aria-label="Próxima">&#10095;</button>
+</div>
 <footer><div class="container"><p>&copy; <span id="y"></span> Laia Music • Verde-oliva & Dourado</p></div></footer>
-</body>
-</html>
+</body></html>
