@@ -1,281 +1,101 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Laia Music — Legado de Edney Fernandes</title>
-  <meta name="description" content="História, composições, playlists, memorial e making of de Edney Fernandes." />
-  <meta property="og:title" content="Laia Music — Legado de Edney Fernandes" />
-  <meta property="og:description" content="História, composições, playlists, memorial e making of de Edney Fernandes." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/images/og.jpg" />
-  <meta name="theme-color" content="#3F5F45" />
-  <link rel="icon" href="/images/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
-</head>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Laia Music - Legado Edney Fernandes</title>
+<link rel="stylesheet" href="style.css"></head>
 <body>
-  <!-- Scroll progress -->
-  <div id="scroll-progress"></div>
+<header class="nav"><div class="container nav-inner">
+<a href="#inicio" class="brand"><span class="logo"></span><span>Laia Music</span></a>
+<nav>
+<a href="#historia">História</a>
+<a href="#discografia">Composições</a>
+<a href="#playlists">Playlists</a>
+<a href="#memorial">Memorial</a>
+<a href="#icones">Ícones</a>
+<a href="#depoimentos">Depoimentos</a>
+<a href="#makingof">Making Of</a>
+<a href="#contato">Contato</a>
+</nav></div></header>
+<main id="inicio">
+<section id="historia"><div class="container"><h2>História</h2></div></section>
+<section id="discografia"><div class="container"><h2>Composições</h2></div></section>
 
-  <!-- Inline SVG icons -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <symbol id="ico-music" viewBox="0 0 24 24">
-      <circle cx="9" cy="19" r="2"></circle>
-      <circle cx="17" cy="17" r="2"></circle>
-      <path d="M9 19V6l10-2v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-    </symbol>
-    <symbol id="ico-book" viewBox="0 0 24 24">
-      <path d="M3 5a2 2 0 0 1 2-2h12v16H5a2 2 0 0 0-2 2z" fill="none" stroke="currentColor" stroke-width="2"></path>
-      <path d="M7 5h10" stroke="currentColor" stroke-width="2"></path>
-    </symbol>
-    <symbol id="ico-list" viewBox="0 0 24 24">
-      <path d="M8 6h13M8 12h13M8 18h13" stroke="currentColor" stroke-width="2"></path>
-      <circle cx="3" cy="6" r="2"></circle>
-      <circle cx="3" cy="12" r="2"></circle>
-      <circle cx="3" cy="18" r="2"></circle>
-    </symbol>
-    <symbol id="ico-play" viewBox="0 0 24 24">
-      <polygon points="5,3 19,12 5,21" fill="currentColor"></polygon>
-    </symbol>
-    <symbol id="ico-image" viewBox="0 0 24 24">
-      <rect x="3" y="5" width="18" height="14" fill="none" stroke="currentColor" stroke-width="2"></rect>
-      <circle cx="9" cy="10" r="2"></circle>
-      <path d="M21 16l-6-6-6 6" fill="none" stroke="currentColor" stroke-width="2"></path>
-    </symbol>
-    <symbol id="ico-mic" viewBox="0 0 24 24">
-      <rect x="9" y="2" width="6" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"></rect>
-      <path d="M12 14v6M8 20h8M5 10v2a7 7 0 0 0 14 0v-2" fill="none" stroke="currentColor" stroke-width="2"></path>
-    </symbol>
-    <symbol id="ico-mail" viewBox="0 0 24 24">
-      <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
-      <path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2"></path>
-    </symbol>
-  </svg>
+<section id="playlists" class="reveal">
+  <div class="container">
+    <h2 class="section-title">Playlists</h2>
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="#inicio" class="brand" aria-label="Início">
-        <span class="logo" aria-hidden="true"></span>
-        <span>Laia Music</span>
-      </a>
+    <h3>Todas as Composições</h3>
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/playlist/3PGgR60s5O7R2GhdxVqoM0"
+      width="100%" height="380" frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-      <!-- Segmented navigation -->
-      <ul class="segmented" role="tablist" aria-label="Navegação principal">
-        <li><a href="#historia"><svg class="ico"><use href="#ico-book"></use></svg><span>História</span></a></li>
-        <li><a href="#discografia"><svg class="ico"><use href="#ico-list"></use></svg><span>Composições</span></a></li>
-        <li><a href="#playlists"><svg class="ico"><use href="#ico-play"></use></svg><span>Playlists</span></a></li>
-        <li><a href="#memorial"><svg class="ico"><use href="#ico-image"></use></svg><span>Memorial</span></a></li>
-        <li><a href="#makingof"><svg class="ico"><use href="#ico-mic"></use></svg><span>Making Of</span></a></li>
-        <li><a href="#contato"><svg class="ico"><use href="#ico-mail"></use></svg><span>Contato</span></a></li>
-      </ul>
+    <h3 style="margin-top:1.2rem;">CD — Ed & a Tripulação</h3>
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/playlist/0N4ki83JuTs7b5sSHozx8a"
+      width="100%" height="380" frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  </div>
+</section>
+
+
+<section id="memorial" class="reveal">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Memorial</h2>
+      <p class="muted">Uma galeria única com momentos em família, estúdio e lembranças do Edney.</p>
     </div>
-  </header>
-
-  <main id="inicio">
-    <!-- HERO -->
-    <section class="hero reveal">
-      <div class="container">
-        <span class="chip">Legado • Pagode • Brasil</span>
-        <h1 class="display">Laia Music —
-          <span class="gradient-text">Legado de Edney Fernandes</span>
-        </h1>
-        <p>Site oficial para preservar e difundir a obra do compositor e cantor brasileiro <strong>Edney Fernandes</strong>: história, catálogo de composições, playlists, fotos e memória afetiva.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#discografia"><svg class="ico"><use href="#ico-music"></use></svg> Ver composições</a>
-          <a class="btn btn-ghost" href="#contato"><svg class="ico"><use href="#ico-mail"></use></svg> Contato</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- HISTÓRIA -->
-    <section id="historia" class="reveal">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-icon"><svg class="ico"><use href="#ico-book"></use></svg></div>
-          <h2 class="section-title">Conheça a história</h2>
-        </div>
-        <div class="grid two-col">
-          <div>
-            <p>Um percurso pela vida e a obra de <strong>Edney Fernandes</strong>: origens, influências, bandas, discos e marcos criativos. Este espaço pode ganhar linha do tempo, fotos e recortes, além de letras manuscritas.</p>
-            <ul class="muted">
-              <li>✔ Linha do tempo com datas-chave.</li>
-              <li>✔ Letras e manuscritos digitalizados (opcional).</li>
-              <li>✔ Links para entrevistas e registros.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Identidade visual</h3>
-            <ul>
-              <li><strong>Cor principal:</strong> Verde oliva #3F5F45</li>
-              <li><strong>Secundária:</strong> Dourado #F6B301</li>
-              <li><strong>Títulos:</strong> Anton</li>
-              <li><strong>Texto:</strong> Inter</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMPOSIÇÕES (DESTAQUES) -->
-    <section id="discografia" class="reveal">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-icon"><svg class="ico"><use href="#ico-list"></use></svg></div>
-          <h2 class="section-title">Composições em destaque</h2>
-        </div>
-        <p class="muted">Obras com ano, intérpretes e ISRC (veja o catálogo completo abaixo).</p>
-        <div class="grid services cards-hover">
-          <div class="card service"><h3>Deixa Rolar</h3><p><strong>Ano:</strong> 2003 · <strong>Intérprete:</strong> Exaltasamba · <strong>ISRC:</strong> T0391600795</p></div>
-          <div class="card service"><h3>Te Vejo na TV</h3><p><strong>Ano:</strong> 2003 · <strong>Intérprete:</strong> Exaltasamba · <strong>ISRC:</strong> T0391600706</p></div>
-          <div class="card service"><h3>No Fundo dos Meus Olhos</h3><p><strong>Ano:</strong> 2001 · <strong>Intérpretes:</strong> Exaltasamba / Thiaguinho / Péricles · <strong>ISRC:</strong> T0391616548</p></div>
-          <div class="card service"><h3>Tema dos Namorados</h3><p><strong>Ano:</strong> 2004 · <strong>Intérpretes:</strong> Péricles / Salgadinho / Wilsinho · <strong>ISRC:</strong> T0391502592</p></div>
-          <div class="card service"><h3>Manequim</h3><p><strong>Ano:</strong> 2004 · <strong>Intérprete:</strong> Ademir Fogaça / Chines / Edson Jr. · <strong>ISRC:</strong> T0403231082</p></div>
-          <div class="card service"><h3>Vem Pra Curar</h3><p><strong>Ano:</strong> 2017 · <strong>ISRC:</strong> T0401884692</p></div>
-        </div>
-        <p class="muted" style="margin-top:1rem;">Abaixo: <a href="#catalogo" class="link-accent">Catálogo completo</a> com 34 músicas.</p>
-      </div>
-    </section>
-
-    <!-- PLAYLISTS -->
-    <section id="playlists" class="reveal">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-icon"><svg class="ico"><use href="#ico-play"></use></svg></div>
-          <h2 class="section-title">Playlists</h2>
-        </div>
-        <div class="card row between center">
-          <div>
-            <h3>Ouça a playlist oficial</h3>
-            <p class="muted">Pagode autoral — Edney Fernandes & Ed e Tripulação.</p>
-          </div>
-          <div class="btn-group">
-            <a class="btn btn-primary" href="#" id="playlistLink" target="_blank" rel="noopener">
-              <svg class="ico"><use href="#ico-music"></use></svg> Abrir playlist
-            </a>
-            <a class="btn btn-ghost" href="/docs/Playlist.pdf" target="_blank" rel="noopener">Ver PDF</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MEMORIAL -->
-    <section id="memorial" class="reveal">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-icon"><svg class="ico"><use href="#ico-image"></use></svg></div>
-          <h2 class="section-title">Memorial</h2>
-        </div>
-        <p class="muted">Fotos, recortes e projetos em que Edney participou. Substitua as imagens pelos seus arquivos em <code>/images</code>.</p>
-        <div class="grid gallery fancy-gallery">
-          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop" alt="Estúdio de gravação">
-          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop" alt="Discos e música">
-          <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1200&auto=format&fit=crop" alt="Microfone retrô">
-          <img src="https://images.unsplash.com/photo-1483412166424-0705d3e02402?q=80&w=1200&auto=format&fit=crop" alt="Instrumentos">
-          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop" alt="Show ao vivo">
-          <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1200&auto=format&fit=crop" alt="Estética vintage">
-        </div>
-      </div>
-    </section>
-
-    <!-- MAKING OF (áudios e notas de voz) -->
-    <section id="makingof" class="reveal">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-icon"><svg class="ico"><use href="#ico-mic"></use></svg></div>
-          <h2 class="section-title">Making Of</h2>
-        </div>
-        <p class="muted">Trechos de ensaios, notas de voz e introduções do próprio Edney. Coloque seus arquivos em <code>/audio</code> (MP3/M4A) e ajuste as rotas.</p>
-        <div class="grid services">
-          <div class="card service">
-            <h3>Intro — “Música Tal Tal”</h3>
-            <audio controls preload="none" src="/audio/intro-musica-tal-tal.mp3" style="width:100%"></audio>
-            <p class="muted" style="margin-top:.5rem;">“Música tal, tal… autor Edney Fernandes.”</p>
-          </div>
-          <div class="card service">
-            <h3>Nota de voz — Processo criativo</h3>
-            <audio controls preload="none" src="/audio/processo-criativo.mp3" style="width:100%"></audio>
-            <p class="muted" style="margin-top:.5rem;">Rascunho rítmico e letra inicial.</p>
-          </div>
-          <div class="card service">
-            <h3>Ensaio — Pagode ao vivo</h3>
-            <audio controls preload="none" src="/audio/ensaio-pagode.mp3" style="width:100%"></audio>
-            <p class="muted" style="margin-top:.5rem;">Registro caseiro de ensaio.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CATÁLOGO COMPLETO -->
-    <section id="catalogo" class="reveal">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-icon"><svg class="ico"><use href="#ico-list"></use></svg></div>
-          <h2 class="section-title">Catálogo completo (34 músicas)</h2>
-        </div>
-        <p class="muted">Lista com ISRCs confirmados. Você pode disponibilizar o PDF na pasta <code>/docs</code> e linkar aqui.</p>
-        <div id="catalogo-table" class="card table-wrapper"></div>
-        <div class="btn-group" style="margin-top:1rem;">
-          <a class="btn btn-ghost" href="/docs/Catálogo_Edney_Fernandes.pdf" target="_blank" rel="noopener">Baixar Catálogo (PDF)</a>
-          <a class="btn btn-ghost" href="/docs/Branding_Edney_F..pdf" target="_blank" rel="noopener">Ver Branding (PDF)</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="reveal">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-icon"><svg class="ico"><use href="#ico-mail"></use></svg></div>
-          <h2 class="section-title">Contato</h2>
-        </div>
-        <div class="grid two-col">
-          <form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="card">
-            <input type="hidden" name="form-name" value="contato" />
-            <p class="sr-only">
-              <label>Não preencha se você é humano: <input name="bot-field" /></label>
-            </p>
-            <label><span class="sr-only">Nome</span><input name="nome" placeholder="Seu nome" required /></label>
-            <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Seu e-mail" required /></label>
-            <label><span class="sr-only">Mensagem</span><textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea></label>
-            <button class="btn btn-primary" type="submit"><svg class="ico"><use href="#ico-mail"></use></svg> Enviar</button>
-            <p class="disclaimer">Ao enviar você aceita nossa <a href="#" class="link-accent">política de privacidade</a>.</p>
-          </form>
-
-          <div class="card">
-            <h3>Redes e contato</h3>
-            <p class="muted">Atendimento de segunda a sexta. Você também pode chamar no WhatsApp.</p>
-            <ul>
-              <li><strong>Tel/WhatsApp:</strong> +55 11 00000-0000</li>
-              <li><strong>Email:</strong> contato@seudominio.com</li>
-              <li><strong>Endereço:</strong> Rua 123, Cidade, Estado</li>
-            </ul>
-            <iframe title="Mapa" src="https://www.openstreetmap.org/export/embed.html?bbox=-58.45%2C-34.66%2C-58.36%2C-34.58&layer=mapnik" style="width:100%; height:220px; border:0; border-radius:12px; margin-top:.6rem;"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footgrid">
-      <div>
-        <strong>Laia Music</strong><br />
-        <span class="muted">© <span id="y"></span> — Todos os direitos reservados.</span>
-      </div>
-      <div class="socials">
-        <a aria-label="Instagram" href="#" class="chip">Instagram</a>
-        <a aria-label="Facebook" href="#" class="chip">Facebook</a>
-        <a aria-label="E-mail" href="mailto:contato@seudominio.com" class="chip">Email</a>
-      </div>
+    <div class="memorial-grid">
+      
+        <figure class="memorial-item">
+          <img src="images/memorial_aniversario_velinha.jpg" alt="Família soprando velinha" loading="lazy">
+          <figcaption class="memorial-caption">Família soprando velinha</figcaption>
+        </figure>
+        <figure class="memorial-item">
+          <img src="images/retrato_natureza_chaplin.jpg" alt="Edney Fernandes sorrindo ao ar livre" loading="lazy">
+          <figcaption class="memorial-caption">Edney Fernandes sorrindo ao ar livre</figcaption>
+        </figure>
+        <figure class="memorial-item">
+          <img src="images/estudio_grupo_1.jpg" alt="Edney em estúdio com amigos" loading="lazy">
+          <figcaption class="memorial-caption">Edney em estúdio com amigos</figcaption>
+        </figure>
+        <figure class="memorial-item">
+          <img src="images/estudio_grupo_2.jpg" alt="Edney em estúdio com músicos" loading="lazy">
+          <figcaption class="memorial-caption">Edney em estúdio com músicos</figcaption>
+        </figure>
+        <figure class="memorial-item">
+          <img src="images/estudio_trio.jpg" alt="Edney com colegas de estúdio" loading="lazy">
+          <figcaption class="memorial-caption">Edney com colegas de estúdio</figcaption>
+        </figure>
+        <figure class="memorial-item">
+          <img src="images/familia_beijo_aniversario.jpg" alt="Abraço em família no aniversário" loading="lazy">
+          <figcaption class="memorial-caption">Abraço em família no aniversário</figcaption>
+        </figure>
+        <figure class="memorial-item">
+          <img src="images/close_verde_tripulacao.jpg" alt="Retrato artístico do encarte" loading="lazy">
+          <figcaption class="memorial-caption">Retrato artístico do encarte</figcaption>
+        </figure>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Back to top -->
-  <a href="#inicio" id="backToTop" aria-label="Voltar ao topo">↑</a>
+<section id="arquivo" class="reveal">
+  <div class="container">
+    <h2 class="section-title">Arquivo Pessoal — Manuscritos</h2>
+    <p class="muted">Documentos originais escritos à mão por Edney Fernandes, preservados como memória do processo criativo.</p>
+    <div class="gallery-rect">
+      <img src="images/manuscrito1.jpg" alt="Manuscrito original 1">
+      <img src="images/manuscrito2.jpg" alt="Manuscrito original 2">
+    </div>
+  </div>
+</section>
 
-  <script src="/app.js"></script>
-</body>
-</html>
+<section id="icones" class="reveal"><div class="container"><h2 class="section-title">Ícones do Legado</h2>
+<div class="gallery-round"><img class="round" src="images/sample1.jpg"><img class="round" src="images/sample2.jpg"></div></div></section>
+<section id="depoimentos" class="reveal"><div class="container"><h2 class="section-title">Depoimentos</h2>
+<div class="grid testimonials"><div class="card testimonial"><img class="avatar" src="images/ava-meu.png"><div><p class="name">Meu</p><blockquote>“Mensagem linda sobre o legado.”</blockquote></div></div></div>
+</div></section>
+<section id="makingof"><div class="container"><h2>Making Of</h2></div></section>
+<section id="contato"><div class="container"><h2>Contato</h2></div></section>
+</main>
+<footer><p>&copy; <span id="y"></span> Laia Music</p></footer>
+<script src="app.js"></script></body></html>
