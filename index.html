@@ -10,50 +10,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-<!-- Schema.org: A Hora é Essa -->
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"MusicAlbum",
- "name":"A Hora é Essa",
- "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
- "genre":["MPB","Pop"],
- "producer":{"@type":"Person","name":"Arnaldo Saccomani"},
- "contributor":[
-   {"@type":"Person","name":"Wilson Souto Jr.","jobTitle":"Direção Artística"}
- ],
- "track":[
-  {"@type":"MusicRecording","position":1,"name":"A hora é essa"},
-  {"@type":"MusicRecording","position":2,"name":"Jeito de feiticeira"},
-  {"@type":"MusicRecording","position":3,"name":"Baby"},
-  {"@type":"MusicRecording","position":4,"name":"Momentos de tristeza"},
-  {"@type":"MusicRecording","position":5,"name":"Não é da minha conta"},
-  {"@type":"MusicRecording","position":6,"name":"Alô amor"},
-  {"@type":"MusicRecording","position":7,"name":"Infinita paixão"},
-  {"@type":"MusicRecording","position":8,"name":"Noites de verão"},
-  {"@type":"MusicRecording","position":9,"name":"Incerteza"},
-  {"@type":"MusicRecording","position":10,"name":"Faz de conta"},
-  {"@type":"MusicRecording","position":11,"name":"Por trás de um sorriso"},
-  {"@type":"MusicRecording","position":12,"name":"Haja coração"},
-  {"@type":"MusicRecording","position":13,"name":"Será que é pra ficar"},
-  {"@type":"MusicRecording","position":14,"name":"Sentir você"}
- ]
-}
-</script>
 
-<!-- Schema.org: Despedida -->
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"MusicAlbum",
- "name":"Despedida",
- "byArtist":{"@type":"MusicGroup","name":"Edney Fernandes & Gesto de Carinho"},
- "genre":["MPB","Pop Romântico"]
-}
-</script>
+  <!-- Schema.org: A Hora é Essa -->
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"MusicAlbum",
+   "name":"A Hora é Essa",
+   "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
+   "genre":["MPB","Pop"],
+   "producer":{"@type":"Person","name":"Arnaldo Saccomani"},
+   "contributor":[{"@type":"Person","name":"Wilson Souto Jr.","jobTitle":"Direção Artística"}],
+   "track":[
+    {"@type":"MusicRecording","position":1,"name":"A hora é essa"},
+    {"@type":"MusicRecording","position":2,"name":"Jeito de feiticeira"},
+    {"@type":"MusicRecording","position":3,"name":"Baby"},
+    {"@type":"MusicRecording","position":4,"name":"Momentos de tristeza"},
+    {"@type":"MusicRecording","position":5,"name":"Não é da minha conta"},
+    {"@type":"MusicRecording","position":6,"name":"Alô amor"},
+    {"@type":"MusicRecording","position":7,"name":"Infinita paixão"},
+    {"@type":"MusicRecording","position":8,"name":"Noites de verão"},
+    {"@type":"MusicRecording","position":9,"name":"Incerteza"},
+    {"@type":"MusicRecording","position":10,"name":"Faz de conta"},
+    {"@type":"MusicRecording","position":11,"name":"Por trás de um sorriso"},
+    {"@type":"MusicRecording","position":12,"name":"Haja coração"},
+    {"@type":"MusicRecording","position":13,"name":"Será que é pra ficar"},
+    {"@type":"MusicRecording","position":14,"name":"Sentir você"}
+   ]
+  }
+  </script>
 
+  <!-- Schema.org: Gesto de Carinho (produção: Despedida) -->
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"MusicAlbum",
+   "name":"Gesto de Carinho",
+   "byArtist":{"@type":"MusicGroup","name":"Edney Fernandes & Gesto de Carinho"},
+   "genre":["MPB","Pop Romântico"]
+  }
+  </script>
 </head>
-<body>
+<body id="top">
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top">
@@ -61,6 +59,7 @@
         <span>Laia Music</span>
       </a>
       <div class="menu">
+        <a class="nav-item" href="#legado">Legado</a>
         <a class="nav-item" href="#discografia">Discografia</a>
         <a class="nav-item" href="#playlists">Playlists</a>
         <a class="nav-item" href="#memorial">Memorial</a>
@@ -84,30 +83,80 @@
     </div>
   </header>
 
+  <!-- NOVO: Legado -->
+  <section id="legado" class="section container">
+    <h2>Legado</h2>
+    <p class="lead">Edney Fernandes (1977–2004) foi compositor e músico paulista ligado ao samba e ao pagode romântico. Iniciou em rodas de samba na Zona Leste e em Guarulhos e registrou a primeira gravação em 1995, com “Despedida”. Reuniu mais de 40 obras autorais e parcerias, com gravações por nomes do pagode dos anos 90 e 2000. Atuou também no grupo “Ed &amp; A Tripulação”. Seu catálogo hoje é preservado e difundido por sua família, com organização de acervo, dossiês e relançamentos planejados.</p>
+  </section>
+
   <section id="discografia" class="section container">
     <h2>Discografia</h2>
     <p class="lead">Álbuns e lançamentos ligados a Edney Fernandes.</p>
+
     <div class="discog">
-      <div class="card">
-        <img src="assets/img/discografia/discog_01.jpg" alt="Ed & A Tripulação">
+      <!-- Card A: Ed & A Tripulação (grupo) -->
+      <div class="card" style="max-width:560px">
+        <img loading="lazy" src="assets/img/discografia/ed-grupo.jpg" alt="Foto do grupo Ed & A Tripulação">
         <div class="p">
-          <h3>Ed & A Tripulação</h3>
-          <p>Registro de estúdio com participações do grupo. Encartes e créditos originais.</p>
-          <div class="badges">
-            <a class="badge" href="https://www.discogs.com/artist/7864196-Edney-Fernandes" target="_blank" rel="noopener">Discogs</a>
-            <a class="badge" href="https://open.spotify.com/artist/7bKdzyUaZ2LvSI0aDkqCYS" target="_blank" rel="noopener">Spotify</a>
-            <a class="badge" href="https://music.apple.com/us/artist/ed-e-a-tripula%C3%A7%C3%A3o/1527134686" target="_blank" rel="noopener">Apple Music</a>
+          <h3>Ed &amp; A Tripulação</h3>
+          <p>Grupo dos anos 90.</p>
+          <div class="badges" style="gap:.5rem;flex-wrap:wrap">
+            <a class="badge" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=U4DCk4HpTAODRc1c7VgpZA&pi=9YspwebURHq1Z">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 1.5A10.5 10.5 0 1 0 22.5 12 10.5 10.5 0 0 0 12 1.5Z"/></svg>
+            </a>
+            <a class="badge" href="#" aria-label="Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M16.36 1.5a3.7"/></svg></a>
+            <a class="badge" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0&si=jNKl4pBcatD1HghK">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M23 12a41.6"/></svg>
+            </a>
+            <a class="badge" href="#" aria-label="Deezer" title="Deezer"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 15h3"/></svg></a>
           </div>
         </div>
       </div>
+
+      <!-- Card B: Ed & A Tripulação — CD -->
       <div class="card">
-        <img src="assets/img/discografia/discog_02.jpg" alt="Gesto de Carinho">
+        <img loading="lazy" src="assets/img/discografia/ed-album-collage.jpg" alt="Capa do CD Ed & A Tripulação — A Hora é Essa">
         <div class="p">
-          <h3>Gesto de Carinho (em produção)</h3>
-          <p>Projeto póstumo em desenvolvimento com amigos e colaboradores. Trará músicas inéditas e versões especiais.</p>
+          <h3>Ed &amp; A Tripulação — A Hora é Essa</h3>
+          <p>Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.</p>
           <div class="badges">
-            <span class="badge">Em breve</span>
+            <a class="badge" href="https://www.discogs.com/artist/7864196-Edney-Fernandes" target="_blank" rel="noopener">Discogs</a>
+            <a class="badge" href="docs/Ed_e_a_Tripulacao_A_Hora_E_Essa.pdf" target="_blank" rel="noopener">Encarte (PDF)</a>
           </div>
+        </div>
+      </div>
+
+      <!-- Card C: Gesto de Carinho -->
+      <div class="card">
+        <img loading="lazy" src="assets/img/discografia/gesto-capa.jpg" alt="Projeto Gesto de Carinho">
+        <div class="p">
+          <h3>Gesto de Carinho</h3>
+          <p><strong>produção: Despedida</strong>. Registro póstumo que reúne composições e parcerias de Edney Fernandes, preservando sua voz e estética autoral. Colaborações incluem Humberto Tavares, Thaís Nascimento, Valtinho Jota e Ronaldo Marques.</p>
+          <div class="badges" style="gap:.5rem;flex-wrap:wrap">
+            <a class="badge" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=_t0dEll-SgyIK1k9hvmKLA&pi=flVkUS5wQoKWa">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 1.5A10.5"/></svg>
+            </a>
+            <a class="badge" href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M23 12a41.6"/></svg></a>
+            <a class="badge" href="#" aria-label="Deezer" title="Deezer"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 15h3"/></svg></a>
+            <a class="badge" href="docs/Dossie_Album_Edney_Fernandes_Despedida.pdf" target="_blank" rel="noopener">Dossiê (PDF)</a>
+          </div>
+          <details style="margin-top:.5rem">
+            <summary>Faixas e narrativa</summary>
+            <ol>
+              <li>Despedida</li>
+              <li>Tudo Que Eu Quis</li>
+              <li>Te Quero Tanto (c/ Valtinho Jota)</li>
+              <li>Pra Que Se Machucar (c/ Thaís Nascimento)</li>
+              <li>Incerteza (c/ Ronaldo Marques)</li>
+              <li>Encontro (Humberto Tavares)</li>
+              <li>Como as Ondas São do Mar</li>
+              <li>Teu Coração</li>
+              <li>No Fundo dos Meus Olhos</li>
+              <li>Te Vejo na TV</li>
+              <li>Infinita Paixão (c/ Ronaldo Marques)</li>
+            </ol>
+            <p style="margin:.5rem 0 0">Sequência pensada para contar a trajetória: abre com “Despedida”, passa por buscas e parcerias e encerra reafirmando o legado em “Infinita Paixão”.</p>
+          </details>
         </div>
       </div>
     </div>
@@ -116,7 +165,57 @@
   <section id="playlists" class="section container">
     <h2>Playlists</h2>
     <p class="lead">Ouça seleções oficiais nas plataformas.</p>
-    <div id="playlist-buttons" class="cta"></div>
+
+    <div class="discog" style="margin-top:1rem">
+      <!-- CD — Ed & A Tripulação -->
+      <div class="card">
+        <img class="pl-thumb" loading="lazy" src="assets/img/capas/ed-tripulacao-playlist.jpg" alt="Capa playlist Ed & A Tripulação">
+        <div class="p">
+          <h3>CD — Ed &amp; A Tripulação</h3>
+          <p>Faixas do álbum e registros relacionados.</p>
+          <div class="badges" style="gap:.5rem">
+            <a class="badge" target="_blank" rel="noopener" title="Spotify" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=U4DCk4HpTAODRc1c7VgpZA&pi=9YspwebURHq1Z"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 1.5A10.5"/></svg></a>
+            <a class="badge" target="_blank" rel="noopener" title="YouTube" href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0&si=jNKl4pBcatD1HghK"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M23 12a41.6"/></svg></a>
+            <a class="badge" href="#" title="Apple Music"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M16.36 1.5a3.7"/></svg></a>
+            <a class="badge" href="#" title="Deezer"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 15h3"/></svg></a>
+          </div>
+          <details style="margin-top:.5rem">
+            <summary>Prévia (2 faixas)</summary>
+            <ol><li>A hora é essa</li><li>Infinita paixão</li></ol>
+          </details>
+        </div>
+      </div>
+
+      <!-- Composições — Edney Fernandes -->
+      <div class="card">
+        <img class="pl-thumb" loading="lazy" src="assets/img/capas/ed-tripulacao-playlist.jpg" alt="Capa playlist Composições de Edney">
+        <div class="p">
+          <h3>Composições — Edney Fernandes</h3>
+          <p>Gravações de obras do Edney em diferentes vozes e grupos.</p>
+          <div class="badges" style="gap:.5rem">
+            <a class="badge" target="_blank" rel="noopener" title="Spotify" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=_t0dEll-SgyIK1k9hvmKLA&pi=flVkUS5wQoKWa"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 1.5A10.5"/></svg></a>
+            <a class="badge" target="_blank" rel="noopener" title="YouTube" href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0&si=jNKl4pBcatD1HghK"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M23 12a41.6"/></svg></a>
+            <a class="badge" href="#" title="Deezer"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 15h3"/></svg></a>
+            <a class="badge" href="#" title="Apple Music"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M16.36 1.5a3.7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gesto de Carinho -->
+      <div class="card">
+        <img class="pl-thumb" loading="lazy" src="assets/img/capas/gesto-playlist.jpg" alt="Capa playlist Gesto de Carinho">
+        <div class="p">
+          <h3>Gesto de Carinho</h3>
+          <p>Álbum em preparação. Singles em breve.</p>
+          <div class="badges" style="gap:.5rem">
+            <a class="badge" target="_blank" rel="noopener" title="Spotify" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=_t0dEll-SgyIK1k9hvmKLA&pi=flVkUS5wQoKWa"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 1.5A10.5"/></svg></a>
+            <span class="badge">Em breve</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quadrados resumidos -->
     <div class="discog" style="margin-top:1rem">
       <div class="card"><div class="p"><h3>CD — Ed & A Tripulação</h3><p>Faixas do álbum e registros relacionados nas plataformas.</p></div></div>
       <div class="card"><div class="p"><h3>Composições — Edney Fernandes</h3><p>Gravações de obras do Edney em diferentes vozes e grupos.</p></div></div>
@@ -152,6 +251,22 @@
   <footer>
     <div class="container">© 2025 Laia Music • Conteúdo em atualização</div>
   </footer>
+
+  <!-- Script opcional para popular o memorial automaticamente -->
+  <script>
+  (function(){
+    const el = document.getElementById('memorial-grid');
+    if(!el) return;
+    const total = 10; // ajuste ao número de fotos
+    const items = [];
+    for(let i=1;i<=total;i++){
+      const n = String(i).padStart(2,'0');
+      const src = `assets/img/memorial/memorial-${n}.jpg`;
+      items.push(`<figure class="memorial-item"><img loading="lazy" src="${src}" alt="Memorial ${n}"></figure>`);
+    }
+    el.innerHTML = items.join('');
+  })();
+  </script>
 
   <script src="assets/js/main.js"></script>
 </body>
