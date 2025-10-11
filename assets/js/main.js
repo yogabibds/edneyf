@@ -112,5 +112,10 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   await loadI18n(I18N.lang); // aplica textos
   buildPlaylists();
   buildMemorial();
-  buildMakingOf();
-});
+  (function(){
+  const nav = document.querySelector('.nav');
+  if(!nav) return;
+  const sc = ()=> nav.style.boxShadow = (window.scrollY>4) ? '0 6px 20px rgba(0,0,0,.35)' : 'none';
+  sc(); addEventListener('scroll', sc, {passive:true});
+})();
+
