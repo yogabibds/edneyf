@@ -285,3 +285,45 @@ footer {
   font-size: .9rem;
   color: var(--muted);
 }
+
+/* Brilho suave nos botões */
+.btn {
+  position: relative;
+  overflow: hidden; /* esconde o brilho fora do botão */
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -140%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,.18) 45%,
+    rgba(255,255,255,.28) 50%,
+    rgba(255,255,255,.18) 55%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  animation: lm-shine .8s ease forwards;
+}
+
+@keyframes lm-shine {
+  to { left: 140%; }
+}
+
+/* leve glow adicional ao passar o mouse */
+.btn:hover {
+  box-shadow: 0 10px 26px rgba(201,255,47,.25), var(--shadow);
+}
+
+/* acessibilidade: foco visível */
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
