@@ -1,207 +1,158 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Laia Music — Legado de Edney Fernandes</title>
-  <meta name="description" content="Preservação e difusão do legado musical de Edney Fernandes. Discografia, dossiês e memória.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laia Music — O legado de Edney Fernandes</title>
+  <meta name="description" content="Site oficial do legado de Edney Fernandes: composições, discografia, playlists e memória afetiva.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+<!-- Schema.org: A Hora é Essa -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"MusicAlbum",
+ "name":"A Hora é Essa",
+ "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
+ "genre":["MPB","Pop"],
+ "producer":{"@type":"Person","name":"Arnaldo Saccomani"},
+ "contributor":[
+   {"@type":"Person","name":"Wilson Souto Jr.","jobTitle":"Direção Artística"}
+ ],
+ "track":[
+  {"@type":"MusicRecording","position":1,"name":"A hora é essa"},
+  {"@type":"MusicRecording","position":2,"name":"Jeito de feiticeira"},
+  {"@type":"MusicRecording","position":3,"name":"Baby"},
+  {"@type":"MusicRecording","position":4,"name":"Momentos de tristeza"},
+  {"@type":"MusicRecording","position":5,"name":"Não é da minha conta"},
+  {"@type":"MusicRecording","position":6,"name":"Alô amor"},
+  {"@type":"MusicRecording","position":7,"name":"Infinita paixão"},
+  {"@type":"MusicRecording","position":8,"name":"Noites de verão"},
+  {"@type":"MusicRecording","position":9,"name":"Incerteza"},
+  {"@type":"MusicRecording","position":10,"name":"Faz de conta"},
+  {"@type":"MusicRecording","position":11,"name":"Por trás de um sorriso"},
+  {"@type":"MusicRecording","position":12,"name":"Haja coração"},
+  {"@type":"MusicRecording","position":13,"name":"Será que é pra ficar"},
+  {"@type":"MusicRecording","position":14,"name":"Sentir você"}
+ ]
+}
+</script>
 
-  <!-- === Schema.org (metadados estruturados) === -->
-  <script type="application/ld+json">
-  {
-   "@context":"https://schema.org",
-   "@type":"MusicAlbum",
-   "name":"A Hora é Essa",
-   "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
-   "genre":["MPB","Pop"],
-   "producer":{"@type":"Person","name":"Arnaldo Saccomani"},
-   "contributor":[
-     {"@type":"Person","name":"Wilson Souto Jr.","jobTitle":"Direção Artística"},
-     {"@type":"Person","name":"Marcel Lombard","jobTitle":"Direção de Projeto"}
-   ],
-   "track":[
-    {"@type":"MusicRecording","position":1,"name":"A hora é essa"},
-    {"@type":"MusicRecording","position":2,"name":"Jeito de feiticeira"},
-    {"@type":"MusicRecording","position":3,"name":"Baby"},
-    {"@type":"MusicRecording","position":4,"name":"Momentos de tristeza"},
-    {"@type":"MusicRecording","position":5,"name":"Não é da minha conta"},
-    {"@type":"MusicRecording","position":6,"name":"Alô amor"},
-    {"@type":"MusicRecording","position":7,"name":"Infinita paixão"},
-    {"@type":"MusicRecording","position":8,"name":"Noites de verão"},
-    {"@type":"MusicRecording","position":9,"name":"Incerteza"},
-    {"@type":"MusicRecording","position":10,"name":"Faz de conta"},
-    {"@type":"MusicRecording","position":11,"name":"Por trás de um sorriso"},
-    {"@type":"MusicRecording","position":12,"name":"Haja coração"},
-    {"@type":"MusicRecording","position":13,"name":"Será que é pra ficar"},
-    {"@type":"MusicRecording","position":14,"name":"Sentir você"}
-   ]
-  }
-  </script>
+<!-- Schema.org: Despedida -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"MusicAlbum",
+ "name":"Despedida",
+ "byArtist":{"@type":"MusicGroup","name":"Edney Fernandes & Gesto de Carinho"},
+ "genre":["MPB","Pop Romântico"]
+}
+</script>
 
-  <script type="application/ld+json">
-  {
-   "@context":"https://schema.org",
-   "@type":"MusicAlbum",
-   "name":"Despedida",
-   "byArtist":{"@type":"MusicGroup","name":"Edney Fernandes & Gesto de Carinho"},
-   "genre":["MPB","Pop Romântico"],
-   "contributor":[
-     {"@type":"Person","name":"Marcel Lombard","jobTitle":"Direção de Projeto"},
-     {"@type":"Person","name":"Gabriela Barbosa de Sousa","jobTitle":"Curadoria e Gestão (Laia Music)"}
-   ]
-  }
-  </script>
-
-  <!-- CSS do site existente -->
-  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-
-<header class="site-header">
   <nav class="nav">
-    <ul>
-      <li><a href="#hero">Início</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#playlists">Playlists</a></li>
-      <li><a href="#discografia">Discografia</a></li>
-      <li><a href="#memorial">Memorial</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <img src="assets/img/logo-laia-music.png" alt="Laia Music">
+        <span>Laia Music</span>
+      </a>
+      <div class="menu">
+        <a class="nav-item" href="#discografia">Discografia</a>
+        <a class="nav-item" href="#playlists">Playlists</a>
+        <a class="nav-item" href="#memorial">Memorial</a>
+        <a class="nav-item" href="#contato">Contato</a>
+      </div>
+    </div>
   </nav>
-</header>
 
-<main>
-  <!-- ===== Seções já existentes (mantenha) ===== -->
-  <section id="hero">
-    <!-- Hero atual do seu site -->
-  </section>
+  <header class="hero container">
+    <div class="hero-inner">
+      <img class="hero-photo" src="assets/img/hero-edney.jpg" alt="Edney Fernandes">
+      <div class="hero-text">
+        <div class="display">Laia Music — <span class="highlight">O legado de Edney Fernandes</span></div>
+        <p>Site oficial para preservar e difundir a obra de Edney Fernandes: história, composições, playlists, fotos e memória afetiva.</p>
+        <div class="cta">
+          <a href="#discografia" class="btn btn-primary">Discografia</a>
+          <a href="#playlists" class="btn btn-olive">Playlists</a>
+          <a href="#contato" class="btn btn-ghost">Contato</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <section id="sobre">
-    <!-- Texto sobre o legado, breve bio de Edney Fernandes -->
-  </section>
-
-  <section id="playlists">
-    <!-- Bloco de playlists já presente na landing -->
-  </section>
-
-  <!-- ===== NOVO: DISCOGRAFIA ===== -->
-  <section id="discografia" class="albums">
+  <section id="discografia" class="section container">
     <h2>Discografia</h2>
-    <div class="grid">
-      <!-- Card: Despedida -->
-      <article class="card" data-modal="#modal-despedida" tabindex="0" aria-label="Abrir Despedida">
-        <img src="/images/albuns/despedida.jpg" alt="Capa do álbum Despedida">
-        <h3>Despedida</h3>
-        <p>Edney Fernandes &amp; Gesto de Carinho</p>
-        <button class="btn" type="button">Ver detalhes</button>
-      </article>
-
-      <!-- Card: A Hora é Essa -->
-      <article class="card" data-modal="#modal-hora" tabindex="0" aria-label="Abrir A Hora é Essa">
-        <img src="/images/albuns/a-hora-e-essa.jpg" alt="Capa do álbum A Hora é Essa">
-        <h3>Ed &amp; A Tripulação — A Hora é Essa</h3>
-        <p>Prod.: <strong>Arnaldo Saccomani</strong> • Dir. Art.: <strong>Wilson Souto Jr.</strong></p>
-        <button class="btn" type="button">Ver detalhes</button>
-      </article>
+    <p class="lead">Álbuns e lançamentos ligados a Edney Fernandes.</p>
+    <div class="discog">
+      <div class="card">
+        <img src="assets/img/discografia/discog_01.jpg" alt="Ed & A Tripulação">
+        <div class="p">
+          <h3>Ed & A Tripulação</h3>
+          <p>Registro de estúdio com participações do grupo. Encartes e créditos originais.</p>
+          <div class="badges">
+            <a class="badge" href="https://www.discogs.com/artist/7864196-Edney-Fernandes" target="_blank" rel="noopener">Discogs</a>
+            <a class="badge" href="https://open.spotify.com/artist/7bKdzyUaZ2LvSI0aDkqCYS" target="_blank" rel="noopener">Spotify</a>
+            <a class="badge" href="https://music.apple.com/us/artist/ed-e-a-tripula%C3%A7%C3%A3o/1527134686" target="_blank" rel="noopener">Apple Music</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/img/discografia/discog_02.jpg" alt="Gesto de Carinho">
+        <div class="p">
+          <h3>Gesto de Carinho (em produção)</h3>
+          <p>Projeto póstumo em desenvolvimento com amigos e colaboradores. Trará músicas inéditas e versões especiais.</p>
+          <div class="badges">
+            <span class="badge">Em breve</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== MODAL: DESPEDIDA ===== -->
-  <div id="modal-despedida" class="modal" aria-hidden="true" role="dialog" aria-label="Despedida">
-    <div class="modal__box" role="document">
-      <button class="modal__close" type="button" data-close aria-label="Fechar">&times;</button>
-
-      <header class="modal__header">
-        <h3>Despedida</h3>
-        <a class="btn" target="_blank" href="/docs/Dossie_Album_Edney_Fernandes_Despedida.pdf">Abrir dossiê (PDF)</a>
-      </header>
-
-      <nav class="tabs" aria-label="Seções do álbum">
-        <button data-tab="visao" class="is-active" type="button">Visão geral</button>
-        <button data-tab="faixas" type="button">Faixas</button>
-        <button data-tab="creditos" type="button">Créditos</button>
-      </nav>
-
-      <section class="tab is-active" data-panel="visao">
-        <p>Álbum póstumo curado por Laia Music. Preserva voz, estética e colaborações originais de Edney Fernandes.</p>
-      </section>
-
-      <section class="tab" data-panel="faixas">
-        <ol>
-          <li>Despedida</li><li>Tudo Que Eu Quis</li><li>Te Quero Tanto</li>
-          <li>Pra Que Se Machucar</li><li>Incerteza</li><li>Encontro</li>
-          <li>Como as Ondas São do Mar</li><li>Teu Coração</li>
-          <li>No Fundo dos Meus Olhos</li><li>Te Vejo na TV</li><li>Infinita Paixão</li>
-        </ol>
-      </section>
-
-      <section class="tab" data-panel="creditos">
-        <ul>
-          <li>Artista: <strong>Edney Fernandes &amp; Gesto de Carinho</strong></li>
-          <li>Curadoria e gestão: <strong>Gabriela Barbosa de Sousa</strong> (Laia Music)</li>
-          <li>Direção de projeto: <strong>Marcel Lombard</strong></li>
-          <li>Editora(s) e ficha técnica: ver dossiê (PDF)</li>
-        </ul>
-      </section>
+  <section id="playlists" class="section container">
+    <h2>Playlists</h2>
+    <p class="lead">Ouça seleções oficiais nas plataformas.</p>
+    <div id="playlist-buttons" class="cta"></div>
+    <div class="discog" style="margin-top:1rem">
+      <div class="card"><div class="p"><h3>CD — Ed & A Tripulação</h3><p>Faixas do álbum e registros relacionados nas plataformas.</p></div></div>
+      <div class="card"><div class="p"><h3>Composições — Edney Fernandes</h3><p>Gravações de obras do Edney em diferentes vozes e grupos.</p></div></div>
+      <div class="card"><div class="p"><h3>Gesto de Carinho</h3><p>Álbum em preparação. Em breve liberaremos uma playlist com os primeiros singles.</p></div></div>
     </div>
-  </div>
-
-  <!-- ===== MODAL: A HORA É ESSA ===== -->
-  <div id="modal-hora" class="modal" aria-hidden="true" role="dialog" aria-label="A Hora é Essa">
-    <div class="modal__box" role="document">
-      <button class="modal__close" type="button" data-close aria-label="Fechar">&times;</button>
-
-      <header class="modal__header">
-        <h3>Ed &amp; A Tripulação — A Hora é Essa</h3>
-        <a class="btn" target="_blank" href="/docs/Ed_e_a_Tripulacao_A_Hora_E_Essa.pdf">Abrir encarte (PDF)</a>
-      </header>
-
-      <nav class="tabs" aria-label="Seções do álbum">
-        <button data-tab="visao" class="is-active" type="button">Visão geral</button>
-        <button data-tab="faixas" type="button">Faixas</button>
-        <button data-tab="creditos" type="button">Créditos</button>
-      </nav>
-
-      <section class="tab is-active" data-panel="visao">
-        <p>Direção artística: <strong>Wilson Souto Jr.</strong> Produção: <strong>Arnaldo Saccomani</strong>. Registro histórico da fase noventista.</p>
-      </section>
-
-      <section class="tab" data-panel="faixas">
-        <ol>
-          <li>A hora é essa</li><li>Jeito de feiticeira</li><li>Baby</li>
-          <li>Momentos de tristeza</li><li>Não é da minha conta</li><li>Alô amor</li>
-          <li>Infinita paixão</li><li>Noites de verão</li><li>Incerteza</li>
-          <li>Faz de conta</li><li>Por trás de um sorriso</li><li>Haja coração</li>
-          <li>Será que é pra ficar</li><li>Sentir você</li>
-        </ol>
-      </section>
-
-      <section class="tab" data-panel="creditos">
-        <ul>
-          <li>Produção: <strong>Arnaldo Saccomani</strong></li>
-          <li>Direção artística: <strong>Wilson Souto Jr.</strong></li>
-          <li>Direção de projeto: <strong>Marcel Lombard</strong></li>
-          <li>Arranjos e banda: ver encarte (PDF)</li>
-          <li>Selo(s) e editoras: ver encarte (PDF)</li>
-        </ul>
-      </section>
-    </div>
-  </div>
-
-  <!-- ===== Seções que já existem (mantenha) ===== -->
-  <section id="memorial">
-    <!-- Memorial existente -->
   </section>
 
-  <section id="contato">
-    <!-- Contato existente -->
+  <section id="memorial" class="section container">
+    <h2>Memorial</h2>
+    <p class="lead">Linha do tempo afetiva: rodas de samba, estúdios, amigos e família.</p>
+    <div id="memorial-grid" class="memorial-grid"></div>
   </section>
-</main>
 
-<footer class="site-footer">
-  <p>&copy; Laia Music — Universo Laia</p>
-</footer>
+  <section id="makingof" class="section container">
+    <h2>Making Of — Gesto de Carinho</h2>
+    <p class="lead">Prévia de faixas e ensaios (quando disponível).</p>
+  </section>
 
-<!-- CSS/JS serão enviados na próxima mensagem -->
+  <section id="contato" class="section container">
+    <h2>Contato</h2>
+    <form class="form" onsubmit="event.preventDefault(); alert('Obrigado! Mensagem enviada (demo).');">
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea rows="5" placeholder="Sua mensagem"></textarea>
+      <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+    <div style="margin-top:1rem">
+      <a class="badge" href="https://instagram.com/yogabibds" target="_blank" rel="noopener">Instagram</a>
+      <a class="badge" href="mailto:universolaia06@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2025 Laia Music • Conteúdo em atualização</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
