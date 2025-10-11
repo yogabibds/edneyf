@@ -51,6 +51,14 @@
   }
   </script>
 </head>
+
+<script>
+(function(){
+  const nav = document.querySelector('.nav');
+  const sc = ()=> nav.style.boxShadow = (window.scrollY>4) ? '0 6px 20px rgba(0,0,0,.35)' : 'none';
+  sc(); addEventListener('scroll', sc, {passive:true});
+})();
+</script>
 <body id="top">
   <nav class="nav">
     <div class="container nav-inner">
