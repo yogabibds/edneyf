@@ -221,3 +221,27 @@ html,body{background:var(--bg);color:var(--text);}
   border-color:var(--accent);
 }
 .btn-olive:hover{filter:brightness(.98)}
+/* ícones com cores de marca */
+.lm-ico { display:inline-flex; align-items:center; gap:.35rem; opacity:.95; transition:transform .15s ease, opacity .15s ease; }
+.lm-ico:hover { transform: translateY(-1px); opacity:1; }
+
+.lm-ico--spotify { color:#1DB954; }   /* verde Spotify */
+.lm-ico--youtube { color:#FF0000; }   /* vermelho YouTube */
+.lm-ico--apple   { color:#FA2D48; }   /* Apple Music (pink/red) */
+.lm-ico--deezer  { color:#00C7F2; }   /* azul Deezer */
+
+/* capa “2 cm” maior (mais alta) e mostrando mais da imagem */
+.card--md .card-cover{
+  width:100%;
+  height:280px;             /* ↑ aumentei a altura (antes menor) */
+  object-fit:cover;
+  object-position:center top;  /* mostra mais da parte superior */
+  border-radius:14px;
+  display:block;
+}
+@media (min-width: 980px){
+  .card--md .card-cover{ height:320px; } /* mais alto no desktop */
+}
+
+/* garante respiro do texto do card */
+.card.card--md .p{ padding: .9rem 1rem 1.1rem; }
