@@ -127,3 +127,49 @@ footer .container{padding:18px 20px;font-size:.95rem}
   .hero-photo{width:120px;height:120px;justify-self:start}
   .card img{height:220px}
 }
+/* Dark theme + verde-limão */
+:root{
+  --bg:#0b0b0d;
+  --surface:#141418;
+  --text:#f2f2f2;
+  --muted:#b9b9c0;
+  --lime:#c6f34d; /* verde-limão antigo */
+  --accent:#c6f34d;
+  --outline:#2a2a33;
+}
+html,body{background:var(--bg);color:var(--text);}
+.section{background:transparent;}
+.nav{background:var(--surface);border-bottom:1px solid var(--outline);}
+.card{background:var(--surface);border:1px solid var(--outline);}
+.lead{color:var(--muted);}
+.btn{border:1px solid var(--outline);background:#1a1a20;color:var(--text);}
+.btn:hover{border-color:var(--accent);}
+.btn-primary{background:var(--accent);color:#111;border-color:transparent;}
+.btn-primary:hover{filter:brightness(0.95);}
+.btn-olive{background:transparent;border-color:var(--accent);color:var(--accent);}
+.highlight{color:var(--accent);}
+
+/* Memorial maior (grid responsivo escuro) */
+.memorial-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.memorial-item img{aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid var(--outline);}
+@media (min-width:900px){.memorial-grid{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:1200px){.memorial-grid{grid-template-columns:repeat(5,1fr)}}
+
+/* Lang dropdown */
+.lang{position:relative;display:inline-block}
+.lang-toggle{display:inline-flex;align-items:center;gap:.4rem}
+.lang .chev{transition:transform .15s ease}
+.lang[aria-expanded="true"] .chev,
+.lang .lang-toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.lang-menu{
+  position:absolute;right:0;top:calc(100% + 6px);
+  background:var(--surface);border:1px solid var(--outline);border-radius:10px;
+  padding:.35rem 0;min-width:240px;box-shadow:0 8px 24px rgba(0,0,0,.35);
+  display:none;z-index:10;
+}
+.lang[open] .lang-menu{display:block}
+.lang-menu li{
+  list-style:none;margin:0;padding:.55rem .9rem;cursor:pointer;
+  color:var(--text);
+}
+.lang-menu li:hover{background:#1e1e25;color:var(--accent)}
