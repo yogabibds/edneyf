@@ -118,4 +118,86 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   const sc = ()=> nav.style.boxShadow = (window.scrollY>4) ? '0 6px 20px rgba(0,0,0,.35)' : 'none';
   sc(); addEventListener('scroll', sc, {passive:true});
 })();
+// ===== Mini Player compacto (um único <audio> compartilhado) =====
+(function(){
+  const items = [...document.querySelectorAll('.mini-audio')];
+  if(!items.length) return;
 
+  // único elemento de áudio compartilhado
+  const audio = new Audio();
+  audio.preload = 'metadata';
+
+  let current = null; // div ativa
+
+  // formata 90 -> "1:30"
+  const mmss = s => {
+    if(!isFinite(s)) return '0:00';
+    s = Math.max(0, Math.floor(s));
+    const m = Math.floor(s/60), ss = String(s%60).padStart(2,'0');
+    return `${m}:${ss}`;
+  };
+
+  // cria UI
+  items.forEach(box => {
+    const title = box.dataset.title || 'Faixa';
+    const src   = box.dataset.src;
+
+    box.innerHTML = `
+      <button class="mini-audio__btn" aria-label="Play">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="mini-audio__title">${title}</div>
+      <div class="mini-audio__time">0:00</div>
+      <div class="mini-audio__bar"><i></i></div>
+    `;
+
+    const btn  = box.querySelector('.mini-audio__btn');
+    const time = box.querySelector('.mini-audio__time');
+    const bar  = box.querySelector('.mini-audio__bar i');
+
+    // play/pause
+    btn.addEventListener('click', () => {
+      if(current === box && !audio.paused){ audio.pause(); return; }
+      // trocar de faixa
+      if(current !== box){
+        current?.querySelector('.mini-audio__btn').innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+        current = box;
+        audio.src = src; audio.play().catch(()=>{});
+      }else{
+        audio.play().catch(()=>{});
+      }
+    });
+
+    // clique na barra para buscar
+    box.querySelector('.mini-audio__bar').addEventListener('click', (e)=>{
+      if(audio.src.indexOf(src) === -1) return; // ainda não carregou essa
+      const rect = e.currentTarget.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      audio.currentTime = p * (audio.duration || 0);
+    });
+
+    // quando essa faixa estiver tocando, atualizar UI
+    audio.addEventListener('timeupdate', ()=>{
+      if(current !== box) return;
+      const d = audio.duration || 0;
+      bar.style.inset = `0 ${Math.max(0,100-((audio.currentTime/d)*100))}% 0 0`;
+      time.textContent = `${mmss(audio.currentTime)} / ${mmss(d)}`;
+    });
+
+    audio.addEventListener('play', ()=>{
+      if(current === box){
+        btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>`;
+      }
+    });
+
+    audio.addEventListener('pause', ()=>{
+      btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+    });
+
+    audio.addEventListener('ended', ()=>{
+      if(current === box){
+        btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+      }
+    });
+  });
+})();
