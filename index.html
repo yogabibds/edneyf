@@ -10,9 +10,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-</head>
 
+  <!-- Schema.org: A Hora é Essa -->
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"MusicAlbum",
+   "name":"A Hora é Essa",
+   "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
+   "genre":["MPB","Pop"],
+   "producer":{"@type":"Person","name":"Arnaldo Saccomani"},
+   "contributor":[{"@type":"Person","name":"Wilson Souto Jr.","jobTitle":"Direção Artística"}],
+   "track":[
+    {"@type":"MusicRecording","position":1,"name":"A hora é essa"},
+    {"@type":"MusicRecording","position":2,"name":"Jeito de feiticeira"},
+    {"@type":"MusicRecording","position":3,"name":"Baby"},
+    {"@type":"MusicRecording","position":4,"name":"Momentos de tristeza"},
+    {"@type":"MusicRecording","position":5,"name":"Não é da minha conta"},
+    {"@type":"MusicRecording","position":6,"name":"Alô amor"},
+    {"@type":"MusicRecording","position":7,"name":"Infinita paixão"},
+    {"@type":"MusicRecording","position":8,"name":"Noites de verão"},
+    {"@type":"MusicRecording","position":9,"name":"Incerteza"},
+    {"@type":"MusicRecording","position":10,"name":"Faz de conta"},
+    {"@type":"MusicRecording","position":11,"name":"Por trás de um sorriso"},
+    {"@type":"MusicRecording","position":12,"name":"Haja coração"},
+    {"@type":"MusicRecording","position":13,"name":"Será que é pra ficar"},
+    {"@type":"MusicRecording","position":14,"name":"Sentir você"}
+   ]
+  }
+  </script>
+
+  <!-- Schema.org: Gesto de Carinho -->
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"MusicAlbum",
+   "name":"Gesto de Carinho",
+   "byArtist":{"@type":"MusicGroup","name":"Edney Fernandes"},
+   "genre":["MPB","Pagode romântico"]
+  }
+  </script>
+</head>
 <body id="top">
+  <!-- NAV -->
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top">
@@ -51,101 +91,159 @@
     <p class="lead">Edney Fernandes (1977–2004) foi compositor e músico paulista ligado ao samba e ao pagode romântico. Iniciou em rodas de samba na Zona Leste e em Guarulhos, reuniu mais de 40 obras autorais e parcerias, com gravações por nomes do pagode dos anos 90 e 2000. Atuou no grupo “Ed &amp; A Tripulação”. Seu catálogo é preservado pela família, com organização de acervo, dossiês e relançamentos planejados.</p>
   </section>
 
-  <!-- DISCOGRAFIA -->
+  <!-- DISCOGRAFIA | PLAYLISTS -->
   <section id="discografia" class="section container">
     <h2>Discografia | Playlists</h2>
     <p class="lead">Lançamentos e seleções oficiais.</p>
 
     <div class="discog lm-grid-3">
-      <!-- A) ED & A TRIPULAÇÃO -->
+      <!-- A) Ed & A Tripulação -->
       <article class="card card--md">
-        <img class="card-cover" src="assets/img/discografia/ed-tripulacao.jpg" alt="Ed & A Tripulação — A Hora é Essa">
+        <img class="card-cover" loading="lazy" src="assets/img/discografia/ed-tripulacao.jpg" alt="Ed & A Tripulação — A Hora é Essa">
         <div class="p">
           <h3>Ed &amp; A Tripulação — A Hora é Essa</h3>
           <p>Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.</p>
 
-          <div class="audio-row"><div class="audio-title">Jeito de Feiticeira</div>
-            <audio controls preload="metadata"><source src="assets/audios/ed-tripulacao-jeito-de-feiticeira.mp3" type="audio/mpeg"></audio>
+          <!-- PRÉVIAS (6 faixas) -->
+          <div class="audio-row">
+            <div class="audio-title">A Hora é Essa</div>
+            <audio controls preload="metadata" data-track="A Hora é Essa" data-album="A Hora é Essa">
+              <source src="assets/audios/ed-tripulacao-a-hora-e-essa.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-row">
+            <div class="audio-title">Jeito de Feiticeira</div>
+            <audio controls preload="metadata" data-track="Jeito de Feiticeira" data-album="A Hora é Essa">
+              <source src="assets/audios/ed-tripulacao-jeito-de-feiticeira.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-row">
+            <div class="audio-title">Faz de Conta</div>
+            <audio controls preload="metadata" data-track="Faz de Conta" data-album="A Hora é Essa">
+              <source src="assets/audios/ed-tripulacao-faz-de-conta.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-row">
+            <div class="audio-title">Baby</div>
+            <audio controls preload="metadata" data-track="Baby" data-album="A Hora é Essa">
+              <source src="assets/audios/ed-tripulacao-baby.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-row">
+            <div class="audio-title">Momentos de Tristeza</div>
+            <audio controls preload="metadata" data-track="Momentos de Tristeza" data-album="A Hora é Essa">
+              <source src="assets/audios/ed-tripulacao-momentos-de-tristeza.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-row">
+            <div class="audio-title">Não é da Minha Conta</div>
+            <audio controls preload="metadata" data-track="Não é da Minha Conta" data-album="A Hora é Essa">
+              <source src="assets/audios/ed-tripulacao-nao-e-da-minha-conta.mp3" type="audio/mpeg">
+            </audio>
           </div>
 
-          <div class="audio-row"><div class="audio-title">A Hora é Essa</div>
-            <audio controls preload="metadata"><source src="assets/audios/ed-tripulacao-a-hora-e-essa.mp3" type="audio/mpeg"></audio>
-          </div>
-
-          <div class="audio-row"><div class="audio-title">Baby</div>
-            <audio controls preload="metadata"><source src="assets/audios/ed-tripulacao-baby.mp3" type="audio/mpeg"></audio>
-          </div>
-
-          <div class="audio-row"><div class="audio-title">Momentos de Tristeza</div>
-            <audio controls preload="metadata"><source src="assets/audios/ed-tripulacao-momentos-de-tristeza.mp3" type="audio/mpeg"></audio>
-          </div>
-
-          <div class="audio-row"><div class="audio-title">Não é da Minha Conta</div>
-            <audio controls preload="metadata"><source src="assets/audios/ed-tripulacao-nao-e-da-minha-conta.mp3" type="audio/mpeg"></audio>
-          </div>
-
-          <div class="audio-row"><div class="audio-title">Faz de Conta</div>
-            <audio controls preload="metadata"><source src="assets/audios/10-Faz-de-Conta.mp3" type="audio/mpeg"></audio>
-          </div>
-
-          <div class="lm-icons">
-            <a class="lm-ico lm-ico--spotify" target="_blank" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB" aria-label="Spotify">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 10c3.5-1.2 6.8-.9 10 1M7 13c3-1 5.9-.8 8.7.9M7 16c2.4-.8 4.8-.6 7 .7" stroke="#fff" fill="none" stroke-linecap="round"/></svg>
+          <!-- Ícones -->
+          <div class="lm-icons" style="margin-top:.6rem">
+            <a class="lm-ico ico--spotify" target="_blank" rel="noopener"
+               href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=U4DCk4HpTAODRc1c7VgpZA&pi=9YspwebURHq1Z" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" width="22" height="22">
+                <circle cx="12" cy="12" r="10"/><path d="M7 10c3.5-1.2 6.8-.9 10 1M7 13c3-1 5.9-.8 8.7.9M7 16c2.4-.8 4.8-.6 7 .7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              </svg>
             </a>
-            <a class="lm-ico lm-ico--youtube" target="_blank" href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0" aria-label="YouTube">
-              <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9l6 3-6 3z" fill="#fff"/></svg>
+            <a class="lm-ico ico--apple" href="#" aria-label="Apple Music">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M16 3c-2 0-3 1-3 3v10a3 3 0 1 1-2-2" fill="currentColor"/></svg>
             </a>
-            <a class="lm-ico lm-ico--deezer" href="#" aria-label="Deezer"><svg viewBox="0 0 24 24"><path d="M3 15h3v3H3zM7 13h3v5H7zM11 11h3v7h-3zM15 9h3v9h-3zM19 7h3v11h-3z"/></svg></a>
-            <a class="lm-ico lm-ico--apple" href="#" aria-label="Apple Music"><svg viewBox="0 0 24 24"><path d="M16 3c-2 0-3 1-3 3v10a3 3 0 1 1-2-2" fill="currentColor"/></svg></a>
+            <a class="lm-ico ico--deezer" href="#" aria-label="Deezer">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 15h3v3H3zM7 13h3v5H7zM11 11h3v7h-3zM15 9h3v9h-3zM19 7h3v11h-3z"/></svg>
+            </a>
+            <a class="lm-ico ico--youtube" target="_blank" rel="noopener"
+               href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9l6 3-6 3z" fill="#fff"/></svg>
+            </a>
           </div>
 
-          <a class="lm-link" href="docs/Ed_e_a_Tripulacao_A_Hora_E_Essa.pdf" target="_blank">Ficha técnica (PDF)</a>
+          <a class="lm-link" href="docs/Ed_e_a_Tripulacao_A_Hora_E_Essa.pdf" target="_blank" rel="noopener">Ficha técnica (PDF)</a>
         </div>
       </article>
 
-      <!-- B) GESTO DE CARINHO -->
+      <!-- B) Gesto de Carinho — Despedida -->
       <article class="card card--md">
-        <img class="card-cover" src="assets/img/discografia/gesto-capa.jpg" alt="Gesto de Carinho — Despedida">
+        <img class="card-cover" loading="lazy" src="assets/img/discografia/gesto-capa.jpg" alt="Gesto de Carinho — Despedida">
         <div class="p">
           <h3>Gesto de Carinho — <em>Despedida</em></h3>
           <p>Compositor e produtor: Edney Fernandes. Parcerias: Thaís Nascimento, Valtinho J, Ronaldo Marques, Humberto Tavares, Alexandre Lucas. Status: lançamento póstumo em produção.</p>
 
-          <div class="audio-row"><div class="audio-title">Meu Desejo</div>
-            <audio controls preload="metadata"><source src="assets/audios/Meu-desejo-Edney-Fernandes.mp3" type="audio/mpeg"></audio>
+          <!-- PRÉVIAS (4 faixas) -->
+          <div class="audio-row">
+            <div class="audio-title">Meu Desejo</div>
+            <audio controls preload="metadata" data-track="Meu Desejo" data-album="Gesto de Carinho — Despedida">
+              <source src="assets/audios/Meu-desejo-Edney-Fernandes.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-row">
+            <div class="audio-title">Despedida</div>
+            <audio controls preload="metadata" data-track="Despedida" data-album="Gesto de Carinho — Despedida">
+              <source src="assets/audios/Despedida-Edney-fernandes.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-row">
+            <div class="audio-title">Pra Que Se Machucar</div>
+            <audio controls preload="metadata" data-track="Pra Que Se Machucar" data-album="Gesto de Carinho — Despedida">
+              <source src="assets/audios/Pra-que-se-machucar-Edney-Fernandes-e-Thais-Nascimento.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-row">
+            <div class="audio-title">Tudo Que Eu Quis</div>
+            <audio controls preload="metadata" data-track="Tudo Que Eu Quis" data-album="Gesto de Carinho — Despedida">
+              <source src="assets/audios/Tudo-que-eu-quis-Edney-Fernandes-.mp3" type="audio/mpeg">
+            </audio>
           </div>
 
-          <div class="audio-row"><div class="audio-title">Despedida</div>
-            <audio controls preload="metadata"><source src="assets/audios/Despedida-Edney-fernandes.mp3" type="audio/mpeg"></audio>
+          <div class="lm-icons" style="margin-top:.6rem">
+            <a class="lm-ico ico--spotify" target="_blank" rel="noopener"
+               href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=_t0dEll-SgyIK1k9hvmKLA" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" width="22" height="22">
+                <circle cx="12" cy="12" r="10"/><path d="M7 10c3.5-1.2 6.8-.9 10 1M7 13c3-1 5.9-.8 8.7.9M7 16c2.4-.8 4.8-.6 7 .7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a class="lm-ico ico--apple" href="#" aria-label="Apple Music">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M16 3c-2 0-3 1-3 3v10a3 3 0 1 1-2-2" fill="currentColor"/></svg>
+            </a>
+            <a class="lm-ico ico--deezer" href="#" aria-label="Deezer">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 15h3v3H3zM7 13h3v5H7zM11 11h3v7h-3zM15 9h3v9h-3zM19 7h3v11h-3z"/></svg>
+            </a>
+            <a class="lm-ico ico--youtube" href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9l6 3-6 3z" fill="#fff"/></svg>
+            </a>
           </div>
 
-          <div class="audio-row"><div class="audio-title">Pra Que Se Machucar</div>
-            <audio controls preload="metadata"><source src="assets/audios/Pra-que-se-machucar-Edney-Fernandes-e-Thais-Nascimento.mp3" type="audio/mpeg"></audio>
-          </div>
-
-          <div class="audio-row"><div class="audio-title">Tudo Que Eu Quis</div>
-            <audio controls preload="metadata"><source src="assets/audios/Tudo-que-eu-quis-Edney-Fernandes-.mp3" type="audio/mpeg"></audio>
-          </div>
-
-          <div class="lm-icons">
-            <a class="lm-ico lm-ico--spotify" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB" target="_blank"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 10c3.5-1.2 6.8-.9 10 1M7 13c3-1 5.9-.8 8.7.9M7 16c2.4-.8 4.8-.6 7 .7" stroke="#fff" fill="none" stroke-linecap="round"/></svg></a>
-            <a class="lm-ico lm-ico--youtube" href="#"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9l6 3-6 3z" fill="#fff"/></svg></a>
-            <a class="lm-ico lm-ico--apple" href="#"><svg viewBox="0 0 24 24"><path d="M16 3c-2 0-3 1-3 3v10a3 3 0 1 1-2-2" fill="currentColor"/></svg></a>
-            <a class="lm-ico lm-ico--deezer" href="#"><svg viewBox="0 0 24 24"><path d="M3 15h3v3H3zM7 13h3v5H7zM11 11h3v7h-3zM15 9h3v9h-3zM19 7h3v11h-3z"/></svg></a>
-          </div>
-
-          <a class="lm-link" href="docs/Dossie_Album_Edney_Fernandes_Despedida.pdf" target="_blank">Dossiê (PDF)</a>
+          <a class="lm-link" href="docs/Dossie_Album_Edney_Fernandes_Despedida.pdf" target="_blank" rel="noopener">Dossiê (PDF)</a>
         </div>
       </article>
 
-      <!-- C) COMPOSIÇÕES -->
+      <!-- C) Composições -->
       <article id="composicoes" class="card card--md">
-        <img class="card-cover" src="assets/img/capas/composicoes-playlist.jpg" alt="Pagode anos 90 — Composições de Edney">
+        <img class="card-cover" loading="lazy" src="assets/img/capas/composicoes-playlist.jpg" alt="Pagode anos 90 — Composições de Edney">
         <div class="p">
           <h3>Pagode anos 90 — Composições de Edney</h3>
           <p>Obras autorais interpretadas por Exaltasamba, Thiaguinho, Péricles e outros. Seleção viva do catálogo.</p>
           <div class="lm-icons">
-            <a class="lm-ico lm-ico--spotify" href="https://open.spotify.com/playlist/0N4ki83JuTs7b5sSHozx8a" target="_blank" aria-label="Spotify"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 10c3.5-1.2 6.8-.9 10 1M7 13c3-1 5.9-.8 8.7.9M7 16c2.4-.8 4.8-.6 7 .7" stroke="#fff" fill="none" stroke-linecap="round"/></svg></a>
-            <a class="lm-ico lm-ico--youtube" href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0" target="_blank"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9l6 3-6 3z" fill="#fff"/></svg></a>
+            <a class="lm-ico ico--spotify" target="_blank" rel="noopener"
+               href="https://open.spotify.com/playlist/0N4ki83JuTs7b5sSHozx8a?si=VVKvH9CkSBCu9IK0GR49Gw" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" width="22" height="22">
+                <circle cx="12" cy="12" r="10"/><path d="M7 10c3.5-1.2 6.8-.9 10 1M7 13c3-1 5.9-.8 8.7.9M7 16c2.4-.8 4.8-.6 7 .7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a class="lm-ico ico--youtube" target="_blank" rel="noopener"
+               href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9l6 3-6 3z" fill="#fff"/></svg>
+            </a>
+            <a class="lm-ico ico--apple" href="#" aria-label="Apple Music">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M16 3c-2 0-3 1-3 3v10a3 3 0 1 1-2-2" fill="currentColor"/></svg>
+            </a>
+            <a class="lm-ico ico--deezer" href="#" aria-label="Deezer">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 15h3v3H3zM7 13h3v5H7zM11 11h3v7h-3zM15 9h3v9h-3zM19 7h3v11h-3z"/></svg>
+            </a>
           </div>
         </div>
       </article>
@@ -162,14 +260,13 @@
   <!-- CONTATO -->
   <section id="contato" class="section container">
     <h2>Contato</h2>
-    <form class="form" onsubmit="event.preventDefault(); alert('Mensagem enviada! (demo)');">
+    <form class="form" onsubmit="event.preventDefault(); alert('Obrigado! Mensagem enviada (demo).');">
       <input type="text" placeholder="Seu nome" required>
       <input type="email" placeholder="Seu e-mail" required>
       <textarea rows="5" placeholder="Sua mensagem"></textarea>
       <button class="btn btn-primary" type="submit">Enviar</button>
     </form>
     <div style="margin-top:1rem">
-      <a class="badge" href="https://instagram.com/yogabibds" target="_blank">Instagram</a>
       <a class="badge" href="mailto:universolaia06@gmail.com">Email</a>
     </div>
   </section>
@@ -178,24 +275,45 @@
     <div class="container">© 2025 Laia Music • Conteúdo em atualização</div>
   </footer>
 
+  <!-- Sombra na navbar ao rolar -->
   <script>
   (function(){
     const nav = document.querySelector('.nav');
     const sc = ()=> nav.style.boxShadow = (window.scrollY>4) ? '0 6px 20px rgba(0,0,0,.35)' : 'none';
     sc(); addEventListener('scroll', sc, {passive:true});
   })();
+  </script>
+
+  <!-- Popular memorial com 21 fotos -->
+  <script>
   (function(){
     const el = document.getElementById('memorial-grid');
     if(!el) return;
     const total = 21;
-    const items=[];
+    const items = [];
     for(let i=1;i<=total;i++){
-      const n=String(i).padStart(2,'0');
-      items.push(`<figure class="memorial-item"><img src="assets/img/memorial/memorial-${n}.jpg" alt="Memorial ${n}"></figure>`);
+      const n = String(i).padStart(2,'0');
+      items.push(`<figure class="memorial-item"><img loading="lazy" src="assets/img/memorial/memorial-${n}.jpg" alt="Memorial ${n}"></figure>`);
     }
-    el.innerHTML=items.join('');
+    el.innerHTML = items.join('');
   })();
   </script>
 
+  <!-- Log de plays (preparado para backend) -->
+  <script>
+  (function(){
+    const endpoint = '/.netlify/functions/log-play'; // ajuste quando ativar backend
+    document.querySelectorAll('audio').forEach(a=>{
+      const track = a.dataset && a.dataset.track || null;
+      const album = a.dataset && a.dataset.album || null;
+      a.addEventListener('play', ()=>{
+        if(!track) return;
+        fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({track, album, path:location.pathname, ua:navigator.userAgent, ts:Date.now()})
+        }).catch(()=>{});
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
