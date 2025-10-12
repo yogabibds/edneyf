@@ -235,3 +235,45 @@ footer{
   .memorial-grid{grid-template-columns:1fr}
   .card-cover{height:280px}
 }
+
+/* ===== mini player ===== */
+.mini-audio {
+  --h: 42px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: .45rem .7rem;
+  margin: .55rem 0;
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: .6rem;
+}
+
+.mini-audio__btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #222; color: var(--accent);
+  border: 1px solid rgba(255,255,255,.12);
+  cursor: pointer; transition: transform .15s;
+}
+.mini-audio__btn:hover { transform: scale(1.05); }
+
+.mini-audio__title { font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.mini-audio__time { font-size: .78rem; color: var(--muted); min-width: 70px; text-align: right; }
+
+.mini-audio__bar {
+  grid-column: 2 / -1;
+  height: 6px; border-radius: 999px; margin-top: .35rem;
+  background: rgba(255,255,255,.08); overflow: hidden; position: relative;
+}
+.mini-audio__bar > i {
+  position: absolute; inset: 0 100% 0 0; background: linear-gradient(90deg, var(--accent), #fff);
+  transition: inset .2s linear;
+}
+
+/* ícones (play/pause simples) */
+.mini-audio__btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+
