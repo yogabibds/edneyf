@@ -3,166 +3,256 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Laia Music — O legado de Edney Fernandes</title>
-
-  <!-- Tipografias -->
+  <meta name="description" content="Site oficial do legado de Edney Fernandes: composições, discografia, playlists e memória afetiva.">
+  
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/music.css">
+  <!-- Anton + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body id="top">
 
-<!-- ==========================
-     NAV
-========================== -->
-<nav class="lm-nav">
-  <div class="lm-container lm-nav-inner">
-    <a class="lm-brand" href="#top">
+<!-- =====================
+     NAVBAR
+===================== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">
       <img src="assets/img/logo-laia-music.png" alt="Laia Music">
       <span>Laia Music</span>
     </a>
 
-    <div class="lm-menu">
-      <a href="#legado">Legado</a>
-      <a href="#discografia">Discografia</a>
-      <a href="#composicoes">Composições</a>
-      <a href="#memorial">Memorial</a>
-      <a href="#contato">Contato</a>
+    <div class="menu">
+      <a class="nav-item" href="#legado">Legado</a>
+      <a class="nav-item" href="#discografia">Discografia | Playlists</a>
+      <a class="nav-item" href="#composicoes">Composições</a>
+      <a class="nav-item" href="#memorial">Memorial</a>
+      <a class="nav-item" href="#contato">Contato</a>
     </div>
   </div>
 </nav>
 
-<!-- ==========================
-     HERO — FUNDO VERDE OLIVA
-========================== -->
-<header class="lm-hero" id="top">
-  <div class="lm-container lm-hero-grid">
+<!-- =====================
+     HERO
+===================== -->
+<header class="hero container">
+  <div class="hero-inner">
+    <img class="hero-photo" src="assets/img/hero-edney.jpg" alt="Edney Fernandes">
 
-    <img class="lm-hero-photo" src="assets/img/hero-edney.jpg" alt="Edney Fernandes">
-
-    <div class="lm-hero-text">
-      <h1>O legado de <span class="gold">Edney Fernandes</span></h1>
-      <p class="lm-hero-sub">
-        História, memória afetiva, composições, discos, registros e tudo o que permanece vivo.
+    <div class="hero-text">
+      <div class="display">Laia Music — <span class="highlight">O legado de Edney Fernandes</span></div>
+      <p>
+        Site oficial para preservar e difundir a obra de Edney Fernandes: história, composições,
+        lançamentos, playlists e memória afetiva.
       </p>
 
-      <div class="lm-cta">
-        <a href="#discografia" class="lm-btn lm-btn-gold">Discografia</a>
-        <a href="#composicoes" class="lm-btn lm-btn-outline">Composições</a>
+      <div class="cta">
+        <a href="#discografia" class="btn btn-primary">Discografia</a>
+        <a href="#composicoes" class="btn btn-olive">Composições</a>
+        <a href="#contato" class="btn btn-ghost">Contato</a>
       </div>
     </div>
-
   </div>
 </header>
 
-<!-- ==========================
-     SEÇÃO BRANCA — LEGADO
-========================== -->
-<section id="legado" class="lm-section white">
-  <div class="lm-container">
-    <h2 class="lm-title">Legado</h2>
-
-    <p class="lm-text">
-      Edney Fernandes (1977–2004) foi compositor e músico paulista ligado ao samba e ao pagode romântico.
-      Criou mais de 40 obras, parcerias e registros que atravessam gerações e permanecem na memória afetiva.
-    </p>
-  </div>
+<!-- =====================
+     LEGADO
+===================== -->
+<section id="legado" class="section container">
+  <h2>Legado</h2>
+  <p class="lead">
+    Edney Fernandes (1977–2004) foi compositor e músico paulista ligado ao samba e ao pagode romântico.
+    Iniciou em rodas de samba na Zona Leste e em Guarulhos, reuniu mais de 40 obras autorais e parcerias,
+    com gravações por nomes do pagode dos anos 90 e 2000. Atuou no grupo “Ed & A Tripulação”.
+    Seu catálogo é preservado pela família, com organização de acervo, dossiês e relançamentos planejados.
+  </p>
 </section>
 
-<!-- ==========================
-     SEÇÃO OLIVA CLARA — DISCOGRAFIA
-========================== -->
-<section id="discografia" class="lm-section olive-light">
-  <div class="lm-container">
-    <h2 class="lm-title gold">Discografia</h2>
-    <p class="lm-sub">Álbuns, faixas e registros oficiais.</p>
+<!-- =====================
+     DISCOGRAFIA
+===================== -->
+<section id="discografia" class="section container">
+  <h2>Discografia | Playlists</h2>
+  <p class="lead">Lançamentos e seleções oficiais.</p>
 
-    <div class="lm-grid-3">
+  <div class="discog lm-grid-3">
 
-      <!-- Card 1 -->
-      <article class="lm-card">
-        <img class="lm-card-cover" src="assets/img/discografia/ed-tripulacao.jpg">
+    <!-- A HORA É ESSA — PLAYLIST VERDE -->
+    <article class="card card--md theme-green">
+      <img class="card-cover" src="assets/img/discografia/ed-tripulacao.jpg" alt="Capa do CD A Hora é Essa — Ed & A Tripulação">
 
-        <div class="lm-card-body">
-          <h3 class="lm-card-title gold">Ed & A Tripulação — A Hora é Essa</h3>
-          <p class="lm-card-txt">Produção: Arnaldo Saccomani • Direção: Wilson Souto Jr.</p>
+      <div class="p">
+        <h3>Ed & A Tripulação — A Hora é Essa</h3>
+        <p>Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.</p>
 
-          <!-- MINI PLAYERS INSERIDOS AQUI -->
-          <!-- (mantém exatamente o seu sistema, só mudou o visual no CSS) -->
-
-          <div class="mini-audio" data-key="plays:ed-a-hora-e-essa">
-            <button class="mini-audio__btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
-            <div class="mini-audio__title">A Hora é Essa</div>
-            <div class="mini-audio__time"><b class="plays">0</b> plays • <span class="t">0:00</span></div>
-            <div class="mini-audio__bar"><i></i></div>
-            <audio preload="metadata" src="assets/audios/ed-tripulacao-a-hora-e-essa.mp3"></audio>
-          </div>
-
-          <!-- demais faixas… -->
+        <!-- mini players -->
+        <div class="mini-audio theme-green" data-key="plays:ed-a-hora-e-essa">
+          <button class="mini-audio__btn"></button>
+          <div class="mini-audio__title">A Hora é Essa</div>
+          <div class="mini-audio__time"><b class="plays">0</b> plays • <span class="t">0:00</span></div>
+          <div class="mini-audio__bar"><i></i></div>
+          <audio preload="metadata" src="assets/audios/ed-tripulacao-a-hora-e-essa.mp3"></audio>
         </div>
-      </article>
 
-      <!-- Continue exatamente como seu HTML original -->
-    </div>
+        <div class="mini-audio theme-green" data-key="plays:ed-jeito-de-feiticeira">
+          <button class="mini-audio__btn"></button>
+          <div class="mini-audio__title">Jeito de Feiticeira</div>
+          <div class="mini-audio__time"><b class="plays">0</b> • <span class="t">0:00</span></div>
+          <div class="mini-audio__bar"><i></i></div>
+          <audio preload="metadata" src="assets/audios/ed-tripulacao-jeito-de-feiticeira.mp3"></audio>
+        </div>
+
+        <div class="mini-audio theme-green" data-key="plays:ed-baby">
+          <button class="mini-audio__btn"></button>
+          <div class="mini-audio__title">Baby</div>
+          <div class="mini-audio__time"><b class="plays">0</b> • <span class="t">0:00</span></div>
+          <div class="mini-audio__bar"><i></i></div>
+          <audio preload="metadata" src="assets/audios/ed-tripulacao-baby.mp3"></audio>
+        </div>
+
+        <div class="lm-icons">
+          <a class="lm-ico lm-ico--spotify" href="#" target="_blank">🎧</a>
+          <a class="lm-ico lm-ico--youtube" href="#" target="_blank">▶️</a>
+        </div>
+
+        <a class="lm-link" href="assets/doc/Ficha Tecnica Ok - Ed e a Tripulação.pdf" target="_blank">Ficha técnica (PDF)</a>
+      </div>
+    </article>
+
+    <!-- GESTO DE CARINHO / DESPEDIDA — TEMA DOURADO -->
+    <article class="card card--md theme-gold">
+      <img class="card-cover" src="assets/img/discografia/gesto-capa.jpg" alt="Capa — Gesto de Carinho">
+
+      <div class="p">
+        <h3>Gesto de Carinho — <em>Despedida</em></h3>
+        <p>Compositor e produtor: Edney Fernandes.</p>
+
+        <div class="mini-audio theme-gold" data-key="plays:gc-meu-desejo">
+          <button class="mini-audio__btn"></button>
+          <div class="mini-audio__title">Meu Desejo</div>
+          <div class="mini-audio__time"><b class="plays">0</b> • <span class="t">0:00</span></div>
+          <div class="mini-audio__bar"><i></i></div>
+          <audio preload="metadata" src="assets/audios/Meu-desejo-Edney-Fernandes.mp3"></audio>
+        </div>
+
+        <div class="mini-audio theme-gold" data-key="plays:gc-despedida">
+          <button class="mini-audio__btn"></button>
+          <div class="mini-audio__title">Despedida</div>
+          <div class="mini-audio__time"><b class="plays">0</b> • <span class="t">0:00</span></div>
+          <div class="mini-audio__bar"><i></i></div>
+          <audio preload="metadata" src="assets/audios/Despedida-Edney-fernandes.mp3"></audio>
+        </div>
+
+        <div class="lm-icons">
+          <a class="lm-ico lm-ico--spotify" href="#" target="_blank">🎧</a>
+          <a class="lm-ico lm-ico--youtube" href="#" target="_blank">▶️</a>
+        </div>
+
+        <a class="lm-link" href="assets/doc/Safari.pdf" target="_blank">Dossiê (PDF)</a>
+      </div>
+    </article>
+
   </div>
 </section>
 
-<!-- ==========================
-     SEÇÃO BEGE CLARA — STORYTELLING
-========================== -->
-<section class="lm-section beige">
-  <div class="lm-container center">
-    <h2 class="lm-title gold">As vozes…</h2>
+<!-- =====================
+     MEMORIAL (Masonry)
+===================== -->
+<section id="memorial" class="section container">
+  <h2>Memorial</h2>
+  <p class="lead">Linha do tempo afetiva: rodas de samba, estúdios, amigos e família.</p>
 
-    <p class="lm-story">
-      Existem vozes que atravessam gerações, carregam histórias e permanecem,
-      mesmo quando o tempo insiste em seguir.  
-      <strong>Edney Fernandes foi uma dessas vozes.</strong>
-    </p>
-  </div>
+  <div id="memorial-grid" class="memorial-grid masonry"></div>
 </section>
 
-<!-- ==========================
-     SEÇÃO VERDE OLIVA — MEMORIAL
-========================== -->
-<section id="memorial" class="lm-section olive-dark">
-  <div class="lm-container">
-    <h2 class="lm-title gold">Memorial</h2>
+<!-- =====================
+     CONTATO
+===================== -->
+<section id="contato" class="section container">
+  <h2>Contato</h2>
 
-    <div id="memorial-grid" class="lm-memorial-grid"></div>
-  </div>
+  <form class="form" onsubmit="event.preventDefault(); alert('Mensagem enviada!');">
+    <input type="text" placeholder="Seu nome" required>
+    <input type="email" placeholder="Seu e-mail" required>
+    <textarea rows="5" placeholder="Sua mensagem"></textarea>
+    <button class="btn btn-primary" type="submit">Enviar</button>
+  </form>
 </section>
 
-<!-- ==========================
-     CONTATO — SEÇÃO BRANCA
-========================== -->
-<section id="contato" class="lm-section white">
-  <div class="lm-container">
-    <h2 class="lm-title">Contato</h2>
-
-    <form class="lm-form" onsubmit="event.preventDefault(); alert('Mensagem enviada!');">
-      <input type="text" placeholder="Seu nome" required>
-      <input type="email" placeholder="Seu e-mail" required>
-      <textarea rows="5" placeholder="Sua mensagem"></textarea>
-      <button class="lm-btn lm-btn-gold" type="submit">Enviar</button>
-    </form>
-  </div>
-</section>
-
-<!-- ==========================
-     FOOTER
-========================== -->
-<footer class="lm-footer">
-  © 2025 Laia Music • Em memória de Edney Fernandes
+<footer>
+  <div class="container">© 2025 Laia Music • Conteúdo em atualização</div>
 </footer>
 
-<!-- SEUS JS ORIGINAIS AQUI (mini-player + memorial) -->
-<script src="assets/js/mini-player.js"></script>
-<script src="assets/js/memorial.js"></script>
+<!-- =====================
+     SCRIPTS
+===================== -->
+
+<!-- Memorial Masonry -->
+<script>
+(function(){
+  const el = document.getElementById('memorial-grid');
+  if(!el) return;
+
+  const total = 21;
+  const html = [];
+
+  for(let i=1; i<=total; i++){
+    const n = String(i).padStart(2,'0');
+    html.push(`
+      <figure class="memorial-item">
+        <img src="assets/img/memorial/memorial-${n}.jpg" loading="lazy">
+      </figure>
+    `);
+  }
+
+  el.innerHTML = html.join('');
+})();
+</script>
+
+<!-- Mini Player -->
+<script>
+(function(){
+  const fmt = s => isNaN(s) ? "0:00" : `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+
+  document.querySelectorAll('.mini-audio').forEach(box=>{
+    const btn = box.querySelector('.mini-audio__btn');
+    const audio = box.querySelector('audio');
+    const tEl = box.querySelector('.t');
+    const plays = box.querySelector('.plays');
+    const key = box.dataset.key;
+
+    plays.textContent = localStorage.getItem(key) || 0;
+
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+
+    btn.onclick = () => audio.paused ? audio.play() : audio.pause();
+
+    audio.addEventListener('play', ()=>{
+      btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+      const val = Number(localStorage.getItem(key) || 0) + 1;
+      localStorage.setItem(key,val);
+      plays.textContent = val;
+    });
+
+    audio.addEventListener('pause', ()=>{
+      btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    });
+
+    audio.addEventListener('timeupdate', ()=>{
+      tEl.textContent = fmt(audio.currentTime);
+      const bar = box.querySelector('.mini-audio__bar i');
+      const p = audio.duration ? audio.currentTime/audio.duration * 100 : 0;
+      bar.style.inset = `0 ${100-p}% 0 0`;
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
