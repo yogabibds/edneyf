@@ -382,3 +382,61 @@ footer{
 @media(max-width:480px){
   .memorial-grid{column-count:1}
 }
+/* ===============================
+   FAIXAS DE SEÇÕES — LAIA MUSIC
+================================*/
+
+/* Hero = escuro com brilho verde */
+.faixa-hero{
+  background:
+    radial-gradient(900px 400px at 20% -10%, rgba(201,255,47,.12), transparent),
+    #0e0f12;
+  padding-top:60px;
+  padding-bottom:80px;
+}
+
+/* Faixa BRANCA (padrão editorial) */
+.faixa-branca{
+  background:#ffffff;
+  color:#111;
+}
+.faixa-branca h2{ color:#0e0f12; }
+.faixa-branca .lead{ color:#444; }
+
+/* Faixa VERDE — para “Legado” */
+.faixa-verde{
+  background:linear-gradient(180deg,#dfff85,#c9ff2f);
+  color:#0e0f12;
+}
+.faixa-verde h2{ color:#0e0f12; }
+.faixa-verde .lead{ color:#333; }
+
+/* Faixa DOURADA — Discografia */
+.faixa-dourada{
+  background:linear-gradient(180deg,#ffeaa8,#e7c86a);
+  color:#0e0f12;
+}
+.faixa-dourada h2{ color:#0e0f12; }
+.faixa-dourada .lead{ color:#333; }
+
+/* Faixa PRETA — Memorial */
+.faixa-preta{
+  background:#0b0c0e;
+  color:#eaeaea;
+}
+.faixa-preta h2{ color:#c9ff2f; }
+.faixa-preta .lead{ color:#9ea3ad; }
+
+/* Faixa CINZA — Contato */
+.faixa-cinza{
+  background:#f5f5f5;
+  color:#1a1a1a;
+}
+.faixa-cinza h2{ color:#0f0f0f; }
+.faixa-cinza input,
+.faixa-cinza textarea{
+  background:#fff;
+  border:1px solid #ccc;
+  color:#000;
+}
+
