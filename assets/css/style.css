@@ -1,0 +1,293 @@
+/* ==========================
+   LAIA MUSIC — STYLE.CSS
+   ========================== */
+
+/* ====== Tokens / Variáveis ====== */
+:root{
+  /* cores base */
+  --bg:#0e0f12;        /* fundo escuro */
+  --bg-2:#15171c;      /* seções */
+  --txt:#e7e9ee;
+  --muted:#a9afbd;
+
+  /* marca */
+  --brand:#c9ff2f;     /* verde-limão */
+  --brand-2:#a7e100;   /* variação */
+
+  /* UI */
+  --nav-h:64px;
+  --rad:14px;
+  --stroke:#252a33;
+  --card:#1a1d23;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+
+  /* alias p/ componentes que usam --accent */
+  --accent: var(--brand);
+}
+
+/* ====== Reset básico ====== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+img{max-width:100%;display:block}
+
+/* ====== Base ====== */
+body{
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(201,255,47,.10), transparent 60%),
+    var(--bg);
+  color:var(--txt);
+  font:400 16px/1.55 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  scroll-behavior:smooth;
+  padding-top:var(--nav-h); /* evita sobrepor o menu fixo */
+}
+
+/* ====== Containers / Seções ====== */
+.container{max-width:1100px;margin:0 auto;padding:0 18px}
+.section{padding:56px 18px}
+.lead{color:var(--muted);margin:0 0 1.5rem}
+
+/* ====== Títulos ====== */
+h2{
+  font:800 28px/1.2 "Anton", sans-serif;
+  color:var(--brand);
+  margin:0 0 10px
+}
+
+/* ==============================
+   NAVBAR
+============================== */
+.nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(20,22,27,.78);
+  backdrop-filter:saturate(120%) blur(10px);
+  transition:box-shadow .3s ease
+}
+.nav-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  min-height:var(--nav-h);padding:.7rem 1.2rem
+}
+.brand{
+  display:flex;align-items:center;gap:.6rem;
+  text-decoration:none;color:var(--txt);font-weight:800
+}
+.brand img{width:36px;height:36px}
+.menu{display:flex;gap:1.2rem}
+.nav-item{
+  color:var(--txt);opacity:.9;text-decoration:none;font-weight:600;transition:color .2s, opacity .2s
+}
+.nav-item:hover{color:var(--brand);opacity:1}
+
+/* ==============================
+   HERO
+============================== */
+.hero{min-height:calc(100vh - var(--nav-h));display:grid;align-items:center}
+.hero-inner{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:center}
+.hero-photo{
+  width:100%;height:360px;object-fit:cover;border-radius:18px;box-shadow:var(--shadow);
+  transition:transform .35s ease
+}
+.hero-photo:hover{transform:scale(1.04)}
+.hero-text{max-width:560px}
+.display{font:800 40px/1.1 "Anton", sans-serif;letter-spacing:.5px}
+.highlight{color:var(--brand)}
+.cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+
+/* ==============================
+   BOTÕES
+============================== */
+.btn{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.72rem 1.15rem;border-radius:12px;
+  text-decoration:none;font-weight:700;cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+  border:none
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+  color:#16181d;box-shadow:0 8px 22px rgba(201,255,47,.35)
+}
+.btn-olive{
+  background:linear-gradient(180deg,#b2ff3b,#8db800);
+  color:#0f120f
+}
+.btn-ghost{
+  background:transparent;border:1px solid var(--brand);color:var(--brand)
+}
+.btn-disabled{opacity:.45;pointer-events:none}
+
+/* Brilho seguro nos botões */
+.btn::after{
+  content:"";position:absolute;top:-50%;left:-150%;
+  width:120%;height:200%;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.18) 45%,rgba(255,255,255,.28) 50%,rgba(255,255,255,.18) 55%,transparent 100%);
+  transform:skewX(-20deg);pointer-events:none
+}
+.btn:hover::after{animation:lm-shine .8s ease forwards}
+@keyframes lm-shine{to{left:150%}}
+.btn:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+
+/* ==============================
+   DISCOGRAFIA / PLAYLISTS
+============================== */
+.lm-grid-2{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px
+}
+/* NOVO: grid de 3 colunas quando couber */
+.lm-grid-3{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px
+}
+.lm-span-2{grid-column:1/-1}
+
+.card{
+  background:linear-gradient(180deg,var(--card),#171a20);
+  border:1px solid var(--stroke);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:transform .35s ease, box-shadow .35s ease
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.55)}
+.cover-wrap{position:relative;overflow:hidden}
+.card-cover{
+  width:100%;height:320px;object-fit:cover;object-position:center top;
+  transform:scale(1);transition:transform .35s ease, filter .35s ease;border-bottom:1px solid #1f232b
+}
+.card:hover .card-cover{transform:scale(1.05);filter:saturate(110%)}
+.card .p{padding:14px 14px 16px}
+
+/* Ícones das plataformas */
+.lm-icons{display:flex;gap:.6rem;align-items:center;margin:.6rem 0 .3rem}
+.lm-ico{
+  display:inline-grid;place-items:center;
+  width:36px;height:36px;border-radius:10px;
+  background:#0f1217;border:1px solid var(--stroke);
+  color:#9aa3b2;text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease
+}
+.lm-ico svg{width:22px;height:22px;display:block}
+.lm-ico:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.35)}
+
+/* Cores de marca (aceita .lm-ico--* e .ico--* para compatibilidade) */
+.lm-ico--spotify,.ico--spotify{color:#1DB954}
+.lm-ico--youtube,.ico--youtube{color:#FF0000}
+.lm-ico--apple,.ico--apple{color:#FA2D48}
+.lm-ico--deezer,.ico--deezer{color:#30AADD}
+
+/* Link secundário */
+.lm-link{display:inline-block;margin-top:.6rem;color:var(--txt);text-decoration:underline dotted}
+.lm-link:hover{color:var(--brand)}
+
+/* Samples / players */
+.samples{display:grid;gap:.6rem;margin:.8rem 0 0}
+.track{display:grid;gap:.3rem}
+.track span{font-size:.92rem;color:#b7bdc9}
+
+/* linhas do player padrão da seção */
+.audio-row{display:grid;gap:.25rem;margin:.5rem 0}
+.audio-title{font-size:.95rem;font-weight:600;color:#cfd4df}
+audio{width:100%;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
+
+/* ==============================
+   MEMORIAL
+============================== */
+.memorial-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px
+}
+.memorial-item{
+  position:relative;overflow:hidden;border-radius:12px;
+  border:1px solid var(--stroke);background:#0f1115
+}
+.memorial-item img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transform:scale(1);transition:transform .35s ease
+}
+.memorial-item:hover img{transform:scale(1.06)}
+
+/* ==============================
+   FORM
+============================== */
+.form{display:grid;gap:.7rem;max-width:560px}
+.form input,.form textarea{
+  background:#0f1217;border:1px solid var(--stroke);color:var(--txt);
+  padding:.8rem .9rem;border-radius:12px;outline:none
+}
+.form input:focus,.form textarea:focus{border-color:var(--brand)}
+.form button{border:none;cursor:pointer}
+
+/* ==============================
+   FOOTER
+============================== */
+footer{
+  background:var(--bg-2);
+  border-top:1px solid rgba(255,255,255,.06);
+  text-align:center;padding:24px 18px;color:#98a1ae;font-size:.95rem
+}
+
+/* ==============================
+   RESPONSIVO
+============================== */
+@media (max-width:1024px){
+  .hero-inner{grid-template-columns:300px 1fr}
+  .hero-photo{height:340px}
+}
+@media (max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:18px}
+  .hero-text{text-align:center;margin:0 auto}
+  .hero-photo{height:300px;justify-self:center}
+}
+@media (max-width:620px){
+  .display{font-size:32px}
+  .memorial-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:480px){
+  .memorial-grid{grid-template-columns:1fr}
+  .card-cover{height:280px}
+}
+
+/* ===== mini player ===== */
+.mini-audio {
+  --h: 42px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: .45rem .7rem;
+  margin: .55rem 0;
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: .6rem;
+}
+
+.mini-audio__btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #222; color: var(--accent);
+  border: 1px solid rgba(255,255,255,.12);
+  cursor: pointer; transition: transform .15s;
+}
+.mini-audio__btn:hover { transform: scale(1.05); }
+
+.mini-audio__title { font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.mini-audio__time { font-size: .78rem; color: var(--muted); min-width: 70px; text-align: right; }
+
+.mini-audio__bar {
+  grid-column: 2 / -1;
+  height: 6px; border-radius: 999px; margin-top: .35rem;
+  background: rgba(255,255,255,.08); overflow: hidden; position: relative;
+}
+.mini-audio__bar > i {
+  position: absolute; inset: 0 100% 0 0; background: linear-gradient(90deg, var(--accent), #fff);
+  transition: inset .2s linear;
+}
+
+/* ícones (play/pause simples) */
+.mini-audio__btn svg { width: 16px; height: 16px; fill: currentColor; }
