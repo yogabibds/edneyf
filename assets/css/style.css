@@ -1,338 +1,241 @@
-/* ==========================
-   LAIA MUSIC — STYLE.CSS
-   ========================== */
+/* ============================================================
+   LAIA MUSIC — STYLE.CSS (versão final oliva/dourado)
+============================================================ */
 
-/* ====== Tokens / Variáveis ====== */
+/* ------------------------------
+   VARIÁVEIS (PALETA FINAL)
+------------------------------ */
 :root{
-  /* Paleta Laia Music */
-  --bg:#0F2A14;              /* verde escuro */
-  --bg-2:#1E4825;            /* verde médio */
-  --bg-light:#376B40;        /* verde claro */
-  --gold:#D7B56D;            /* dourado */
-  --gold-soft:#E8D9A8;       /* dourado claro */
-  --txt:#ffffff;             /* branco */
-  --muted:#d6d6d6;           /* branco suave */
+  --preto:#000000;
+  --branco:#ffffff;
 
-  /* UI */
-  --nav-h:72px;
-  --rad:14px;
-  --stroke:rgba(255,255,255,.15);
-  --card:#1E4825;
-  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --verde-militar:#1f2a14;
+  --verde-oliva:#4b5e2a;
+  --verde-suave:#2a3220;
 
-  /* alias */
-  --accent: var(--gold);
+  --dourado:#c9a348;
+
+  --texto-branco:#ffffff;
+  --texto-preto:#111111;
+
+  --container-w:1100px;
+
+  --radius:14px;
+  --shadow-big:0 18px 40px rgba(0,0,0,.45);
+  --shadow-soft:0 10px 20px rgba(0,0,0,.25);
+
+  --nav-h:70px;
 }
 
-/* ====== Reset ====== */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+/* ------------------------------
+   RESET
+------------------------------ */
+*{box-sizing:border-box;margin:0;padding:0}
 img{max-width:100%;display:block}
+body{font-family:"Inter", sans-serif;line-height:1.55;background:var(--preto);color:var(--texto-branco);scroll-behavior:smooth;padding-top:var(--nav-h)}
 
-/* ====== Base ====== */
-body{
-  background:var(--bg);
-  color:var(--txt);
-  font:400 16px/1.6 "Work Sans", sans-serif;
-  scroll-behavior:smooth;
-  padding-top:var(--nav-h);
-}
+/* ------------------------------
+   BASE
+------------------------------ */
+.container{max-width:var(--container-w);margin:0 auto;padding:0 20px}
+.lead{opacity:.85;margin-top:10px}
 
-/* ====== Containers ====== */
-.container{max-width:1120px;margin:0 auto;padding:0 18px}
-.section{padding:80px 18px}
-.lead{color:var(--gold-soft);margin:0 0 1.5rem}
+/* ------------------------------
+   TÍTULOS
+------------------------------ */
+h1,h2,h3{font-family:"Anton", sans-serif;letter-spacing:.5px}
+h1{font-size:48px;color:var(--dourado)}
+h2{font-size:34px;color:var(--dourado);margin-bottom:12px}
+h3{font-size:22px;color:var(--branco);line-height:1.2}
 
-/* ====== Títulos ====== */
-h2{
-  font:600 32px/1.3 "Poppins", sans-serif;
-  color:var(--gold);
-  margin:0 0 12px;
-  letter-spacing:.5px;
-}
-
-/* ==============================
+/* ------------------------------
    NAVBAR
-============================== */
+------------------------------ */
 .nav{
-  position:fixed;top:0;left:0;width:100%;z-index:1000;
-  background:rgba(15,30,20,.82);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:box-shadow .3s ease;
+  position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:999;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(12px);
+  display:flex;align-items:center;
+  transition:box-shadow .3s;
 }
 .nav-inner{
+  width:100%;max-width:var(--container-w);
+  margin:0 auto;padding:0 20px;
   display:flex;justify-content:space-between;align-items:center;
-  min-height:var(--nav-h);padding:.7rem 1.2rem;
 }
 .brand{
-  display:flex;align-items:center;gap:.6rem;
-  text-decoration:none;color:var(--gold);font-weight:600;
-  font-family:"Poppins";
+  display:flex;align-items:center;gap:.5rem;
+  color:var(--branco);text-decoration:none;font-weight:700;font-size:20px;
 }
 .brand img{width:40px;height:40px}
-.menu{display:flex;gap:1.4rem}
+.menu{display:flex;gap:1.2rem}
 .nav-item{
-  color:var(--gold-soft);
-  text-decoration:none;
-  font-weight:500;
-  font-family:"Work Sans";
-  transition:.2s;
+  color:var(--branco);text-decoration:none;font-weight:600;
+  opacity:.85;transition:opacity .2s;
 }
-.nav-item:hover{color:var(--gold)}
+.nav-item:hover{opacity:1}
 
-/* ==============================
-   HERO
-============================== */
-.hero{
-  min-height:calc(100vh - var(--nav-h));
-  display:grid;
-  align-items:center;
+/* ------------------------------
+   HERO FULLSCREEN
+------------------------------ */
+.hero-full{
+  position:relative;width:100%;height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:var(--preto);
 }
-.hero-inner{
-  display:grid;
-  grid-template-columns:340px 1fr;
-  gap:32px;
-  align-items:center;
+.hero-full-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  filter:brightness(.55);
 }
-.hero-photo{
-  width:100%;
-  height:380px;
-  object-fit:cover;
-  border-radius:18px;
-  box-shadow:var(--shadow);
-  transition:.35s;
+.hero-full-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.3),rgba(0,0,0,.7));
 }
-.hero-photo:hover{transform:scale(1.04)}
-.hero-text{max-width:560px}
-.display{
-  font:700 42px/1.15 "Poppins", sans-serif;
-  color:var(--gold);
+.hero-full-content{
+  position:relative;z-index:10;text-align:center;
+  max-width:720px;padding:0 20px;
 }
-.highlight{color:var(--gold-soft)}
-.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.2rem}
+.hero-title{font-size:56px;color:var(--dourado)}
+.hero-subtitle{color:var(--branco);opacity:.9;margin-top:12px;font-size:18px}
 
-/* ==============================
-   BOTÕES
-============================== */
+/* ------------------------------
+   CTA
+------------------------------ */
+.cta-center{
+  margin-top:22px;display:flex;justify-content:center;gap:12px;
+}
 .btn{
-  position:relative;overflow:hidden;
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:.78rem 1.25rem;border-radius:12px;
-  text-decoration:none;font-weight:600;cursor:pointer;
-  transition:.15s; font-family:"Poppins";
-  border:none;
+  padding:.8rem 1.4rem;border-radius:12px;
+  display:inline-block;text-decoration:none;
+  font-weight:700;font-size:15px;
+  transition:.2s;border:none;cursor:pointer;
 }
-.btn:hover{transform:translateY(-2px)}
-
 .btn-primary{
-  background:var(--gold);
-  color:#0F2A14;
-  box-shadow:0 8px 22px rgba(215,181,109,.35);
+  background:var(--verde-oliva);color:var(--branco);
+}
+.btn-primary:hover{
+  background:var(--dourado);color:var(--preto);
 }
 .btn-olive{
-  background:var(--bg-light);
-  color:var(--gold);
-  border:1px solid var(--gold-soft);
+  background:var(--verde-suave);color:var(--branco);
 }
-.btn-ghost{
-  background:transparent;
-  border:1px solid var(--gold);
-  color:var(--gold);
+.btn-olive:hover{
+  background:var(--dourado);color:var(--preto);
 }
 
-/* brilho */
-.btn::after{
-  content:"";position:absolute;top:-50%;left:-150%;
-  width:120%;height:200%;
-  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.18) 45%,rgba(255,255,255,.28) 50%,rgba(255,255,255,.18) 55%,transparent 100%);
-  transform:skewX(-20deg);
-  pointer-events:none;
-}
-.btn:hover::after{animation:shine .85s ease forwards}
-@keyframes shine{to{left:150%}}
+/* ------------------------------
+   FAIXAS / STRIPS
+------------------------------ */
+.strip{padding:80px 0}
+.strip-black{background:var(--preto);color:var(--branco)}
+.strip-green-dark{background:var(--verde-militar);color:var(--branco)}
+.strip-green-olive{background:var(--verde-oliva);color:var(--branco)}
+.strip-green-soft{background:var(--verde-suave);color:var(--branco)}
+.strip-white{background:var(--branco);color:var(--texto-preto)}
 
-/* ==============================
-   DISCOGRAFIA / PLAYLISTS
-============================== */
-.lm-grid-2,
-.lm-grid-3{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:26px;
-}
-
+/* ------------------------------
+   CARDS DISCOGRAFIA
+------------------------------ */
 .card{
-  background:var(--bg-2);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:18px;
-  box-shadow:0 8px 26px rgba(0,0,0,.28);
+  background:#fff1;border-radius:var(--radius);
+  border:1px solid #ffffff22;
+  box-shadow:var(--shadow-soft);
   overflow:hidden;
-  transition:.35s;
+  transition:.25s;
 }
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 34px rgba(0,0,0,.45);
-}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-big)}
 .card-cover{
-  width:100%;
-  height:320px;
-  object-fit:cover;
-  object-position:center;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:.35s;
-}
-.card:hover .card-cover{
-  filter:brightness(1.06) saturate(110%);
+  width:100%;height:280px;object-fit:cover;
+  border-bottom:1px solid #ffffff22;
 }
 .card .p{padding:16px}
 
-/* Ícones playlists */
-.lm-icons{
-  display:flex;gap:.6rem;align-items:center;margin:.8rem 0 .4rem;
-}
+/* ícones */
+.lm-icons{display:flex;gap:.5rem;margin-top:.7rem}
 .lm-ico{
-  display:inline-grid;place-items:center;
-  width:36px;height:36px;border-radius:50%;
-  background:transparent;
-  border:1px solid var(--gold);
-  color:var(--gold);
-  text-decoration:none;
-  transition:.2s;
+  width:36px;height:36px;display:grid;place-items:center;
+  border-radius:8px;border:1px solid #ffffff33;
+  background:#00000055;color:var(--dourado);
+  text-decoration:none;transition:.2s;
 }
-.lm-ico:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(215,181,109,.25);
+.lm-ico:hover{transform:translateY(-2px)}
+
+/* link */
+.lm-link{text-decoration:underline;color:var(--branco);opacity:.8}
+.lm-link:hover{opacity:1}
+
+/* ------------------------------
+   MINI PLAYERS
+------------------------------ */
+.mini-audio{
+  background:#ffffff0d;border:1px solid #ffffff22;
+  padding:.55rem .75rem;border-radius:12px;
+  margin:.55rem 0;
+  display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:.6rem;
+}
+.mini-audio__btn{
+  width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+  background:#00000088;border:1px solid #ffffff33;color:var(--dourado);
+}
+.mini-audio__btn:hover{transform:scale(1.06)}
+.mini-audio__title{font-size:.95rem}
+.mini-audio__time{font-size:.78rem;opacity:.8;min-width:70px;text-align:right}
+.mini-audio__bar{
+  grid-column:2/-1;height:6px;border-radius:999px;margin-top:.35rem;
+  background:#ffffff22;overflow:hidden;position:relative;
+}
+.mini-audio__bar i{
+  position:absolute;inset:0 100% 0 0;
+  background:linear-gradient(90deg,var(--dourado),#fff);
 }
 
-/* Links */
-.lm-link{
-  display:inline-block;margin-top:.6rem;
-  color:var(--gold-soft);
-  font-family:"Work Sans";
-}
-.lm-link:hover{color:var(--gold)}
-
-/* ==============================
-   MEMORIAL
-============================== */
-.memorial-grid{
+/* ------------------------------
+   MEMORIAL POLAROID
+------------------------------ */
+.memorial-polaroid-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;margin-top:40px;
 }
-.memorial-item{
-  position:relative;overflow:hidden;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.15);
+.polaroid{
+  background:var(--branco);padding:12px;border-radius:8px;
+  border:1px solid #e5e5e5;box-shadow:0 4px 12px rgba(0,0,0,.15);
+  display:flex;flex-direction:column;gap:8px;
 }
-.memorial-item img{
-  width:100%;height:100%;object-fit:cover;
-  transition:.35s;
+.polaroid img{
+  width:100%;height:200px;object-fit:cover;border-radius:4px;
 }
-.memorial-item:hover img{transform:scale(1.06)}
+.polaroid figcaption{
+  text-align:center;font-size:14px;font-weight:600;color:#444;
+}
 
-/* ==============================
-   FORM
-============================== */
-.form{
-  display:grid;gap:.8rem;
-  max-width:520px;
-}
+/* ------------------------------
+   FORMULÁRIO
+------------------------------ */
+.form{display:grid;gap:.9rem;max-width:560px}
 .form input,.form textarea{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.15);
-  color:var(--txt);
-  padding:.85rem 1rem;
-  border-radius:14px;
+  background:#ffffff; /* inputs brancos */
+  border:2px solid #cccccc;
+  padding:.8rem 1rem;border-radius:12px;font-size:15px;
 }
 .form input:focus,.form textarea:focus{
-  border-color:var(--gold);
+  border-color:var(--dourado);outline:none;
 }
 
-/* ==============================
+/* ------------------------------
    FOOTER
-============================== */
-footer{
-  background:var(--bg-2);
-  border-top:1px solid rgba(255,255,255,.12);
-  text-align:center;
-  padding:32px 18px;
-  color:var(--gold-soft);
-  font-family:"Work Sans";
+------------------------------ */
+.footer-dark{
+  background:var(--preto);padding:25px 0;text-align:center;
+  color:#cccccc;font-size:14px;
 }
 
-/* ==============================
+/* ------------------------------
    RESPONSIVO
-============================== */
-@media (max-width:1024px){
-  .hero-inner{grid-template-columns:300px 1fr}
-  .hero-photo{height:340px}
-}
-@media (max-width:860px){
-  .hero-inner{grid-template-columns:1fr;gap:22px}
-  .hero-text{text-align:center;margin:0 auto}
-  .hero-photo{height:300px;justify-self:center}
-}
-@media (max-width:620px){
-  .display{font-size:32px}
-  .memorial-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:480px){
-  .memorial-grid{grid-template-columns:1fr}
-  .card-cover{height:260px}
-}
-
-/* ==============================
-   MINI PLAYER
-============================== */
-.mini-audio {
-  --h: 42px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 12px;
-  padding: .45rem .7rem;
-  margin: .55rem 0;
-  display: grid;
-  grid-template-columns: 36px 1fr auto;
-  align-items: center;
-  gap: .6rem;
-}
-.mini-audio__btn {
-  width: 36px; height: 36px; border-radius: 50%;
-  display: grid; place-items: center;
-  background: var(--bg-light);
-  color: var(--gold);
-  border: 1px solid rgba(255,255,255,.15);
-  cursor: pointer; transition:.15s;
-}
-.mini-audio__btn:hover { transform: scale(1.06); }
-
-.mini-audio__title {
-  font-size: .95rem;
-  color: var(--gold-soft);
-  font-family:"Work Sans";
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-
-.mini-audio__time {
-  font-size: .78rem;
-  color: var(--gold-soft);
-  min-width: 70px; text-align: right;
-}
-
-.mini-audio__bar {
-  grid-column: 2 / -1;
-  height: 6px; border-radius: 999px; margin-top: .35rem;
-  background: rgba(255,255,255,.1);
-  overflow: hidden; position: relative;
-}
-.mini-audio__bar > i {
-  position: absolute;
-  inset: 0 100% 0 0;
-  background: linear-gradient(90deg,var(--gold),#fff);
-  transition: inset .2s linear;
-}
-.mini-audio__btn svg {
-  width: 16px; height: 16px; fill: currentColor;
+------------------------------ */
+@media(max-width:700px){
+  h1{font-size:40px}
+  .hero-full{height:88vh}
+  .hero-title{font-size:40px}
+  .card-cover{height:220px}
 }
