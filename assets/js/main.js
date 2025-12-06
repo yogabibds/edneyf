@@ -1,11 +1,10 @@
 // ========= Helpers =========
 async function loadJSON(path){ const r = await fetch(path); return r.json(); }
-const $$ = sel => document.querySelector(sel);
+const $$  = sel => document.querySelector(sel);
 const $$$ = sel => [...document.querySelectorAll(sel)];
 
 // ========= I18N (PT/ES/DE/NL/RU) =========
 const I18N = { dict:{}, lang: (localStorage.getItem('lang') || 'pt') };
-
 function t(key, fallback=''){ return (I18N.dict && I18N.dict[key]) || fallback || key; }
 
 async function loadI18n(lang){
@@ -16,16 +15,12 @@ async function loadI18n(lang){
   applyI18n();
   updateLangLabel();
 }
-
 function applyI18n(){
   $$$('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n');
-    if(!key) return;
-    const val = t(key);
-    if(val) el.innerHTML = val;
+    const key = el.getAttribute('data-i18n'); if(!key) return;
+    const val = t(key); if(val) el.innerHTML = val;
   });
 }
-
 // ========= Lang UI (dropdown do header) =========
 function updateLangLabel(){
   const label = $$('.lang-current');
@@ -53,17 +48,15 @@ function initLangUI(){
 }
 
 // ========= Playlists =========
-// Espera por data/playlists.json com chaves:
-// { "cd_ed_a_tripulacao": "...", "composicoes_edney": "...", "gesto_de_carinho": "..." }
+// data/playlists.json => { "cd_ed_a_tripulacao": "...", "composicoes_edney": "...", "gesto_de_carinho": "..." }
 async function buildPlaylists(){
   let p={}; try{ p = await loadJSON('data/playlists.json'); }catch{}
   const map = [
-    {key:'cd_ed_a_tripulacao', labelKey:'pl.cd', fallback:'CD — Ed & A Tripulação'},
-    {key:'composicoes_edney',  labelKey:'pl.composicoes', fallback:'Composições — Edney Fernandes'},
-    {key:'gesto_de_carinho',   labelKey:'pl.gesto', fallback:'Gesto de Carinho (em breve)'}
+    {key:'cd_ed_a_tripulacao', labelKey:'pl.cd',           fallback:'CD — Ed & A Tripulação'},
+    {key:'composicoes_edney',  labelKey:'pl.composicoes',  fallback:'Composições — Edney Fernandes'},
+    {key:'gesto_de_carinho',   labelKey:'pl.gesto',        fallback:'Gesto de Carinho (em breve)'}
   ];
-  const c = document.getElementById('playlist-buttons');
-  if(!c) return;
+  const c = document.getElementById('playlist-buttons'); if(!c) return;
   c.innerHTML = '';
   map.forEach(m=>{
     const url = p[m.key];
@@ -78,7 +71,7 @@ async function buildPlaylists(){
 }
 
 // ========= Memorial =========
-// data/memorial.json -> [{ "src":"assets/img/memorial/memorial-01.jpg", "alt":"..." }, ...]
+// data/memorial.json => [{ "src":"assets/img/memorial/memorial-01.jpg", "alt":"..." }, ...]
 async function buildMemorial(){
   let list=[]; try{ list = await loadJSON('data/memorial.json'); }catch{}
   const g = document.getElementById('memorial-grid'); if(!g) return;
@@ -92,7 +85,7 @@ async function buildMemorial(){
 }
 
 // ========= Making Of (opcional) =========
-// data/makingof.json -> [{ "titulo":"Faixa", "arquivo":"assets/audio/..." }, ...]
+// data/makingof.json => [{ "titulo":"Faixa", "arquivo":"assets/audio/..." }, ...]
 async function buildMakingOf(){
   let list=[]; try{ list = await loadJSON('data/makingof.json'); }catch{ list=[]; }
   const wrap = document.getElementById('makingof'); if(!wrap) return;
@@ -106,30 +99,38 @@ async function buildMakingOf(){
   wrap.appendChild(ul);
 }
 
-// ========= Boot =========
-document.addEventListener('DOMContentLoaded', async ()=>{
-  initLangUI();
-  await loadI18n(I18N.lang); // aplica textos
-  buildPlaylists();
-  buildMemorial();
-  (function(){
-  const nav = document.querySelector('.nav');
-  if(!nav) return;
-  const sc = ()=> nav.style.boxShadow = (window.scrollY>4) ? '0 6px 20px rgba(0,0,0,.35)' : 'none';
-  sc(); addEventListener('scroll', sc, {passive:true});
-})();
-// ===== Mini Player compacto (um único <audio> compartilhado) =====
-(function(){
+// ========= Navbar shrink/blur + menu mobile =========
+function initNav(){
+  const nav = document.getElementById('nav');
+  const hamb = document.querySelector('.hamb');
+  const menu = document.getElementById('menu');
+  const onScroll = ()=>{ if(window.scrollY>10) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  if(hamb && menu){
+    hamb.addEventListener('click', ()=>{
+      const open = menu.classList.toggle('open');
+      hamb.setAttribute('aria-expanded', open?'true':'false');
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> menu.classList.remove('open')));
+  }
+}
+
+// ========= Reveal-on-scroll =========
+function initReveal(){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+
+// ========= Mini Player (um único <audio> compartilhado) =========
+function initMiniPlayers(){
   const items = [...document.querySelectorAll('.mini-audio')];
   if(!items.length) return;
 
-  // único elemento de áudio compartilhado
-  const audio = new Audio();
-  audio.preload = 'metadata';
+  const audio = new Audio(); audio.preload = 'metadata';
+  let current = null;
 
-  let current = null; // div ativa
-
-  // formata 90 -> "1:30"
   const mmss = s => {
     if(!isFinite(s)) return '0:00';
     s = Math.max(0, Math.floor(s));
@@ -137,11 +138,9 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     return `${m}:${ss}`;
   };
 
-  // cria UI
   items.forEach(box => {
     const title = box.dataset.title || 'Faixa';
     const src   = box.dataset.src;
-
     box.innerHTML = `
       <button class="mini-audio__btn" aria-label="Play">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -150,55 +149,58 @@ document.addEventListener('DOMContentLoaded', async ()=>{
       <div class="mini-audio__time">0:00</div>
       <div class="mini-audio__bar"><i></i></div>
     `;
-
     const btn  = box.querySelector('.mini-audio__btn');
     const time = box.querySelector('.mini-audio__time');
     const bar  = box.querySelector('.mini-audio__bar i');
 
-    // play/pause
     btn.addEventListener('click', () => {
       if(current === box && !audio.paused){ audio.pause(); return; }
-      // trocar de faixa
       if(current !== box){
         current?.querySelector('.mini-audio__btn').innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
-        current = box;
-        audio.src = src; audio.play().catch(()=>{});
+        current = box; audio.src = src; audio.play().catch(()=>{});
       }else{
         audio.play().catch(()=>{});
       }
     });
 
-    // clique na barra para buscar
     box.querySelector('.mini-audio__bar').addEventListener('click', (e)=>{
-      if(audio.src.indexOf(src) === -1) return; // ainda não carregou essa
+      if(audio.src.indexOf(src) === -1) return;
       const rect = e.currentTarget.getBoundingClientRect();
       const p = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
       audio.currentTime = p * (audio.duration || 0);
     });
 
-    // quando essa faixa estiver tocando, atualizar UI
     audio.addEventListener('timeupdate', ()=>{
       if(current !== box) return;
       const d = audio.duration || 0;
       bar.style.inset = `0 ${Math.max(0,100-((audio.currentTime/d)*100))}% 0 0`;
       time.textContent = `${mmss(audio.currentTime)} / ${mmss(d)}`;
     });
-
     audio.addEventListener('play', ()=>{
       if(current === box){
         btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>`;
       }
     });
-
     audio.addEventListener('pause', ()=>{
       btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
     });
-
     audio.addEventListener('ended', ()=>{
       if(current === box){
         btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
       }
     });
   });
-})();
+}
 
+// ========= Boot =========
+document.addEventListener('DOMContentLoaded', async ()=>{
+  initNav();
+  initReveal();
+  initLangUI();
+
+  await loadI18n(I18N.lang);
+  buildPlaylists();
+  buildMemorial();
+  buildMakingOf();
+  initMiniPlayers();
+});
