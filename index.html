@@ -1,339 +1,336 @@
 <!doctype html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title data-i18n="seo.title">Laia Music — O legado de Edney Fernandes</title>
-  <meta name="description"
-        content="Site oficial do legado de Edney Fernandes: composições, discografia, playlists e memória afetiva."
-        data-i18n="seo.description">
+  <!-- SEO básico -->
+  <title>Laia Music — O legado de Edney Fernandes</title>
+  <meta name="description" content="Site oficial do legado de Edney Fernandes: história, composições, discografia, playlists e memória afetiva.">
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://laiamusictesting.netlify.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Laia Music — O legado de Edney Fernandes">
+  <meta property="og:description" content="Site oficial do legado de Edney Fernandes: história, composições, discografia, playlists e memória afetiva.">
+  <meta property="og:url" content="https://laiamusictesting.netlify.app/">
+  <meta property="og:image" content="https://laiamusictesting.netlify.app/assets/img/hero-edney.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Laia Music — O legado de Edney Fernandes">
+  <meta name="twitter:description" content="Site oficial do legado de Edney Fernandes: história, composições, discografia, playlists e memória afetiva.">
+  <meta name="twitter:image" content="https://laiamusictesting.netlify.app/assets/img/hero-edney.jpg">
+
+  <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-  <!-- Fonts -->
+  <!-- Fonts + CSS principal -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- JSON-LD: PERSON -->
+  <!-- Schema.org: A Hora é Essa -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Edney Fernandes",
-    "alternateName":["Ed Fernandes","Ednei Fernandes"],
-    "jobTitle":"Cantor, compositor e instrumentista",
-    "genre":["Samba","Pagode","MPB"],
-    "sameAs":[
-      "https://open.spotify.com/artist/7864196",
-      "https://www.youtube.com/playlist?list=PLtVHgkMECyztJ7vUda3_fKppB2hM5iV6X"
-    ]
+    "@type":"MusicAlbum",
+    "name":"A Hora é Essa",
+    "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
+    "genre":["MPB","Pop"],
+    "producer":{"@type":"Person","name":"Arnaldo Saccomani"},
+    "contributor":[{"@type":"Person","name":"Wilson Souto Jr.","jobTitle":"Direção Artística"}]
   }
   </script>
 
-  <!-- JSON-LD: SITE -->
+  <!-- Schema.org: Despedida (projeto póstumo) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"Laia Music",
-    "url":"https://laiamusictesting.netlify.app/",
-    "inLanguage":"pt-BR",
-    "publisher":{"@type":"Organization","name":"Laia Music"}
+    "@type":"MusicAlbum",
+    "name":"Despedida",
+    "byArtist":{"@type":"MusicGroup","name":"Edney Fernandes & Gesto de Carinho"},
+    "genre":["MPB","Pop Romântico"]
   }
   </script>
-
 </head>
-
 <body id="top">
 
-<!-- ============================================================
-     NAV
-============================================================ -->
-<nav class="nav">
-  <div class="container nav-inner">
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Laia Music — início">
+        <img src="assets/img/logo-laia-music.png" alt="Laia Music" class="logo">
+        <span>Laia Music</span>
+      </a>
+      <div class="menu" role="navigation" aria-label="Principal">
+        <a class="nav-item" href="#discografia">Discografia</a>
+        <a class="nav-item" href="#playlists">Playlists</a>
+        <a class="nav-item" href="#memorial">Memorial</a>
+        <a class="nav-item" href="#contato">Contato</a>
+      </div>
+    </div>
+  </nav>
 
-    <a class="brand" href="#top">
-      <img src="assets/img/logo-laia-music.png" alt="Laia Music">
-      <span data-i18n="nav.laia_music">Laia Music</span>
-    </a>
+  <!-- HERO -->
+  <header class="hero container">
+    <div class="hero-inner">
+      <!-- Foto circular acima, ao lado do nome -->
+      <img class="hero-photo" src="assets/img/hero-edney.jpg" alt="Retrato de Edney Fernandes">
+      <div class="hero-text">
+        <div class="display">Laia Music — <span class="highlight">O legado de Edney Fernandes</span></div>
+        <p>Site oficial para preservar e difundir a obra de Edney Fernandes: história, composições, playlists, fotos e memória afetiva.</p>
+        <div class="cta">
+          <a href="#discografia" class="btn btn-primary">Discografia</a>
+          <a href="#playlists" class="btn btn-olive">Playlists</a>
+          <a href="#contato" class="btn btn-ghost">Contato</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <div class="menu">
-      <a class="nav-item" href="#legado" data-i18n="nav.legado">Legado</a>
-      <a class="nav-item" href="#discografia" data-i18n="nav.discografia">Discografia | Playlists</a>
-      <a class="nav-item" href="#composicoes" data-i18n="nav.composicoes">Composições</a>
-      <a class="nav-item" href="#memorial" data-i18n="nav.memorial">Memorial</a>
-      <a class="nav-item" href="#contato" data-i18n="nav.contato">Contato</a>
+  <!-- DISCOGRAFIA -->
+  <section id="discografia" class="section is-tripulacao container" aria-labelledby="discog-title">
+    <h2 id="discog-title" class="sr-only">Discografia</h2>
+    <div class="section-banner banner-tripulacao">Ed & A Tripulação</div>
+
+    <div class="discog">
+      <!-- Card 1: Grupo (com wrapper menor) -->
+      <article class="card is-tripulacao" style="max-width:560px">
+        <img src="assets/img/discografia/ed-grupo.jpg" alt="Ed & A Tripulação — foto de grupo">
+        <div class="p">
+          <h3>Ed & A Tripulação</h3>
+          <p>Grupo dos anos 90. Regina participou.</p>
+          <div class="badges" aria-label="Plataformas">
+            <a class="badge" href="https://www.discogs.com/artist/7864196-Edney-Fernandes" target="_blank" rel="noopener">Discogs</a>
+            <a class="badge" href="https://open.spotify.com/artist/7bKdzyUaZ2LvSI0aDkqCYS" target="_blank" rel="noopener">Spotify</a>
+            <a class="badge" href="https://music.apple.com/us/artist/ed-e-a-tripula%C3%A7%C3%A3o/1527134686" target="_blank" rel="noopener">Apple Music</a>
+            <a class="badge" href="https://www.youtube.com/playlist?list=PLtVHgkMECyztJ7vUda3_fKppB2hM5iV6X" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: CD A Hora é Essa (com encarte PDF) -->
+      <article class="card is-tripulacao">
+        <img src="assets/img/discografia/ed-album-collage.jpg" alt="Álbum A Hora é Essa — colagem do encarte">
+        <div class="p">
+          <h3>A Hora é Essa (CD)</h3>
+          <p>Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.</p>
+          <div class="badges">
+            <a class="badge" href="docs/Ed_e_a_Tripulacao_A_Hora_E_Essa.pdf" target="_blank" rel="noopener" aria-label="Abrir encarte em PDF">Encarte (PDF)</a>
+            <a class="badge" href="https://www.discogs.com/release/15394363-Ed-E-A-Tripula%C3%A7%C3%A3o-Ed-E-A-Tripula%C3%A7%C3%A3o" target="_blank" rel="noopener">Discogs</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Gesto de Carinho (projeto póstumo) -->
+      <article class="card is-gesto">
+        <img src="assets/img/discografia/gesto-capa.jpg" alt="Gesto de Carinho — capa provisória">
+        <div class="p">
+          <h3>Gesto de Carinho</h3>
+          <p>produção: Despedida … parcerias com Humberto Tavares, Thaís Nascimento, Valtinho Jota, Ronaldo Marques.</p>
+          <div class="badges">
+            <a class="badge" href="docs/Dossie_Album_Edney_Fernandes_Despedida.pdf" target="_blank" rel="noopener">Dossiê (PDF)</a>
+            <span class="badge" aria-disabled="true">Em breve</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PLAYLISTS -->
+  <section id="playlists" class="section container" aria-labelledby="play-title">
+    <h2 id="play-title">Playlists</h2>
+    <p class="lead">Ouça seleções oficiais nas plataformas.</p>
+
+    <!-- Bloco Tripulação -->
+    <div class="section-banner banner-tripulacao">CD — Ed & A Tripulação</div>
+    <div class="discog">
+      <article class="card is-tripulacao">
+        <div class="p">
+          <h3>Álbum oficial</h3>
+          <p>Faixas do álbum e registros relacionados nas plataformas.</p>
+          <div class="badges">
+            <!-- Substitua # pelos URLs quando tiver -->
+            <a class="badge" href="#" aria-label="Abrir no Spotify">Spotify</a>
+            <a class="badge" href="#" aria-label="Abrir no Apple Music">Apple</a>
+            <a class="badge" href="#" aria-label="Abrir no Deezer">Deezer</a>
+            <a class="badge" href="https://www.youtube.com/playlist?list=PLtVHgkMECyztJ7vUda3_fKppB2hM5iV6X" target="_blank" rel="noopener" aria-label="Abrir no YouTube">YouTube</a>
+          </div>
+          <ul style="margin:.6rem 0 0 1rem">
+            <li>Por Trás de um Sorriso</li>
+            <li>Haja Coração</li>
+          </ul>
+        </div>
+      </article>
     </div>
 
-  </div>
-</nav>
-
-
-<!-- ============================================================
-     HERO FULLSCREEN
-============================================================ -->
-<header class="hero-full">
-
-  <img src="assets/img/hero-edney.jpg" alt="Edney Fernandes" class="hero-full-img">
-
-  <div class="hero-full-overlay"></div>
-
-  <div class="hero-full-content">
-    <h1 class="hero-title" data-i18n="hero.title">Memorial de Edney Fernandes</h1>
-
-    <p class="hero-subtitle" data-i18n="hero.subtitle">
-      A obra, história e memória afetiva preservadas com cuidado e verdade.
-    </p>
-
-    <div class="cta-center">
-      <a href="#discografia" class="btn btn-primary" data-i18n="hero.btn_discografia">Discografia</a>
-      <a href="#composicoes" class="btn btn-olive" data-i18n="hero.btn_composicoes">Composições</a>
+    <!-- Bloco Composições Edney -->
+    <div class="section-banner banner-composicoes">Composições — Edney Fernandes</div>
+    <div class="discog">
+      <article class="card is-composicoes">
+        <div class="p">
+          <h3>Diferentes vozes & grupos</h3>
+          <p>Interpretações de obras de Edney em várias formações.</p>
+          <div class="badges">
+            <!-- Coloque o link oficial da playlist de composições -->
+            <a class="badge" href="#" aria-label="Abrir no Spotify">Spotify</a>
+            <a class="badge" href="#" aria-label="Abrir no YouTube">YouTube</a>
+          </div>
+        </div>
+      </article>
     </div>
-  </div>
-</header>
-<!-- ============================================================
-     LEGADO — STRIP VERDE MILITAR
-============================================================ -->
-<section id="legado" class="strip strip-green-dark">
-  <div class="container">
 
-    <h2 data-i18n="legado.title">Legado</h2>
-
-    <p class="lead" data-i18n="legado.text">
-      Edney Fernandes (1977–2004) foi compositor e músico paulista ligado ao samba e ao pagode romântico.
-      Iniciou em rodas de samba na Zona Leste e em Guarulhos, reuniu mais de 40 obras autorais e parcerias,
-      com gravações por nomes do pagode dos anos 90 e 2000. Atuou no grupo “Ed & A Tripulação”.
-      Seu catálogo é preservado pela família, com organização de acervo, dossiês e relançamentos planejados.
-    </p>
-
-  </div>
-</section>
-
-
-<!-- ============================================================
-     DISCOGRAFIA — STRIP VERDE OLIVA
-============================================================ -->
-<section id="discografia" class="strip strip-green-olive">
-  <div class="container">
-
-    <h2 data-i18n="discografia.title">Discografia | Playlists</h2>
-    <p class="lead" data-i18n="discografia.subtitle">Lançamentos e seleções oficiais.</p>
-
-    <div class="discog lm-grid-3">
-
-
-      <!-- ======================================================
-           A) ED & A TRIPULAÇÃO — A HORA É ESSA
-      ====================================================== -->
-      <article class="card card--md">
-
-        <img class="card-cover"
-             src="assets/img/discografia/ed-tripulacao.jpg"
-             alt="Capa do CD A Hora é Essa — Ed & A Tripulação">
-
+    <!-- Bloco Pagode anos 90 -->
+    <div class="section-banner banner-composicoes">Pagode Anos 90</div>
+    <div class="discog">
+      <article class="card is-composicoes">
         <div class="p">
-
-          <h3 data-i18n="album.ahae.title">Ed &amp; A Tripulação — A Hora é Essa</h3>
-
-          <p data-i18n="album.ahae.desc">
-            Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.
-          </p>
-
-          <!-- MINI-PLAYERS (GLOBAL) — TODAS AS FAIXAS -->
-          <div class="mini-audio" data-title="A Hora é Essa" data-src="assets/audios/ed-tripulacao-a-hora-e-essa.mp3"></div>
-          <div class="mini-audio" data-title="Jeito de Feiticeira" data-src="assets/audios/ed-tripulacao-jeito-de-feiticeira.mp3"></div>
-          <div class="mini-audio" data-title="Baby" data-src="assets/audios/ed-tripulacao-baby.mp3"></div>
-          <div class="mini-audio" data-title="Momentos de Tristeza" data-src="assets/audios/ed-tripulacao-momentos-de-tristeza.mp3"></div>
-          <div class="mini-audio" data-title="Não é da Minha Conta" data-src="assets/audios/ed-tripulacao-nao-e-da-minha-conta.mp3"></div>
-          <div class="mini-audio" data-title="Faz de Conta" data-src="assets/audios/ed-tripulacao-faz-de-conta.mp3"></div>
-
-          <!-- ÍCONES -->
-          <div class="lm-icons">
-            <a class="lm-ico lm-ico--spotify"
-               href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ"
-               target="_blank" aria-label="Spotify">🎧</a>
-
-            <a class="lm-ico lm-ico--youtube"
-               href="https://youtube.com/playlist?list=PLqnsR5NrdI1O2-f3KLpRq3DxYJACpLooP"
-               target="_blank">▶️</a>
-
-            <a class="lm-ico"
-               href="https://www.letras.mus.br/ed-e-a-tripulacao/"
-               target="_blank">🎤</a>
+          <h3>Seleção especial</h3>
+          <p>Clássicos que compõem o contexto sonoro da época.</p>
+          <div class="badges">
+            <a class="badge" href="https://open.spotify.com/playlist/0N4ki83JuTs7b5sSHozx8a?si=Oh1r_wJdQXe60vWQWnM8FQ&pi=Umx5htLiT6KoS" target="_blank" rel="noopener" aria-label="Abrir no Spotify">Spotify</a>
           </div>
-
-          <a class="lm-link"
-             href="assets/doc/Ficha Tecnica Ok - Ed e a Tripulação.pdf"
-             target="_blank" rel="noopener" data-i18n="album.ahae.pdf">
-             Ficha técnica (PDF)
-          </a>
-
         </div>
       </article>
+    </div>
 
-
-      <!-- ======================================================
-           B) GESTO DE CARINHO — DESPEDIDA
-      ====================================================== -->
-      <article class="card card--md">
-
-        <img class="card-cover"
-             src="assets/img/discografia/gesto-capa.jpg"
-             alt="Capa — Gesto de Carinho: Despedida">
-
+    <!-- Bloco Gesto de Carinho -->
+    <div class="section-banner banner-gesto">Gesto de Carinho</div>
+    <div class="discog">
+      <article class="card is-gesto">
         <div class="p">
-
-          <h3 data-i18n="album.gesto.title">Gesto de Carinho — <em>Despedida</em></h3>
-
-          <p data-i18n="album.gesto.desc">
-            Lançamento póstumo. Composições de Edney Fernandes com parcerias de
-            Thaís Nascimento, Valtinho J, Ronaldo Marques, Humberto Tavares e outros.
-          </p>
-
-          <!-- MINI-PLAYERS (GLOBAL) — TODAS AS FAIXAS -->
-          <div class="mini-audio" data-title="Meu Desejo" data-src="assets/audios/Meu-desejo-Edney-Fernandes.mp3"></div>
-          <div class="mini-audio" data-title="Despedida" data-src="assets/audios/Despedida-Edney-fernandes.mp3"></div>
-          <div class="mini-audio" data-title="Pra Que Se Machucar" data-src="assets/audios/Pra-que-se-machucar-Edney-Fernandes-e-Thais-Nascimento.mp3"></div>
-          <div class="mini-audio" data-title="Tudo Que Eu Quis" data-src="assets/audios/Tudo-que-eu-quis-Edney-Fernandes-.mp3"></div>
-
-          <div class="lm-icons">
-            <a class="lm-ico lm-ico--spotify"
-               href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB"
-               target="_blank">🎧</a>
-
-            <a class="lm-ico lm-ico--youtube"
-               href="https://youtube.com/playlist?list=PLqnsR5NrdI1OOX1fPs0hxu0C-DlNXzhFe"
-               target="_blank">▶️</a>
+          <h3>Em preparação</h3>
+          <p>Projeto em andamento. Em breve liberaremos uma playlist com os primeiros singles.</p>
+          <div class="badges">
+            <span class="badge" aria-disabled="true">Em breve</span>
           </div>
-
-          <a class="lm-link"
-             href="assets/doc/Safari.pdf"
-             target="_blank" rel="noopener" data-i18n="album.gesto.pdf">
-            Dossiê (PDF)
-          </a>
-
         </div>
       </article>
-            <!-- ======================================================
-           C) PAGODE ANOS 90 — COMPOSIÇÕES DE EDNEY
-      ====================================================== -->
-      <article id="composicoes" class="card card--md">
+    </div>
+  </section>
 
-        <img class="card-cover"
-             src="assets/img/capas/composicoes_playlist.jpg"
-             alt="Pagode anos 90 — Composições de Edney Fernandes">
+  <!-- MEMORIAL (galeria com filtros + lightbox) -->
+  <section id="memorial" class="section is-memorial container" aria-labelledby="mem-title">
+    <h2 id="mem-title">Memorial</h2>
+    <p class="lead">Linha do tempo afetiva: rodas de samba, estúdios, amigos e família.</p>
 
-        <div class="p">
+    <!-- Filtros -->
+    <div class="filters" aria-label="Filtrar por categoria">
+      <button type="button" data-tag="all" class="on">Todos</button>
+      <button type="button" data-tag="show">Show</button>
+      <button type="button" data-tag="studio">Estúdio</button>
+      <button type="button" data-tag="family">Família</button>
+      <button type="button" data-tag="press">Press/Capas</button>
+    </div>
 
-          <h3 data-i18n="composicoes.title">
-            Pagode anos 90 — Composições de Edney Fernandes
-          </h3>
+    <!-- Grade com hover reveal -->
+    <section class="gallery" id="cat" aria-live="polite">
+      <!-- Exemplo de item (repita com suas fotos otimizadas) -->
+      <figure class="card" data-tags="studio">
+        <a href="assets/img/memorial/full/edney-01.webp" class="zoom">
+          <img
+            src="assets/img/memorial/thumbs/edney-01.webp"
+            srcset="assets/img/memorial/thumbs/edney-01.webp 480w,
+                    assets/img/memorial/med/edney-01.webp 800w,
+                    assets/img/memorial/full/edney-01.webp 1400w"
+            sizes="(max-width:600px) 92vw, (max-width:1100px) 45vw, 33vw"
+            alt="Sessão de estúdio com microfone, 1999" loading="lazy">
+        </a>
+        <figcaption>Estúdio • 1999</figcaption>
+      </figure>
 
-          <p data-i18n="composicoes.desc">
-            Obras interpretadas por Exaltasamba, Thiaguinho, Péricles e outros.
-          </p>
+      <figure class="card" data-tags="show press">
+        <a href="assets/img/memorial/full/edney-02.webp" class="zoom">
+          <img
+            src="assets/img/memorial/thumbs/edney-02.webp"
+            srcset="assets/img/memorial/thumbs/edney-02.webp 480w,
+                    assets/img/memorial/med/edney-02.webp 800w,
+                    assets/img/memorial/full/edney-02.webp 1400w"
+            sizes="(max-width:600px) 92vw, (max-width:1100px) 45vw, 33vw"
+            alt="Show ao vivo com luzes quentes" loading="lazy">
+        </a>
+        <figcaption>Show • 2001</figcaption>
+      </figure>
+      <!-- Adicione seus demais <figure> aqui -->
+    </section>
+  </section>
 
-          <div class="lm-icons">
+  <!-- Making Of (áudios virão depois via data/makingof.json) -->
+  <section id="makingof" class="section container" aria-labelledby="mk-title">
+    <h2 id="mk-title">Making Of — Gesto de Carinho</h2>
+    <p class="lead">Prévia de faixas e ensaios (quando disponível).</p>
+    <!-- Quando enviar os MP3, ligamos via JSON e <audio controls> -->
+  </section>
 
-            <a class="lm-ico lm-ico--spotify"
-               href="https://open.spotify.com/playlist/0N4ki83JuTs7b5sSHozx8a"
-               target="_blank" aria-label="Spotify">🎧</a>
-
-            <a class="lm-ico lm-ico--youtube"
-               href="https://www.youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0"
-               target="_blank">▶️</a>
-
-          </div>
-
-        </div>
-      </article>
-
-    </div><!-- /discog-grid -->
-  </div><!-- /container -->
-</section><!-- /strip-discografia -->
-
-
-
-<!-- ============================================================
-     PLAYLISTS — BOTÕES I18N (CARREGAM DE data/playlists.json)
-============================================================ -->
-<section id="playlists" class="strip strip-green-soft">
-  <div class="container">
-
-    <h2 data-i18n="playlists.title">Playlists</h2>
-    <p class="lead" data-i18n="playlists.desc">
-      Ouça seleções oficiais nas plataformas digitais.
-    </p>
-
-    <!-- Botões gerados dinamicamente no main.js -->
-    <div id="playlist-buttons" class="cta-center" style="margin-top:28px"></div>
-
-  </div>
-</section>
-
-
-
-<!-- ============================================================
-     MEMORIAL — POLAROID (CARREGADO DE data/memorial.json)
-============================================================ -->
-<section id="memorial" class="strip strip-black">
-  <div class="container">
-
-    <h2 data-i18n="memorial.title">Memorial</h2>
-    <p class="lead" data-i18n="memorial.desc">
-      Linha do tempo afetiva: rodas de samba, estúdios, amigos e família.
-    </p>
-
-    <div id="memorial-grid" class="memorial-polaroid-grid"></div>
-
-  </div>
-</section>
-
-
-
-<!-- ============================================================
-     MAKING OF — GESTO DE CARINHO (CARREGADO DE data/makingof.json)
-============================================================ -->
-<section id="makingof" class="strip strip-green-dark">
-  <div class="container">
-
-    <h2 data-i18n="makingof.title">Making Of — Gesto de Carinho</h2>
-    <p class="lead" data-i18n="makingof.desc">
-      Ensaios, guias e prévias de estúdio.
-    </p>
-
-    <!-- main.js injeta aqui -->
-  </div>
-</section>
-
-
-
-<!-- ============================================================
-     CONTATO
-============================================================ -->
-<section id="contato" class="strip strip-green-soft">
-  <div class="container">
-
-    <h2 data-i18n="contato.title">Contato</h2>
-
-    <form class="form"
-          data-i18n="contato.form"
-          onsubmit="event.preventDefault(); alert(t('contato.enviado','Mensagem enviada!'));">
-      
-      <input type="text" placeholder="Seu nome" required>
-      <input type="email" placeholder="Seu e-mail" required>
-      <textarea rows="5" placeholder="Sua mensagem"></textarea>
-
-      <button class="btn btn-primary" type="submit" data-i18n="contato.enviar">
-        Enviar
-      </button>
+  <!-- CONTATO -->
+  <section id="contato" class="section container" aria-labelledby="ct-title">
+    <h2 id="ct-title">Contato</h2>
+    <form class="form" onsubmit="event.preventDefault(); alert('Obrigado! Mensagem enviada (demo).');">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea rows="5" name="mensagem" placeholder="Sua mensagem"></textarea>
+      <button class="btn btn-primary" type="submit">Enviar</button>
     </form>
 
-  </div>
-</section>
+    <div style="margin-top:1rem" class="badges" aria-label="Redes e contato">
+      <a class="badge" href="https://instagram.com/yogabibds" target="_blank" rel="noopener" aria-label="Abrir Instagram @yogabibds">Instagram</a>
+      <a class="badge" href="mailto:universolaia06@gmail.com" aria-label="Enviar e-mail para universolaia06@gmail.com">E-mail</a>
+    </div>
+  </section>
 
-      
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">© 2025 Laia Music — Conteúdo em atualização</div>
+  </footer>
+
+  <!-- JS (filtros + lightbox acessível) -->
+  <script>
+  // Filtros por tags
+  (function(){
+    const buttons = Array.from(document.querySelectorAll('.filters button'));
+    const items = Array.from(document.querySelectorAll('#cat [data-tags]'));
+    if (!buttons.length || !items.length) return;
+
+    buttons.forEach(b => b.addEventListener('click', () => {
+      buttons.forEach(x => x.classList.toggle('on', x === b));
+      const tag = b.dataset.tag;
+      items.forEach(it => {
+        const ok = tag === 'all' || it.dataset.tags.split(' ').includes(tag);
+        it.style.display = ok ? '' : 'none';
+      });
+    }));
+  })();
+
+  // Lightbox acessível
+  (function(){
+    const box = document.createElement('div');
+    box.className = 'lightbox';
+    box.hidden = true;
+    box.innerHTML = '<button class="close" aria-label="Fechar">×</button><img alt="">';
+    document.body.appendChild(box);
+
+    const big = box.querySelector('img');
+    const close = box.querySelector('.close');
+    const hide = () => { box.hidden = true; big.removeAttribute('src'); big.removeAttribute('alt'); };
+
+    document.querySelectorAll('a.zoom').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        big.src = a.getAttribute('href');
+        const innerImg = a.querySelector('img');
+        big.alt = innerImg ? innerImg.alt : '';
+        box.hidden = false;
+      });
+    });
+
+    close.addEventListener('click', hide);
+    box.addEventListener('click', e => { if (e.target === box) hide(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  })();
+  </script>
+</body>
+</html>
