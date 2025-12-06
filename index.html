@@ -1,17 +1,21 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Laia Music — Memorial de Edney Fernandes</title>
   <meta name="description" content="Laia Music preserva e difunde a obra de Edney Fernandes — composições, discografia, playlists e memória afetiva.">
   <link rel="icon" href="assets/img/logo-laia-music.png" type="image/png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Schema.org base -->
+  <!-- Schema.org essencial -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -31,22 +35,24 @@
   }
   </script>
 </head>
-<body>
+<body id="top">
 
   <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner container">
-      <a class="brand" href="#top">
-        <img src="assets/img/logo-laia-music.png" alt="Laia Music">
+  <nav class="nav" role="navigation" aria-label="Principal">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Laia Music — topo">
+        <img src="assets/img/logo-laia-music.png" alt="" width="40" height="40">
         <span>Laia Music</span>
       </a>
 
-      <div class="menu">
-        <a class="nav-item" href="#legado">Legado</a>
-        <a class="nav-item" href="#discografia">Discografia | Playlists</a>
-        <a class="nav-item" href="#composicoes">Composições</a>
-        <a class="nav-item" href="#memorial">Memorial</a>
-        <a class="nav-item" href="#contato">Contato</a>
+      <button class="nav-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+
+      <div id="menu" class="menu">
+        <a class="nav-item" href="#legado" data-i18n="nav.legado">Legado</a>
+        <a class="nav-item" href="#discografia" data-i18n="nav.discografia">Discografia | Playlists</a>
+        <a class="nav-item" href="#composicoes" data-i18n="nav.composicoes">Composições</a>
+        <a class="nav-item" href="#memorial" data-i18n="nav.memorial">Memorial</a>
+        <a class="nav-item" href="#contato" data-i18n="nav.contato">Contato</a>
       </div>
 
       <!-- Idiomas -->
@@ -54,7 +60,7 @@
         <button class="lang-toggle" aria-haspopup="true" aria-expanded="false">
           <span class="lang-current">PT/ES</span>
         </button>
-        <ul class="lang-menu" role="menu" tabindex="-1">
+        <ul class="lang-menu" role="menu" tabindex="-1" aria-label="Selecionar idioma">
           <li role="menuitem" data-lang="pt">Português</li>
           <li role="menuitem" data-lang="es">Español</li>
           <li role="menuitem" data-lang="en">English</li>
@@ -63,16 +69,21 @@
     </div>
   </nav>
 
-  <!-- HERO EM FAIXA -->
-  <header id="top" class="hero-full">
-    <img class="hero-full-img" src="assets/img/hero-edney.jpg" alt="Retrato de Edney Fernandes">
+  <!-- HERO (estilo Solar) -->
+  <header class="hero-full">
+    <img class="hero-full-img" src="assets/img/hero-edney.jpg" alt="Edney Fernandes — retrato">
     <div class="hero-full-overlay"></div>
+
     <div class="hero-full-content container">
-      <h1 class="hero-title">Memorial de Edney Fernandes</h1>
-      <p class="hero-subtitle">A obra, história e memória afetiva preservadas com cuidado e verdade.</p>
-      <div class="cta-center">
-        <a class="btn btn-primary" href="#discografia">Discografia</a>
-        <a class="btn btn-olive" href="#composicoes">Composições</a>
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Laia Music</p>
+      <h1 class="hero-title" data-i18n="hero.title">Memorial de Edney Fernandes</h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        A obra, história e memória afetiva preservadas com cuidado e verdade.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#discografia" data-i18n="cta.discografia">Discografia</a>
+        <a class="btn btn-olive" href="#composicoes" data-i18n="cta.composicoes">Composições</a>
       </div>
     </div>
   </header>
@@ -80,12 +91,12 @@
   <!-- LEGADO -->
   <section id="legado" class="strip strip-green-dark">
     <div class="container">
-      <h2>Legado</h2>
-      <p class="lead">
+      <h2 class="section-title" data-i18n="legado.h">Legado</h2>
+      <p class="lead" data-i18n="legado.p1">
         Edney Fernandes (1977–2004) foi compositor e músico paulista ligado ao samba e ao pagode romântico. Iniciou em rodas de samba na Zona Leste e em Guarulhos, reuniu mais de 40 obras autorais e parcerias, com gravações por nomes do pagode dos anos 90 e 2000. Atuou no grupo “Ed & A Tripulação”.
       </p>
-      <p>
-        Seu catálogo é preservado pela família, com organização de acervo, dossiês e relançamentos planejados. Este memorial reúne registros do estúdio, encartes, fotos e novas homenagens feitas por familiares, amigos e colaboradores.
+      <p data-i18n="legado.p2">
+        Seu catálogo é preservado pela família, com organização de acervo, dossiês e relançamentos planejados. Este memorial reúne registros de estúdio, encartes, fotos e novas homenagens feitas por familiares, amigos e colaboradores.
       </p>
     </div>
   </section>
@@ -93,59 +104,57 @@
   <!-- DISCOGRAFIA / PLAYLISTS -->
   <section id="discografia" class="strip strip-green-olive">
     <div class="container">
-      <h2>Discografia | Playlists</h2>
-      <p class="lead">Lançamentos e seleções oficiais.</p>
-
-      <!-- Botões de playlists (renderizados por JS a partir de data/playlists.json) -->
-      <div id="playlist-buttons" class="playlist-btns"></div>
+      <h2 class="section-title" data-i18n="disco.h">Discografia | Playlists</h2>
+      <p class="lead" data-i18n="disco.p">Lançamentos e seleções oficiais.</p>
 
       <!-- Álbum A Hora é Essa -->
       <article class="card">
         <img class="card-cover" src="assets/img/discografia/ed-tripulacao.jpg" alt="Capa do álbum A Hora é Essa — Ed & A Tripulação">
         <div class="p">
-          <h3>Ed & A Tripulação — A Hora é Essa</h3>
-          <p>Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.</p>
+          <h3 class="card-title">Ed & A Tripulação — A Hora é Essa</h3>
+          <p class="card-meta">Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.</p>
 
-          <!-- Ficha técnica (resumida) -->
-          <div class="album-meta">
-            <ul>
-              <li><strong>Álbum:</strong> A Hora é Essa</li>
-              <li><strong>Grupo:</strong> Ed & A Tripulação</li>
-              <li><strong>Período:</strong> anos 1990</li>
-              <li><strong>Gênero:</strong> Pagode, MPB</li>
-              <li><strong>Produção:</strong> Arnaldo Saccomani</li>
-              <li><strong>Direção artística:</strong> Wilson Souto Jr.</li>
-              <li><strong>Curadoria do memorial:</strong> Laia Music (família)</li>
-            </ul>
-          </div>
-
-          <!-- Ícones de plataformas do álbum (construídos via JS a partir de data/album_platforms.json) -->
-          <div id="album-platforms" class="lm-icons" aria-label="Plataformas de streaming"></div>
-
-          <!-- Lista de faixas (mini player) -->
+          <!-- Mini players (faixas oficiais) -->
           <div class="mini-audio" data-title="A Hora é Essa" data-src="assets/audios/ed-tripulacao-a-hora-e-essa.mp3"></div>
           <div class="mini-audio" data-title="Jeito de Feiticeira" data-src="assets/audios/ed-tripulacao-jeito-de-feiticeira.mp3"></div>
           <div class="mini-audio" data-title="Baby" data-src="assets/audios/ed-tripulacao-baby.mp3"></div>
           <div class="mini-audio" data-title="Faz de Conta" data-src="assets/audios/ed-tripulacao-faz-de-conta.mp3"></div>
           <div class="mini-audio" data-title="Momentos de Tristeza" data-src="assets/audios/ed-tripulacao-momentos-de-tristeza.mp3"></div>
           <div class="mini-audio" data-title="Não é da Minha Conta" data-src="assets/audios/ed-tripulacao-nao-e-da-minha-conta.mp3"></div>
+
+          <!-- Plataformas (preencha os href quando tiver os links oficiais) -->
+          <div class="lm-icons">
+            <a class="lm-ico" aria-label="Abrir no Spotify" href="#" target="_blank" rel="noopener" title="Spotify">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg>
+            </a>
+            <a class="lm-ico" aria-label="Abrir no Apple Music" href="#" target="_blank" rel="noopener" title="Apple Music">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" fill="currentColor"/></svg>
+            </a>
+            <a class="lm-ico" aria-label="Abrir no YouTube Music" href="#" target="_blank" rel="noopener" title="YouTube Music">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polygon points="9,7 19,12 9,17" fill="currentColor"/></svg>
+            </a>
+          </div>
         </div>
       </article>
+
+      <!-- Botões de playlists (injetados via data/playlists.json) -->
+      <div class="playlist-buttons" id="playlist-buttons"></div>
     </div>
   </section>
 
-  <!-- COMPOSIÇÕES -->
+  <!-- COMPOSIÇÕES (gravações e demos) -->
   <section id="composicoes" class="strip strip-green-soft">
     <div class="container">
-      <h2>Composições — Edney Fernandes</h2>
-      <p class="lead">Gravações e registros de autoria.</p>
+      <h2 class="section-title" data-i18n="comp.h">Composições — Edney Fernandes</h2>
+      <p class="lead" data-i18n="comp.p">Gravações e registros de autoria.</p>
 
       <article class="card">
-        <img class="card-cover" src="assets/img/capas/composicoes_playlist.jpg" alt="Capa da seleção de composições de Edney Fernandes">
+        <img class="card-cover" src="assets/img/capas/composicoes_playlist.jpg" alt="Seleção de composições — playlist">
         <div class="p">
-          <h3>Seleção de obras</h3>
-          <p>Obras autorais e parcerias em diferentes vozes e registros.</p>
+          <h3 class="card-title" data-i18n="comp.sel">Seleção de obras</h3>
+          <p class="card-meta" data-i18n="comp.meta">Obras autorais e parcerias em diferentes vozes e registros.</p>
 
+          <!-- faixas que você citou (com nomes EXATOS das suas pastas) -->
           <div class="mini-audio" data-title="Despedida" data-src="assets/audios/Despedida-Edney-fernandes.mp3"></div>
           <div class="mini-audio" data-title="Meu Desejo" data-src="assets/audios/Meu-desejo-Edney-Fernandes.mp3"></div>
           <div class="mini-audio" data-title="Pra que se machucar (com Thaís Nascimento)" data-src="assets/audios/Pra-que-se-machucar-Edney-Fernandes-e-Thais-Nascimento.mp3"></div>
@@ -158,11 +167,11 @@
   <!-- MEMORIAL -->
   <section id="memorial" class="strip strip-black">
     <div class="container">
-      <h2>Memorial</h2>
-      <p class="lead">Linha do tempo afetiva: rodas de samba, estúdios, amigos e família.</p>
+      <h2 class="section-title" data-i18n="mem.h">Memorial</h2>
+      <p class="lead" data-i18n="mem.p">Linha do tempo afetiva: rodas de samba, estúdios, amigos e família.</p>
 
       <div class="memorial-polaroid-grid" id="memorial-grid">
-        <!-- JS injeta memorial-01.jpg … memorial-15.jpg -->
+        <!-- Preenchido via JS: memorial-01.jpg … memorial-XX.jpg -->
       </div>
     </div>
   </section>
@@ -170,21 +179,22 @@
   <!-- CONTATO -->
   <section id="contato" class="strip strip-white">
     <div class="container">
-      <h2>Contato</h2>
+      <h2 class="section-title" data-i18n="cont.h">Contato</h2>
       <form name="contato" method="POST" data-netlify="true" class="form">
         <input type="hidden" name="form-name" value="contato">
-        <input type="text" name="nome" placeholder="Seu nome" required>
-        <input type="email" name="email" placeholder="Seu e-mail" required>
-        <textarea name="mensagem" rows="5" placeholder="Sua mensagem"></textarea>
-        <button class="btn btn-primary" type="submit">Enviar</button>
+        <input type="text" name="nome" placeholder="Seu nome" required data-i18n-ph="cont.nome">
+        <input type="email" name="email" placeholder="Seu e-mail" required data-i18n-ph="cont.email">
+        <textarea name="mensagem" rows="5" placeholder="Sua mensagem" data-i18n-ph="cont.msg"></textarea>
+        <button class="btn btn-primary" type="submit" data-i18n="cont.enviar">Enviar</button>
       </form>
     </div>
   </section>
 
   <footer class="footer-dark">
-    <div class="container">© 2025 Laia Music • Conteúdo em atualização</div>
+    <div class="container">© 2025 Laia Music — <span data-i18n="footer">Conteúdo em atualização</span></div>
   </footer>
 
+  <!-- JS -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
