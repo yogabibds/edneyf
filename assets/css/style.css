@@ -1,510 +1,204 @@
-/* ===================================================================
-   BASE
-=================================================================== */
-:root {
-  --purple-dark: #1b0f29;
-  --purple-mid: #2c1844;
-  --purple-light: #6d4bc1;
-  --white: #ffffff;
-  --gray-100: #f6f6f6;
-  --gray-300: #ddd;
-  --gray-600: #999;
-  --gray-900: #222;
-  --radius: 14px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Work Sans", sans-serif;
-  background: var(--white);
-  color: var(--gray-900);
-  line-height: 1.6;
-}
-
-/* ===================================================================
-   WRAPPERS
-=================================================================== */
-.wrap {
-  width: 90%;
-  max-width: 1180px;
-  margin: auto;
-}
-
-.wrap.narrow {
-  max-width: 780px;
-}
-
-/* ===================================================================
-   TOPBAR
-=================================================================== */
-.topbar {
-  width: 100%;
-  background: var(--purple-dark);
-  padding: 14px 0;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-
-.topbar .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-  text-decoration: none;
-}
-
-.menu a {
-  margin: 0 10px;
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.menu a:hover {
-  opacity: 0.85;
-}
-
-.langs {
-  display: flex;
-  gap: 6px;
-}
-
-.lang-btn {
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: var(--purple-light);
-  color: var(--white);
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.lang-btn.active {
-  background: var(--white);
-  color: var(--purple-dark);
-}
-
-/* ===================================================================
-   HERO
-=================================================================== */
-.hero {
-  position: relative;
-  width: 100%;
-  padding: 120px 0;
-  background: var(--purple-mid);
-  overflow: hidden;
-  text-align: center;
-}
-
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../img/photos/hero-brain.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(27, 15, 41, 0.20);
-  z-index: 2;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 5;
-  width: 90%;
-  max-width: 760px;
-  margin: auto;
-  text-align: center;
-  margin-top: 90px;
-}
-
-.hero-badge {
-  width: 180px;
-  height: auto;
-  margin-bottom: 25px;
-}
-
-.hero-title {
-  font-family: "Poppins", sans-serif;
-  font-size: 40px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 10px;
-}
-
-.hero-rot {
-  font-size: 18px;
-  color: var(--gray-100);
-  margin-bottom: 10px;
-}
-
-.hero-sub {
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--white);
-  margin-bottom: 20px;
-}
-
-.cta {
-  background: var(--purple-light);
-  color: var(--white);
-  padding: 14px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-}
-
-.cta:hover {
-  background: #8b6ef0;
-}
-
-@media (max-width: 760px) {
-  .hero {
-    padding: 90px 0 120px;
-  }
-
-  .hero-badge {
-    width: 150px;
-    margin-bottom: 20px;
-  }
-
-  .hero-title {
-    font-size: 28px;
-  }
-}
-
-/* ===================================================================
-   SECTIONS
-=================================================================== */
-.section {
-  padding: 90px 0;
-}
-
-.section-dark {
-  background: var(--purple-dark);
-  color: var(--white);
-}
-
-.section-light {
-  background: var(--gray-100);
-  color: var(--gray-900);
-}
-
-.section-white {
-  background: var(--white);
-}
-
-.section-title {
-  font-family: "Poppins", sans-serif;
-  font-size: 32px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-/* ===================================================================
-   ABOUT
-=================================================================== */
-
-.about-photo img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 30px;
-  display: block;
-}
-
-.lead {
-  font-size: 18px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* SVG Pilares */
-.pillars-svg {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0 10px 0;
-}
+// ========= Helpers =========
+async function loadJSON(path){ const r = await fetch(path); return r.json(); }
+const $$ = sel => document.querySelector(sel);
+const $$$ = sel => [...document.querySelectorAll(sel)];
+
+// ========= I18N (PT/ES/DE/NL/RU) =========
+const I18N = { dict:{}, lang: (localStorage.getItem('lang') || 'pt') };
+
+function t(key, fallback=''){ return (I18N.dict && I18N.dict[key]) || fallback || key; }
+
+async function loadI18n(lang){
+  I18N.lang = lang;
+  localStorage.setItem('lang', lang);
+  try{ I18N.dict = await loadJSON(`data/i18n/${lang}.json`); }
+  catch(e){ I18N.dict = {}; }
+  applyI18n();
+  updateLangLabel();
+}
+
+function applyI18n(){
+  $$$('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(!key) return;
+    const val = t(key);
+    if(val) el.innerHTML = val;
+  });
+}
+
+// ========= Lang UI (dropdown do header) =========
+function updateLangLabel(){
+  const label = $$('.lang-current');
+  if(!label) return;
+  label.textContent = (I18N.lang==='pt'||I18N.lang==='es') ? 'PT/ES' : I18N.lang.toUpperCase();
+}
+function initLangUI(){
+  const wrap = $$('.lang'); const btn = $$('.lang-toggle'); const menu = $$('.lang-menu');
+  if(!wrap || !btn || !menu) return;
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    const open = wrap.hasAttribute('open');
+    wrap.toggleAttribute('open', !open);
+    btn.setAttribute('aria-expanded', String(!open));
+    if(!open) menu.focus();
+  });
+  menu.addEventListener('click',(e)=>{
+    const li = e.target.closest('li[data-lang]'); if(!li) return;
+    wrap.removeAttribute('open'); btn.setAttribute('aria-expanded','false');
+    loadI18n(li.dataset.lang);
+  });
+  document.addEventListener('click', ()=>{ wrap?.removeAttribute('open'); btn?.setAttribute('aria-expanded','false'); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ wrap?.removeAttribute('open'); btn?.setAttribute('aria-expanded','false'); } });
+  updateLangLabel();
+}
+
+// ========= Playlists =========
+// Espera por data/playlists.json com chaves:
+// { "cd_ed_a_tripulacao": "...", "composicoes_edney": "...", "gesto_de_carinho": "..." }
+async function buildPlaylists(){
+  let p={}; try{ p = await loadJSON('data/playlists.json'); }catch{}
+  const map = [
+    {key:'cd_ed_a_tripulacao', labelKey:'pl.cd', fallback:'CD — Ed & A Tripulação'},
+    {key:'composicoes_edney',  labelKey:'pl.composicoes', fallback:'Composições — Edney Fernandes'},
+    {key:'gesto_de_carinho',   labelKey:'pl.gesto', fallback:'Gesto de Carinho (em breve)'}
+  ];
+  const c = document.getElementById('playlist-buttons');
+  if(!c) return;
+  c.innerHTML = '';
+  map.forEach(m=>{
+    const url = p[m.key];
+    const a = document.createElement('a');
+    a.className = 'btn ' + (url ? 'btn-olive' : 'btn-disabled');
+    a.textContent = t(m.labelKey, m.fallback);
+    if(url){ a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
+    const ico = document.createElement('span'); ico.innerHTML = '🎧'; ico.style.marginRight='.4rem';
+    a.prepend(ico);
+    c.appendChild(a);
+  });
+}
+
+// ========= Memorial =========
+// data/memorial.json -> [{ "src":"assets/img/memorial/memorial-01.jpg", "alt":"..." }, ...]
+async function buildMemorial(){
+  let list=[]; try{ list = await loadJSON('data/memorial.json'); }catch{}
+  const g = document.getElementById('memorial-grid'); if(!g) return;
+  g.innerHTML = '';
+  list.forEach(item=>{
+    const fig = document.createElement('figure'); fig.className='memorial-item';
+    const img = document.createElement('img');
+    img.loading='lazy'; img.src=item.src; img.alt=item.alt || 'Foto do acervo';
+    fig.appendChild(img); g.appendChild(fig);
+  });
+}
+
+// ========= Making Of (opcional) =========
+// data/makingof.json -> [{ "titulo":"Faixa", "arquivo":"assets/audio/..." }, ...]
+async function buildMakingOf(){
+  let list=[]; try{ list = await loadJSON('data/makingof.json'); }catch{ list=[]; }
+  const wrap = document.getElementById('makingof'); if(!wrap) return;
+  if(!list.length){ wrap.style.display='none'; return; }
+  const ul = document.createElement('div'); ul.className='audio-list';
+  list.forEach(tk=>{
+    const label=document.createElement('div'); label.textContent = tk.titulo || 'Faixa';
+    const audio=document.createElement('audio'); audio.controls=true; audio.src=tk.arquivo;
+    ul.appendChild(label); ul.appendChild(audio);
+  });
+  wrap.appendChild(ul);
+}
+
+// ========= Boot =========
+document.addEventListener('DOMContentLoaded', async ()=>{
+  initLangUI();
+  await loadI18n(I18N.lang); // aplica textos
+  buildPlaylists();
+  buildMemorial();
+  (function(){
+  const nav = document.querySelector('.nav');
+  if(!nav) return;
+  const sc = ()=> nav.style.boxShadow = (window.scrollY>4) ? '0 6px 20px rgba(0,0,0,.35)' : 'none';
+  sc(); addEventListener('scroll', sc, {passive:true});
+})();
+// ===== Mini Player compacto (um único <audio> compartilhado) =====
+(function(){
+  const items = [...document.querySelectorAll('.mini-audio')];
+  if(!items.length) return;
+
+  // único elemento de áudio compartilhado
+  const audio = new Audio();
+  audio.preload = 'metadata';
+
+  let current = null; // div ativa
+
+  // formata 90 -> "1:30"
+  const mmss = s => {
+    if(!isFinite(s)) return '0:00';
+    s = Math.max(0, Math.floor(s));
+    const m = Math.floor(s/60), ss = String(s%60).padStart(2,'0');
+    return `${m}:${ss}`;
+  };
+
+  // cria UI
+  items.forEach(box => {
+    const title = box.dataset.title || 'Faixa';
+    const src   = box.dataset.src;
+
+    box.innerHTML = `
+      <button class="mini-audio__btn" aria-label="Play">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="mini-audio__title">${title}</div>
+      <div class="mini-audio__time">0:00</div>
+      <div class="mini-audio__bar"><i></i></div>
+    `;
+
+    const btn  = box.querySelector('.mini-audio__btn');
+    const time = box.querySelector('.mini-audio__time');
+    const bar  = box.querySelector('.mini-audio__bar i');
+
+    // play/pause
+    btn.addEventListener('click', () => {
+      if(current === box && !audio.paused){ audio.pause(); return; }
+      // trocar de faixa
+      if(current !== box){
+        current?.querySelector('.mini-audio__btn').innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+        current = box;
+        audio.src = src; audio.play().catch(()=>{});
+      }else{
+        audio.play().catch(()=>{});
+      }
+    });
+
+    // clique na barra para buscar
+    box.querySelector('.mini-audio__bar').addEventListener('click', (e)=>{
+      if(audio.src.indexOf(src) === -1) return; // ainda não carregou essa
+      const rect = e.currentTarget.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      audio.currentTime = p * (audio.duration || 0);
+    });
+
+    // quando essa faixa estiver tocando, atualizar UI
+    audio.addEventListener('timeupdate', ()=>{
+      if(current !== box) return;
+      const d = audio.duration || 0;
+      bar.style.inset = `0 ${Math.max(0,100-((audio.currentTime/d)*100))}% 0 0`;
+      time.textContent = `${mmss(audio.currentTime)} / ${mmss(d)}`;
+    });
+
+    audio.addEventListener('play', ()=>{
+      if(current === box){
+        btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>`;
+      }
+    });
+
+    audio.addEventListener('pause', ()=>{
+      btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+    });
+
+    audio.addEventListener('ended', ()=>{
+      if(current === box){
+        btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+      }
+    });
+  });
+})();
 
-/* Texto explicativo dos pilares */
-.pillar-text {
-  max-width: 620px;
-  margin: 25px auto 0;
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: center;
-  color: var(--white);
-  opacity: 0.92;
-}
-
-/* Card UNR */
-.card {
-  background: var(--purple-mid);
-  border-radius: var(--radius);
-  padding: 24px;
-  margin-top: 30px;
-  color: var(--white);
-}
-
-.card-hd h3 {
-  font-size: 22px;
-  margin-bottom: 12px;
-}
-
-.story {
-  display: inline-block;
-  margin-top: 10px;
-  text-align: center;
-  text-decoration: none;
-  color: var(--white);
-}
-
-.story img {
-  width: 110px;
-  height: 110px;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.btns {
-  margin-top: 20px;
-}
-
-.btn.ghost {
-  border: 1px solid var(--white);
-  padding: 10px 18px;
-  border-radius: 8px;
-  color: var(--white);
-  text-decoration: none;
-  margin-right: 10px;
-}
-
-.btn.ghost:hover {
-  background: var(--white);
-  color: var(--purple-dark);
-}
-
-/* ===================================================================
-   PUBLICAÇÕES
-=================================================================== */
-
-.pub-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.pub {
-  display: flex;
-  gap: 20px;
-}
-
-.pub-ico {
-  width: 120px;
-  height: 120px;
-  border-radius: var(--radius);
-  object-fit: cover;
-}
-
-.pub-body h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.meta {
-  font-size: 14px;
-  color: var(--gray-300);
-  margin-bottom: 10px;
-}
-
-.chips {
-  margin-top: 10px;
-}
-
-.chip {
-  display: inline-block;
-  padding: 6px 12px;
-  background: var(--purple-light);
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  margin-right: 8px;
-}
-
-.chip:hover {
-  background: #8b6ef0;
-}
-
-@media (max-width: 760px) {
-  .pub-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pub {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-/* ===================================================================
-   PROJETOS — FUNDO BRANCO
-=================================================================== */
-
-.proj-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-}
-
-.proj {
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  background: var(--white);
-  padding: 22px;
-  border-radius: var(--radius);
-  border: 2px solid var(--purple-light);
-  transition: 0.3s;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.proj:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.proj img {
-  width: 85px;
-  margin-bottom: 12px;
-}
-
-.proj h3 {
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: var(--purple-mid);
-}
-
-@media(max-width: 900px){
-  .proj-grid{
-    grid-template-columns: repeat(2,1fr);
-  }
-}
-
-@media(max-width: 600px){
-  .proj-grid{
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===================================================================
-   CULTURAS
-=================================================================== */
-
-.stories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 40px;
-}
-
-.story span {
-  display: block;
-  margin-top: 6px;
-  font-size: 15px;
-  text-align: center;
-}
-
-/* ===================================================================
-   CONTATO
-=================================================================== */
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-.contact-item {
-  background: var(--purple-mid);
-  padding: 14px;
-  border-radius: var(--radius);
-  color: var(--white);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.contact-item img {
-  width: 22px;
-  opacity: 0.9;
-}
-
-@media(max-width:760px){
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===================================================================
-   FOOTER
-=================================================================== */
-.footer {
-  padding: 30px 0;
-  background: var(--purple-dark);
-  text-align: center;
-  color: var(--white);
-  font-size: 14px;
-}
-
-/* ===================================================================
-   ANIMAÇÕES
-=================================================================== */
-
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s forwards;
-  animation-play-state: paused;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
