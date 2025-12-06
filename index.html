@@ -1,336 +1,510 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+/* ===================================================================
+   BASE
+=================================================================== */
+:root {
+  --purple-dark: #1b0f29;
+  --purple-mid: #2c1844;
+  --purple-light: #6d4bc1;
+  --white: #ffffff;
+  --gray-100: #f6f6f6;
+  --gray-300: #ddd;
+  --gray-600: #999;
+  --gray-900: #222;
+  --radius: 14px;
+}
 
-  <!-- SEO básico -->
-  <title>Laia Music — O legado de Edney Fernandes</title>
-  <meta name="description" content="Site oficial do legado de Edney Fernandes: história, composições, discografia, playlists e memória afetiva.">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://laiamusictesting.netlify.app/">
+html {
+  scroll-behavior: smooth;
+}
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Laia Music — O legado de Edney Fernandes">
-  <meta property="og:description" content="Site oficial do legado de Edney Fernandes: história, composições, discografia, playlists e memória afetiva.">
-  <meta property="og:url" content="https://laiamusictesting.netlify.app/">
-  <meta property="og:image" content="https://laiamusictesting.netlify.app/assets/img/hero-edney.jpg">
+body {
+  font-family: "Work Sans", sans-serif;
+  background: var(--white);
+  color: var(--gray-900);
+  line-height: 1.6;
+}
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Laia Music — O legado de Edney Fernandes">
-  <meta name="twitter:description" content="Site oficial do legado de Edney Fernandes: história, composições, discografia, playlists e memória afetiva.">
-  <meta name="twitter:image" content="https://laiamusictesting.netlify.app/assets/img/hero-edney.jpg">
+/* ===================================================================
+   WRAPPERS
+=================================================================== */
+.wrap {
+  width: 90%;
+  max-width: 1180px;
+  margin: auto;
+}
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+.wrap.narrow {
+  max-width: 780px;
+}
 
-  <!-- Fonts + CSS principal -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+/* ===================================================================
+   TOPBAR
+=================================================================== */
+.topbar {
+  width: 100%;
+  background: var(--purple-dark);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
-  <!-- Schema.org: A Hora é Essa -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"MusicAlbum",
-    "name":"A Hora é Essa",
-    "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
-    "genre":["MPB","Pop"],
-    "producer":{"@type":"Person","name":"Arnaldo Saccomani"},
-    "contributor":[{"@type":"Person","name":"Wilson Souto Jr.","jobTitle":"Direção Artística"}]
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.menu a {
+  margin: 0 10px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  opacity: 0.85;
+}
+
+.langs {
+  display: flex;
+  gap: 6px;
+}
+
+.lang-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--purple-light);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lang-btn.active {
+  background: var(--white);
+  color: var(--purple-dark);
+}
+
+/* ===================================================================
+   HERO
+=================================================================== */
+.hero {
+  position: relative;
+  width: 100%;
+  padding: 120px 0;
+  background: var(--purple-mid);
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/photos/hero-brain.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(27, 15, 41, 0.20);
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 5;
+  width: 90%;
+  max-width: 760px;
+  margin: auto;
+  text-align: center;
+  margin-top: 90px;
+}
+
+.hero-badge {
+  width: 180px;
+  height: auto;
+  margin-bottom: 25px;
+}
+
+.hero-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.hero-rot {
+  font-size: 18px;
+  color: var(--gray-100);
+  margin-bottom: 10px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.cta {
+  background: var(--purple-light);
+  color: var(--white);
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.cta:hover {
+  background: #8b6ef0;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 90px 0 120px;
   }
-  </script>
 
-  <!-- Schema.org: Despedida (projeto póstumo) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"MusicAlbum",
-    "name":"Despedida",
-    "byArtist":{"@type":"MusicGroup","name":"Edney Fernandes & Gesto de Carinho"},
-    "genre":["MPB","Pop Romântico"]
+  .hero-badge {
+    width: 150px;
+    margin-bottom: 20px;
   }
-  </script>
-</head>
-<body id="top">
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Laia Music — início">
-        <img src="assets/img/logo-laia-music.png" alt="Laia Music" class="logo">
-        <span>Laia Music</span>
-      </a>
-      <div class="menu" role="navigation" aria-label="Principal">
-        <a class="nav-item" href="#discografia">Discografia</a>
-        <a class="nav-item" href="#playlists">Playlists</a>
-        <a class="nav-item" href="#memorial">Memorial</a>
-        <a class="nav-item" href="#contato">Contato</a>
-      </div>
-    </div>
-  </nav>
+  .hero-title {
+    font-size: 28px;
+  }
+}
 
-  <!-- HERO -->
-  <header class="hero container">
-    <div class="hero-inner">
-      <!-- Foto circular acima, ao lado do nome -->
-      <img class="hero-photo" src="assets/img/hero-edney.jpg" alt="Retrato de Edney Fernandes">
-      <div class="hero-text">
-        <div class="display">Laia Music — <span class="highlight">O legado de Edney Fernandes</span></div>
-        <p>Site oficial para preservar e difundir a obra de Edney Fernandes: história, composições, playlists, fotos e memória afetiva.</p>
-        <div class="cta">
-          <a href="#discografia" class="btn btn-primary">Discografia</a>
-          <a href="#playlists" class="btn btn-olive">Playlists</a>
-          <a href="#contato" class="btn btn-ghost">Contato</a>
-        </div>
-      </div>
-    </div>
-  </header>
+/* ===================================================================
+   SECTIONS
+=================================================================== */
+.section {
+  padding: 90px 0;
+}
 
-  <!-- DISCOGRAFIA -->
-  <section id="discografia" class="section is-tripulacao container" aria-labelledby="discog-title">
-    <h2 id="discog-title" class="sr-only">Discografia</h2>
-    <div class="section-banner banner-tripulacao">Ed & A Tripulação</div>
+.section-dark {
+  background: var(--purple-dark);
+  color: var(--white);
+}
 
-    <div class="discog">
-      <!-- Card 1: Grupo (com wrapper menor) -->
-      <article class="card is-tripulacao" style="max-width:560px">
-        <img src="assets/img/discografia/ed-grupo.jpg" alt="Ed & A Tripulação — foto de grupo">
-        <div class="p">
-          <h3>Ed & A Tripulação</h3>
-          <p>Grupo dos anos 90. Regina participou.</p>
-          <div class="badges" aria-label="Plataformas">
-            <a class="badge" href="https://www.discogs.com/artist/7864196-Edney-Fernandes" target="_blank" rel="noopener">Discogs</a>
-            <a class="badge" href="https://open.spotify.com/artist/7bKdzyUaZ2LvSI0aDkqCYS" target="_blank" rel="noopener">Spotify</a>
-            <a class="badge" href="https://music.apple.com/us/artist/ed-e-a-tripula%C3%A7%C3%A3o/1527134686" target="_blank" rel="noopener">Apple Music</a>
-            <a class="badge" href="https://www.youtube.com/playlist?list=PLtVHgkMECyztJ7vUda3_fKppB2hM5iV6X" target="_blank" rel="noopener">YouTube</a>
-          </div>
-        </div>
-      </article>
+.section-light {
+  background: var(--gray-100);
+  color: var(--gray-900);
+}
 
-      <!-- Card 2: CD A Hora é Essa (com encarte PDF) -->
-      <article class="card is-tripulacao">
-        <img src="assets/img/discografia/ed-album-collage.jpg" alt="Álbum A Hora é Essa — colagem do encarte">
-        <div class="p">
-          <h3>A Hora é Essa (CD)</h3>
-          <p>Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.</p>
-          <div class="badges">
-            <a class="badge" href="docs/Ed_e_a_Tripulacao_A_Hora_E_Essa.pdf" target="_blank" rel="noopener" aria-label="Abrir encarte em PDF">Encarte (PDF)</a>
-            <a class="badge" href="https://www.discogs.com/release/15394363-Ed-E-A-Tripula%C3%A7%C3%A3o-Ed-E-A-Tripula%C3%A7%C3%A3o" target="_blank" rel="noopener">Discogs</a>
-          </div>
-        </div>
-      </article>
+.section-white {
+  background: var(--white);
+}
 
-      <!-- Card 3: Gesto de Carinho (projeto póstumo) -->
-      <article class="card is-gesto">
-        <img src="assets/img/discografia/gesto-capa.jpg" alt="Gesto de Carinho — capa provisória">
-        <div class="p">
-          <h3>Gesto de Carinho</h3>
-          <p>produção: Despedida … parcerias com Humberto Tavares, Thaís Nascimento, Valtinho Jota, Ronaldo Marques.</p>
-          <div class="badges">
-            <a class="badge" href="docs/Dossie_Album_Edney_Fernandes_Despedida.pdf" target="_blank" rel="noopener">Dossiê (PDF)</a>
-            <span class="badge" aria-disabled="true">Em breve</span>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
+.section-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-  <!-- PLAYLISTS -->
-  <section id="playlists" class="section container" aria-labelledby="play-title">
-    <h2 id="play-title">Playlists</h2>
-    <p class="lead">Ouça seleções oficiais nas plataformas.</p>
+/* ===================================================================
+   ABOUT
+=================================================================== */
 
-    <!-- Bloco Tripulação -->
-    <div class="section-banner banner-tripulacao">CD — Ed & A Tripulação</div>
-    <div class="discog">
-      <article class="card is-tripulacao">
-        <div class="p">
-          <h3>Álbum oficial</h3>
-          <p>Faixas do álbum e registros relacionados nas plataformas.</p>
-          <div class="badges">
-            <!-- Substitua # pelos URLs quando tiver -->
-            <a class="badge" href="#" aria-label="Abrir no Spotify">Spotify</a>
-            <a class="badge" href="#" aria-label="Abrir no Apple Music">Apple</a>
-            <a class="badge" href="#" aria-label="Abrir no Deezer">Deezer</a>
-            <a class="badge" href="https://www.youtube.com/playlist?list=PLtVHgkMECyztJ7vUda3_fKppB2hM5iV6X" target="_blank" rel="noopener" aria-label="Abrir no YouTube">YouTube</a>
-          </div>
-          <ul style="margin:.6rem 0 0 1rem">
-            <li>Por Trás de um Sorriso</li>
-            <li>Haja Coração</li>
-          </ul>
-        </div>
-      </article>
-    </div>
+.about-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 30px;
+  display: block;
+}
 
-    <!-- Bloco Composições Edney -->
-    <div class="section-banner banner-composicoes">Composições — Edney Fernandes</div>
-    <div class="discog">
-      <article class="card is-composicoes">
-        <div class="p">
-          <h3>Diferentes vozes & grupos</h3>
-          <p>Interpretações de obras de Edney em várias formações.</p>
-          <div class="badges">
-            <!-- Coloque o link oficial da playlist de composições -->
-            <a class="badge" href="#" aria-label="Abrir no Spotify">Spotify</a>
-            <a class="badge" href="#" aria-label="Abrir no YouTube">YouTube</a>
-          </div>
-        </div>
-      </article>
-    </div>
+.lead {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-    <!-- Bloco Pagode anos 90 -->
-    <div class="section-banner banner-composicoes">Pagode Anos 90</div>
-    <div class="discog">
-      <article class="card is-composicoes">
-        <div class="p">
-          <h3>Seleção especial</h3>
-          <p>Clássicos que compõem o contexto sonoro da época.</p>
-          <div class="badges">
-            <a class="badge" href="https://open.spotify.com/playlist/0N4ki83JuTs7b5sSHozx8a?si=Oh1r_wJdQXe60vWQWnM8FQ&pi=Umx5htLiT6KoS" target="_blank" rel="noopener" aria-label="Abrir no Spotify">Spotify</a>
-          </div>
-        </div>
-      </article>
-    </div>
+/* SVG Pilares */
+.pillars-svg {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 10px 0;
+}
 
-    <!-- Bloco Gesto de Carinho -->
-    <div class="section-banner banner-gesto">Gesto de Carinho</div>
-    <div class="discog">
-      <article class="card is-gesto">
-        <div class="p">
-          <h3>Em preparação</h3>
-          <p>Projeto em andamento. Em breve liberaremos uma playlist com os primeiros singles.</p>
-          <div class="badges">
-            <span class="badge" aria-disabled="true">Em breve</span>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
+/* Texto explicativo dos pilares */
+.pillar-text {
+  max-width: 620px;
+  margin: 25px auto 0;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--white);
+  opacity: 0.92;
+}
 
-  <!-- MEMORIAL (galeria com filtros + lightbox) -->
-  <section id="memorial" class="section is-memorial container" aria-labelledby="mem-title">
-    <h2 id="mem-title">Memorial</h2>
-    <p class="lead">Linha do tempo afetiva: rodas de samba, estúdios, amigos e família.</p>
+/* Card UNR */
+.card {
+  background: var(--purple-mid);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 30px;
+  color: var(--white);
+}
 
-    <!-- Filtros -->
-    <div class="filters" aria-label="Filtrar por categoria">
-      <button type="button" data-tag="all" class="on">Todos</button>
-      <button type="button" data-tag="show">Show</button>
-      <button type="button" data-tag="studio">Estúdio</button>
-      <button type="button" data-tag="family">Família</button>
-      <button type="button" data-tag="press">Press/Capas</button>
-    </div>
+.card-hd h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
 
-    <!-- Grade com hover reveal -->
-    <section class="gallery" id="cat" aria-live="polite">
-      <!-- Exemplo de item (repita com suas fotos otimizadas) -->
-      <figure class="card" data-tags="studio">
-        <a href="assets/img/memorial/full/edney-01.webp" class="zoom">
-          <img
-            src="assets/img/memorial/thumbs/edney-01.webp"
-            srcset="assets/img/memorial/thumbs/edney-01.webp 480w,
-                    assets/img/memorial/med/edney-01.webp 800w,
-                    assets/img/memorial/full/edney-01.webp 1400w"
-            sizes="(max-width:600px) 92vw, (max-width:1100px) 45vw, 33vw"
-            alt="Sessão de estúdio com microfone, 1999" loading="lazy">
-        </a>
-        <figcaption>Estúdio • 1999</figcaption>
-      </figure>
+.story {
+  display: inline-block;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white);
+}
 
-      <figure class="card" data-tags="show press">
-        <a href="assets/img/memorial/full/edney-02.webp" class="zoom">
-          <img
-            src="assets/img/memorial/thumbs/edney-02.webp"
-            srcset="assets/img/memorial/thumbs/edney-02.webp 480w,
-                    assets/img/memorial/med/edney-02.webp 800w,
-                    assets/img/memorial/full/edney-02.webp 1400w"
-            sizes="(max-width:600px) 92vw, (max-width:1100px) 45vw, 33vw"
-            alt="Show ao vivo com luzes quentes" loading="lazy">
-        </a>
-        <figcaption>Show • 2001</figcaption>
-      </figure>
-      <!-- Adicione seus demais <figure> aqui -->
-    </section>
-  </section>
+.story img {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  object-fit: cover;
+}
 
-  <!-- Making Of (áudios virão depois via data/makingof.json) -->
-  <section id="makingof" class="section container" aria-labelledby="mk-title">
-    <h2 id="mk-title">Making Of — Gesto de Carinho</h2>
-    <p class="lead">Prévia de faixas e ensaios (quando disponível).</p>
-    <!-- Quando enviar os MP3, ligamos via JSON e <audio controls> -->
-  </section>
+.btns {
+  margin-top: 20px;
+}
 
-  <!-- CONTATO -->
-  <section id="contato" class="section container" aria-labelledby="ct-title">
-    <h2 id="ct-title">Contato</h2>
-    <form class="form" onsubmit="event.preventDefault(); alert('Obrigado! Mensagem enviada (demo).');">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
-      <textarea rows="5" name="mensagem" placeholder="Sua mensagem"></textarea>
-      <button class="btn btn-primary" type="submit">Enviar</button>
-    </form>
+.btn.ghost {
+  border: 1px solid var(--white);
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: var(--white);
+  text-decoration: none;
+  margin-right: 10px;
+}
 
-    <div style="margin-top:1rem" class="badges" aria-label="Redes e contato">
-      <a class="badge" href="https://instagram.com/yogabibds" target="_blank" rel="noopener" aria-label="Abrir Instagram @yogabibds">Instagram</a>
-      <a class="badge" href="mailto:universolaia06@gmail.com" aria-label="Enviar e-mail para universolaia06@gmail.com">E-mail</a>
-    </div>
-  </section>
+.btn.ghost:hover {
+  background: var(--white);
+  color: var(--purple-dark);
+}
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">© 2025 Laia Music — Conteúdo em atualização</div>
-  </footer>
+/* ===================================================================
+   PUBLICAÇÕES
+=================================================================== */
 
-  <!-- JS (filtros + lightbox acessível) -->
-  <script>
-  // Filtros por tags
-  (function(){
-    const buttons = Array.from(document.querySelectorAll('.filters button'));
-    const items = Array.from(document.querySelectorAll('#cat [data-tags]'));
-    if (!buttons.length || !items.length) return;
+.pub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
 
-    buttons.forEach(b => b.addEventListener('click', () => {
-      buttons.forEach(x => x.classList.toggle('on', x === b));
-      const tag = b.dataset.tag;
-      items.forEach(it => {
-        const ok = tag === 'all' || it.dataset.tags.split(' ').includes(tag);
-        it.style.display = ok ? '' : 'none';
-      });
-    }));
-  })();
+.pub {
+  display: flex;
+  gap: 20px;
+}
 
-  // Lightbox acessível
-  (function(){
-    const box = document.createElement('div');
-    box.className = 'lightbox';
-    box.hidden = true;
-    box.innerHTML = '<button class="close" aria-label="Fechar">×</button><img alt="">';
-    document.body.appendChild(box);
+.pub-ico {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
 
-    const big = box.querySelector('img');
-    const close = box.querySelector('.close');
-    const hide = () => { box.hidden = true; big.removeAttribute('src'); big.removeAttribute('alt'); };
+.pub-body h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
 
-    document.querySelectorAll('a.zoom').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        big.src = a.getAttribute('href');
-        const innerImg = a.querySelector('img');
-        big.alt = innerImg ? innerImg.alt : '';
-        box.hidden = false;
-      });
-    });
+.meta {
+  font-size: 14px;
+  color: var(--gray-300);
+  margin-bottom: 10px;
+}
 
-    close.addEventListener('click', hide);
-    box.addEventListener('click', e => { if (e.target === box) hide(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
-  })();
-  </script>
-</body>
-</html>
+.chips {
+  margin-top: 10px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--purple-light);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.chip:hover {
+  background: #8b6ef0;
+}
+
+@media (max-width: 760px) {
+  .pub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pub {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ===================================================================
+   PROJETOS — FUNDO BRANCO
+=================================================================== */
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.proj {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  background: var(--white);
+  padding: 22px;
+  border-radius: var(--radius);
+  border: 2px solid var(--purple-light);
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.proj:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.proj img {
+  width: 85px;
+  margin-bottom: 12px;
+}
+
+.proj h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--purple-mid);
+}
+
+@media(max-width: 900px){
+  .proj-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width: 600px){
+  .proj-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================================================
+   CULTURAS
+=================================================================== */
+
+.stories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.story span {
+  display: block;
+  margin-top: 6px;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* ===================================================================
+   CONTATO
+=================================================================== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contact-item {
+  background: var(--purple-mid);
+  padding: 14px;
+  border-radius: var(--radius);
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-item img {
+  width: 22px;
+  opacity: 0.9;
+}
+
+@media(max-width:760px){
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================================================
+   FOOTER
+=================================================================== */
+.footer {
+  padding: 30px 0;
+  background: var(--purple-dark);
+  text-align: center;
+  color: var(--white);
+  font-size: 14px;
+}
+
+/* ===================================================================
+   ANIMAÇÕES
+=================================================================== */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards;
+  animation-play-state: paused;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
