@@ -1,203 +1,256 @@
-// ========= Helpers =========
-async function loadJSON(path){ const r = await fetch(path); return r.json(); }
-const $$ = sel => document.querySelector(sel);
-const $$$ = sel => [...document.querySelectorAll(sel)];
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laia Music — O legado de Edney Fernandes</title>
+  <meta name="description" content="Site oficial do legado de Edney Fernandes: composições, discografia, playlists e memória afetiva.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-// ========= I18N (PT/ES/DE/NL/RU) =========
-const I18N = { dict:{}, lang: (localStorage.getItem('lang') || 'pt') };
+  <!-- Schema.org: A Hora é Essa -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"MusicAlbum",
+    "name":"A Hora é Essa",
+    "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
+    "genre":["Samba","Pagode","MPB"],
+    "producer":{"@type":"Person","name":"Arnaldo Saccomani"},
+    "contributor":[{"@type":"Person","name":"Wilson Souto Jr.","jobTitle":"Direção artística"}],
+    "track":[
+      {"@type":"MusicRecording","position":1,"name":"A hora é essa"},
+      {"@type":"MusicRecording","position":2,"name":"Jeito de feiticeira"},
+      {"@type":"MusicRecording","position":3,"name":"Baby"},
+      {"@type":"MusicRecording","position":4,"name":"Momentos de tristeza"},
+      {"@type":"MusicRecording","position":5,"name":"Não é da minha conta"},
+      {"@type":"MusicRecording","position":6,"name":"Alô amor"},
+      {"@type":"MusicRecording","position":7,"name":"Infinita paixão"},
+      {"@type":"MusicRecording","position":8,"name":"Noites de verão"},
+      {"@type":"MusicRecording","position":9,"name":"Incerteza"},
+      {"@type":"MusicRecording","position":10,"name":"Faz de conta"},
+      {"@type":"MusicRecording","position":11,"name":"Por trás de um sorriso"},
+      {"@type":"MusicRecording","position":12,"name":"Haja coração"},
+      {"@type":"MusicRecording","position":13,"name":"Será que é pra ficar"},
+      {"@type":"MusicRecording","position":14,"name":"Sentir você"}
+    ]
+  }
+  </script>
 
-function t(key, fallback=''){ return (I18N.dict && I18N.dict[key]) || fallback || key; }
+  <!-- Schema.org: Gesto de Carinho (em produção) -->
+  <script type="application/ld+json">
+  { "@context":"https://schema.org",
+    "@type":"MusicAlbum",
+    "name":"Gesto de Carinho",
+    "byArtist":{"@type":"MusicGroup","name":"Edney Fernandes & Gesto de Carinho"},
+    "genre":["Samba","Pagode","MPB"]
+  }
+  </script>
+</head>
+<body>
 
-async function loadI18n(lang){
-  I18N.lang = lang;
-  localStorage.setItem('lang', lang);
-  try{ I18N.dict = await loadJSON(`data/i18n/${lang}.json`); }
-  catch(e){ I18N.dict = {}; }
-  applyI18n();
-  updateLangLabel();
-}
+  <!-- NAV -->
+  <nav id="nav" class="nav">
+    <div class="nav-inner container">
+      <a class="brand" href="#top">
+        <img src="assets/img/logo-laia-music.png" alt="Laia Music" width="40" height="40">
+        <span>Laia Music</span>
+      </a>
 
-function applyI18n(){
-  $$$('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n');
-    if(!key) return;
-    const val = t(key);
-    if(val) el.innerHTML = val;
-  });
-}
-
-// ========= Lang UI (dropdown do header) =========
-function updateLangLabel(){
-  const label = $$('.lang-current');
-  if(!label) return;
-  label.textContent = (I18N.lang==='pt'||I18N.lang==='es') ? 'PT/ES' : I18N.lang.toUpperCase();
-}
-function initLangUI(){
-  const wrap = $$('.lang'); const btn = $$('.lang-toggle'); const menu = $$('.lang-menu');
-  if(!wrap || !btn || !menu) return;
-  btn.addEventListener('click',(e)=>{
-    e.stopPropagation();
-    const open = wrap.hasAttribute('open');
-    wrap.toggleAttribute('open', !open);
-    btn.setAttribute('aria-expanded', String(!open));
-    if(!open) menu.focus();
-  });
-  menu.addEventListener('click',(e)=>{
-    const li = e.target.closest('li[data-lang]'); if(!li) return;
-    wrap.removeAttribute('open'); btn.setAttribute('aria-expanded','false');
-    loadI18n(li.dataset.lang);
-  });
-  document.addEventListener('click', ()=>{ wrap?.removeAttribute('open'); btn?.setAttribute('aria-expanded','false'); });
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ wrap?.removeAttribute('open'); btn?.setAttribute('aria-expanded','false'); } });
-  updateLangLabel();
-}
-
-// ========= Playlists =========
-// Espera por data/playlists.json com chaves:
-// { "cd_ed_a_tripulacao": "...", "composicoes_edney": "...", "gesto_de_carinho": "..." }
-async function buildPlaylists(){
-  let p={}; try{ p = await loadJSON('data/playlists.json'); }catch{}
-  const map = [
-    {key:'cd_ed_a_tripulacao', labelKey:'pl.cd', fallback:'CD — Ed & A Tripulação'},
-    {key:'composicoes_edney',  labelKey:'pl.composicoes', fallback:'Composições — Edney Fernandes'},
-    {key:'gesto_de_carinho',   labelKey:'pl.gesto', fallback:'Gesto de Carinho (em breve)'}
-  ];
-  const c = document.getElementById('playlist-buttons');
-  if(!c) return;
-  c.innerHTML = '';
-  map.forEach(m=>{
-    const url = p[m.key];
-    const a = document.createElement('a');
-    a.className = 'btn ' + (url ? 'btn-olive' : 'btn-disabled');
-    a.textContent = t(m.labelKey, m.fallback);
-    if(url){ a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
-    const ico = document.createElement('span'); ico.innerHTML = '🎧'; ico.style.marginRight='.4rem';
-    a.prepend(ico);
-    c.appendChild(a);
-  });
-}
-
-// ========= Memorial =========
-// data/memorial.json -> [{ "src":"assets/img/memorial/memorial-01.jpg", "alt":"..." }, ...]
-async function buildMemorial(){
-  let list=[]; try{ list = await loadJSON('data/memorial.json'); }catch{}
-  const g = document.getElementById('memorial-grid'); if(!g) return;
-  g.innerHTML = '';
-  list.forEach(item=>{
-    const fig = document.createElement('figure'); fig.className='memorial-item';
-    const img = document.createElement('img');
-    img.loading='lazy'; img.src=item.src; img.alt=item.alt || 'Foto do acervo';
-    fig.appendChild(img); g.appendChild(fig);
-  });
-}
-
-// ========= Making Of (opcional) =========
-// data/makingof.json -> [{ "titulo":"Faixa", "arquivo":"assets/audio/..." }, ...]
-async function buildMakingOf(){
-  let list=[]; try{ list = await loadJSON('data/makingof.json'); }catch{ list=[]; }
-  const wrap = document.getElementById('makingof'); if(!wrap) return;
-  if(!list.length){ wrap.style.display='none'; return; }
-  const ul = document.createElement('div'); ul.className='audio-list';
-  list.forEach(tk=>{
-    const label=document.createElement('div'); label.textContent = tk.titulo || 'Faixa';
-    const audio=document.createElement('audio'); audio.controls=true; audio.src=tk.arquivo;
-    ul.appendChild(label); ul.appendChild(audio);
-  });
-  wrap.appendChild(ul);
-}
-
-// ========= Boot =========
-document.addEventListener('DOMContentLoaded', async ()=>{
-  initLangUI();
-  await loadI18n(I18N.lang); // aplica textos
-  buildPlaylists();
-  buildMemorial();
-  (function(){
-  const nav = document.querySelector('.nav');
-  if(!nav) return;
-  const sc = ()=> nav.style.boxShadow = (window.scrollY>4) ? '0 6px 20px rgba(0,0,0,.35)' : 'none';
-  sc(); addEventListener('scroll', sc, {passive:true});
-})();
-// ===== Mini Player compacto (um único <audio> compartilhado) =====
-(function(){
-  const items = [...document.querySelectorAll('.mini-audio')];
-  if(!items.length) return;
-
-  // único elemento de áudio compartilhado
-  const audio = new Audio();
-  audio.preload = 'metadata';
-
-  let current = null; // div ativa
-
-  // formata 90 -> "1:30"
-  const mmss = s => {
-    if(!isFinite(s)) return '0:00';
-    s = Math.max(0, Math.floor(s));
-    const m = Math.floor(s/60), ss = String(s%60).padStart(2,'0');
-    return `${m}:${ss}`;
-  };
-
-  // cria UI
-  items.forEach(box => {
-    const title = box.dataset.title || 'Faixa';
-    const src   = box.dataset.src;
-
-    box.innerHTML = `
-      <button class="mini-audio__btn" aria-label="Play">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <button class="hamb" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
-      <div class="mini-audio__title">${title}</div>
-      <div class="mini-audio__time">0:00</div>
-      <div class="mini-audio__bar"><i></i></div>
-    `;
 
-    const btn  = box.querySelector('.mini-audio__btn');
-    const time = box.querySelector('.mini-audio__time');
-    const bar  = box.querySelector('.mini-audio__bar i');
+      <div id="menu" class="menu">
+        <a class="nav-item" href="#legado">Legado</a>
+        <a class="nav-item" href="#discografia">Discografia</a>
+        <a class="nav-item" href="#playlists">Playlists</a>
+        <a class="nav-item" href="#memorial">Memorial</a>
+        <a class="nav-item" href="#contato">Contato</a>
+        <!-- Lang (opcional) -->
+        <div class="lang">
+          <button class="lang-toggle" aria-expanded="false"><span class="lang-current">PT/ES</span></button>
+          <ul class="lang-menu" role="menu" tabindex="-1">
+            <li data-lang="pt" role="menuitem">Português</li>
+            <li data-lang="es" role="menuitem">Español</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-    // play/pause
-    btn.addEventListener('click', () => {
-      if(current === box && !audio.paused){ audio.pause(); return; }
-      // trocar de faixa
-      if(current !== box){
-        current?.querySelector('.mini-audio__btn').innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
-        current = box;
-        audio.src = src; audio.play().catch(()=>{});
-      }else{
-        audio.play().catch(()=>{});
-      }
-    });
+  <!-- HERO (full bleed) -->
+  <header id="top" class="hero-full">
+    <img class="hero-full-img" src="assets/img/hero-edney.jpg" alt="" aria-hidden="true">
+    <div class="hero-full-overlay"></div>
+    <div class="hero-full-content">
+      <h1 class="hero-title">Memorial de Edney Fernandes</h1>
+      <p class="hero-subtitle">A obra, história e memória afetiva preservadas com cuidado e verdade.</p>
+      <div class="cta-center">
+        <a href="#discografia" class="btn btn-primary">Discografia</a>
+        <a href="#playlists" class="btn btn-olive">Composições</a>
+      </div>
+    </div>
+  </header>
 
-    // clique na barra para buscar
-    box.querySelector('.mini-audio__bar').addEventListener('click', (e)=>{
-      if(audio.src.indexOf(src) === -1) return; // ainda não carregou essa
-      const rect = e.currentTarget.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
-      audio.currentTime = p * (audio.duration || 0);
-    });
+  <!-- LEGADO -->
+  <section id="legado" class="strip strip-green-dark reveal">
+    <div class="container">
+      <h2>Legado</h2>
+      <p class="lead">
+        Edney Fernandes (1977–2004) foi compositor e músico paulista ligado ao samba e ao pagode romântico.
+        Iniciou em rodas de samba na Zona Leste e em Guarulhos, reuniu mais de 40 obras autorais e parcerias, com
+        gravações por nomes do pagode dos anos 90 e 2000. Atuou no grupo “Ed & A Tripulação”.
+        Seu catálogo é preservado pela família, com organização de acervo, dossiês e relançamentos planejados.
+      </p>
+    </div>
+  </section>
 
-    // quando essa faixa estiver tocando, atualizar UI
-    audio.addEventListener('timeupdate', ()=>{
-      if(current !== box) return;
-      const d = audio.duration || 0;
-      bar.style.inset = `0 ${Math.max(0,100-((audio.currentTime/d)*100))}% 0 0`;
-      time.textContent = `${mmss(audio.currentTime)} / ${mmss(d)}`;
-    });
+  <!-- DISCOGRAFIA -->
+  <section id="discografia" class="strip strip-green-soft reveal">
+    <div class="container">
+      <h2>Discografia</h2>
+      <p class="lead">Álbuns e lançamentos ligados a Edney Fernandes.</p>
 
-    audio.addEventListener('play', ()=>{
-      if(current === box){
-        btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>`;
-      }
-    });
+      <div class="discog-grid">
+        <!-- Card: A Hora é Essa -->
+        <article class="card">
+          <img class="card-cover" src="assets/img/discografia/ed-album-collage.jpg" alt="Capa e encarte do álbum A Hora é Essa">
+          <div class="p">
+            <h3>Ed & A Tripulação — A Hora é Essa</h3>
+            <p>Produção: Arnaldo Saccomani • Direção artística: Wilson Souto Jr.</p>
 
-    audio.addEventListener('pause', ()=>{
-      btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
-    });
+            <!-- mini players (placeholders: troque data-src pelos seus .mp3) -->
+            <div class="mini-audio" data-title="A Hora é Essa" data-src="assets/audio/a-hora-e-essa.mp3"></div>
+            <div class="mini-audio" data-title="Jeito de Feiticeira" data-src="assets/audio/jeito-de-feiticeira.mp3"></div>
+            <div class="mini-audio" data-title="Noites de Verão" data-src="assets/audio/noites-de-verao.mp3"></div>
 
-    audio.addEventListener('ended', ()=>{
-      if(current === box){
-        btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
-      }
-    });
-  });
-})();
+            <div class="lm-icons">
+              <a class="lm-ico" aria-label="Spotify — Ed & A Tripulação" href="https://open.spotify.com/artist/7bKdzyUaZ2LvSI0aDkqCYS" target="_blank" rel="noopener">🎵</a>
+              <a class="lm-ico" aria-label="Apple Music — Ed & A Tripulação" href="https://music.apple.com/us/artist/ed-e-a-tripula%C3%A7%C3%A3o/1527134686" target="_blank" rel="noopener"></a>
+              <a class="lm-ico" aria-label="Discogs — Edney Fernandes" href="https://www.discogs.com/artist/7864196-Edney-Fernandes" target="_blank" rel="noopener">ⓓ</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Gesto de Carinho -->
+        <article class="card">
+          <img class="card-cover" src="assets/img/discografia/gesto-capa.jpg" alt="Projeto Gesto de Carinho (em produção)">
+          <div class="p">
+            <h3>Gesto de Carinho (em produção)</h3>
+            <p>Projeto póstumo em desenvolvimento com amigos e colaboradores. Trará músicas inéditas e versões especiais.</p>
+            <span class="badge">Em breve</span>
+          </div>
+        </article>
+
+        <!-- Card: Grupo Ed & A Tripulação -->
+        <article class="card" style="max-width:560px">
+          <img class="card-cover" src="assets/img/discografia/ed-grupo.jpg" alt="Foto do grupo Ed & A Tripulação">
+          <div class="p">
+            <h3>Ed & A Tripulação</h3>
+            <p>Seleção de registros do grupo e referências de catálogo.</p>
+            <div class="lm-icons">
+              <a class="lm-ico" aria-label="Discogs" href="https://www.discogs.com/release/15394363-Ed-E-A-Tripula%C3%A7%C3%A3o-Ed-E-A-Tripula%C3%A7%C3%A3o" target="_blank" rel="noopener">ⓓ</a>
+              <a class="lm-ico" aria-label="YouTube Playlist" href="https://www.youtube.com/playlist?list=PLtVHgkMECyztJ7vUda3_fKppB2hM5iV6X" target="_blank" rel="noopener">▶︎</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYLISTS -->
+  <section id="playlists" class="strip strip-black reveal">
+    <div class="container">
+      <h2>Playlists</h2>
+      <p class="lead">Ouça as seleções oficiais nas plataformas.</p>
+      <div id="playlist-buttons" class="cta-center"><!-- preenchido via JS --></div>
+
+      <div class="discog-grid" style="margin-top:1rem">
+        <article class="card">
+          <div class="p">
+            <h3>CD — Ed & A Tripulação</h3>
+            <p>Faixas do álbum e registros relacionados nas plataformas.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="p">
+            <h3>Composições — Edney Fernandes</h3>
+            <p>Gravações de suas obras em diferentes vozes e grupos.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="p">
+            <h3>Gesto de Carinho</h3>
+            <p>Álbum em preparação. Em breve publicaremos os primeiros singles.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMORIAL (polaroid grid + hook dinâmico opcional) -->
+  <section id="memorial" class="strip strip-white reveal">
+    <div class="container">
+      <h2>Memorial</h2>
+      <p class="lead">Linha do tempo afetiva: rodas de samba, estúdios, amigos e família.</p>
+
+      <!-- grid estático estilo polaroid (opcional) -->
+      <div class="memorial-polaroid-grid">
+        <figure class="polaroid">
+          <img src="assets/img/memorial/memorial-01.jpg" alt="Sessão de estúdio, 1999">
+          <figcaption>Estúdio • 1999</figcaption>
+        </figure>
+        <figure class="polaroid">
+          <img src="assets/img/memorial/memorial-02.jpg" alt="Roda de samba com amigos">
+          <figcaption>Roda de samba</figcaption>
+        </figure>
+        <!-- adicione mais conforme desejar -->
+      </div>
+
+      <!-- hook para grade dinâmica via data/memorial.json -->
+      <div id="memorial-grid" class="memorial-grid" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- MAKING OF -->
+  <section id="makingof" class="strip strip-green-olive reveal">
+    <div class="container">
+      <h2>Making Of — Gesto de Carinho</h2>
+      <p class="lead">Prévia de faixas e ensaios (quando disponível).</p>
+      <!-- conteúdo é injetado se data/makingof.json existir -->
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="strip strip-black reveal">
+    <div class="container">
+      <h2>Contato</h2>
+      <form class="form" onsubmit="event.preventDefault(); alert('Obrigado! Mensagem enviada (demo).');">
+        <input type="text" placeholder="Seu nome" required>
+        <input type="email" placeholder="Seu e-mail" required>
+        <textarea rows="5" placeholder="Sua mensagem"></textarea>
+        <button class="btn btn-primary" type="submit">Enviar</button>
+      </form>
+      <div class="contact-grid" style="margin-top:16px">
+        <a class="contact-item" href="https://instagram.com/yogabibds" target="_blank" rel="noopener">
+          <img src="assets/img/ico-ig.svg" alt="" aria-hidden="true"> Instagram
+        </a>
+        <a class="contact-item" href="mailto:universolaia06@gmail.com">
+          <img src="assets/img/ico-mail.svg" alt="" aria-hidden="true"> Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-dark">
+    <div class="container">© 2025 Laia Music • Conteúdo em atualização</div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
