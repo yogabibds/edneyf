@@ -1,188 +1,211 @@
 <!doctype html>
 <html lang="pt-br" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Laia Music — O legado de Edney Fernandes</title>
-  <meta name="description" content="Site oficial do legado de Edney Fernandes: composições, discografia, playlists e memória afetiva.">
+  <title>Edney Fernandes — A Voz e o Tempo</title>
+  <meta name="description" content="Memorial oficial: obra, discografia, playlists e memória afetiva de Edney Fernandes. Laia Music." />
 
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- remove no-js asap -->
+  <link rel="stylesheet" href="assets/css/style.css" />
   <script>document.documentElement.classList.remove('no-js');</script>
-
-  <!-- JSON-LD (mantido do seu HTML) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"MusicRecording",
-        "name":"A Hora é Essa",
-        "byArtist":{"@type":"MusicGroup","name":"Ed & A Tripulação"},
-        "inAlbum":{"@type":"MusicAlbum","name":"A Hora é Essa"},
-        "genre":["Pagode","MPB"],
-        "audio":"https://edneyfernandes.com/assets/audios/ed-tripulacao-a-hora-e-essa.mp3"
-      },
-      {
-        "@type":"MusicRecording",
-        "name":"História de Amor",
-        "byArtist":{"@type":"Person","name":"Edney Fernandes"},
-        "genre":["Pagode","MPB"],
-        "audio":"https://edneyfernandes.com/assets/audios/edney-historia-de-amor.mp3"
-      }
-    ]
-  }
-  </script>
 </head>
 
-<body id="top">
+<body>
+
+<!-- overlay orientação vertical -->
+<div id="rotateOverlay" class="rotate-overlay" aria-hidden="true">
+  <div class="rotate-box">
+    <div class="rotate-title">Gire o celular</div>
+    <div class="rotate-sub">Este site foi pensado para navegação vertical.</div>
+  </div>
+</div>
 
 <nav class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="#top">
-      <img src="assets/img/logo-laia-music.png" alt="Laia Music">
-      <span>Laia Music</span>
+    <a class="brand" href="#top" aria-label="Laia Music — Início">
+      <img class="brand-logo" src="assets/img/logo-laia-music.png" alt="Laia Music">
+      <span class="brand-text">Laia Music</span>
     </a>
 
-    <div class="menu">
-      <a class="nav-item" href="#legado">Legado</a>
+    <div class="menu" aria-label="Navegação">
+      <a class="nav-item" href="#mensagem">Manifesto</a>
       <a class="nav-item" href="#discografia">Discografia | Playlists</a>
       <a class="nav-item" href="#composicoes">Composições</a>
       <a class="nav-item" href="#memorial">Memorial</a>
     </div>
 
-    <details class="lang">
-      <summary class="lang-toggle" aria-expanded="false">
-        <span class="lang-current">PT/ES</span>
-      </summary>
-      <ul class="lang-menu" tabindex="-1" aria-label="Idiomas">
-        <li data-lang="pt">PT</li>
-        <li data-lang="es">ES</li>
-        <li data-lang="en">EN</li>
-        <li data-lang="de">DE</li>
-        <li data-lang="nl">NL</li>
-        <li data-lang="ru">RU</li>
-      </ul>
-    </details>
+    <a class="nav-cta" href="#playlists">Ouvir</a>
   </div>
 </nav>
 
-<div class="drive">
+<main id="top" class="drive">
 
   <!-- HERO -->
-  <header class="hero-full">
-    <div class="container hero-inner">
+  <header class="hero section">
+    <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="hero-kicker reveal" data-i18n="hero.kicker">Memorial oficial</p>
-        <h1 class="hero-title reveal" data-i18n="hero.title">Edney Fernandes</h1>
-        <p class="hero-subtitle reveal" data-i18n="hero.subtitle">
-          A obra, história e memória afetiva preservadas pela Laia Music.
-        </p>
+        <div class="kicker reveal">Memorial oficial</div>
+
+        <h1 class="hero-title reveal">Edney Fernandes</h1>
+        <p class="hero-subtitle reveal">A Voz e o Tempo.</p>
 
         <div class="hero-actions reveal">
-          <a class="btn btn-olive" href="#discografia" data-i18n="hero.cta1">Ouvir agora</a>
-          <a class="btn btn-ghost" href="#memorial" data-i18n="hero.cta2">Ver memorial</a>
+          <a class="btn btn-solid" href="#playlists">Ouvir agora</a>
+          <a class="btn btn-ghost" href="#mensagem">Ler manifesto</a>
+        </div>
+
+        <div class="hero-meta reveal">
+          <div class="meta-pill">Legado</div>
+          <div class="meta-pill">Discografia</div>
+          <div class="meta-pill">Memória afetiva</div>
         </div>
       </div>
 
-      <div class="hero-media" aria-hidden="true">
-        <img class="hero-img" src="assets/img/hero.jpg" alt="">
+      <div class="hero-media reveal">
+        <div class="hero-frame">
+          <img src="assets/img/hero-edney.jpg" alt="Edney Fernandes">
+          <div class="hero-aura" aria-hidden="true"></div>
+          <div class="hero-notes" aria-hidden="true"></div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- LEGADO -->
-  <section class="strip" id="legado">
+  <!-- MANIFESTO -->
+  <section id="mensagem" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal" data-i18n="legacy.title">Legado</h2>
-      <p class="section-lead reveal" data-i18n="legacy.lead">
-        Um arquivo vivo: composições, registros, discografia, playlists e memória cultural.
-      </p>
+      <h2 class="section-title reveal">Manifesto</h2>
 
-      <div class="cards reveal">
-        <!-- mantido: seus cards existentes aqui (se você já tinha no HTML) -->
+      <div class="manifesto reveal">
+        <p>Existem vozes que, mesmo depois da despedida, não se calam.</p>
+        <p>Elas atravessam o invisível, o imaterial, o finito, e continuam ecoando pelos cantos, como se o tempo não tivesse fim.</p>
+        <p>Nos fazem lembrar o que é sentir, o que é viver, e despertam memórias afetivas.</p>
+        <p><strong>Edney Fernandes</strong> foi uma dessas vozes — um menino do samba que sonhou alto demais pra caber só nesta vida.</p>
+        <p>Cantou o amor, a saudade, a beleza do cotidiano, e transformou tudo em melodia, deixando o próprio coração exposto em cada nota.</p>
+        <p>Mesmo partindo cedo, sua presença nunca foi ausência. Porque quem canta com verdade, permanece.</p>
+        <p>Hoje, sua voz continua ecoando nas rodas de samba, nas rádios, nas lembranças e nas descobertas.</p>
+        <p>Não apenas como lembrança, mas como presença — pela pessoa que foi, pela sensibilidade com que viveu e compôs.</p>
+        <p>Este projeto é um reencontro: entre o passado e o futuro, entre a memória, a saudade e a vida.</p>
+        <p class="sig">Edney Fernandes — A Voz e o Tempo. 🌻</p>
       </div>
     </div>
   </section>
 
-  <!-- DISCOGRAFIA / PLAYLISTS -->
-  <section class="strip" id="discografia">
+  <!-- DISCOGRAFIA | PLAYLISTS -->
+  <section id="discografia" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal" data-i18n="disc.title">Discografia | Playlists</h2>
-      <p class="section-lead reveal" data-i18n="disc.lead">
-        Selecione uma playlist para ouvir nas plataformas oficiais.
-      </p>
+      <h2 class="section-title reveal">Discografia | Playlists</h2>
+      <p class="section-lead reveal">Links oficiais para ouvir no Spotify e YouTube.</p>
 
-      <div id="playlist-buttons" class="reveal"></div>
+      <!-- cards com capas (suas imagens existentes) -->
+      <div class="discog-covers reveal" aria-label="Capas e discografia">
+        <figure class="cover">
+          <img src="assets/img/discografia/ed-tripulacao.jpg" alt="Ed & A Tripulação">
+          <figcaption>Ed & A Tripulação</figcaption>
+        </figure>
+        <figure class="cover">
+          <img src="assets/img/discografia/gesto-capa.jpg" alt="Gesto de Carinho">
+          <figcaption>Gesto de Carinho</figcaption>
+        </figure>
+        <figure class="cover">
+          <img src="assets/img/discografia/composicoes__playlist.jpg" alt="Composições — Edney Fernandes">
+          <figcaption>Composições — Edney Fernandes</figcaption>
+        </figure>
+      </div>
+
+      <div id="playlists" class="spacer"></div>
+      <div id="playlistGrid" class="playlist-grid reveal"></div>
     </div>
   </section>
 
   <!-- COMPOSIÇÕES -->
-  <section class="strip" id="composicoes">
+  <section id="composicoes" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal" data-i18n="comp.title">Composições</h2>
-      <p class="section-lead reveal" data-i18n="comp.lead">
-        Obras registradas e referências de catálogo.
-      </p>
+      <h2 class="section-title reveal">Composições</h2>
+      <p class="section-lead reveal">Obras registradas e referências de catálogo.</p>
 
-      <div class="discog reveal" id="composicoes-list"></div>
+      <div id="composicoesList" class="list-grid reveal"></div>
     </div>
   </section>
 
-  <!-- MEMORIAL -->
-  <section class="strip strip-dark" id="memorial">
-    <div class="container">
-      <h2 class="section-title reveal" data-i18n="memorial.title">Memorial</h2>
-      <p class="section-lead reveal" data-i18n="memorial.lead">
-        Fotografias e registros do acervo.
-      </p>
+  <!-- “ROLA PRA BAIXO E VIRA PRO LADO” (ACERVO) -->
+  <section id="acervo" class="section horizontal" aria-label="Acervo">
+    <div class="horizontal-sticky">
+      <div class="container horizontal-head">
+        <h2 class="section-title reveal">Acervo</h2>
+        <p class="section-lead reveal">Role para baixo: o acervo desliza para o lado.</p>
+      </div>
 
-      <div id="memorial-grid" class="memorial-grid reveal"></div>
+      <div class="horizontal-track" id="hTrack">
+        <!-- usa imagens reais existentes -->
+        <article class="h-card">
+          <img src="assets/img/memorial/memorial-01.jpg" alt="Memorial 01">
+          <div class="h-caption">Memorial 01</div>
+        </article>
+        <article class="h-card">
+          <img src="assets/img/memorial/memorial-02.jpg" alt="Memorial 02">
+          <div class="h-caption">Memorial 02</div>
+        </article>
+        <article class="h-card">
+          <img src="assets/img/memorial/memorial-03.jpg" alt="Memorial 03">
+          <div class="h-caption">Memorial 03</div>
+        </article>
+        <article class="h-card">
+          <img src="assets/img/memorial/memorial-04.jpg" alt="Memorial 04">
+          <div class="h-caption">Memorial 04</div>
+        </article>
+        <article class="h-card">
+          <img src="assets/img/memorial/memorial-05.jpg" alt="Memorial 05">
+          <div class="h-caption">Memorial 05</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMORIAL (grid completo via JSON) -->
+  <section id="memorial" class="section strip">
+    <div class="container">
+      <h2 class="section-title reveal">Memorial</h2>
+      <p class="section-lead reveal">Fotografias e registros do acervo.</p>
+      <div id="memorialGrid" class="memorial-grid reveal"></div>
     </div>
   </section>
 
   <!-- MAKING OF -->
-  <section class="strip" id="makingof-strip">
+  <section id="makingof" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal" data-i18n="making.title">Making of</h2>
-      <p class="section-lead reveal" data-i18n="making.lead">
-        Áudios e registros de estúdio (quando disponíveis).
-      </p>
-      <div id="makingof" class="reveal"></div>
+      <h2 class="section-title reveal">Making of</h2>
+      <p class="section-lead reveal">Áudios e registros de estúdio (quando disponíveis).</p>
+      <div id="makingofWrap" class="reveal"></div>
     </div>
   </section>
 
   <!-- BIBLIOGRAFIA -->
-  <section class="strip" id="bibliografia-strip">
+  <section id="bibliografia" class="section strip">
     <div class="container">
       <h2 class="section-title reveal">Bibliografia & Referências</h2>
-      <div id="bibliografia" class="reveal"></div>
+      <div id="biblioWrap" class="reveal"></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="footer section">
     <div class="container footer-inner">
-      <div class="footer-left">
-        <img src="assets/img/logo-laia-music.png" alt="Laia Music" class="footer-logo">
-        <p class="muted">© Laia Music — Memorial Edney Fernandes</p>
+      <div class="foot-left">
+        <div class="foot-title">Laia Music — Memorial Edney Fernandes</div>
+        <div class="foot-muted">© Todos os direitos reservados.</div>
       </div>
-      <div class="footer-right">
-        <a href="#top" class="muted">Topo</a>
-      </div>
+      <a class="foot-top" href="#top">Topo</a>
     </div>
   </footer>
 
-</div>
+</main>
 
 <script src="assets/js/main.js" defer></script>
 </body>
