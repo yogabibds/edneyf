@@ -1,20 +1,28 @@
+// composicoes.json
 [
   {
-    "titulo": "Meu Desejo",
-    "colaboradores": [
-      "Edney Fernandes"
-    ],
-    "ano": 2003,
-    "isrc": "",
-    "link": ""
+    "titulo": "A Hora é Essa",
+    "autor": "Edney Fernandes",
+    "observacoes": "Ed & A Tripulação"
   },
   {
-    "titulo": "Teu Coração",
-    "colaboradores": [
-      "Edney Fernandes"
-    ],
-    "ano": 2003,
-    "isrc": "",
-    "link": ""
+    "titulo": "História de Amor",
+    "autor": "Edney Fernandes",
+    "observacoes": ""
+  },
+  {
+    "titulo": "Te Vejo na TV",
+    "autor": "Edney Fernandes",
+    "observacoes": ""
+  },
+  {
+    "titulo": "No Fundo dos Meus Olhos",
+    "autor": "Edney Fernandes",
+    "observacoes": ""
+  },
+  {
+    "titulo": "Deixa Rolar",
+    "autor": "Edney Fernandes",
+    "observacoes": ""
   }
 ]
