@@ -4,9 +4,7 @@ async function loadJSON(path){
   return r.json();
 }
 
-/* =========================
-   Reveal on scroll
-========================= */
+/* Reveal on scroll */
 function initReveal(){
   const els = document.querySelectorAll('.reveal-on-scroll');
   if(!els.length) return;
@@ -31,9 +29,7 @@ function initReveal(){
   els.forEach(el => io.observe(el));
 }
 
-/* =========================
-   Rotate overlay (mobile landscape)
-========================= */
+/* Rotate overlay (mobile landscape) */
 function initRotateOverlay(){
   const overlay = document.getElementById('rotateOverlay');
   if(!overlay) return;
@@ -48,9 +44,7 @@ function initRotateOverlay(){
   update();
 }
 
-/* =========================
-   Tap to lock / Back to scroll
-========================= */
+/* Tap to lock / Back to scroll */
 function initLockScroll(){
   const lockBtn = document.querySelector('[data-lock]');
   const unlockBtn = document.querySelector('[data-unlock]');
@@ -64,15 +58,39 @@ function initLockScroll(){
     document.body.classList.remove('is-locked');
   });
 
-  // se trocar orientação, destrava automaticamente (evita “prender”)
   window.addEventListener('orientationchange', ()=>{
     document.body.classList.remove('is-locked');
   });
 }
 
-/* =========================
-   Horizontal: scroll vertical controla translateX
-========================= */
+/* HERO shrink (efeito do vídeo) */
+function initHeroShrink(){
+  const hero = document.getElementById('hero');
+  if(!hero) return;
+
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+
+  const clamp = (n,a,b)=>Math.max(a,Math.min(b,n));
+
+  function update(){
+    const rect = hero.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    // hero tem 180vh => sobra (heroHeight - vh) pra progress
+    const total = hero.offsetHeight - vh;
+    const passed = clamp(-rect.top, 0, total);
+    const p = total > 0 ? passed / total : 0;
+
+    hero.style.setProperty('--hero-p', p.toFixed(4));
+  }
+
+  window.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
+  update();
+}
+
+/* Horizontal: scroll vertical controla translateX */
 function initHorizontalScroll(){
   const section = document.getElementById('acervo');
   const track = document.getElementById('hTrack');
@@ -99,9 +117,7 @@ function initHorizontalScroll(){
   onScroll();
 }
 
-/* =========================
-   Playlists
-========================= */
+/* Playlists */
 async function buildPlaylists(){
   const grid = document.getElementById('playlistGrid');
   if(!grid) return;
@@ -152,9 +168,7 @@ async function buildPlaylists(){
   });
 }
 
-/* =========================
-   Composições
-========================= */
+/* Composições */
 async function buildComposicoes(){
   const wrap = document.getElementById('composicoesList');
   if(!wrap) return;
@@ -180,9 +194,7 @@ async function buildComposicoes(){
   });
 }
 
-/* =========================
-   Memorial
-========================= */
+/* Memorial */
 async function buildMemorial(){
   const grid = document.getElementById('memorialGrid');
   if(!grid) return;
@@ -215,9 +227,7 @@ async function buildMemorial(){
   });
 }
 
-/* =========================
-   Making of
-========================= */
+/* Making of */
 async function buildMakingOf(){
   const wrap = document.getElementById('makingofWrap');
   if(!wrap) return;
@@ -255,9 +265,7 @@ async function buildMakingOf(){
   wrap.appendChild(box);
 }
 
-/* =========================
-   Bibliografia
-========================= */
+/* Bibliografia */
 async function buildBibliografia(){
   const wrap = document.getElementById('biblioWrap');
   if(!wrap) return;
@@ -294,13 +302,12 @@ async function buildBibliografia(){
   wrap.appendChild(box);
 }
 
-/* =========================
-   Boot
-========================= */
+/* Boot */
 document.addEventListener('DOMContentLoaded', async ()=>{
   initReveal();
   initRotateOverlay();
   initLockScroll();
+  initHeroShrink();
   initHorizontalScroll();
 
   await buildPlaylists();
@@ -309,7 +316,6 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   await buildMakingOf();
   await buildBibliografia();
 
-  // sombra no nav ao rolar
   (function(){
     const nav = document.querySelector('.nav');
     if(!nav) return;
