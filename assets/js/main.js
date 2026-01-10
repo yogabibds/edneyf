@@ -1,3 +1,32 @@
+/* =========================
+   REVEAL ON SCROLL (fix: conteúdo invisível)
+========================= */
+function initReveal(){
+  const els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+
+  // Fallback: se o navegador não suportar IntersectionObserver, mostra tudo
+  if(!('IntersectionObserver' in window)){
+    els.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){
+    els.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.18 });
+
+  els.forEach(el => io.observe(el));
+}
+
+
 /* =====================
    REVEAL ON SCROLL
 ===================== */
