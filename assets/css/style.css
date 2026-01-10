@@ -4,10 +4,7 @@
   --muted:rgba(255,255,255,.72);
   --muted2:rgba(255,255,255,.55);
   --line:rgba(255,255,255,.10);
-  --glass:rgba(255,255,255,.04);
-  --glass2:rgba(255,255,255,.06);
   --max:1120px;
-  --r:18px;
 }
 
 *{ box-sizing:border-box; }
@@ -22,9 +19,12 @@ body{
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 .container{ width:min(var(--max),100%); margin:0 auto; padding:0 18px; }
-.no-js .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
 
-/* NAV */
+.no-js .reveal-on-scroll{ opacity:1 !important; transform:none !important; transition:none !important; }
+
+/* =========================
+   NAV
+========================= */
 .nav{
   position:sticky; top:0; z-index:80;
   background:rgba(0,0,0,.65);
@@ -55,11 +55,21 @@ a{ color:inherit; text-decoration:none; }
   background:rgba(255,255,255,.05);
 }
 
-/* DRIVE */
-.drive{ scroll-snap-type:y proximity; }
-.section{ scroll-snap-align:start; }
+/* =========================
+   VERTICAL DRIVE (scroll-snap)
+========================= */
+.drive{
+  scroll-snap-type:y mandatory;
+  scroll-padding-top:72px; /* compensa nav sticky */
+}
+.section{
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+}
 
-/* ROTATE overlay */
+/* =========================
+   Rotate overlay
+========================= */
 .rotate-overlay{
   position:fixed; inset:0; z-index:999;
   display:none; align-items:center; justify-content:center;
@@ -75,11 +85,43 @@ a{ color:inherit; text-decoration:none; }
 .rotate-title{ font-weight:700; font-size:18px; margin-bottom:6px; }
 .rotate-sub{ color:var(--muted); }
 
-/* HERO */
+/* =========================
+   Tap to lock UI
+========================= */
+.lock-ui{
+  position:fixed;
+  right:14px;
+  bottom:14px;
+  z-index:120;
+  display:flex;
+  gap:10px;
+}
+.lock-btn, .unlock-btn{
+  appearance:none;
+  border-radius:999px;
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.05);
+  color:#fff;
+  font:600 13px/1 Inter,system-ui,sans-serif;
+  cursor:pointer;
+}
+.unlock-btn{ display:none; }
+body.is-locked .lock-btn{ display:none; }
+body.is-locked .unlock-btn{ display:inline-flex; }
+body.is-locked{
+  height:100vh;
+  overflow:hidden;
+  touch-action:none;
+}
+
+/* =========================
+   HERO
+========================= */
 .hero{
   min-height:100vh;
   display:flex; align-items:center;
-  padding:70px 0 48px;
+  padding:78px 0 48px;
 }
 .hero-grid{
   display:grid;
@@ -122,8 +164,6 @@ a{ color:inherit; text-decoration:none; }
   color:var(--muted);
   font-size:.92rem;
 }
-
-/* Hero media */
 .hero-media .hero-frame{
   position:relative;
   border-radius:22px;
@@ -151,11 +191,13 @@ a{ color:inherit; text-decoration:none; }
   pointer-events:none;
 }
 
-/* STRIPS */
+/* =========================
+   STRIPS
+========================= */
 .strip{
-  min-height:90vh;
+  min-height:100vh;
   display:flex; align-items:center;
-  padding:86px 0;
+  padding:90px 0;
   border-top:1px solid rgba(255,255,255,.06);
 }
 .section-title{
@@ -168,7 +210,6 @@ a{ color:inherit; text-decoration:none; }
   max-width:70ch;
   margin:0 0 18px;
 }
-
 .spacer{ height:1px; }
 
 /* Manifesto */
@@ -282,20 +323,30 @@ a{ color:inherit; text-decoration:none; }
 .audio-title{ font-weight:700; margin-bottom:8px; }
 .muted{ color:var(--muted); }
 
-/* Reveal */
-.reveal{
+/* =========================
+   Reveal on scroll (Lando-like micro motion)
+========================= */
+.reveal-on-scroll{
   opacity:0;
-  transform:translateY(22px);
-  transition:opacity .7s ease, transform .7s ease;
+  transform:translateY(26px) scale(1.02);
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.8,.2,1);
   will-change:opacity, transform;
 }
-.reveal.is-visible{ opacity:1; transform:translateY(0); }
-@media (prefers-reduced-motion: reduce){
-  .drive{ scroll-snap-type:none; }
-  .reveal{ opacity:1; transform:none; transition:none; }
+.reveal-on-scroll.is-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
 }
 
-/* Horizontal “vira pro lado” */
+@media (prefers-reduced-motion: reduce){
+  .drive{ scroll-snap-type:none; }
+  .reveal-on-scroll{ opacity:1; transform:none; transition:none; }
+}
+
+/* =========================
+   Horizontal “vira pro lado”
+========================= */
 .horizontal{
   height:220vh;
   border-top:1px solid rgba(255,255,255,.06);
@@ -330,20 +381,11 @@ a{ color:inherit; text-decoration:none; }
   object-fit:cover;
   filter:grayscale(1) contrast(1.05);
 }
-.h-caption{
-  padding:12px 14px;
-  color:var(--muted);
-}
+.h-caption{ padding:12px 14px; color:var(--muted); }
 
 /* Footer */
-.footer{
-  padding:42px 0;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-.footer-inner{
-  display:flex; justify-content:space-between; align-items:flex-end;
-  gap:18px;
-}
+.footer{ padding:42px 0; border-top:1px solid rgba(255,255,255,.08); }
+.footer-inner{ display:flex; justify-content:space-between; align-items:flex-end; gap:18px; }
 .foot-title{ font-weight:700; }
 .foot-muted{ color:var(--muted); margin-top:6px; }
 .foot-top{ color:var(--muted); }
