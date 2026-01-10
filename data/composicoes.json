@@ -1,28 +1,22 @@
-// composicoes.json
 [
   {
     "titulo": "A Hora é Essa",
-    "autor": "Edney Fernandes",
     "observacoes": "Ed & A Tripulação"
   },
   {
     "titulo": "História de Amor",
-    "autor": "Edney Fernandes",
-    "observacoes": ""
+    "observacoes": "Edney Fernandes"
   },
   {
     "titulo": "Te Vejo na TV",
-    "autor": "Edney Fernandes",
-    "observacoes": ""
+    "observacoes": "Edney Fernandes"
   },
   {
     "titulo": "No Fundo dos Meus Olhos",
-    "autor": "Edney Fernandes",
-    "observacoes": ""
+    "observacoes": "Edney Fernandes"
   },
   {
     "titulo": "Deixa Rolar",
-    "autor": "Edney Fernandes",
-    "observacoes": ""
+    "observacoes": "Edney Fernandes"
   }
 ]
