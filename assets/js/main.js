@@ -4,9 +4,11 @@ async function loadJSON(path){
   return r.json();
 }
 
-/* Reveal */
+/* =========================
+   Reveal on scroll
+========================= */
 function initReveal(){
-  const els = document.querySelectorAll('.reveal');
+  const els = document.querySelectorAll('.reveal-on-scroll');
   if(!els.length) return;
 
   if(!('IntersectionObserver' in window)){
@@ -29,7 +31,9 @@ function initReveal(){
   els.forEach(el => io.observe(el));
 }
 
-/* Rotate overlay */
+/* =========================
+   Rotate overlay (mobile landscape)
+========================= */
 function initRotateOverlay(){
   const overlay = document.getElementById('rotateOverlay');
   if(!overlay) return;
@@ -44,7 +48,31 @@ function initRotateOverlay(){
   update();
 }
 
-/* Horizontal scroll (vertical -> translateX) */
+/* =========================
+   Tap to lock / Back to scroll
+========================= */
+function initLockScroll(){
+  const lockBtn = document.querySelector('[data-lock]');
+  const unlockBtn = document.querySelector('[data-unlock]');
+  if(!lockBtn || !unlockBtn) return;
+
+  lockBtn.addEventListener('click', ()=>{
+    document.body.classList.add('is-locked');
+  });
+
+  unlockBtn.addEventListener('click', ()=>{
+    document.body.classList.remove('is-locked');
+  });
+
+  // se trocar orientação, destrava automaticamente (evita “prender”)
+  window.addEventListener('orientationchange', ()=>{
+    document.body.classList.remove('is-locked');
+  });
+}
+
+/* =========================
+   Horizontal: scroll vertical controla translateX
+========================= */
 function initHorizontalScroll(){
   const section = document.getElementById('acervo');
   const track = document.getElementById('hTrack');
@@ -71,33 +99,22 @@ function initHorizontalScroll(){
   onScroll();
 }
 
-/* Playlists: suporta 2 formatos
-   - array: [{title, spotify, youtube}]
-   - objeto (antigo): { chave: url, ... }
-*/
+/* =========================
+   Playlists
+========================= */
 async function buildPlaylists(){
   const grid = document.getElementById('playlistGrid');
   if(!grid) return;
 
-  let data;
-  try{ data = await loadJSON('data/playlists.json'); }
-  catch { data = []; }
-
-  // normaliza para array
   let list = [];
-  if(Array.isArray(data)){
-    list = data;
-  }else if(data && typeof data === 'object'){
-    // tenta mapear objeto antigo
-    const map = [
-      { title: 'Gesto de Carinho — Playlists', spotify: data.gesto_spotify || data.gesto_de_carinho_spotify || data.gesto_de_carinho, youtube: data.gesto_youtube || data.gesto_de_carinho_youtube },
-      { title: 'Ed & A Tripulação — Playlists', spotify: data.tripulacao_spotify || data.cd_ed_a_tripulacao || data.cd_spotify, youtube: data.tripulacao_youtube || data.cd_ed_a_tripulacao_youtube },
-      { title: 'Composições — Edney Fernandes', spotify: data.composicoes_edney_spotify, youtube: data.composicoes_edney_youtube }
-    ].filter(x => x.spotify || x.youtube);
-    list = map;
-  }
+  try{ list = await loadJSON('data/playlists.json'); } catch { list = []; }
 
   grid.innerHTML = '';
+
+  if(!Array.isArray(list) || !list.length){
+    grid.innerHTML = `<div class="pcard"><h3>Em breve</h3><div class="muted">Playlists em organização.</div></div>`;
+    return;
+  }
 
   list.forEach(p=>{
     const card = document.createElement('article');
@@ -135,7 +152,9 @@ async function buildPlaylists(){
   });
 }
 
-/* Composições */
+/* =========================
+   Composições
+========================= */
 async function buildComposicoes(){
   const wrap = document.getElementById('composicoesList');
   if(!wrap) return;
@@ -145,7 +164,7 @@ async function buildComposicoes(){
 
   wrap.innerHTML = '';
 
-  if(!list.length){
+  if(!Array.isArray(list) || !list.length){
     wrap.innerHTML = `<div class="item"><div class="item-title">Em breve</div><div class="item-sub">Conteúdo em organização.</div></div>`;
     return;
   }
@@ -161,7 +180,9 @@ async function buildComposicoes(){
   });
 }
 
-/* Memorial */
+/* =========================
+   Memorial
+========================= */
 async function buildMemorial(){
   const grid = document.getElementById('memorialGrid');
   if(!grid) return;
@@ -170,6 +191,11 @@ async function buildMemorial(){
   try{ list = await loadJSON('data/memorial.json'); } catch { list = []; }
 
   grid.innerHTML = '';
+
+  if(!Array.isArray(list) || !list.length){
+    grid.innerHTML = `<div class="audio-row"><div class="muted">Em breve.</div></div>`;
+    return;
+  }
 
   list.forEach(item=>{
     const fig = document.createElement('figure');
@@ -189,7 +215,9 @@ async function buildMemorial(){
   });
 }
 
-/* Making of */
+/* =========================
+   Making of
+========================= */
 async function buildMakingOf(){
   const wrap = document.getElementById('makingofWrap');
   if(!wrap) return;
@@ -197,7 +225,7 @@ async function buildMakingOf(){
   let list = [];
   try{ list = await loadJSON('data/makingof.json'); } catch { list = []; }
 
-  if(!list.length){
+  if(!Array.isArray(list) || !list.length){
     wrap.innerHTML = `<div class="audio-row"><div class="muted">Em breve.</div></div>`;
     return;
   }
@@ -227,7 +255,9 @@ async function buildMakingOf(){
   wrap.appendChild(box);
 }
 
-/* Bibliografia */
+/* =========================
+   Bibliografia
+========================= */
 async function buildBibliografia(){
   const wrap = document.getElementById('biblioWrap');
   if(!wrap) return;
@@ -235,7 +265,7 @@ async function buildBibliografia(){
   let list = [];
   try{ list = await loadJSON('data/bibliografia.json'); } catch { list = []; }
 
-  if(!list.length){
+  if(!Array.isArray(list) || !list.length){
     wrap.innerHTML = `<div class="audio-row"><div class="muted">Sem referências cadastradas ainda.</div></div>`;
     return;
   }
@@ -264,10 +294,13 @@ async function buildBibliografia(){
   wrap.appendChild(box);
 }
 
-/* Boot */
+/* =========================
+   Boot
+========================= */
 document.addEventListener('DOMContentLoaded', async ()=>{
   initReveal();
   initRotateOverlay();
+  initLockScroll();
   initHorizontalScroll();
 
   await buildPlaylists();
@@ -276,7 +309,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   await buildMakingOf();
   await buildBibliografia();
 
-  // sombra nav
+  // sombra no nav ao rolar
   (function(){
     const nav = document.querySelector('.nav');
     if(!nav) return;
