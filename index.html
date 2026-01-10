@@ -40,7 +40,6 @@
 
 <body>
 
-<!-- Overlay orientação vertical (portrait) -->
 <div id="rotateOverlay" class="rotate-overlay" aria-hidden="true">
   <div class="rotate-box">
     <div class="rotate-title">Gire o celular</div>
@@ -48,7 +47,6 @@
   </div>
 </div>
 
-<!-- Tap to lock (mobile) -->
 <div class="lock-ui" aria-hidden="false">
   <button class="lock-btn" type="button" data-lock>Tap to lock</button>
   <button class="unlock-btn" type="button" data-unlock>Back to scroll</button>
@@ -74,11 +72,12 @@
 
 <main id="top" class="drive">
 
-  <!-- HERO (efeito do vídeo: sticky + diminui ao scroll) -->
+  <!-- HERO (faixa preta + imagem embaixo + shrink vira card) -->
   <header class="hero section section-hero" id="hero">
     <div class="hero-sticky">
-      <div class="container hero-grid">
-        <div class="hero-copy">
+      <!-- faixa preta full-width -->
+      <div class="hero-band">
+        <div class="container hero-band-inner">
           <div class="kicker reveal-on-scroll">Memorial oficial</div>
           <h1 class="hero-title reveal-on-scroll">Edney Fernandes</h1>
           <p class="hero-subtitle reveal-on-scroll">A Voz e o Tempo.</p>
@@ -94,7 +93,10 @@
             <div class="meta-pill">Memória afetiva</div>
           </div>
         </div>
+      </div>
 
+      <!-- imagem abaixo (vira “card menor” no scroll) -->
+      <div class="container hero-media-wrap">
         <div class="hero-media reveal-on-scroll">
           <div class="hero-frame" id="heroFrame">
             <img src="assets/img/hero-edney.jpg" alt="Edney Fernandes">
@@ -162,7 +164,7 @@
     </div>
   </section>
 
-  <!-- “ROLA PRA BAIXO E VIRA PRO LADO” -->
+  <!-- ACERVO HORIZONTAL -->
   <section id="acervo" class="section horizontal" aria-label="Acervo">
     <div class="horizontal-sticky">
       <div class="container horizontal-head">
