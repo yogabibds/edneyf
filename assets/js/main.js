@@ -63,7 +63,7 @@ function initLockScroll(){
   });
 }
 
-/* HERO shrink (efeito do vídeo) */
+/* HERO shrink (vira card menor) */
 function initHeroShrink(){
   const hero = document.getElementById('hero');
   if(!hero) return;
@@ -73,15 +73,18 @@ function initHeroShrink(){
 
   const clamp = (n,a,b)=>Math.max(a,Math.min(b,n));
 
+  // easing para “virar card” mais perceptível (acelera no final)
+  const easeOutCubic = (t)=> 1 - Math.pow(1 - t, 3);
+
   function update(){
     const rect = hero.getBoundingClientRect();
     const vh = window.innerHeight;
 
-    // hero tem 180vh => sobra (heroHeight - vh) pra progress
     const total = hero.offsetHeight - vh;
     const passed = clamp(-rect.top, 0, total);
-    const p = total > 0 ? passed / total : 0;
+    const raw = total > 0 ? passed / total : 0;
 
+    const p = easeOutCubic(raw);
     hero.style.setProperty('--hero-p', p.toFixed(4));
   }
 
