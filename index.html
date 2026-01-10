@@ -19,12 +19,18 @@
 
 <body>
 
-<!-- overlay orientação vertical -->
+<!-- Overlay orientação vertical (portrait) -->
 <div id="rotateOverlay" class="rotate-overlay" aria-hidden="true">
   <div class="rotate-box">
     <div class="rotate-title">Gire o celular</div>
     <div class="rotate-sub">Este site foi pensado para navegação vertical.</div>
   </div>
+</div>
+
+<!-- Tap to lock (mobile) -->
+<div class="lock-ui" aria-hidden="false">
+  <button class="lock-btn" type="button" data-lock>Tap to lock</button>
+  <button class="unlock-btn" type="button" data-unlock>Back to scroll</button>
 </div>
 
 <nav class="nav">
@@ -48,27 +54,26 @@
 <main id="top" class="drive">
 
   <!-- HERO -->
-  <header class="hero section">
+  <header class="hero section section-hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <div class="kicker reveal">Memorial oficial</div>
+        <div class="kicker reveal-on-scroll">Memorial oficial</div>
+        <h1 class="hero-title reveal-on-scroll">Edney Fernandes</h1>
+        <p class="hero-subtitle reveal-on-scroll">A Voz e o Tempo.</p>
 
-        <h1 class="hero-title reveal">Edney Fernandes</h1>
-        <p class="hero-subtitle reveal">A Voz e o Tempo.</p>
-
-        <div class="hero-actions reveal">
+        <div class="hero-actions reveal-on-scroll">
           <a class="btn btn-solid" href="#playlists">Ouvir agora</a>
           <a class="btn btn-ghost" href="#mensagem">Ler manifesto</a>
         </div>
 
-        <div class="hero-meta reveal">
+        <div class="hero-meta reveal-on-scroll">
           <div class="meta-pill">Legado</div>
           <div class="meta-pill">Discografia</div>
           <div class="meta-pill">Memória afetiva</div>
         </div>
       </div>
 
-      <div class="hero-media reveal">
+      <div class="hero-media reveal-on-scroll">
         <div class="hero-frame">
           <img src="assets/img/hero-edney.jpg" alt="Edney Fernandes">
           <div class="hero-aura" aria-hidden="true"></div>
@@ -81,9 +86,9 @@
   <!-- MANIFESTO -->
   <section id="mensagem" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal">Manifesto</h2>
+      <h2 class="section-title reveal-on-scroll">Manifesto</h2>
 
-      <div class="manifesto reveal">
+      <div class="manifesto reveal-on-scroll">
         <p>Existem vozes que, mesmo depois da despedida, não se calam.</p>
         <p>Elas atravessam o invisível, o imaterial, o finito, e continuam ecoando pelos cantos, como se o tempo não tivesse fim.</p>
         <p>Nos fazem lembrar o que é sentir, o que é viver, e despertam memórias afetivas.</p>
@@ -101,11 +106,10 @@
   <!-- DISCOGRAFIA | PLAYLISTS -->
   <section id="discografia" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal">Discografia | Playlists</h2>
-      <p class="section-lead reveal">Links oficiais para ouvir no Spotify e YouTube.</p>
+      <h2 class="section-title reveal-on-scroll">Discografia | Playlists</h2>
+      <p class="section-lead reveal-on-scroll">Links oficiais para ouvir no Spotify e YouTube.</p>
 
-      <!-- cards com capas (suas imagens existentes) -->
-      <div class="discog-covers reveal" aria-label="Capas e discografia">
+      <div class="discog-covers reveal-on-scroll" aria-label="Capas e discografia">
         <figure class="cover">
           <img src="assets/img/discografia/ed-tripulacao.jpg" alt="Ed & A Tripulação">
           <figcaption>Ed & A Tripulação</figcaption>
@@ -121,30 +125,29 @@
       </div>
 
       <div id="playlists" class="spacer"></div>
-      <div id="playlistGrid" class="playlist-grid reveal"></div>
+      <div id="playlistGrid" class="playlist-grid reveal-on-scroll"></div>
     </div>
   </section>
 
   <!-- COMPOSIÇÕES -->
   <section id="composicoes" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal">Composições</h2>
-      <p class="section-lead reveal">Obras registradas e referências de catálogo.</p>
+      <h2 class="section-title reveal-on-scroll">Composições</h2>
+      <p class="section-lead reveal-on-scroll">Obras registradas e referências de catálogo.</p>
 
-      <div id="composicoesList" class="list-grid reveal"></div>
+      <div id="composicoesList" class="list-grid reveal-on-scroll"></div>
     </div>
   </section>
 
-  <!-- “ROLA PRA BAIXO E VIRA PRO LADO” (ACERVO) -->
+  <!-- “ROLA PRA BAIXO E VIRA PRO LADO” -->
   <section id="acervo" class="section horizontal" aria-label="Acervo">
     <div class="horizontal-sticky">
       <div class="container horizontal-head">
-        <h2 class="section-title reveal">Acervo</h2>
-        <p class="section-lead reveal">Role para baixo: o acervo desliza para o lado.</p>
+        <h2 class="section-title reveal-on-scroll">Acervo</h2>
+        <p class="section-lead reveal-on-scroll">Role para baixo: o acervo desliza para o lado.</p>
       </div>
 
       <div class="horizontal-track" id="hTrack">
-        <!-- usa imagens reais existentes -->
         <article class="h-card">
           <img src="assets/img/memorial/memorial-01.jpg" alt="Memorial 01">
           <div class="h-caption">Memorial 01</div>
@@ -169,29 +172,29 @@
     </div>
   </section>
 
-  <!-- MEMORIAL (grid completo via JSON) -->
+  <!-- MEMORIAL -->
   <section id="memorial" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal">Memorial</h2>
-      <p class="section-lead reveal">Fotografias e registros do acervo.</p>
-      <div id="memorialGrid" class="memorial-grid reveal"></div>
+      <h2 class="section-title reveal-on-scroll">Memorial</h2>
+      <p class="section-lead reveal-on-scroll">Fotografias e registros do acervo.</p>
+      <div id="memorialGrid" class="memorial-grid reveal-on-scroll"></div>
     </div>
   </section>
 
   <!-- MAKING OF -->
   <section id="makingof" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal">Making of</h2>
-      <p class="section-lead reveal">Áudios e registros de estúdio (quando disponíveis).</p>
-      <div id="makingofWrap" class="reveal"></div>
+      <h2 class="section-title reveal-on-scroll">Making of</h2>
+      <p class="section-lead reveal-on-scroll">Áudios e registros de estúdio (quando disponíveis).</p>
+      <div id="makingofWrap" class="reveal-on-scroll"></div>
     </div>
   </section>
 
   <!-- BIBLIOGRAFIA -->
   <section id="bibliografia" class="section strip">
     <div class="container">
-      <h2 class="section-title reveal">Bibliografia & Referências</h2>
-      <div id="biblioWrap" class="reveal"></div>
+      <h2 class="section-title reveal-on-scroll">Bibliografia & Referências</h2>
+      <div id="biblioWrap" class="reveal-on-scroll"></div>
     </div>
   </section>
 
