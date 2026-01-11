@@ -1,22 +1,56 @@
 [
   {
-    "titulo": "A Hora é Essa",
-    "observacoes": "Ed & A Tripulação"
+    "id": "meu-desejo",
+    "titulo": "Meu Desejo",
+    "artista": "Edney Fernandes",
+    "arquivo": "assets/audios/Meu-desejo-Edney-Fernandes.mp3",
+    "youtube": null,
+    "spotify": null,
+    "destaque": true
   },
   {
-    "titulo": "História de Amor",
-    "observacoes": "Edney Fernandes"
+    "id": "tudo-que-eu-quis",
+    "titulo": "Tudo Que Eu Quis",
+    "artista": "Edney Fernandes",
+    "arquivo": "assets/audios/Tudo-que-eu-quis-Edney-Fernandes-.mp3",
+    "youtube": null,
+    "spotify": null,
+    "destaque": true
   },
   {
-    "titulo": "Te Vejo na TV",
-    "observacoes": "Edney Fernandes"
+    "id": "momentos-de-tristeza",
+    "titulo": "Momentos de Tristeza",
+    "artista": "Ed & A Tripulação",
+    "arquivo": "assets/audios/ed-tripulacao-momentos-de-tristeza.mp3",
+    "youtube": null,
+    "spotify": null,
+    "destaque": true
   },
   {
-    "titulo": "No Fundo dos Meus Olhos",
-    "observacoes": "Edney Fernandes"
+    "id": "despedida",
+    "titulo": "Despedida",
+    "artista": "Edney Fernandes",
+    "arquivo": "assets/audios/Despedida-Edney-fernandes.mp3",
+    "youtube": null,
+    "spotify": null,
+    "destaque": true
   },
   {
-    "titulo": "Deixa Rolar",
-    "observacoes": "Edney Fernandes"
+    "titulo": "Meu Desejo",
+    "colaboradores": [
+      "Edney Fernandes"
+    ],
+    "ano": 2003,
+    "isrc": "",
+    "link": ""
+  },
+  {
+    "titulo": "Teu Coração",
+    "colaboradores": [
+      "Edney Fernandes"
+    ],
+    "ano": 2003,
+    "isrc": "",
+    "link": ""
   }
 ]

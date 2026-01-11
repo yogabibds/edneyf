@@ -1,20 +1,29 @@
 [
   {
-    "id": "gesto",
-    "title": "Gesto de Carinho — Playlists",
+    "id": "gesto-de-carinho",
+    "titulo": "Gesto de Carinho",
+    "subtitulo": "Playlists oficiais",
     "spotify": "https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ&pi=aYqRffAxRAK-H",
-    "youtube": "https://youtube.com/playlist?list=PLqnsR5NrdI1OOX1fPs0hxu0C-DlNXzhFe&si=c_POz45wD8KNMndH"
+    "youtube": "https://youtube.com/playlist?list=PLqnsR5NrdI1OOX1fPs0hxu0C-DlNXzhFe&si=c_POz45wD8KNMndH",
+    "imagem": "assets/img/discografia/gesto-capa.jpg",
+    "tag": "Playlist"
   },
   {
-    "id": "tripulacao",
-    "title": "Ed & A Tripulação — Playlists",
+    "id": "ed-e-a-tripulacao",
+    "titulo": "Ed & A Tripulação",
+    "subtitulo": "Álbum / Discografia",
     "spotify": "https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ&pi=aYqRffAxRAK-H",
-    "youtube": "https://youtube.com/playlist?list=PLqnsR5NrdI1O2-f3KLpRq3DxYJACpLooP&si=S7D_Ar9XK3X2Vfbo"
+    "youtube": "https://youtube.com/playlist?list=PLqnsR5NrdI1O2-f3KLpRq3DxYJACpLooP&si=S7D_Ar9XK3X2Vfbo",
+    "imagem": "assets/img/discografia/ed-tripulacao.jpg",
+    "tag": "Discografia"
   },
   {
-    "id": "composicoes",
-    "title": "Composições — Edney Fernandes",
+    "id": "album-postumo",
+    "titulo": "Álbum Póstumo (inédito)",
+    "subtitulo": "Populações inéditas — em breve",
     "spotify": "https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ&pi=aYqRffAxRAK-H",
-    "youtube": "https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0&si=MgE8n8PDokre_HXA"
+    "youtube": "https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0&si=MgE8n8PDokre_HXA",
+    "imagem": "assets/img/discografia/composicoes_playlist.jpg",
+    "tag": "Em breve"
   }
 ]
