@@ -1,283 +1,149 @@
 (() => {
-  const $ = (q, el = document) => el.querySelector(q);
-  const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
+  const $ = (sel, el=document) => el.querySelector(sel);
+  const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
 
-  // Footer year
-  const y = $("#y");
-  if (y) y.textContent = String(new Date().getFullYear());
-
-  // Optional: rotate overlay (portrait only)
-  const rotateOverlay = $("#rotateOverlay");
-  function updateRotateOverlay() {
-    if (!rotateOverlay) return;
-    const isLandscape = window.innerWidth > window.innerHeight;
-    // se você NÃO quiser forçar retrato, mude para "false"
-    rotateOverlay.style.display = isLandscape && window.innerWidth < 900 ? "flex" : "none";
-  }
-  window.addEventListener("resize", updateRotateOverlay);
-  updateRotateOverlay();
-
-  // Smooth anchor scroll
+  // Smooth scroll for internal anchors
   $$('a[href^="#"]').forEach(a => {
-    a.addEventListener("click", (e) => {
-      const href = a.getAttribute("href");
-      if (!href || href === "#") return;
-      const target = $(href);
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - 66;
-      window.scrollTo({ top, behavior: "smooth" });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', id);
     });
   });
 
   // Reveal on scroll
-  const reveals = $$(".reveal");
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(ent => {
-      if (ent.isIntersecting) ent.target.classList.add("is-visible");
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
     });
-  }, { threshold: 0.18 });
-  reveals.forEach(el => io.observe(el));
+  }, { threshold: 0.16 });
 
-  // Hero -> virar card (progresso 0..1)
-  const heroWrap = $("#heroWrap");
-  function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
+  $$('.reveal').forEach(el => io.observe(el));
 
-  let ticking = false;
-  function updateHeroProgress() {
-    ticking = false;
-    if (!heroWrap) return;
+  // Orientation overlay (optional)
+  const overlay = $('#rotateOverlay');
+  const dismissedKey = 'laia_rotate_dismissed';
+  const dismissBtn = overlay?.querySelector('[data-rotate-dismiss]');
+  dismissBtn?.addEventListener('click', () => {
+    overlay.classList.remove('is-on');
+    try { localStorage.setItem(dismissedKey, '1'); } catch {}
+  });
 
-    const rect = heroWrap.getBoundingClientRect();
-    // quanto já “andou” dentro do wrap (0..1)
-    const start = 0; // topo do viewport
-    const total = rect.height; // referência
-    const moved = clamp(-rect.top + start, 0, total);
-    const p = total ? (moved / total) : 0;
+  const checkOrientation = () => {
+    if (!overlay) return;
+    const dismissed = (() => { try { return localStorage.getItem(dismissedKey) === '1'; } catch { return false; } })();
+    if (dismissed) return;
 
-    document.documentElement.style.setProperty("--heroP", String(clamp(p, 0, 1)));
-  }
+    const isLandscape = window.innerWidth > window.innerHeight && window.innerWidth < 980; // mobile-ish
+    overlay.classList.toggle('is-on', isLandscape);
+  };
+  window.addEventListener('resize', checkOrientation, { passive: true });
+  checkOrientation();
 
-  window.addEventListener("scroll", () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(updateHeroProgress);
-  }, { passive: true });
-  window.addEventListener("resize", updateHeroProgress);
-  updateHeroProgress();
+  // Scroll transform: imagem vira card (escala + radius + sombra)
+  const frame = $('#heroFrame');
+  const spacer = $('.hero-visual__spacer');
+  const applyFrame = () => {
+    if (!frame || !spacer) return;
+    const rect = spacer.getBoundingClientRect();
+    const viewport = window.innerHeight;
+    // progress 0..1 conforme o spacer vai saindo da viewport
+    const start = viewport * 0.85;
+    const end = -viewport * 0.25;
+    const p = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
 
-  // SVG icons
-  const ICONS = {
-    spotify: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm4.586 14.43a.75.75 0 0 1-1.032.243c-2.826-1.726-6.39-2.118-10.59-1.165a.75.75 0 1 1-.33-1.463c4.598-1.041 8.53-.59 11.7 1.347a.75.75 0 0 1 .252 1.038Zm.93-2.83a.9.9 0 0 1-1.238.292c-3.235-1.988-8.17-2.564-12.004-1.4a.9.9 0 1 1-.524-1.722c4.386-1.332 9.834-.685 13.548 1.6a.9.9 0 0 1 .218 1.23Zm.08-3.018c-3.877-2.304-10.277-2.516-13.98-1.391a1.05 1.05 0 0 1-.61-2.01c4.255-1.292 11.311-1.042 15.772 1.61a1.05 1.05 0 1 1-1.182 1.791Z"/>
-      </svg>`,
-    youtube: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="currentColor" d="M21.6 7.2a3 3 0 0 0-2.12-2.12C17.64 4.5 12 4.5 12 4.5s-5.64 0-7.48.58A3 3 0 0 0 2.4 7.2 31.7 31.7 0 0 0 2 12s.1 3.05.4 4.8a3 3 0 0 0 2.12 2.12c1.84.58 7.48.58 7.48.58s5.64 0 7.48-.58a3 3 0 0 0 2.12-2.12c.3-1.75.4-4.8.4-4.8s-.1-3.05-.4-4.8ZM10.5 15.3V8.7L16.2 12l-5.7 3.3Z"/>
-      </svg>`
+    // ajustes visuais
+    const scale = 1 - (0.18 * p);         // 1.00 -> 0.82
+    const translateY = 0 + (18 * p);      // 0 -> 18px
+    const radius = 0 + (22 * p);          // 0 -> 22px
+    const shadow = 0 + (1 * p);           // 0 -> 1 (fator)
+    const alpha = 0.55 * shadow;
+
+    frame.style.transform = `translateY(${translateY}px) scale(${scale})`;
+    frame.style.borderRadius = `${radius}px`;
+    frame.style.boxShadow = `0 22px 80px rgba(0,0,0,${alpha})`;
+  };
+  window.addEventListener('scroll', applyFrame, { passive: true });
+  window.addEventListener('resize', applyFrame, { passive: true });
+  applyFrame();
+
+  // Data rendering (discografia, composições, memorial)
+  const loadJSON = async (path) => {
+    const res = await fetch(path, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Falha ao carregar ${path}`);
+    return await res.json();
   };
 
-  function iconLink(href, label, type) {
-    const a = document.createElement("a");
-    a.className = "iconLink";
-    a.href = href;
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.ariaLabel = label;
-    a.innerHTML = ICONS[type] || "";
-    return a;
-  }
+    const iconSpotify = () => `<svg viewBox="0 0 24 24" aria-hidden="true">  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>  <path d="M7.4 10.2c3.1-1 6.7-.6 9.4 1.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>  <path d="M7.8 12.9c2.6-.8 5.6-.4 7.9 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>  <path d="M8.2 15.4c2-.5 4.2-.2 6 .8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`;
+  const iconYouTube = () => `<svg viewBox="0 0 24 24" aria-hidden="true">  <path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.9C18.2 5 12 5 12 5s-6.2 0-7.8.3A2.6 2.6 0 0 0 2.4 7.2 28.5 28.5 0 0 0 2 12c0 1.6.1 3.2.4 4.8a2.6 2.6 0 0 0 1.8 1.9C5.8 19 12 19 12 19s6.2 0 7.8-.3a2.6 2.6 0 0 0 1.8-1.9A28.5 28.5 0 0 0 22 12c0-1.6-.1-3.2-.4-4.8z"/>  <path d="M10 15.5v-7l6 3.5-6 3.5z" fill="currentColor"/></svg>`;
 
-  // Discografia cards via data/playlists.json
-  async function loadDiscografia() {
-    const mount = $("#discografiaCards");
-    if (!mount) return;
-
-    try {
-      const res = await fetch("data/playlists.json", { cache: "no-store" });
-      const data = await res.json();
-
-      mount.innerHTML = "";
-      data.items.forEach(item => {
-        const card = document.createElement("article");
-        card.className = "card";
-
-        card.innerHTML = `
-          <div class="card__media cinema">
-            <img src="${item.cover}" alt="${item.title}" loading="lazy">
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">${item.title}</h3>
-            <p class="card__meta">${item.subtitle}</p>
-            <div class="card__actions"></div>
-          </div>
-        `;
-
-        const actions = $(".card__actions", card);
-        if (item.spotify) actions.appendChild(iconLink(item.spotify, "Abrir no Spotify", "spotify"));
-        if (item.youtube) actions.appendChild(iconLink(item.youtube, "Abrir no YouTube", "youtube"));
-
-        mount.appendChild(card);
-      });
-    } catch (err) {
-      // fallback simples
-      mount.innerHTML = `<p class="muted">Não foi possível carregar a discografia (data/playlists.json).</p>`;
-      console.error(err);
-    }
-  }
-
-  // Player via data/composicoes-selecao.json
-  function fmtTime(sec) {
-    if (!isFinite(sec) || sec < 0) return "0:00";
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60);
-    return `${m}:${String(s).padStart(2, "0")}`;
-  }
-
-  async function loadPlayer() {
-    const audio = $("#audio");
-    const tracklist = $("#tracklist");
-    const nowTitle = $("#nowTitle");
-    const nowLinks = $("#nowLinks");
-    const seekRange = $("#seekRange");
-    const tCur = $("#tCur");
-    const tDur = $("#tDur");
-
-    const btnPlay = $("#btnPlay");
-    const btnPrev = $("#btnPrev");
-    const btnNext = $("#btnNext");
-
-    if (!audio || !tracklist || !btnPlay) return;
-
-    let tracks = [];
-    let idx = 0;
-    let isSeeking = false;
-
-    function setNow(i) {
-      idx = (i + tracks.length) % tracks.length;
-      const tr = tracks[idx];
-
-      nowTitle.textContent = tr.title || "—";
-      nowLinks.innerHTML = "";
-
-      if (tr.spotify) {
-        const a = document.createElement("a");
-        a.className = "pillLink";
-        a.href = tr.spotify;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.textContent = "Spotify";
-        nowLinks.appendChild(a);
-      }
-      if (tr.youtube) {
-        const a = document.createElement("a");
-        a.className = "pillLink";
-        a.href = tr.youtube;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.textContent = "YouTube";
-        nowLinks.appendChild(a);
-      }
-
-      audio.src = tr.src;
-      audio.load();
-
-      // UI active row
-      $$(".track", tracklist).forEach((row, rIdx) => {
-        row.classList.toggle("is-active", rIdx === idx);
-      });
-    }
-
-    function renderList() {
-      tracklist.innerHTML = "";
-      tracks.forEach((tr, i) => {
-        const row = document.createElement("div");
-        row.className = "track";
-        row.innerHTML = `
-          <div class="track__left">
-            <div class="track__name">${tr.title}</div>
-            <div class="track__desc">${tr.note || "Edney Fernandes"}</div>
-          </div>
-          <button class="track__btn" type="button">Ouvir</button>
-        `;
-        $("button", row).addEventListener("click", async () => {
-          setNow(i);
-          await audio.play();
-        });
-        tracklist.appendChild(row);
-      });
-    }
-
-    function syncPlayBtn() {
-      btnPlay.textContent = audio.paused ? "▶" : "❚❚";
-    }
-
-    // Events
-    btnPlay.addEventListener("click", async () => {
+  (async () => {
+    // Discografia
+    const cardsRoot = $('#discografiaCards');
+    if (cardsRoot) {
       try {
-        if (audio.paused) await audio.play();
-        else audio.pause();
-      } catch {}
-    });
-
-    btnPrev.addEventListener("click", async () => {
-      setNow(idx - 1);
-      try { await audio.play(); } catch {}
-    });
-
-    btnNext.addEventListener("click", async () => {
-      setNow(idx + 1);
-      try { await audio.play(); } catch {}
-    });
-
-    audio.addEventListener("play", syncPlayBtn);
-    audio.addEventListener("pause", syncPlayBtn);
-    audio.addEventListener("ended", async () => {
-      setNow(idx + 1);
-      try { await audio.play(); } catch {}
-    });
-
-    audio.addEventListener("loadedmetadata", () => {
-      tDur.textContent = fmtTime(audio.duration);
-    });
-
-    audio.addEventListener("timeupdate", () => {
-      if (isSeeking) return;
-      tCur.textContent = fmtTime(audio.currentTime);
-      const dur = audio.duration || 0;
-      const p = dur ? (audio.currentTime / dur) : 0;
-      seekRange.value = String(Math.floor(p * 1000));
-    });
-
-    seekRange.addEventListener("input", () => {
-      isSeeking = true;
-    });
-
-    seekRange.addEventListener("change", () => {
-      const dur = audio.duration || 0;
-      const p = Number(seekRange.value) / 1000;
-      audio.currentTime = dur * p;
-      isSeeking = false;
-    });
-
-    // Load tracks
-    try {
-      const res = await fetch("data/composicoes-selecao.json", { cache: "no-store" });
-      const data = await res.json();
-      tracks = data.tracks || [];
-      if (!tracks.length) return;
-
-      renderList();
-      setNow(0);
-      syncPlayBtn();
-      tCur.textContent = "0:00";
-      tDur.textContent = "0:00";
-    } catch (err) {
-      console.error(err);
+        const items = await loadJSON('data/playlists.json');
+        cardsRoot.innerHTML = items.map(item => `
+          <article class="card">
+            <div class="card__img">
+              <img src="${item.imagem}" alt="${item.titulo}">
+            </div>
+            <div class="card__body">
+              <span class="card__tag">${item.tag || ''}</span>
+              <h3 class="card__title">${item.titulo}</h3>
+              <p class="card__sub">${item.subtitulo || ''}</p>
+              <div class="card__actions">
+                ${item.spotify ? `<a class="icon-btn" href="${item.spotify}" target="_blank" rel="noopener" aria-label="Abrir no Spotify">${iconSpotify()}</a>` : ''}
+                ${item.youtube ? `<a class="icon-btn" href="${item.youtube}" target="_blank" rel="noopener" aria-label="Abrir no YouTube">${iconYouTube()}</a>` : ''}
+              </div>
+            </div>
+          </article>
+        `).join('');
+      } catch (e) {
+        cardsRoot.innerHTML = `<p class="section-lead">Não foi possível carregar a discografia.</p>`;
+      }
     }
-  }
 
-  loadDiscografia();
-  loadPlayer();
+    // Tracks
+    const tracksRoot = $('#tracks');
+    if (tracksRoot) {
+      try {
+        const tracks = await loadJSON('data/composicoes.json');
+        const featured = tracks.filter(t => t.destaque);
+        tracksRoot.innerHTML = (featured.length ? featured : tracks).map(t => `
+          <article class="track">
+            <div class="track__top">
+              <div>
+                <h3 class="track__title">${t.titulo}</h3>
+                <p class="track__meta">${t.artista || ''}</p>
+              </div>
+              ${t.destaque ? `<span class="track__badge">Destaque</span>` : ``}
+            </div>
+            ${t.arquivo ? `<audio controls preload="none" src="${t.arquivo}"></audio>` : ``}
+          </article>
+        `).join('');
+      } catch (e) {
+        tracksRoot.innerHTML = `<p class="section-lead">Não foi possível carregar as composições.</p>`;
+      }
+    }
+
+    // Memorial
+    const memorialRoot = $('#memorialGrid');
+    if (memorialRoot) {
+      try {
+        const images = await loadJSON('data/memorial.json');
+        memorialRoot.innerHTML = images.map((img, i) => `
+          <figure class="memorial-item">
+            <img src="${img.src}" alt="${img.alt || `Memorial ${i+1}`}" loading="lazy">
+          </figure>
+        `).join('');
+      } catch (e) {
+        memorialRoot.innerHTML = `<p class="section-lead">Não foi possível carregar o memorial.</p>`;
+      }
+    }
+  })();
 })();

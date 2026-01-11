@@ -1,329 +1,149 @@
-async function loadJSON(path){
-  const r = await fetch(path, { cache: "no-store" });
-  if(!r.ok) throw new Error(`HTTP ${r.status} em ${path}`);
-  return r.json();
-}
+(() => {
+  const $ = (sel, el=document) => el.querySelector(sel);
+  const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
 
-/* Reveal on scroll */
-function initReveal(){
-  const els = document.querySelectorAll('.reveal-on-scroll');
-  if(!els.length) return;
-
-  if(!('IntersectionObserver' in window)){
-    els.forEach(el => el.classList.add('is-visible'));
-    return;
-  }
-
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce){
-    els.forEach(el => el.classList.add('is-visible'));
-    return;
-  }
-
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('is-visible');
+  // Smooth scroll for internal anchors
+  $$('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', id);
     });
-  }, { threshold: 0.18 });
-
-  els.forEach(el => io.observe(el));
-}
-
-/* Rotate overlay (mobile landscape) */
-function initRotateOverlay(){
-  const overlay = document.getElementById('rotateOverlay');
-  if(!overlay) return;
-
-  function update(){
-    const isLandscape = window.innerWidth > window.innerHeight;
-    const isMobile = window.innerWidth < 920;
-    overlay.style.display = (isMobile && isLandscape) ? 'flex' : 'none';
-  }
-  window.addEventListener('resize', update);
-  window.addEventListener('orientationchange', update);
-  update();
-}
-
-/* Tap to lock / Back to scroll */
-function initLockScroll(){
-  const lockBtn = document.querySelector('[data-lock]');
-  const unlockBtn = document.querySelector('[data-unlock]');
-  if(!lockBtn || !unlockBtn) return;
-
-  lockBtn.addEventListener('click', ()=>{
-    document.body.classList.add('is-locked');
   });
 
-  unlockBtn.addEventListener('click', ()=>{
-    document.body.classList.remove('is-locked');
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.16 });
+
+  $$('.reveal').forEach(el => io.observe(el));
+
+  // Orientation overlay (optional)
+  const overlay = $('#rotateOverlay');
+  const dismissedKey = 'laia_rotate_dismissed';
+  const dismissBtn = overlay?.querySelector('[data-rotate-dismiss]');
+  dismissBtn?.addEventListener('click', () => {
+    overlay.classList.remove('is-on');
+    try { localStorage.setItem(dismissedKey, '1'); } catch {}
   });
 
-  window.addEventListener('orientationchange', ()=>{
-    document.body.classList.remove('is-locked');
-  });
-}
+  const checkOrientation = () => {
+    if (!overlay) return;
+    const dismissed = (() => { try { return localStorage.getItem(dismissedKey) === '1'; } catch { return false; } })();
+    if (dismissed) return;
 
-/* HERO shrink (vira card menor) */
-function initHeroShrink(){
-  const hero = document.getElementById('hero');
-  if(!hero) return;
+    const isLandscape = window.innerWidth > window.innerHeight && window.innerWidth < 980; // mobile-ish
+    overlay.classList.toggle('is-on', isLandscape);
+  };
+  window.addEventListener('resize', checkOrientation, { passive: true });
+  checkOrientation();
 
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce) return;
+  // Scroll transform: imagem vira card (escala + radius + sombra)
+  const frame = $('#heroFrame');
+  const spacer = $('.hero-visual__spacer');
+  const applyFrame = () => {
+    if (!frame || !spacer) return;
+    const rect = spacer.getBoundingClientRect();
+    const viewport = window.innerHeight;
+    // progress 0..1 conforme o spacer vai saindo da viewport
+    const start = viewport * 0.85;
+    const end = -viewport * 0.25;
+    const p = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
 
-  const clamp = (n,a,b)=>Math.max(a,Math.min(b,n));
+    // ajustes visuais
+    const scale = 1 - (0.18 * p);         // 1.00 -> 0.82
+    const translateY = 0 + (18 * p);      // 0 -> 18px
+    const radius = 0 + (22 * p);          // 0 -> 22px
+    const shadow = 0 + (1 * p);           // 0 -> 1 (fator)
+    const alpha = 0.55 * shadow;
 
-  // easing para “virar card” mais perceptível (acelera no final)
-  const easeOutCubic = (t)=> 1 - Math.pow(1 - t, 3);
+    frame.style.transform = `translateY(${translateY}px) scale(${scale})`;
+    frame.style.borderRadius = `${radius}px`;
+    frame.style.boxShadow = `0 22px 80px rgba(0,0,0,${alpha})`;
+  };
+  window.addEventListener('scroll', applyFrame, { passive: true });
+  window.addEventListener('resize', applyFrame, { passive: true });
+  applyFrame();
 
-  function update(){
-    const rect = hero.getBoundingClientRect();
-    const vh = window.innerHeight;
+  // Data rendering (discografia, composições, memorial)
+  const loadJSON = async (path) => {
+    const res = await fetch(path, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Falha ao carregar ${path}`);
+    return await res.json();
+  };
 
-    const total = hero.offsetHeight - vh;
-    const passed = clamp(-rect.top, 0, total);
-    const raw = total > 0 ? passed / total : 0;
+    const iconSpotify = () => `<svg viewBox="0 0 24 24" aria-hidden="true">  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>  <path d="M7.4 10.2c3.1-1 6.7-.6 9.4 1.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>  <path d="M7.8 12.9c2.6-.8 5.6-.4 7.9 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>  <path d="M8.2 15.4c2-.5 4.2-.2 6 .8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`;
+  const iconYouTube = () => `<svg viewBox="0 0 24 24" aria-hidden="true">  <path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.9C18.2 5 12 5 12 5s-6.2 0-7.8.3A2.6 2.6 0 0 0 2.4 7.2 28.5 28.5 0 0 0 2 12c0 1.6.1 3.2.4 4.8a2.6 2.6 0 0 0 1.8 1.9C5.8 19 12 19 12 19s6.2 0 7.8-.3a2.6 2.6 0 0 0 1.8-1.9A28.5 28.5 0 0 0 22 12c0-1.6-.1-3.2-.4-4.8z"/>  <path d="M10 15.5v-7l6 3.5-6 3.5z" fill="currentColor"/></svg>`;
 
-    const p = easeOutCubic(raw);
-    hero.style.setProperty('--hero-p', p.toFixed(4));
-  }
-
-  window.addEventListener('scroll', update, { passive:true });
-  window.addEventListener('resize', update);
-  update();
-}
-
-/* Horizontal: scroll vertical controla translateX */
-function initHorizontalScroll(){
-  const section = document.getElementById('acervo');
-  const track = document.getElementById('hTrack');
-  if(!section || !track) return;
-
-  function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
-
-  function onScroll(){
-    const rect = section.getBoundingClientRect();
-    const vh = window.innerHeight;
-
-    const total = section.offsetHeight - vh;
-    const passed = clamp(-rect.top, 0, total);
-    const progress = total > 0 ? (passed / total) : 0;
-
-    const maxX = track.scrollWidth - track.clientWidth;
-    const x = -maxX * progress;
-
-    track.style.transform = `translate3d(${x}px,0,0)`;
-  }
-
-  window.addEventListener('scroll', onScroll, { passive:true });
-  window.addEventListener('resize', onScroll);
-  onScroll();
-}
-
-/* Playlists */
-async function buildPlaylists(){
-  const grid = document.getElementById('playlistGrid');
-  if(!grid) return;
-
-  let list = [];
-  try{ list = await loadJSON('data/playlists.json'); } catch { list = []; }
-
-  grid.innerHTML = '';
-
-  if(!Array.isArray(list) || !list.length){
-    grid.innerHTML = `<div class="pcard"><h3>Em breve</h3><div class="muted">Playlists em organização.</div></div>`;
-    return;
-  }
-
-  list.forEach(p=>{
-    const card = document.createElement('article');
-    card.className = 'pcard';
-
-    const h = document.createElement('h3');
-    h.textContent = p.title || 'Playlist';
-
-    const acts = document.createElement('div');
-    acts.className = 'p-actions';
-
-    if(p.spotify){
-      const a = document.createElement('a');
-      a.className = 'pbtn';
-      a.href = p.spotify;
-      a.target = '_blank';
-      a.rel = 'noopener';
-      a.innerHTML = `<span>🎧</span><span>Spotify</span>`;
-      acts.appendChild(a);
+  (async () => {
+    // Discografia
+    const cardsRoot = $('#discografiaCards');
+    if (cardsRoot) {
+      try {
+        const items = await loadJSON('data/playlists.json');
+        cardsRoot.innerHTML = items.map(item => `
+          <article class="card">
+            <div class="card__img">
+              <img src="${item.imagem}" alt="${item.titulo}">
+            </div>
+            <div class="card__body">
+              <span class="card__tag">${item.tag || ''}</span>
+              <h3 class="card__title">${item.titulo}</h3>
+              <p class="card__sub">${item.subtitulo || ''}</p>
+              <div class="card__actions">
+                ${item.spotify ? `<a class="icon-btn" href="${item.spotify}" target="_blank" rel="noopener" aria-label="Abrir no Spotify">${iconSpotify()}</a>` : ''}
+                ${item.youtube ? `<a class="icon-btn" href="${item.youtube}" target="_blank" rel="noopener" aria-label="Abrir no YouTube">${iconYouTube()}</a>` : ''}
+              </div>
+            </div>
+          </article>
+        `).join('');
+      } catch (e) {
+        cardsRoot.innerHTML = `<p class="section-lead">Não foi possível carregar a discografia.</p>`;
+      }
     }
 
-    if(p.youtube){
-      const a = document.createElement('a');
-      a.className = 'pbtn';
-      a.href = p.youtube;
-      a.target = '_blank';
-      a.rel = 'noopener';
-      a.innerHTML = `<span>▶️</span><span>YouTube</span>`;
-      acts.appendChild(a);
+    // Tracks
+    const tracksRoot = $('#tracks');
+    if (tracksRoot) {
+      try {
+        const tracks = await loadJSON('data/composicoes.json');
+        const featured = tracks.filter(t => t.destaque);
+        tracksRoot.innerHTML = (featured.length ? featured : tracks).map(t => `
+          <article class="track">
+            <div class="track__top">
+              <div>
+                <h3 class="track__title">${t.titulo}</h3>
+                <p class="track__meta">${t.artista || ''}</p>
+              </div>
+              ${t.destaque ? `<span class="track__badge">Destaque</span>` : ``}
+            </div>
+            ${t.arquivo ? `<audio controls preload="none" src="${t.arquivo}"></audio>` : ``}
+          </article>
+        `).join('');
+      } catch (e) {
+        tracksRoot.innerHTML = `<p class="section-lead">Não foi possível carregar as composições.</p>`;
+      }
     }
 
-    card.appendChild(h);
-    card.appendChild(acts);
-    grid.appendChild(card);
-  });
-}
-
-/* Composições */
-async function buildComposicoes(){
-  const wrap = document.getElementById('composicoesList');
-  if(!wrap) return;
-
-  let list = [];
-  try{ list = await loadJSON('data/composicoes.json'); } catch { list = []; }
-
-  wrap.innerHTML = '';
-
-  if(!Array.isArray(list) || !list.length){
-    wrap.innerHTML = `<div class="item"><div class="item-title">Em breve</div><div class="item-sub">Conteúdo em organização.</div></div>`;
-    return;
-  }
-
-  list.forEach(it=>{
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `
-      <div class="item-title">${it.titulo || it.title || 'Composição'}</div>
-      ${it.observacoes ? `<div class="item-sub">${it.observacoes}</div>` : ''}
-    `;
-    wrap.appendChild(div);
-  });
-}
-
-/* Memorial */
-async function buildMemorial(){
-  const grid = document.getElementById('memorialGrid');
-  if(!grid) return;
-
-  let list = [];
-  try{ list = await loadJSON('data/memorial.json'); } catch { list = []; }
-
-  grid.innerHTML = '';
-
-  if(!Array.isArray(list) || !list.length){
-    grid.innerHTML = `<div class="audio-row"><div class="muted">Em breve.</div></div>`;
-    return;
-  }
-
-  list.forEach(item=>{
-    const fig = document.createElement('figure');
-    fig.className = 'polaroid';
-
-    const img = document.createElement('img');
-    img.loading = 'lazy';
-    img.src = item.src;
-    img.alt = item.alt || 'Foto do acervo';
-
-    const cap = document.createElement('figcaption');
-    cap.textContent = item.alt || '';
-
-    fig.appendChild(img);
-    if(item.alt) fig.appendChild(cap);
-    grid.appendChild(fig);
-  });
-}
-
-/* Making of */
-async function buildMakingOf(){
-  const wrap = document.getElementById('makingofWrap');
-  if(!wrap) return;
-
-  let list = [];
-  try{ list = await loadJSON('data/makingof.json'); } catch { list = []; }
-
-  if(!Array.isArray(list) || !list.length){
-    wrap.innerHTML = `<div class="audio-row"><div class="muted">Em breve.</div></div>`;
-    return;
-  }
-
-  const box = document.createElement('div');
-  box.className = 'audio-list';
-
-  list.forEach(tk=>{
-    const row = document.createElement('div');
-    row.className = 'audio-row';
-
-    const title = document.createElement('div');
-    title.className = 'audio-title';
-    title.textContent = tk.titulo || tk.title || 'Faixa';
-
-    const audio = document.createElement('audio');
-    audio.controls = true;
-    audio.preload = 'none';
-    audio.src = tk.arquivo || tk.file || '';
-
-    row.appendChild(title);
-    row.appendChild(audio);
-    box.appendChild(row);
-  });
-
-  wrap.innerHTML = '';
-  wrap.appendChild(box);
-}
-
-/* Bibliografia */
-async function buildBibliografia(){
-  const wrap = document.getElementById('biblioWrap');
-  if(!wrap) return;
-
-  let list = [];
-  try{ list = await loadJSON('data/bibliografia.json'); } catch { list = []; }
-
-  if(!Array.isArray(list) || !list.length){
-    wrap.innerHTML = `<div class="audio-row"><div class="muted">Sem referências cadastradas ainda.</div></div>`;
-    return;
-  }
-
-  const box = document.createElement('div');
-  box.className = 'audio-list';
-
-  list.forEach(item=>{
-    const row = document.createElement('div');
-    row.className = 'audio-row';
-
-    const title = item.titulo || item.title || '';
-    const meta = [item.autor || item.source, item.ano].filter(Boolean).join(' • ');
-    const link = item.link || item.url || '';
-
-    row.innerHTML = `
-      <div class="audio-title">${title}</div>
-      ${meta ? `<div class="muted">${meta}</div>` : ''}
-      ${link ? `<div style="margin-top:10px;"><a class="pbtn" href="${link}" target="_blank" rel="noopener">Abrir referência</a></div>` : ''}
-    `;
-
-    box.appendChild(row);
-  });
-
-  wrap.innerHTML = '';
-  wrap.appendChild(box);
-}
-
-/* Boot */
-document.addEventListener('DOMContentLoaded', async ()=>{
-  initReveal();
-  initRotateOverlay();
-  initLockScroll();
-  initHeroShrink();
-  initHorizontalScroll();
-
-  await buildPlaylists();
-  await buildComposicoes();
-  await buildMemorial();
-  await buildMakingOf();
-  await buildBibliografia();
-
-  (function(){
-    const nav = document.querySelector('.nav');
-    if(!nav) return;
-    const sc = () => nav.style.boxShadow = (window.scrollY > 4) ? '0 6px 20px rgba(0,0,0,.35)' : 'none';
-    sc();
-    addEventListener('scroll', sc, { passive:true });
+    // Memorial
+    const memorialRoot = $('#memorialGrid');
+    if (memorialRoot) {
+      try {
+        const images = await loadJSON('data/memorial.json');
+        memorialRoot.innerHTML = images.map((img, i) => `
+          <figure class="memorial-item">
+            <img src="${img.src}" alt="${img.alt || `Memorial ${i+1}`}" loading="lazy">
+          </figure>
+        `).join('');
+      } catch (e) {
+        memorialRoot.innerHTML = `<p class="section-lead">Não foi possível carregar o memorial.</p>`;
+      }
+    }
   })();
-});
+})();
