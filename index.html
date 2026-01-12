@@ -1,258 +1,225 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edney Fernandes — A Voz e o Tempo</title>
-  <meta name="description" content="Projeto memorial e acervo de Edney Fernandes. Discografia, composições selecionadas, playlists oficiais e memória afetiva.">
-  <link rel="canonical" href="https://edneyfernandes.com/">
-  <meta name="robots" content="index,follow">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Edney Fernandes | Ed &amp; A Tripulação — A Voz e o Tempo</title>
+  <meta name="description" content="Memorial oficial e acervo do legado de Edney Fernandes. Manifesto, discografia, composições e o grupo Ed &amp; A Tripulação. Ouça no Spotify e YouTube.">
+  <link rel="canonical" href="https://edneyfernandes.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Edney Fernandes | Ed &amp; A Tripulação — A Voz e o Tempo">
+  <meta property="og:description" content="Memorial oficial e acervo do legado de Edney Fernandes: manifesto, discografia, composições e Ed &amp; A Tripulação.">
+  <meta property="og:url" content="https://edneyfernandes.com/">
+  <meta property="og:image" content="https://edneyfernandes.com/assets/img/og-edney.jpg">
+
+  <!-- Robots -->
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script defer src="assets/js/site.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"MusicGroup",
-    "name":"Edney Fernandes",
-    "url":"https://edneyfernandes.com/",
-    "sameAs":[
-      "https://www.instagram.com/edneyfernandes.memorial/",
-      "https://www.letras.mus.br/ed-e-a-tripulacao/"
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://edneyfernandes.com/#edney-fernandes",
+        "name": "Edney Fernandes",
+        "url": "https://edneyfernandes.com/",
+        "image": "https://edneyfernandes.com/assets/img/edney.jpg",
+        "description": "Compositor e artista brasileiro. Memorial oficial, discografia e acervo do legado.",
+        "sameAs": [
+          "https://www.instagram.com/edneyfernandes.memorial",
+          "https://www.letras.mus.br/ed-e-a-tripulacao/"
+        ]
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://edneyfernandes.com/#ed-e-a-tripulacao",
+        "name": "Ed & A Tripulação",
+        "url": "https://edneyfernandes.com/#discografia",
+        "genre": ["Pagode", "Samba"],
+        "founder": { "@id": "https://edneyfernandes.com/#edney-fernandes" },
+        "sameAs": [
+          "https://www.letras.mus.br/ed-e-a-tripulacao/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://edneyfernandes.com/#website",
+        "url": "https://edneyfernandes.com/",
+        "name": "Edney Fernandes — A Voz e o Tempo",
+        "inLanguage": "pt-BR"
+      }
     ]
   }
   </script>
 </head>
 
 <body>
-  <!-- Overlay orientação (opcional, estilo “vertical drive”) -->
+  <!-- Orientation overlay (mobile landscape) -->
   <div class="rotate-overlay" id="rotateOverlay" aria-hidden="true">
-    <div class="rotate-overlay__card">
-      <p>Por favor, gire o celular.<br>Este site foi pensado para navegação vertical.</p>
-      <button class="btn btn--ghost" data-rotate-dismiss>Continuar</button>
+    <div class="rotate-card">
+      <p class="rotate-title">Please rotate your device</p>
+      <p class="rotate-subtitle">This is a vertical drive.</p>
     </div>
   </div>
 
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="Voltar ao topo">
-      <img src="assets/img/logo-laia-music.png" alt="Laia Music" class="brand__logo">
-      <span class="brand__text">Edney Fernandes</span>
-    </a>
+  <!-- NAV -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Edney Fernandes">
+        <span class="brand-title">Edney Fernandes</span>
+        <span class="brand-subtitle">Memorial Oficial</span>
+      </a>
 
-    <nav class="nav" aria-label="Navegação">
-      <a href="#manifesto">Manifesto</a>
-      <a href="#discografia">Discografia</a>
-      <a href="#composicoes">Composições</a>
-      <a href="#memorial">Memorial</a>
-    </nav>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#manifesto">Manifesto</a>
+        <a href="#discografia">Discografia</a>
+        <a href="#composicoes">Composições</a>
+        <a href="#memorial">Memorial</a>
+        <a href="#social">Redes</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <button class="btn btn-ghost" type="button" data-lock aria-label="Travar rolagem">Tap to lock</button>
+        <button class="btn btn-ghost is-hidden" type="button" data-unlock aria-label="Destravar rolagem">Back to scroll</button>
+      </div>
+    </div>
   </header>
 
   <main id="top" class="page">
-    <!-- HERO (faixa preta, sem imagem ao lado) -->
-    <section class="hero-band">
-      <div class="hero-band__inner">
-        <p class="kicker">Memorial Oficial</p>
-        <h1 class="hero-title">Edney Fernandes</h1>
-        <p class="hero-subtitle">A Voz e o Tempo</p>
+    <!-- HERO (faixa preta completa) -->
+    <section class="section hero reveal-on-scroll" id="hero">
+      <div class="hero-inner">
+        <div class="hero-headline">
+          <p class="hero-kicker">Memorial Oficial</p>
+          <h1 class="hero-title">Edney Fernandes</h1>
+          <p class="hero-subtitle">A Voz e o Tempo</p>
 
-        <div class="hero-actions">
-          <a class="btn" href="#composicoes">Ouvir agora</a>
-          <a class="btn btn--ghost" href="#manifesto">Ler manifesto</a>
-
-          <a class="pill" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ&pi=aYqRffAxRAK-H" target="_blank" rel="noopener" aria-label="Abrir playlists no Spotify">
-            <span class="pill__dot" aria-hidden="true"></span> Playlists (Spotify)
-          </a>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#composicoes">Ouvir agora</a>
+            <a class="btn btn-outline" href="#manifesto">Ler manifesto</a>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- VISUAL (imagem grande que vira “card” ao rolar) -->
-    <section class="hero-visual" aria-label="Imagem principal">
-      <div class="hero-visual__sticky">
-        <figure class="hero-visual__frame" id="heroFrame">
-          <!-- mantenha o caminho; você troca a foto depois -->
-          <img src="assets/img/hero-edney.jpg" alt="Edney Fernandes" id="heroImg">
-          <figcaption class="hero-visual__caption">Edney Fernandes — presença que permanece.</figcaption>
+        <!-- imagem abaixo (você vai trocar depois) -->
+        <figure class="hero-media" aria-label="Imagem principal">
+          <img src="assets/img/hero.jpg" alt="Edney Fernandes — foto principal" loading="eager">
         </figure>
       </div>
-      <div class="hero-visual__spacer" aria-hidden="true"></div>
     </section>
 
     <!-- MANIFESTO -->
-    <section id="manifesto" class="section reveal">
-      <div class="section__inner">
+    <section class="section manifesto reveal-on-scroll" id="manifesto">
+      <div class="container">
         <h2 class="section-title">Manifesto</h2>
-        <div class="prose">
-          <p>Existem vozes que, mesmo depois da despedida, não se calam.<br>
-Elas atravessam o invisível, o imaterial, o finito,<br>
-e continuam ecoando pelos cantos,<br>
-como se o tempo não tivesse fim.<br>
-<br>
-Nos fazem lembrar o que é sentir, o que é viver,<br>
-e despertam memórias afetivas.<br>
-<br>
-Edney Fernandes foi uma dessas vozes —<br>
-um menino do samba que sonhou alto demais pra caber só nesta vida.<br>
-<br>
-Cantou o amor, a saudade, a beleza do cotidiano,<br>
-e transformou tudo em melodia,<br>
-deixando o próprio coração exposto em cada nota.<br>
-<br>
-Mesmo partindo cedo, sua presença nunca foi ausência.<br>
-Porque quem canta com verdade, permanece.<br>
-<br>
-Hoje, sua voz continua ecoando<br>
-nas rodas de samba, nas rádios, nas lembranças e nas descobertas.<br>
-<br>
-Não apenas como lembrança, mas como presença.<br>
-Presença pela pessoa que foi, pela sensibilidade com que viveu e compôs.<br>
-<br>
-Este projeto é um reencontro:<br>
-entre o passado e o futuro, entre a memória, a saudade e a vida.<br>
-<br>
-Edney Fernandes — A Voz e o Tempo.</p>
-          <p class="signature">— Edney Fernandes — A Voz e o Tempo. <span aria-hidden="true">🌻</span></p>
+        <div class="prose" id="manifestoText">
+          <!-- preenchido via JS (fallback abaixo) -->
+          <p>
+            Existem vozes que, mesmo depois da despedida, não se calam.
+            Elas atravessam o invisível, o imaterial, o finito, e continuam ecoando
+            pelos cantos, como se o tempo não tivesse fim.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- DISCografia (1 card por item, com ícones) -->
-<section id="discografia" class="section reveal">
-  <div class="container">
-    <header class="section-head">
-      <h2>Discografia</h2>
-      <p>Álbuns e projetos essenciais.</p>
-    </header>
-
-    <div class="cards cards-3">
-      <!-- 1) Ed e a Tripulação -->
-      <article class="card album-card reveal">
-        <div class="card-media">
-          <img src="assets/img/discografia/ed-tripulacao.jpg" alt="Capa — Ed & A Tripulação" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>Ed &amp; A Tripulação</h3>
-          <p class="muted">
-            Álbum marcante do pagode 90s — energia de roda, romanticismo e identidade.
-          </p>
-
-          <div class="icon-row">
-            <a class="icon-btn accent" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ&pi=aYqRffAxRAK-H" target="_blank" rel="noopener">
-              <span class="sr-only">Ouvir no Spotify</span>
-              <img src="assets/img/icons/spotify.svg" alt="" aria-hidden="true">
-            </a>
-            <a class="icon-btn accent" href="https://youtube.com/playlist?list=PLqnsR5NrdI1O2-f3KLpRq3DxYJACpLooP&si=S7D_Ar9XK3X2Vfbo" target="_blank" rel="noopener">
-              <span class="sr-only">Ouvir no YouTube</span>
-              <img src="assets/img/icons/youtube.svg" alt="" aria-hidden="true">
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2) Playlist (Composições na voz de outros artistas) -->
-      <article class="card album-card reveal">
-        <div class="card-media">
-          <img src="assets/img/discografia/composicoes_playlist.jpg" alt="Playlist — Composições na voz de outros artistas" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>Playlist</h3>
-          <p class="muted">
-            Composições na voz de outros artistas — releituras e interpretações que mantêm a obra viva.
-          </p>
-
-          <div class="icon-row">
-            <a class="icon-btn accent" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ&pi=aYqRffAxRAK-H" target="_blank" rel="noopener">
-              <span class="sr-only">Abrir no Spotify</span>
-              <img src="assets/img/icons/spotify.svg" alt="" aria-hidden="true">
-            </a>
-            <a class="icon-btn accent" href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0&si=MgE8n8PDokre_HXA" target="_blank" rel="noopener">
-              <span class="sr-only">Abrir no YouTube</span>
-              <img src="assets/img/icons/youtube.svg" alt="" aria-hidden="true">
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 3) Gesto de Carinho (póstumo/inédito) -->
-      <article class="card album-card reveal">
-        <div class="card-media">
-          <img src="assets/img/discografia/gesto-capa.jpg" alt="Gesto de Carinho — projeto póstumo" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>Gesto de Carinho</h3>
-          <p class="muted">
-            Músicas inéditas — lançamentos póstumos que serão apresentados ao público em breve.
-          </p>
-
-          <div class="icon-row">
-            <a class="icon-btn accent" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ&pi=aYqRffAxRAK-H" target="_blank" rel="noopener">
-              <span class="sr-only">Abrir no Spotify</span>
-              <img src="assets/img/icons/spotify.svg" alt="" aria-hidden="true">
-            </a>
-            <a class="icon-btn accent" href="https://youtube.com/playlist?list=PLqnsR5NrdI1OOX1fPs0hxu0C-DlNXzhFe&si=c_POz45wD8KNMndH" target="_blank" rel="noopener">
-              <span class="sr-only">Abrir no YouTube</span>
-              <img src="assets/img/icons/youtube.svg" alt="" aria-hidden="true">
-            </a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-    <!-- COMPOSIÇÕES (selecionadas + players) -->
-    <section id="composicoes" class="section reveal">
-      <div class="section__inner">
+    <!-- DISCografia (layout “quadradinhos”) -->
+    <section class="section discografia reveal-on-scroll" id="discografia">
+      <div class="container">
         <div class="section-head">
-          <h2 class="section-title">Composições (seleção)</h2>
-          <div class="mini-actions">
-            <a class="icon-btn" href="https://open.spotify.com/playlist/3ARpxf3uuBh22m8b7gGfdB?si=gdfbs_OiRbeTA-Yxm837KQ&pi=aYqRffAxRAK-H" target="_blank" rel="noopener" aria-label="Abrir no Spotify">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
-  <path d="M7.4 10.2c3.1-1 6.7-.6 9.4 1.1" fill="none" stroke="rgba(255,255,255,.86)" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M7.8 12.9c2.6-.8 5.6-.4 7.9 1" fill="none" stroke="rgba(255,255,255,.86)" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M8.2 15.4c2-.5 4.2-.2 6 .8" fill="none" stroke="rgba(255,255,255,.86)" stroke-width="1.4" stroke-linecap="round"/>
-</svg>
-            </a>
-            <a class="icon-btn" href="https://youtube.com/playlist?list=PLqnsR5NrdI1OFceJLGu40cO1JRLEkfcy0&si=MgE8n8PDokre_HXA" target="_blank" rel="noopener" aria-label="Abrir no YouTube">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.9C18.2 5 12 5 12 5s-6.2 0-7.8.3A2.6 2.6 0 0 0 2.4 7.2 28.5 28.5 0 0 0 2 12c0 1.6.1 3.2.4 4.8a2.6 2.6 0 0 0 1.8 1.9C5.8 19 12 19 12 19s6.2 0 7.8-.3a2.6 2.6 0 0 0 1.8-1.9A28.5 28.5 0 0 0 22 12c0-1.6-.1-3.2-.4-4.8z"/>
-  <path d="M10 15.5v-7l6 3.5-6 3.5z" fill="rgba(255,255,255,.86)"/>
-</svg>
-            </a>
-          </div>
+          <h2 class="section-title">Discografia</h2>
+          <p class="section-note">Três pilares do acervo — com acesso direto ao Spotify e YouTube.</p>
         </div>
 
-        <div class="tracks" id="tracks" aria-live="polite"></div>
+        <div class="album-grid" id="discografiaGrid">
+          <!-- preenchido via JS -->
+          <div class="album-card is-skeleton" aria-hidden="true"></div>
+          <div class="album-card is-skeleton" aria-hidden="true"></div>
+          <div class="album-card is-skeleton" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
 
-    <!-- MEMORIAL (fila escalonada) -->
-    <section id="memorial" class="section reveal">
-      <div class="section__inner">
-        <h2 class="section-title">Memorial</h2>
-        <p class="section-lead">Um acervo visual em sequência, com ritmo e respiro.</p>
+    <!-- COMPOSIÇÕES -->
+    <section class="section composicoes reveal-on-scroll" id="composicoes">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Composições</h2>
+          <p class="section-note">Seleção curada (MVP): Meu Desejo • Tudo Que Eu Quis • Momentos de Tristeza • Despedida.</p>
+        </div>
 
-        <div class="memorial" id="memorialGrid" aria-live="polite"></div>
+        <div class="tracks" id="composicoesList">
+          <!-- preenchido via JS -->
+          <div class="track is-skeleton" aria-hidden="true"></div>
+          <div class="track is-skeleton" aria-hidden="true"></div>
+          <div class="track is-skeleton" aria-hidden="true"></div>
+          <div class="track is-skeleton" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
 
+    <!-- MEMORIAL (horizontal) -->
+    <section class="section memorial reveal-on-scroll" id="memorial">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Memorial</h2>
+          <p class="section-note">Arraste horizontalmente (21 imagens).</p>
+        </div>
+      </div>
+
+      <div class="memorial-strip" aria-label="Galeria do memorial">
+        <div class="memorial-row" id="memorialRow">
+          <!-- preenchido via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="section social reveal-on-scroll" id="social">
+      <div class="container">
+        <h2 class="section-title">Siga o Memorial nas redes sociais</h2>
+        <p class="section-note">Acompanhe novidades, acervo e letras oficiais.</p>
+
+        <div class="social-grid" id="socialGrid">
+          <!-- preenchido via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER (imagem larga no final) -->
     <footer class="footer">
-      <div class="footer__inner">
-        <p class="footer__brand">Edney Fernandes — A Voz e o Tempo</p>
-        <div class="footer__links">
-          <a href="https://www.instagram.com/edneyfernandes.memorial/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.letras.mus.br/ed-e-a-tripulacao/" target="_blank" rel="noopener">Letras</a>
+      <div class="footer-media">
+        <img src="assets/img/footer-wide.jpg" alt="Edney Fernandes — arte final (assinatura)" loading="lazy">
+      </div>
+      <div class="footer-inner">
+        <p class="footer-title">Edney Fernandes — A Voz e o Tempo</p>
+        <p class="footer-subtitle">Memorial e acervo do legado.</p>
+        <div class="footer-links">
+          <a href="#manifesto">Manifesto</a>
+          <a href="#discografia">Discografia</a>
+          <a href="#composicoes">Composições</a>
+          <a href="#memorial">Memorial</a>
+          <a href="#social">Redes</a>
         </div>
-        <p class="footer__small">© 2026 Laia Music. Todos os direitos reservados.</p>
+        <p class="footer-mini">© <span id="year"></span> Edney Fernandes Memorial</p>
       </div>
     </footer>
   </main>
+
+  <!-- JS -->
+  <script src="assets/js/site.js" defer></script>
 </body>
 </html>
