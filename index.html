@@ -4,25 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO PRINCIPAL -->
-  <title>Edney Fernandes | Ed & A Tripulação — A Voz e o Tempo</title>
-  <meta name="description" content="Memorial oficial de Edney Fernandes. Manifesto, discografia, composições e o legado de Ed & A Tripulação. Ouça no Spotify e YouTube." />
+  <title>Edney Fernandes | A Voz e o Tempo</title>
+  <meta
+    name="description"
+    content="Memorial oficial de Edney Fernandes. Biografia, discografia, composições, catálogo e legado musical."
+  />
   <link rel="canonical" href="https://edneyfernandes.com/" />
 
-  <!-- OPEN GRAPH -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Edney Fernandes | Ed & A Tripulação — A Voz e o Tempo" />
-  <meta property="og:description" content="Memorial oficial e acervo do legado de Edney Fernandes e Ed & A Tripulação." />
+  <meta property="og:title" content="Edney Fernandes | A Voz e o Tempo" />
+  <meta
+    property="og:description"
+    content="Um legado musical que continua vivo entre memória, catálogo e novas interpretações."
+  />
   <meta property="og:url" content="https://edneyfernandes.com/" />
   <meta property="og:image" content="https://edneyfernandes.com/assets/img/hero-edney.jpg" />
 
-  <!-- FAVICON -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-
-  <!-- CSS (NOME EXATO QUE VOCÊ USA) -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- SCHEMA.ORG -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,143 +33,239 @@
         "name": "Edney Fernandes",
         "url": "https://edneyfernandes.com/",
         "image": "https://edneyfernandes.com/assets/img/hero-edney.jpg",
-        "description": "Compositor e artista brasileiro. Memorial oficial e acervo do legado.",
+        "description": "Cantor, compositor e instrumentista brasileiro.",
         "sameAs": [
           "https://www.instagram.com/edneyfernandes.memorial",
-          "https://open.spotify.com/",
-          "https://www.youtube.com/"
+          "https://www.letras.mus.br/ed-e-a-tripulacao/"
         ]
       },
       {
         "@type": "MusicGroup",
         "@id": "https://edneyfernandes.com/#ed-e-a-tripulacao",
         "name": "Ed & A Tripulação",
-        "genre": ["Pagode", "Samba"],
+        "genre": ["Pagode", "Samba", "MPB"],
         "founder": { "@id": "https://edneyfernandes.com/#edney-fernandes" }
       }
     ]
   }
   </script>
 </head>
-
 <body>
+  <div class="noise"></div>
 
-<!-- ORIENTATION OVERLAY -->
-<div class="rotate-overlay">
-  <p>Please rotate your device<br><span>This is a vertical drive.</span></p>
-</div>
-
-<!-- HEADER / NAV -->
-<header class="site-header">
-  <div class="logo">
-    <img src="assets/img/logo-laia-music.png" alt="Laia Music" />
-  </div>
-
-  <nav class="main-nav">
-    <a href="#manifesto">Manifesto</a>
-    <a href="#discografia">Discografia</a>
-    <a href="#composicoes">Composições</a>
-    <a href="#memorial">Memorial</a>
-  </nav>
-</header>
-
-<!-- HERO -->
-<section id="hero" class="section hero-section">
-  <div class="hero-content">
-    <span class="hero-kicker">Memorial Oficial</span>
-    <h1>Edney Fernandes</h1>
-    <p class="hero-subtitle">A Voz e o Tempo</p>
-
-    <div class="hero-actions">
-      <a href="#composicoes" class="btn primary">Ouvir agora</a>
-      <a href="#manifesto" class="btn secondary">Ler manifesto</a>
+  <div class="rotate-overlay" id="rotateOverlay" aria-hidden="true">
+    <div class="rotate-overlay__content">
+      <p data-i18n="rotateTitle">Gire o dispositivo</p>
+      <span data-i18n="rotateText">Este site foi pensado para navegação vertical.</span>
+      <button type="button" class="btn btn-ghost" data-rotate-dismiss data-i18n="rotateButton">
+        Continuar assim mesmo
+      </button>
     </div>
   </div>
-</section>
 
-<!-- MANIFESTO -->
-<section id="manifesto" class="section text-section">
-  <h2>Manifesto</h2>
-  <p>
-    Existem vozes que, mesmo depois da despedida, não se calam.
-    Elas atravessam o invisível, o imaterial, o finito,
-    e continuam ecoando pelos cantos, como se o tempo não tivesse fim.
-  </p>
-</section>
+  <header class="site-header">
+    <a href="#hero" class="logo" aria-label="Edney Fernandes">
+      <img src="assets/img/logo-laia-music.png" alt="Laia Music" />
+    </a>
 
-<!-- DISCOGRAFIA -->
-<section id="discografia" class="section discografia-section">
-  <h2>Discografia</h2>
+    <nav class="main-nav">
+      <a href="#manifesto" data-i18n="navManifesto">Manifesto</a>
+      <a href="#legado" data-i18n="navLegacy">Legado</a>
+      <a href="#discografia" data-i18n="navDiscography">Discografia</a>
+      <a href="#catalogo" data-i18n="navCatalog">Catálogo</a>
+      <a href="#audios" data-i18n="navAudio">Áudios</a>
+      <a href="#memorial" data-i18n="navMemorial">Memorial</a>
+      <a href="#contato" data-i18n="navContact">Contato</a>
+    </nav>
 
-  <div class="discografia-grid">
-
-    <article class="album-card">
-      <img src="assets/img/discografia/ed-e-a-tripulacao.jpg" alt="Ed & A Tripulação">
-      <h3>Ed & A Tripulação</h3>
-      <span class="album-year">2000</span>
-      <p>Álbum marcante do pagode dos anos 90.</p>
-      <div class="album-links">
-        <a href="#" aria-label="Spotify">Spotify</a>
-        <a href="#" aria-label="YouTube">YouTube</a>
+    <div class="header-right">
+      <div class="lang-switcher" aria-label="Selecionar idioma">
+        <button class="lang-btn is-active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
       </div>
-    </article>
 
-    <article class="album-card">
-      <img src="assets/img/discografia/playlist.jpg" alt="Playlist">
-      <h3>Playlist</h3>
-      <span class="album-year">2000 — Hoje</span>
-      <p>Composições interpretadas por outros artistas.</p>
-      <div class="album-links">
-        <a href="#" aria-label="Spotify">Spotify</a>
-        <a href="#" aria-label="YouTube">YouTube</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#manifesto" data-i18n="navManifesto">Manifesto</a>
+    <a href="#legado" data-i18n="navLegacy">Legado</a>
+    <a href="#discografia" data-i18n="navDiscography">Discografia</a>
+    <a href="#catalogo" data-i18n="navCatalog">Catálogo</a>
+    <a href="#audios" data-i18n="navAudio">Áudios</a>
+    <a href="#memorial" data-i18n="navMemorial">Memorial</a>
+    <a href="#contato" data-i18n="navContact">Contato</a>
+  </div>
+
+  <main>
+    <section id="hero" class="section hero-section">
+      <div class="hero-bg" id="heroFrame"></div>
+      <div class="hero-gradient"></div>
+
+      <div class="container hero-content reveal">
+        <span class="hero-kicker" data-i18n="heroKicker">Memorial Oficial</span>
+
+        <h1 data-i18n="heroTitle">Uma voz que o tempo não silenciou</h1>
+
+        <p class="hero-subtitle" data-i18n="heroSubtitle">
+          O legado de Edney Fernandes continua vivo — entre memória, catálogo e novas interpretações.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#catalogo" class="btn btn-primary" data-i18n="heroCtaPrimary">Explorar catálogo</a>
+          <a href="#manifesto" class="btn btn-secondary" data-i18n="heroCtaSecondary">Ler manifesto</a>
+        </div>
       </div>
-    </article>
 
-    <article class="album-card">
-      <img src="assets/img/discografia/gesto-de-carinho.jpg" alt="Gesto de Carinho">
-      <h3>Gesto de Carinho</h3>
-      <span class="album-year">2026</span>
-      <p>Músicas inéditas — lançamentos póstumos.</p>
-    </article>
+      <div class="hero-scroll">
+        <span data-i18n="scrollLabel">Role para descobrir</span>
+      </div>
 
+      <div class="hero-visual__spacer" aria-hidden="true"></div>
+    </section>
+
+    <section id="manifesto" class="section section-narrow reveal">
+      <div class="container">
+        <span class="eyebrow" data-i18n="manifestoEyebrow">A Voz e o Tempo</span>
+        <h2 data-i18n="manifestoTitle">Manifesto</h2>
+
+        <div class="manifesto-grid">
+          <p data-i18n="manifestoP1">
+            Há vozes que, mesmo depois da despedida, não se apagam. Atravessam o invisível, o tempo e a ausência — e continuam ecoando.
+          </p>
+          <p data-i18n="manifestoP2">
+            Edney Fernandes foi uma dessas vozes. Um artista que transformava sentimentos em melodia, cotidiano em poesia e memória em canção.
+          </p>
+          <p data-i18n="manifestoP3">
+            Este projeto é um reencontro entre passado e futuro: um espaço para preservar sua obra, apresentar sua trajetória e abrir caminho para novas vozes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="legado" class="section reveal">
+      <div class="container split-section">
+        <div class="text-column">
+          <span class="eyebrow" data-i18n="legacyEyebrow">Legado Vivo</span>
+          <h2 data-i18n="legacyTitle">Um patrimônio musical em movimento</h2>
+          <p data-i18n="legacyText1">
+            Entre rodas de samba, estúdio, grupo próprio e canções gravadas por grandes intérpretes, Edney Fernandes construiu uma obra sensível, popular e profundamente brasileira.
+          </p>
+          <p data-i18n="legacyText2">
+            Hoje, esse legado segue vivo através da curadoria da família, da organização do catálogo e da preservação de um repertório que ainda pode ganhar novas interpretações.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <strong data-i18n="stat1Number">Décadas</strong>
+            <span data-i18n="stat1Label">de legado musical preservado</span>
+          </article>
+
+          <article class="stat-card">
+            <strong data-i18n="stat2Number">Catálogo vivo</strong>
+            <span data-i18n="stat2Label">obras, gravações e registros organizados</span>
+          </article>
+
+          <article class="stat-card">
+            <strong data-i18n="stat3Number">Novas vozes</strong>
+            <span data-i18n="stat3Label">interpretações, gravações e continuidade artística</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="discografia" class="section reveal">
+      <div class="container">
+        <span class="eyebrow" data-i18n="discographyEyebrow">Discografia</span>
+        <h2 data-i18n="discographyTitle">Projetos que marcaram uma trajetória</h2>
+        <p class="section-lead" data-i18n="discographyLead">
+          Uma seleção de obras que apresenta a força artística de Edney Fernandes entre grupo, catálogo e lançamentos póstumos.
+        </p>
+
+        <div class="discografia-grid" id="discografiaCards"></div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section reveal">
+      <div class="container split-section">
+        <div class="text-column">
+          <span class="eyebrow" data-i18n="catalogEyebrow">Catálogo</span>
+          <h2 data-i18n="catalogTitle">Obras abertas a novas interpretações</h2>
+          <p data-i18n="catalogText1">
+            Este não é apenas um memorial. É também um catálogo vivo, com composições que podem voltar ao mundo em novas gravações, arranjos e projetos.
+          </p>
+          <p data-i18n="catalogText2">
+            Para artistas, intérpretes, produtores e parceiros interessados, este espaço apresenta um repertório com identidade, emoção e história.
+          </p>
+        </div>
+
+        <div class="catalog-card">
+          <h3 data-i18n="catalogCardTitle">Quer gravar uma obra?</h3>
+          <p data-i18n="catalogCardText">
+            Entre em contato para conhecer composições disponíveis, possibilidades de licenciamento e caminhos de interpretação do catálogo.
+          </p>
+          <a href="#contato" class="btn btn-primary" data-i18n="catalogCardCta">Entrar em contato</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="audios" class="section reveal">
+      <div class="container">
+        <span class="eyebrow" data-i18n="audioEyebrow">Áudios</span>
+        <h2 data-i18n="audioTitle">Escuta sensível do catálogo</h2>
+        <p class="section-lead" data-i18n="audioLead">
+          Prévias, registros e composições para apresentar a textura emocional da obra.
+        </p>
+
+        <div class="tracks-grid" id="tracks"></div>
+      </div>
+    </section>
+
+    <section id="memorial" class="section reveal">
+      <div class="container">
+        <span class="eyebrow" data-i18n="memorialEyebrow">Memorial</span>
+        <h2 data-i18n="memorialTitle">Memória visual</h2>
+        <p class="section-lead" data-i18n="memorialLead">
+          Fotografias, encontros e fragmentos de uma trajetória que continua presente.
+        </p>
+
+        <div class="memorial-grid" id="memorialGrid"></div>
+      </div>
+    </section>
+
+    <section id="contato" class="section section-narrow reveal">
+      <div class="container">
+        <span class="eyebrow" data-i18n="contactEyebrow">Contato</span>
+        <h2 data-i18n="contactTitle">Converse sobre o legado</h2>
+        <p data-i18n="contactText">
+          Para imprensa, parcerias, gravações, licenciamento ou contato institucional, fale com a curadoria do projeto.
+        </p>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://www.instagram.com/edneyfernandes.memorial" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn btn-secondary" href="https://www.letras.mus.br/ed-e-a-tripulacao/" target="_blank" rel="noopener">Letras</a>
+          <a class="btn btn-secondary" href="mailto:contato@edneyfernandes.com">Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar imagem">×</button>
+    <img id="lightboxImage" src="" alt="" />
   </div>
-</section>
 
-<!-- COMPOSIÇÕES -->
-<section id="composicoes" class="section text-section">
-  <h2>Composições</h2>
-  <p>
-    Seleção curada (MVP): Meu Desejo · Tudo Que Eu Quis ·
-    Momentos de Tristeza · Despedida.
-  </p>
-</section>
+  <footer class="site-footer">
+    <p data-i18n="footerText">© Laia Music — Memorial Edney Fernandes</p>
+  </footer>
 
-<!-- MEMORIAL -->
-<section id="memorial" class="section memorial-section">
-  <h2>Memorial</h2>
-
-  <!-- IMPORTANTE: container vazio, JS vai preencher -->
-  <div class="memorial-track" id="memorial-track"></div>
-</section>
-
-<!-- REDES -->
-<section id="redes" class="section text-section">
-  <h2>Siga o Memorial</h2>
-  <div class="social-links">
-    <a href="https://www.instagram.com/edneyfernandes.memorial">Instagram</a>
-    <a href="https://www.letras.mus.br/ed-e-a-tripulacao/">Letras</a>
-    <a href="https://www.discogs.com/">Discogs</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <p>© Laia Music — Memorial Edney Fernandes</p>
-</footer>
-
-<!-- JS (NOMES EXATOS) -->
-<script src="assets/js/main.js"></script>
-<script src="assets/js/site.js"></script>
-
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
+
