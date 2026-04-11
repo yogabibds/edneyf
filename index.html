@@ -3,239 +3,141 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LAIA Music — Gestão, consultoria e expansão de legados musicais</title>
-  <meta name="description" content="LAIA Music é uma consultoria e empresa de gestão dedicada à preservação, expansão de legado, desenvolvimento artístico, coaching e estruturação de projetos musicais." />
-  <meta name="theme-color" content="#07170f" />
-  <meta property="og:title" content="LAIA Music" />
-  <meta property="og:description" content="Honrando o passado. Inspirando o futuro. Gestão, consultoria e expansão de legados musicais." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/hero.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="assets/icon.png" />
-  <link rel="stylesheet" href="styles.css" />
+
+  <title>LAIA Music</title>
+  <meta name="description" content="Gestão, preservação e expansão de legados musicais." />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
-  <div class="nav-wrap">
-    <div class="container nav">
-      <a class="brand" href="#top">
-        <img src="assets/logo-pandeiro.jpg" alt="Logo LAIA Music" />
-        <span>LAIA Music</span>
-      </a>
-      <button class="mobile-toggle" aria-label="Abrir menu">☰</button>
-      <nav class="nav-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#metodo">Método</a>
-        <a href="#conexoes">Conexões</a>
-        <a href="#contato" class="btn btn-secondary" style="padding:10px 16px">Falar com a LAIA</a>
-      </nav>
+
+<header class="header" id="header">
+  <div class="container nav">
+    
+    <div class="brand">
+      <img src="assets/images/logo.png" alt="LAIA Music" />
+      <span>LAIA MUSIC</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#about">Sobre</a>
+      <a href="#services">Serviços</a>
+      <a href="#legacy">Legado</a>
+      <a href="#institute">Instituto</a>
+      <a href="#contact">Contato</a>
+    </nav>
+
+    <div class="right">
+      <div class="lang">
+        <button data-lang="pt">PT</button>
+        <button data-lang="es">ES</button>
+        <button data-lang="en">EN</button>
+      </div>
+
+      <a href="#contact" class="btn primary">Agendar</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-grid">
+    
+    <div>
+      <h1>Honrando o passado. Inspirando o futuro.</h1>
+      <p>Transformamos memória artística em ativos culturais vivos.</p>
+
+      <div class="actions">
+        <a class="btn primary" href="#services">Conheça a LAIA</a>
+        <a class="btn secondary" href="https://www.edneyfernandes.com" target="_blank">Ver legado</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <p>Uma plataforma construída sobre experiência real.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container grid">
+    <div>
+      <h2>Uma plataforma construída sobre legado</h2>
+      <p>A LAIA Music organiza, preserva e expande legados musicais com visão estratégica.</p>
     </div>
   </div>
+</section>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <span class="eyebrow">Consultoria · Gestão · Expansão de legado</span>
-          <div class="display">Honrando o passado.<br><span class="highlight">Inspirando o futuro.</span></div>
-          <p class="lead">A <strong>LAIA Music</strong> é uma empresa de gestão, consultoria e desenvolvimento artístico dedicada à preservação de catálogos, expansão de legado, coaching, posicionamento e criação de novas oportunidades de mercado para artistas, famílias, projetos e patrimônios musicais.</p>
-          <div class="btns">
-            <a class="btn btn-primary" href="#contato">Agendar conversa</a>
-            <a class="btn btn-secondary" href="#portfolio">Ver portfólio</a>
-          </div>
-          <div class="hero-statbar">
-            <div class="stat"><strong data-count="1">1</strong><span>empresa centralizando visão artística, estratégia e memória.</span></div>
-            <div class="stat"><strong data-count="3">3</strong><span>frentes principais: consultoria, gestão de catálogo e desenvolvimento.</span></div>
-            <div class="stat"><strong data-count="100" data-suffix="%">0</strong><span>foco em valor cultural com inteligência de mercado.</span></div>
-          </div>
-        </div>
-        <div class="hero-card reveal">
-          <img src="assets/hero.jpg" alt="Arte visual da LAIA Music" />
-          <div class="overlay"></div>
-        </div>
-      </div>
-    </section>
+<section id="services" class="section">
+  <div class="container">
+    <h2>O que fazemos</h2>
 
-    <section class="section" id="sobre">
-      <div class="container split">
-        <div class="reveal">
-          <span class="eyebrow">Quem somos</span>
-          <h2 class="h2">Uma marca criada para transformar memória em direção estratégica.</h2>
-          <p class="lead">A LAIA Music nasce da convicção de que um legado artístico não deve ficar parado no passado. Quando existe método, posicionamento e visão, a memória vira presença, o catálogo vira ativo e a história volta a gerar conexão, relevância e futuro.</p>
-          <ul class="list">
-            <li>Preservação e organização de acervo musical, identidade e narrativa.</li>
-            <li>Gestão e expansão de catálogo para novas audiências, projetos e parcerias.</li>
-            <li>Consultoria para artistas, famílias, herdeiros, produtores e marcas culturais.</li>
-            <li>Coaching e desenvolvimento artístico com foco em posicionamento, direção e continuidade.</li>
-          </ul>
-        </div>
-        <div class="media reveal">
-          <img src="assets/introducing.jpg" alt="Introdução da marca LAIA Music" />
-          <div class="glass small">Mais do que uma consultoria, a LAIA Music opera como um <strong>hub de legado, mercado e construção de futuro</strong>.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="servicos">
-      <div class="container">
-        <div class="reveal" style="max-width:860px">
-          <span class="eyebrow">Serviços</span>
-          <h2 class="h2">Copy premium, posicionamento claro e atuação prática.</h2>
-          <p class="lead">A proposta da LAIA Music combina sensibilidade artística com estrutura de negócio. O objetivo é proteger, organizar, reposicionar e ampliar o valor de obras, carreiras e patrimônios musicais.</p>
-        </div>
-        <div class="cards-3" style="margin-top:28px">
-          <article class="card reveal">
-            <h3>Gestão e expansão de legado</h3>
-            <p>Diagnóstico do acervo, organização de catálogo, reposicionamento de narrativa, oportunidades de licenciamento, estruturação de presença digital e desenho de novas frentes de ativação.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Consultoria estratégica</h3>
-            <p>Direcionamento para artistas e projetos em fase de crescimento, transição, relançamento ou consolidação de marca, com visão de mercado, reputação, comunicação e produto.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Coaching e desenvolvimento</h3>
-            <p>Mentoria individual para clareza de posicionamento, visão artística, narrativa profissional, construção de autoridade e próximos passos com coerência entre propósito e mercado.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Projetos culturais e musicais</h3>
-            <p>Criação e estruturação de projetos especiais, ativações de catálogo, memorais, ações institucionais, desdobramentos educativos e conexões com impacto cultural.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Presença e marca</h3>
-            <p>Refinamento da apresentação de artistas, catálogos e iniciativas por meio de copy, storytelling, landing pages, pitch institucional, materiais digitais e páginas de portfólio.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Conexão entre arte e mercado</h3>
-            <p>Uma atuação voltada a transformar história em valor percebido, ampliando a capacidade de diálogo com parceiros, patrocinadores, plataformas e novas audiências.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="portfolio">
-      <div class="container split">
-        <div class="media reveal">
-          <img src="assets/case.jpg" alt="Caso de legado administrado pela LAIA Music" />
-          <div class="glass small">Case em gestão ativa de legado: preservação, reposicionamento, catálogo, mídia kit, narrativa institucional e desdobramentos culturais.</div>
-        </div>
-        <div class="reveal">
-          <span class="eyebrow">Portfólio</span>
-          <h2 class="h2">Catálogos e projetos que a LAIA Music acompanha.</h2>
-          <p class="lead">O primeiro case estruturado pela LAIA Music é o legado de <strong>Edney Fernandes</strong>, compositor, cantor, instrumentista e profissional de estúdio com obras interpretadas por nomes relevantes do samba e do pagode brasileiro, além de um catálogo em processo de organização e expansão. </p>
-          <div class="badge-row">
-            <span class="badge">Gestão de catálogo</span>
-            <span class="badge">Preservação de memória</span>
-            <span class="badge">Expansão de legado</span>
-            <span class="badge">Projetos culturais</span>
-          </div>
-          <div style="margin-top:22px" class="grid">
-            <a class="panel-link" href="https://edneyfernandes.com/" target="_blank" rel="noopener">
-              <div>
-                <strong>Ver site do catálogo Edney Fernandes</strong>
-                <div class="small muted">Acessar o site já existente do legado e memorial artístico.</div>
-              </div>
-              <span class="arrow">↗</span>
-            </a>
-            <a class="panel-link" href="../instituto/index.html">
-              <div>
-                <strong>Conhecer o Instituto Edney Fernandes</strong>
-                <div class="small muted">Ver a landing page do braço cultural e social conectado ao projeto.</div>
-              </div>
-              <span class="arrow">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="metodo">
-      <div class="container">
-        <div class="reveal" style="max-width:920px">
-          <span class="eyebrow">Método LAIA</span>
-          <h2 class="h2">Uma estrutura pensada para legado, posicionamento e crescimento.</h2>
-          <p class="lead">Cada projeto passa por uma jornada de leitura estratégica, organização e expansão. A LAIA Music trabalha para traduzir memória em clareza de proposta, linguagem de mercado e presença duradoura.</p>
-        </div>
-        <div class="timeline" style="margin-top:26px">
-          <div class="timeline-item reveal">
-            <div class="timeline-year">01</div>
-            <div>
-              <h3>Diagnóstico e escuta</h3>
-              <p class="muted">Leitura do momento do artista ou catálogo, mapeamento de ativos, narrativa, oportunidades e pontos de desalinhamento.</p>
-            </div>
-          </div>
-          <div class="timeline-item reveal">
-            <div class="timeline-year">02</div>
-            <div>
-              <h3>Organização e posicionamento</h3>
-              <p class="muted">Estruturação de copy, identidade verbal, apresentação, oferta, narrativa institucional e direção estratégica do projeto.</p>
-            </div>
-          </div>
-          <div class="timeline-item reveal">
-            <div class="timeline-year">03</div>
-            <div>
-              <h3>Ativação e expansão</h3>
-              <p class="muted">Desdobramento em site, materiais, conexões, frentes culturais, novas audiências, parcerias e oportunidades de mercado.</p>
-            </div>
-          </div>
-          <div class="timeline-item reveal">
-            <div class="timeline-year">04</div>
-            <div>
-              <h3>Acompanhamento e continuidade</h3>
-              <p class="muted">Mentoria, coaching, refinamento de presença e suporte em decisões para que o projeto continue consistente e vivo ao longo do tempo.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="conexoes">
-      <div class="container">
-        <div class="cards-2">
-          <div class="reveal">
-            <span class="eyebrow">Para quem</span>
-            <h2 class="h2">A LAIA Music atende artistas, famílias, projetos e patrimônios culturais.</h2>
-            <ul class="list">
-              <li>Artistas em construção ou reposicionamento de carreira.</li>
-              <li>Famílias e herdeiros que precisam organizar e valorizar um catálogo.</li>
-              <li>Projetos que desejam profissionalizar presença, narrativa e direção.</li>
-              <li>Iniciativas culturais que precisam conectar memória, propósito e mercado.</li>
-            </ul>
-          </div>
-          <div class="card reveal">
-            <div class="quote">“A música tem o poder de atravessar o tempo quando sua memória é preservada com intenção, cuidado e visão.”</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contato">
-      <div class="container">
-        <div class="cta reveal">
-          <span class="kicker">Contato</span>
-          <h2 class="h2" style="margin-top:12px">Vamos conversar sobre legado, direção artística ou expansão de projeto?</h2>
-          <p class="lead">Se você busca clareza estratégica, organização de catálogo, fortalecimento de marca, coaching ou desenvolvimento de um projeto musical com profundidade e elegância, a LAIA Music pode construir esse caminho com você.</p>
-          <div class="btns">
-            <a class="btn btn-primary" href="mailto:contact@edneyfernandes.com">contact@edneyfernandes.com</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn / institucional</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid small">
-      <div>© LAIA Music — Gestão, consultoria e expansão de legados musicais.</div>
-      <div style="display:flex;gap:18px;flex-wrap:wrap">
-        <a href="https://edneyfernandes.com/" target="_blank" rel="noopener">Site Edney Fernandes ↗</a>
-        <a href="../instituto/index.html">Instituto Edney Fernandes</a>
-      </div>
+    <div class="cards">
+      <div class="card">Gestão de catálogo</div>
+      <div class="card">Preservação de legado</div>
+      <div class="card">Consultoria musical</div>
+      <div class="card">Coaching artístico</div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<section id="legacy" class="section">
+  <div class="container grid">
+    
+    <img src="assets/images/edney.png" alt="Edney Fernandes">
+
+    <div>
+      <h2>Um legado em movimento</h2>
+      <p>O catálogo de Edney Fernandes é um exemplo de gestão e valorização cultural.</p>
+
+      <a class="btn primary" href="https://www.edneyfernandes.com" target="_blank">
+        Acessar catálogo
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section id="institute" class="section">
+  <div class="container grid">
+
+    <img src="assets/images/instituto.png" alt="Instituto">
+
+    <div>
+      <h2>Além da música</h2>
+      <p>O Instituto amplia o impacto da LAIA para educação e cultura.</p>
+
+      <a class="btn primary" href="https://institutoef.netlify.app" target="_blank">
+        Conhecer Instituto
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="section cta">
+  <div class="container">
+    <h2>Vamos construir o próximo capítulo</h2>
+
+    <div class="actions">
+      <a class="btn primary" href="mailto:seuemail@email.com">Contato</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© LAIA Music</p>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+
 </body>
 </html>
