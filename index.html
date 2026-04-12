@@ -8,237 +8,254 @@
   <meta name="theme-color" content="#0b0f0c">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#hero" class="brand" aria-label="Laia Music">
-        <img src="assets/logo.png" alt="Laia Music logo" class="brand-logo">
-        <span class="brand-name">Laia Music</span>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+
+    <a href="#hero" class="brand" aria-label="Laia Music">
+      <img src="assets/logo.png" alt="Laia Music logo">
+      <span>Laia Music</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#about" data-i18n="nav.about">Sobre</a>
+      <a href="#services" data-i18n="nav.services">Serviços</a>
+      <a href="#legacy" data-i18n="nav.legacy">Legado</a>
+      <a href="#institute" data-i18n="nav.institute">Instituto</a>
+      <a href="#contact" data-i18n="nav.contact">Contato</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="language-switcher" aria-label="Language switcher">
+        <button class="lang-btn active" data-lang="pt" type="button">PT</button>
+        <button class="lang-btn" data-lang="es" type="button">ES</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+      </div>
+
+      <a href="#contact" class="btn btn-primary desktop-cta" data-i18n="hero.ctaPrimary">
+        Agendar conversa
       </a>
+    </div>
 
-      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-        <a href="#about" data-i18n="nav.about">Sobre</a>
-        <a href="#services" data-i18n="nav.services">Serviços</a>
-        <a href="#legacy" data-i18n="nav.legacy">Legado</a>
-        <a href="#institute" data-i18n="nav.institute">Instituto</a>
-        <a href="#contact" data-i18n="nav.contact">Contato</a>
-      </nav>
+  </div>
+</header>
 
-      <div class="header-actions">
-        <div class="language-switcher" aria-label="Language switcher">
-          <button class="lang-btn active" data-lang="pt" type="button">PT</button>
-          <button class="lang-btn" data-lang="es" type="button">ES</button>
-          <button class="lang-btn" data-lang="en" type="button">EN</button>
+<main>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <img src="assets/hero-bg.jpg" alt="Honrando o passado, inspirando o futuro">
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <span class="eyebrow" data-i18n="hero.eyebrow">Gestão de legado musical</span>
+
+      <h1 data-i18n-html="hero.title">
+        Honrando o passado.<br>
+        Inspirando o futuro.
+      </h1>
+
+      <p data-i18n="hero.text">
+        A Laia Music é uma plataforma de gestão, preservação e expansão de legados musicais. Transformamos memória artística em ativos culturais vivos, conectando gerações e criando novas oportunidades através da música.
+      </p>
+
+      <div class="actions">
+        <a href="#services" class="btn btn-primary" data-i18n="hero.ctaSecondary">Explorar serviços</a>
+        <a href="#legacy" class="btn btn-secondary" data-i18n="hero.ctaCatalog">Explorar legado</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container narrow">
+      <span class="eyebrow reveal" data-i18n="about.eyebrow">Sobre</span>
+
+      <h2 class="reveal" data-i18n="about.title">Uma plataforma construída sobre legado</h2>
+
+      <p class="reveal" data-i18n="about.text">
+        A Laia Music nasceu da necessidade de preservar, organizar e expandir o legado artístico de Edney Fernandes. Mais do que uma marca, é uma estrutura dedicada à gestão de catálogos, ao desenvolvimento cultural e à criação de novas oportunidades para artistas, famílias e acervos musicais.
+      </p>
+
+      <div class="quote reveal" data-i18n="about.quote">
+        Acreditamos que um legado musical bem cuidado não pertence apenas ao passado. Ele pode gerar relevância, conexão e crescimento no presente.
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="services.eyebrow">Atuação</span>
+
+      <h2 class="reveal" data-i18n="services.title">Estratégia, sensibilidade e visão de longo prazo</h2>
+
+      <p class="reveal" data-i18n="services.text">
+        Combinamos direção cultural, organização estratégica e construção de valor.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <span>01</span>
+          <h3 data-i18n="services.item1Title">Gestão de catálogo</h3>
+          <p data-i18n="services.item1Text">Organização e expansão de obras e repertórios.</p>
+        </article>
+
+        <article class="card reveal">
+          <span>02</span>
+          <h3 data-i18n="services.item2Title">Preservação de legado</h3>
+          <p data-i18n="services.item2Text">Estratégias para manter viva a memória artística.</p>
+        </article>
+
+        <article class="card reveal">
+          <span>03</span>
+          <h3 data-i18n="services.item3Title">Consultoria musical estratégica</h3>
+          <p data-i18n="services.item3Text">Direcionamento estratégico para projetos e artistas.</p>
+        </article>
+
+        <article class="card reveal">
+          <span>04</span>
+          <h3 data-i18n="services.item4Title">Desenvolvimento artístico e posicionamento</h3>
+          <p data-i18n="services.item4Text">Construção de narrativa, identidade e posicionamento.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGACY -->
+  <section id="legacy" class="section">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="legacy.eyebrow">Case</span>
+
+      <h2 class="reveal" data-i18n="legacy.title">Um legado que continua em movimento</h2>
+
+      <p class="reveal" data-i18n="legacy.text">
+        A trajetória de Edney Fernandes inspira a base da Laia Music.
+      </p>
+
+      <div class="case reveal">
+        <div class="image">
+          <img src="assets/case-edney.png" alt="Edney Fernandes">
         </div>
 
-        <a href="#contact" class="btn btn-primary desktop-cta" data-i18n="hero.ctaPrimary">
-          Agendar conversa
+        <div class="content">
+          <div class="stats">
+            <div>
+              <strong data-counter="44">44+</strong>
+              <span data-i18n="legacy.stat1">obras registradas</span>
+            </div>
+
+            <div>
+              <strong data-counter="6000000">6M+</strong>
+              <span data-i18n="legacy.stat2">views digitais</span>
+            </div>
+
+            <div>
+              <strong data-i18n="legacy.stat3Value">Anos 90</strong>
+              <span data-i18n="legacy.stat3">samba e pagode</span>
+            </div>
+          </div>
+
+          <p data-i18n="legacy.copy">
+            Um exemplo concreto de como um legado pode ser organizado, valorizado e expandido.
+          </p>
+
+          <div class="actions actions-left">
+            <a href="https://www.edneyfernandes.com" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="legacy.cta1">
+              Acessar catálogo
+            </a>
+
+            <a href="#contact" class="btn btn-secondary" data-i18n="legacy.cta2">
+              Falar sobre um catálogo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTITUTE -->
+  <section id="institute" class="section">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="institute.eyebrow">Ecossistema</span>
+
+      <h2 class="reveal" data-i18n="institute.title">Além da música</h2>
+
+      <p class="reveal" data-i18n="institute.text">
+        A Laia Music amplia sua atuação através do Instituto Edney Fernandes, conectando legado, educação, memória e inovação em um projeto de impacto cultural de longo prazo.
+      </p>
+
+      <div class="case reveal">
+        <div class="image">
+          <img src="assets/instituto-blueprint.jpg" alt="Instituto Edney Fernandes">
+        </div>
+
+        <div class="content">
+          <h3 data-i18n="institute.cardTitle">Instituto Edney Fernandes</h3>
+
+          <p data-i18n="institute.cardText">
+            Um projeto cultural e educacional que transforma legado em impacto social.
+          </p>
+
+          <ul>
+            <li data-i18n="institute.item1">Centro cultural e memorial</li>
+            <li data-i18n="institute.item2">Educação musical</li>
+            <li data-i18n="institute.item3">Inovação e tecnologia</li>
+          </ul>
+
+          <div class="actions actions-left">
+            <a href="https://institutoef.netlify.app/" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="institute.cta">
+              Conhecer o Instituto
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="section cta">
+    <div class="container narrow">
+      <span class="eyebrow reveal" data-i18n="cta.eyebrow">Contato</span>
+
+      <h2 class="reveal" data-i18n="cta.title">Vamos construir o próximo capítulo</h2>
+
+      <p class="reveal" data-i18n="cta.text">
+        Trabalhamos com quem entende a música como legado e potência cultural.
+      </p>
+
+      <div class="actions reveal">
+        <a href="mailto:contact@edneyfernandes.com" class="btn btn-primary" data-i18n="cta.button1">
+          Entrar em contato
         </a>
 
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <a href="https://www.edneyfernandes.com" class="btn btn-secondary" target="_blank" rel="noopener" data-i18n="cta.button2">
+          Ver case completo
+        </a>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero section" id="hero">
-      <div class="hero-bg">
-        <img src="assets/hero-bg.jpg" alt="Honrando o passado, inspirando o futuro">
-      </div>
-      <div class="hero-overlay"></div>
+</main>
 
-      <div class="container hero-content">
-        <div class="eyebrow" data-i18n="hero.eyebrow">Gestão de legado musical</div>
+<footer>
+  <div class="container footer">
+    <span>© <span id="year"></span> Laia Music</span>
 
-        <h1 data-i18n="hero.title">
-          Honrando o passado.<br>
-          Inspirando o futuro.
-        </h1>
-
-        <p class="hero-subtitle" data-i18n="hero.text">
-          A Laia Music é uma plataforma de gestão, preservação e expansão de legados musicais. Transformamos memória artística em ativos culturais vivos, conectando gerações e criando novas oportunidades através da música.
-        </p>
-
-        <div class="actions hero-actions">
-          <a href="#services" class="btn btn-primary" data-i18n="hero.ctaSecondary">Explorar serviços</a>
-          <a href="#legacy" class="btn btn-secondary" data-i18n="hero.ctaCatalog">Explorar legado</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container narrow reveal-group">
-        <div class="section-head">
-          <div class="eyebrow" data-i18n="about.eyebrow">Sobre</div>
-          <h2 data-i18n="about.title">Uma plataforma construída sobre legado</h2>
-          <p data-i18n="about.text">
-            A Laia Music nasceu da necessidade de preservar, organizar e expandir o legado artístico de Edney Fernandes. Mais do que uma marca, é uma estrutura dedicada à gestão de catálogos, ao desenvolvimento cultural e à criação de novas oportunidades para artistas, famílias e acervos musicais.
-          </p>
-        </div>
-
-        <div class="quote-card">
-          <p data-i18n="about.quote">
-            Acreditamos que um legado musical bem cuidado não pertence apenas ao passado. Ele pode gerar relevância, conexão e crescimento no presente.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container reveal-group">
-        <div class="section-head">
-          <div class="eyebrow" data-i18n="services.eyebrow">Atuação</div>
-          <h2 data-i18n="services.title">Estratégia, sensibilidade e visão de longo prazo</h2>
-          <p data-i18n="services.text">
-            Combinamos direção cultural, organização estratégica e construção de valor. A Laia atua com foco em gestão de legado, consultoria musical estratégica e desenvolvimento de oportunidades estruturadas.
-          </p>
-        </div>
-
-        <div class="grid services-grid">
-          <article class="card service-card">
-            <span class="service-index">01</span>
-            <h3 data-i18n="services.item1Title">Gestão de catálogo</h3>
-            <p data-i18n="services.item1Text">Organização, posicionamento e expansão de obras, repertórios e ativos musicais.</p>
-          </article>
-
-          <article class="card service-card">
-            <span class="service-index">02</span>
-            <h3 data-i18n="services.item2Title">Preservação de legado</h3>
-            <p data-i18n="services.item2Text">Estratégias para manter viva a memória artística e ampliar sua relevância cultural.</p>
-          </article>
-
-          <article class="card service-card">
-            <span class="service-index">03</span>
-            <h3 data-i18n="services.item3Title">Consultoria musical estratégica</h3>
-            <p data-i18n="services.item3Text">Direcionamento estratégico para artistas, famílias, produtores e projetos culturais.</p>
-          </article>
-
-          <article class="card service-card">
-            <span class="service-index">04</span>
-            <h3 data-i18n="services.item4Title">Desenvolvimento artístico e posicionamento</h3>
-            <p data-i18n="services.item4Text">Apoio na construção de narrativa, identidade e presença cultural consistente.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="legacy" class="section">
-      <div class="container reveal-group">
-        <div class="section-head">
-          <div class="eyebrow" data-i18n="legacy.eyebrow">Case</div>
-          <h2 data-i18n="legacy.title">Um legado que continua em movimento</h2>
-          <p data-i18n="legacy.text">
-            A trajetória de Edney Fernandes inspira a base da Laia Music. Seu catálogo demonstra como memória artística pode ser transformada em presença cultural estruturada, com continuidade, posicionamento e valor.
-          </p>
-        </div>
-
-        <div class="case">
-          <div class="image">
-            <img src="assets/case-edney.png" alt="Edney Fernandes">
-          </div>
-
-          <div class="content">
-            <div class="stats">
-              <div>
-                <strong data-counter="44">44+</strong>
-                <span data-i18n="legacy.stat1">obras registradas</span>
-              </div>
-              <div>
-                <strong data-counter="6000000">6M+</strong>
-                <span data-i18n="legacy.stat2">views digitais</span>
-              </div>
-              <div>
-                <strong data-i18n="legacy.stat3Value">Anos 90</strong>
-                <span data-i18n="legacy.stat3">samba e pagode</span>
-              </div>
-            </div>
-
-            <p data-i18n="legacy.copy">
-              Com obras registradas, interpretações por artistas reconhecidos e relevância contínua no universo do samba e pagode, o acervo de Edney Fernandes é hoje um exemplo concreto de como um legado pode ser organizado, valorizado e expandido.
-            </p>
-
-            <div class="actions">
-              <a href="https://www.edneyfernandes.com" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="legacy.cta1">Acessar catálogo</a>
-              <a href="#contact" class="btn btn-secondary" data-i18n="legacy.cta2">Falar sobre um catálogo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="institute" class="section">
-      <div class="container reveal-group">
-        <div class="section-head">
-          <div class="eyebrow" data-i18n="institute.eyebrow">Ecossistema</div>
-          <h2 data-i18n="institute.title">Além da música</h2>
-          <p data-i18n="institute.text">
-            A Laia Music amplia sua atuação através do Instituto Edney Fernandes, conectando legado, educação, memória e inovação em um projeto de impacto cultural de longo prazo.
-          </p>
-        </div>
-
-        <div class="case">
-          <div class="image">
-            <img src="assets/instituto-blueprint.jpg" alt="Instituto Edney Fernandes">
-          </div>
-
-          <div class="content">
-            <h3 data-i18n="institute.cardTitle">Instituto Edney Fernandes</h3>
-            <p data-i18n="institute.cardText">
-              Um projeto cultural e educacional que transforma legado em impacto social. O Instituto reúne música, formação, tecnologia, memória e território em uma proposta de longo prazo.
-            </p>
-
-            <ul>
-              <li data-i18n="institute.item1">Centro cultural e memorial musical</li>
-              <li data-i18n="institute.item2">Formação criativa e educação musical</li>
-              <li data-i18n="institute.item3">Inovação, coworking e economia criativa</li>
-            </ul>
-
-            <div class="actions">
-              <a href="https://institutoef.netlify.app/" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="institute.cta">Conhecer o Instituto</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section cta">
-      <div class="container narrow reveal-group">
-        <div class="section-head">
-          <div class="eyebrow" data-i18n="cta.eyebrow">Contato</div>
-          <h2 data-i18n="cta.title">Vamos construir o próximo capítulo</h2>
-          <p data-i18n="cta.text">
-            Trabalhamos com artistas, famílias, instituições e parceiros que entendem a música como legado, ativo e potência cultural.
-          </p>
-        </div>
-
-        <div class="actions">
-          <a href="mailto:contact@edneyfernandes.com" class="btn btn-primary" data-i18n="cta.button1">Entrar em contato</a>
-          <a href="https://www.edneyfernandes.com" class="btn btn-secondary" target="_blank" rel="noopener" data-i18n="cta.button2">Ver case completo</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer">
-      <span>© <span id="year"></span> Laia Music</span>
-
-      <div>
-        <a href="https://www.edneyfernandes.com" target="_blank" rel="noopener">Edney Fernandes</a>
-        <a href="https://institutoef.netlify.app/" target="_blank" rel="noopener">Instituto</a>
-        <a href="mailto:contact@edneyfernandes.com">Email</a>
-      </div>
+    <div>
+      <a href="https://www.edneyfernandes.com" target="_blank" rel="noopener">Edney Fernandes</a>
+      <a href="https://institutoef.netlify.app/" target="_blank" rel="noopener">Instituto</a>
+      <a href="mailto:contact@edneyfernandes.com">Email</a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
