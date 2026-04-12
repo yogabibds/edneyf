@@ -582,16 +582,18 @@ footer {
 /* SAFE REVEAL */
 .reveal {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: none;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.js-enabled .reveal {
+html.js-enabled .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(32px);
 }
 
-.js-enabled .reveal.visible {
+html.js-enabled .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
