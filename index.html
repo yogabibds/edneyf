@@ -3,496 +3,274 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memorial Edney Fernandes</title>
 
-  <title>Edney Fernandes | A Voz e o Tempo</title>
-  <meta
-    name="description"
-    content="Memorial oficial de Edney Fernandes. Biografia, discografia, composições, catálogo, licenciamento e legado musical."
-  />
-  <link rel="canonical" href="https://edneyfernandes.com/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Edney Fernandes | A Voz e o Tempo" />
-  <meta
-    property="og:description"
-    content="Um legado musical que continua vivo, conectando memória, catálogo e novas interpretações."
-  />
-  <meta property="og:url" content="https://edneyfernandes.com/" />
-  <meta property="og:image" content="https://edneyfernandes.com/assets/img/memorial/memorial-01.jpg" />
-
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/style.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://edneyfernandes.com/#edney-fernandes",
-        "name": "Edney Fernandes",
-        "url": "https://edneyfernandes.com/",
-        "image": "https://edneyfernandes.com/assets/img/memorial/memorial-01.jpg",
-        "description": "Cantor, compositor e instrumentista brasileiro.",
-        "sameAs": [
-          "https://www.instagram.com/edneyfernandes.memorial",
-          "https://www.letras.mus.br/ed-e-a-tripulacao/"
-        ]
-      },
-      {
-        "@type": "MusicGroup",
-        "@id": "https://edneyfernandes.com/#ed-e-a-tripulacao",
-        "name": "Ed & A Tripulação",
-        "genre": ["Pagode", "Samba", "MPB"],
-        "founder": { "@id": "https://edneyfernandes.com/#edney-fernandes" }
-      }
-    ]
-  }
-  </script>
 </head>
+
 <body>
-  <div class="noise"></div>
 
-  <div class="rotate-overlay" id="rotateOverlay" aria-hidden="true">
-    <div class="rotate-overlay__content">
-      <p data-i18n="rotateTitle">Gire o dispositivo</p>
-      <span data-i18n="rotateText">Este site foi pensado para navegação vertical.</span>
-      <button type="button" class="btn btn-ghost" data-rotate-dismiss data-i18n="rotateButton">
-        Continuar assim mesmo
-      </button>
+<header class="site-header">
+  <div class="logo">
+    <img src="assets/img/logo-laia-music.png" alt="Laiá Music" />
+  </div>
+
+  <nav class="main-nav">
+    <a href="#manifesto">Manifesto</a>
+    <a href="#relevancia">Relevância</a>
+    <a href="#trajetoria">Trajetória</a>
+    <a href="#interpretes">Intérpretes</a>
+    <a href="#discografia">Discografia</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#audios">Áudios</a>
+    <a href="#memorial">Memorial</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-bg"></div>
+
+  <div class="container hero-content hero-content--left">
+    <span class="hero-kicker">Memorial Oficial</span>
+
+    <h1 class="section-title section-title--hero">
+      Uma voz que o tempo não silenciou
+    </h1>
+
+    <p class="hero-subtitle">
+      O legado de Edney Fernandes continua vivo, conectando memória, catálogo e novas interpretações.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn btn-primary">Explorar catálogo</a>
+      <a href="#manifesto" class="btn btn-secondary">Ler manifesto</a>
     </div>
   </div>
+</section>
 
-  <header class="site-header">
-    <a href="#hero" class="logo" aria-label="Edney Fernandes">
-      <img src="assets/img/logo-laia-music.png" alt="Laiá Music" />
-    </a>
+<!-- RELEVÂNCIA -->
+<section id="relevancia" class="section">
+  <div class="container container--center">
 
-    <nav class="main-nav">
-      <a href="#manifesto" data-i18n="navManifesto">Manifesto</a>
-      <a href="#relevancia" data-i18n="navRelevance">Relevância</a>
-      <a href="#trajetoria" data-i18n="navJourney">Trajetória</a>
-      <a href="#interpretes" data-i18n="navArtists">Intérpretes</a>
-      <a href="#projetos" data-i18n="navDiscography">Discografia</a>
-      <a href="#catalogo" data-i18n="navCatalog">Catálogo</a>
-      <a href="#audios" data-i18n="navAudio">Áudios</a>
-      <a href="#memorial" data-i18n="navMemorial">Memorial</a>
-      <a href="#curadoria" data-i18n="navCuration">Curadoria</a>
-      <a href="#contato" data-i18n="navContact">Contato</a>
-    </nav>
+    <span class="eyebrow">Alcance e relevância</span>
+    <h2 class="section-title section-title--center">A permanência da obra</h2>
 
-    <div class="header-right">
-      <div class="lang-switcher" aria-label="Selecionar idioma">
-        <button class="lang-btn is-active" data-lang="pt">PT</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="es">ES</button>
+    <p class="section-text--center">
+      O catálogo de Edney Fernandes continua ativo no imaginário coletivo, em plataformas digitais, repertórios de intérpretes e no circuito do samba e do pagode.
+    </p>
+
+    <div class="impact-grid impact-grid--center">
+
+      <div class="impact-card">
+        <strong>+6M</strong>
+        <span>visualizações em interpretações das músicas</span>
       </div>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="impact-card">
+        <strong>44</strong>
+        <span>obras registradas oficialmente</span>
+      </div>
+
+      <div class="impact-card">
+        <strong>Anos 90–Hoje</strong>
+        <span>presença contínua no samba e pagode brasileiro</span>
+      </div>
+
     </div>
-  </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#manifesto" data-i18n="navManifesto">Manifesto</a>
-    <a href="#relevancia" data-i18n="navRelevance">Relevância</a>
-    <a href="#trajetoria" data-i18n="navJourney">Trajetória</a>
-    <a href="#interpretes" data-i18n="navArtists">Intérpretes</a>
-    <a href="#projetos" data-i18n="navDiscography">Discografia</a>
-    <a href="#catalogo" data-i18n="navCatalog">Catálogo</a>
-    <a href="#audios" data-i18n="navAudio">Áudios</a>
-    <a href="#memorial" data-i18n="navMemorial">Memorial</a>
-    <a href="#curadoria" data-i18n="navCuration">Curadoria</a>
-    <a href="#contato" data-i18n="navContact">Contato</a>
+    <div class="partners-block">
+      <span class="eyebrow">Catálogo em editoras e entidades</span>
+
+      <div class="logo-marquee">
+        <div class="logo-marquee__track">
+          <span class="logo-wordmark">ABRAMUS</span>
+          <span class="logo-wordmark">SONY MUSIC</span>
+          <span class="logo-wordmark">WARNER MUSIC</span>
+          <span class="logo-wordmark">PEER MUSIC</span>
+        </div>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <main>
-    <!-- HERO -->
-    <section id="hero" class="section hero-section">
-      <div class="hero-bg" id="heroFrame"></div>
-      <div class="hero-gradient"></div>
+<!-- TRAJETÓRIA -->
+<section id="trajetoria" class="section">
+  <div class="container container--center">
 
-      <div class="container hero-content hero-content--left reveal">
-        <span class="hero-kicker" data-i18n="heroKicker">Memorial Oficial</span>
+    <span class="eyebrow">Trajetória e colaborações</span>
+    <h2 class="section-title section-title--center">Presença na música brasileira</h2>
 
-        <h1 class="section-title section-title--hero hero-title--compact" data-i18n="heroTitle">
-          Uma voz que o tempo não silenciou
-        </h1>
+    <p class="section-text--center">
+      Entre projetos fonográficos, rodas de samba, estúdio e encontros artísticos, construiu-se uma trajetória viva dentro da música popular brasileira.
+    </p>
 
-        <p class="hero-subtitle hero-subtitle--compact" data-i18n="heroSubtitle">
-          O legado de Edney Fernandes continua vivo, conectando memória, catálogo e novas interpretações.
-        </p>
+    <div class="feature-grid feature-grid--three">
 
-        <div class="hero-actions hero-actions--left">
-          <a href="#catalogo" class="btn btn-primary" data-i18n="heroCtaPrimary">Explorar catálogo</a>
-          <a href="#manifesto" class="btn btn-secondary" data-i18n="heroCtaSecondary">Ler manifesto</a>
+      <div class="feature-card">
+        <img src="assets/img/discografia/ed-tripulacao.jpg" />
+        <div class="feature-card__body">
+          <h3>Ed & A Tripulação</h3>
+          <p>Projeto marcante no pagode paulista.</p>
         </div>
       </div>
 
-      <div class="hero-scroll">
-        <span data-i18n="scrollLabel">Role para descobrir</span>
-      </div>
-
-      <div class="hero-visual__spacer" aria-hidden="true"></div>
-    </section>
-
-    <!-- MANIFESTO -->
-    <section id="manifesto" class="section section-narrow reveal">
-      <div class="container container--center">
-        <span class="eyebrow eyebrow--center" data-i18n="manifestoEyebrow">Manifesto</span>
-        <h2 class="section-title section-title--center" data-i18n="manifestoTitle">Manifesto</h2>
-
-        <div class="manifesto-grid manifesto-grid--center">
-          <p class="section-text--center" data-i18n="manifestoP1">
-            Há vozes que, mesmo depois da despedida, não se apagam. Atravessam o invisível, o tempo e a ausência, e continuam ecoando.
-          </p>
-          <p class="section-text--center" data-i18n="manifestoP2">
-            Edney Fernandes foi uma dessas vozes. Um artista que transformava sentimentos em melodia, cotidiano em poesia e memória em canção.
-          </p>
-          <p class="section-text--center" data-i18n="manifestoP3">
-            Este projeto é um reencontro entre passado e futuro: um espaço para preservar sua obra, apresentar sua trajetória e abrir caminho para novas vozes.
-          </p>
+      <div class="feature-card">
+        <img src="assets/img/discografia/terra-brasil-pagode-de-mesa-3.jpg" />
+        <div class="feature-card__body">
+          <h3>Pagode de Mesa</h3>
+          <p>Participação em projeto fonográfico relevante.</p>
         </div>
       </div>
-    </section>
 
-    <!-- ALCANCE E RELEVÂNCIA -->
-    <section id="relevancia" class="section reveal">
-      <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="relevanceEyebrow">Alcance & Relevância</span>
-        <h2 class="section-title section-title--center" data-i18n="relevanceTitle">A permanência da obra</h2>
-        <p class="section-lead section-text--center" data-i18n="relevanceLead">
-          O catálogo de Edney Fernandes continua ativo no imaginário coletivo, em plataformas digitais, repertórios de intérpretes e no circuito afetivo do samba e do pagode.
-        </p>
-
-        <div class="impact-grid impact-grid--center impact-grid--elegant">
-          <article class="impact-card impact-card--refined reveal">
-            <strong data-counter="6000000" data-i18n="impact1Number">+6M</strong>
-            <span data-i18n="impact1Label">de visualizações em interpretações das músicas do catálogo</span>
-          </article>
-
-          <article class="impact-card impact-card--refined reveal">
-            <strong data-counter="44" data-i18n="impact2Number">44</strong>
-            <span data-i18n="impact2Label">obras registradas oficialmente</span>
-          </article>
-
-          <article class="impact-card impact-card--refined reveal">
-            <strong data-i18n="impact3Number">Anos 90–Hoje</strong>
-            <span data-i18n="impact3Label">presença contínua no samba e pagode brasileiro</span>
-          </article>
-        </div>
-
-        <div class="partners-block reveal">
-          <span class="eyebrow" data-i18n="publishersEyebrow">Catálogo em Editoras e Entidades</span>
-
-          <div class="logo-marquee">
-            <div class="logo-marquee__track">
-              <span class="logo-wordmark">ABRAMUS</span>
-              <span class="logo-wordmark">|</span>
-              <span class="logo-wordmark">SONY MUSIC</span>
-              <span class="logo-wordmark">|</span>
-              <span class="logo-wordmark">WARNER MUSIC</span>
-              <span class="logo-wordmark">|</span>
-              <span class="logo-wordmark">PEER MUSIC</span>
-
-              <span class="logo-wordmark">|</span>
-              <span class="logo-wordmark">ABRAMUS</span>
-              <span class="logo-wordmark">|</span>
-              <span class="logo-wordmark">SONY MUSIC</span>
-              <span class="logo-wordmark">|</span>
-              <span class="logo-wordmark">WARNER MUSIC</span>
-              <span class="logo-wordmark">|</span>
-              <span class="logo-wordmark">PEER MUSIC</span>
-            </div>
-          </div>
+      <div class="feature-card">
+        <div class="feature-card__body">
+          <h3>Colaborações</h3>
+          <p>Parcerias com artistas do samba e do pagode brasileiro.</p>
         </div>
       </div>
-    </section>
 
-    <!-- TRAJETORIA E COLABORACOES -->
-    <section id="trajetoria" class="section reveal">
-      <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="journeyEyebrow">Trajetória & Colaborações</span>
-        <h2 class="section-title section-title--center" data-i18n="journeyTitle">Presença na música brasileira</h2>
-        <p class="section-lead section-text--center" data-i18n="journeyLead">
-          Entre projetos fonográficos, rodas de samba, estúdio e encontros artísticos, Edney Fernandes construiu uma trajetória viva dentro da música popular brasileira e do universo que seguimos reconhecendo como samba e pagode até hoje.
-        </p>
+    </div>
 
-        <div class="feature-grid feature-grid--three">
-          <article class="feature-card feature-card--media reveal">
-            <div class="feature-card__media">
-              <img src="assets/img/memorial/memorial-15.jpg" alt="Ed & A Tripulação" />
-            </div>
-            <div class="feature-card__body">
-              <h3>Ed & A Tripulação</h3>
-              <p>
-                Um projeto marcante do pagode paulista, com repertório, identidade e presença própria dentro da história do gênero.
-              </p>
-            </div>
-          </article>
-
-          <article class="feature-card feature-card--media reveal">
-            <div class="feature-card__media">
-              <img src="assets/img/discografia/gesto-capa.jpg" alt="Gesto de Carinho" />
-            </div>
-            <div class="feature-card__body">
-              <h3>Gesto de Carinho</h3>
-              <p>
-                Projeto póstumo que prolonga a presença da obra e abre novas possibilidades para o catálogo de Edney Fernandes.
-              </p>
-            </div>
-          </article>
-
-          <article class="feature-card feature-card--text reveal">
-            <div class="feature-card__body">
-              <h3>Parcerias & Colaborações</h3>
-              <p>
-                Ao longo de sua trajetória, Edney Fernandes esteve em contato com artistas, produtores, compositores e músicos que ajudaram a construir uma memória viva da música brasileira, entre eles Marcelo Lombardo, Lula Lafayette, Bete Carvalho e outros nomes ligados ao samba e ao pagode.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div class="collab-carousel collab-carousel--auto reveal" aria-label="Parcerias e colaborações">
-          <div class="collab-carousel__track">
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-02.jpg" alt="Colaboração 02" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-03.jpg" alt="Colaboração 03" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-04.jpg" alt="Colaboração 04" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-05.jpg" alt="Colaboração 05" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-06.jpg" alt="Colaboração 06" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-07.jpg" alt="Colaboração 07" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-09.jpg" alt="Colaboração 09" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-11.jpg" alt="Colaboração 11" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-12.jpg" alt="Colaboração 12" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-14.jpg" alt="Colaboração 14" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-16.jpg" alt="Colaboração 16" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-17.jpg" alt="Colaboração 17" /></figure>
-
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-02.jpg" alt="Colaboração 02 duplicada" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-03.jpg" alt="Colaboração 03 duplicada" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-04.jpg" alt="Colaboração 04 duplicada" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-05.jpg" alt="Colaboração 05 duplicada" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-06.jpg" alt="Colaboração 06 duplicada" /></figure>
-            <figure class="collab-shot"><img src="assets/img/memorial/memorial-07.jpg" alt="Colaboração 07 duplicada" /></figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GRANDES INTERPRETES -->
-    <section id="interpretes" class="section reveal">
-      <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="artistsEyebrow">Grandes Intérpretes</span>
-        <h2 class="section-title section-title--center" data-i18n="artistsTitle">Canções que seguiram vivas em outras vozes</h2>
-        <p class="section-lead section-text--center" data-i18n="artistsLead">
-          Obras autorais interpretadas por artistas relevantes do samba e do pagode brasileiro.
-        </p>
-
-        <div class="artists-carousel">
-          <div class="artists-carousel__track">
-            <article class="artist-card"><span>Exaltasamba</span></article>
-            <article class="artist-card"><span>Péricles</span></article>
-            <article class="artist-card"><span>Thiaguinho</span></article>
-            <article class="artist-card"><span>Chrigor</span></article>
-            <article class="artist-card"><span>Karametade</span></article>
-            <article class="artist-card"><span>Grupo Percepção</span></article>
-            <article class="artist-card"><span>Imaginasamba</span></article>
-            <article class="artist-card"><span>Kipaquera</span></article>
-            <article class="artist-card"><span>Grupo Mi Menor</span></article>
-
-            <article class="artist-card"><span>Exaltasamba</span></article>
-            <article class="artist-card"><span>Péricles</span></article>
-            <article class="artist-card"><span>Thiaguinho</span></article>
-            <article class="artist-card"><span>Chrigor</span></article>
-            <article class="artist-card"><span>Karametade</span></article>
-            <article class="artist-card"><span>Grupo Percepção</span></article>
-            <article class="artist-card"><span>Imaginasamba</span></article>
-            <article class="artist-card"><span>Kipaquera</span></article>
-            <article class="artist-card"><span>Grupo Mi Menor</span></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section id="projetos" class="section reveal">
-      <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="discographyEyebrow">Projetos que marcaram a trajetória</span>
-        <h2 class="section-title section-title--center" data-i18n="discographyTitle">Projetos que marcaram a trajetória</h2>
-        <p class="section-lead section-text--center" data-i18n="discographyLead">
-          Entre grupo, projeto fonográfico e álbum póstumo, a trajetória de Edney Fernandes segue organizada em obras que preservam sua presença artística.
-        </p>
-
-        <div class="discografia-grid discografia-grid--three">
-          <article class="album-card">
-            <img src="assets/img/memorial/memorial-15.jpg" alt="Ed & A Tripulação" />
-            <div class="album-card__body">
-              <span class="album-year">Discografia</span>
-              <h3>Ed & A Tripulação</h3>
-              <p>Projeto central da trajetória, com repertório que segue vivo no universo do samba e do pagode.</p>
-
-              <div class="album-links album-links--extended">
-                <a class="btn btn-secondary btn-small" href="https://www.letras.mus.br/ed-e-a-tripulacao/" target="_blank" rel="noopener">Letras</a>
-                <a class="btn btn-secondary btn-small" href="#" aria-disabled="true">Cifras</a>
-                <a class="btn btn-secondary btn-small" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
-                <a class="btn btn-secondary btn-small" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="album-card album-card--placeholder">
-            <img src="assets/img/discografia/terra-brasil.jpg" alt="Terra Brasil — Pagode de Mesa 3" />
-            <div class="album-card__body">
-              <span class="album-year">Projeto fonográfico</span>
-              <h3>Terra Brasil — Pagode de Mesa 3</h3>
-              <p>Participação relevante na construção de um projeto ligado ao universo do pagode e da música popular brasileira.</p>
-
-              <div class="album-links album-links--extended">
-                <a class="btn btn-secondary btn-small" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="album-card">
-            <img src="assets/img/discografia/gesto-capa.jpg" alt="Gesto de Carinho" />
-            <div class="album-card__body">
-              <span class="album-year">Álbum póstumo</span>
-              <h3>Gesto de Carinho</h3>
-              <p>Álbum póstumo, em breve nas plataformas digitais, como continuidade sensível do legado de Edney Fernandes.</p>
-
-              <div class="album-links album-links--extended">
-                <a class="btn btn-secondary btn-small" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CATALOGO -->
-    <section id="catalogo" class="section reveal">
-      <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="catalogEyebrow">Catálogo Vivo</span>
-        <h2 class="section-title section-title--center catalog-title--singleline" data-i18n="catalogTitle">Obras abertas a novas interpretações</h2>
-        <p class="section-lead section-text--center" data-i18n="catalogText1">
-          Este catálogo reúne composições que fizeram parte de uma geração e seguem tocando até hoje, prontas para ganhar novas leituras, gravações e caminhos de interpretação.
-        </p>
-        <p class="section-text--center" data-i18n="catalogText2">
-          Um repertório vivo, com identidade própria, presença histórica e potencial para circular novamente na voz de novos artistas.
-        </p>
-
-        <div class="catalog-cta catalog-cta--highlight reveal">
-          <h3 data-i18n="catalogCardTitle">Grave uma obra</h3>
-          <p class="section-text--center" data-i18n="catalogCardText">
-            Conheça composições disponíveis, possibilidades de licenciamento e caminhos de interpretação do catálogo de Edney Fernandes.
-          </p>
-          <a href="#contato" class="btn btn-primary" data-i18n="catalogCardCta">Quero gravar uma obra</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- AUDIOS -->
-    <section id="audios" class="section reveal">
-      <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="audioEyebrow">Áudios</span>
-        <h2 class="section-title section-title--center" data-i18n="audioTitle">Composições que atravessaram o pagode dos anos 90</h2>
-        <p class="section-lead section-text--center" data-i18n="audioLead">
-          Uma seleção de músicas para apresentar a atmosfera, a linguagem e a memória afetiva do catálogo de Edney Fernandes.
-        </p>
-
-        <div class="tracks-grid tracks-grid--compact" id="tracks">
-          <!-- JS vai preencher -->
-        </div>
-      </div>
-    </section>
-
-    <!-- MEMORIAL -->
-    <section id="memorial" class="section reveal">
-      <div class="container container--center">
-        <h2 class="section-title section-title--center" data-i18n="memorialTitle">Presenças que permanecem</h2>
-        <p class="section-lead section-text--center" data-i18n="memorialLead">
-          Fragmentos íntimos de uma trajetória que continua viva.
-        </p>
-
-        <div class="memory-ribbon">
-          <figure class="memory-card">
-            <img src="assets/img/memorial/memorial-08.jpg" alt="Família" />
-          </figure>
-          <figure class="memory-card">
-            <img src="assets/img/memorial/memorial-10.jpg" alt="Edney em roda de samba" />
-          </figure>
-          <figure class="memory-card">
-            <img src="assets/img/memorial/memorial-19.jpg" alt="Gabi beijando Edney" />
-          </figure>
-          <figure class="memory-card">
-            <img src="assets/img/memorial/memorial-20.jpg" alt="Edney beijando Gabi" />
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- CURADORIA -->
-    <section id="curadoria" class="section section-narrow section-curation-green reveal">
-      <div class="container">
-        <div class="curation-block curation-block--split">
-          <div class="curation-block__media">
-            <div class="curation-logo-circle">
-              <img class="curation-logo" src="assets/img/logo-laia-music.png" alt="Laiá Music" />
-            </div>
-          </div>
-
-          <div class="curation-block__content">
-            <span class="eyebrow" data-i18n="curationEyebrow">Uma iniciativa Laiá Music</span>
-            <h2 class="section-title" data-i18n="curationTitle">Uma iniciativa Laiá Music</h2>
-            <p data-i18n="curationText1">
-              Este projeto é responsável por organizar, preservar e ativar o legado artístico de Edney Fernandes.
-            </p>
-            <p data-i18n="curationText2">
-              Desenvolvido pela Laiá Music, o memorial transforma memória, obra e trajetória em um sistema vivo, conectando passado, presente e novas possibilidades dentro da música brasileira.
-            </p>
-
-            <div class="hero-actions hero-actions--left">
-              <a class="btn btn-secondary" href="https://laiamusiced.netlify.app/" target="_blank" rel="noopener">
-                Conhecer Laiá Music
-              </a>
-              <a class="btn btn-secondary" href="https://www.linkedin.com/company/lai%C3%A1-music1/" target="_blank" rel="noopener">
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="section section-narrow reveal">
-      <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large eyebrow--contact" data-i18n="contactEyebrow">Contato</span>
-        <h2 class="section-title section-title--center contact-title--accent" data-i18n="contactTitle">Converse sobre o legado</h2>
-        <p class="section-text--center" data-i18n="contactText">
-          Para imprensa, parcerias, gravações e contato institucional, fale com a curadoria do projeto.
-        </p>
-
-        <div class="contact-actions contact-actions--center">
-          <a class="btn btn-primary" href="https://www.instagram.com/edneyfernandes.memorial" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn btn-secondary" href="mailto:contact@edneyfernandes.com">Email</a>
-          <a class="btn btn-secondary" href="https://www.linkedin.com/company/lai%C3%A1-music1/" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar imagem">×</button>
-    <img id="lightboxImage" src="" alt="" />
   </div>
+</section>
 
-  <footer class="site-footer">
-    <p data-i18n="footerText">© Laiá Music — Memorial Edney Fernandes</p>
-  </footer>
+<!-- DISCOGRAFIA -->
+<section id="discografia" class="section">
+  <div class="container container--center">
 
-  <script src="assets/js/main.js"></script>
+    <span class="eyebrow">Projetos</span>
+    <h2 class="section-title section-title--center">Projetos que marcaram uma trajetória</h2>
+
+    <div class="discografia-grid discografia-grid--three">
+
+      <!-- ED TRIPULAÇÃO -->
+      <article class="album-card">
+        <img src="assets/img/discografia/ed-tripulacao.jpg" />
+        <div class="album-card__body">
+          <h3>Ed & A Tripulação</h3>
+
+          <div class="album-links">
+            <a class="btn btn-small">Spotify</a>
+            <a class="btn btn-small">YouTube</a>
+            <a class="btn btn-small">Letras</a>
+            <a class="btn btn-small">Cifras</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- GESTO DE CARINHO -->
+      <article class="album-card">
+        <img src="assets/img/discografia/gesto-capa.jpg" />
+        <div class="album-card__body">
+          <h3>Gesto de Carinho</h3>
+          <p>Álbum póstumo — em breve nas plataformas</p>
+        </div>
+      </article>
+
+      <!-- TERRA BRASIL -->
+      <article class="album-card">
+        <img src="assets/img/discografia/terra-brasil-pagode-de-mesa-3.jpg" />
+        <div class="album-card__body">
+          <h3>Terra Brasil — Pagode de Mesa 3</h3>
+
+          <div class="album-links">
+            <a class="btn btn-small" href="https://youtu.be/D8xTQV4Zrcs" target="_blank">YouTube</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="catalogo" class="section">
+  <div class="container container--center">
+
+    <h2 class="section-title section-title--center">Obras abertas a novas interpretações</h2>
+
+    <div class="catalog-cta catalog-cta--highlight">
+      <h3>Grave uma obra</h3>
+      <p>Conheça composições disponíveis para gravação.</p>
+      <a class="btn btn-primary">Quero gravar</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ÁUDIOS -->
+<section id="audios" class="section">
+  <div class="container container--center">
+
+    <h2 class="section-title section-title--center">Ouça o catálogo</h2>
+
+    <div class="tracks-grid tracks-grid--compact">
+
+      <div class="track">
+        <h4>Meu Desejo</h4>
+        <audio controls src="assets/audios/Meu-desejo.mp3"></audio>
+      </div>
+
+      <div class="track">
+        <h4>Tudo Que Eu Quis</h4>
+        <audio controls src="assets/audios/Tudo-que-eu-quis.mp3"></audio>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- MEMORIAL -->
+<section id="memorial" class="section">
+  <div class="container container--center">
+
+    <h2 class="section-title section-title--center">Presenças que permanecem</h2>
+
+    <p class="section-text--center">
+      Fragmentos íntimos de uma trajetória que continua viva.
+    </p>
+
+  </div>
+</section>
+
+<!-- LAIA -->
+<section class="section section-curation-green">
+  <div class="container container--center">
+
+    <h2 class="section-title section-title--center">Uma iniciativa Laiá Music</h2>
+
+    <p class="section-text--center">
+      Curadoria e organização do legado artístico.
+    </p>
+
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="section">
+  <div class="container container--center">
+
+    <h2 class="section-title section-title--center contact-title--accent">
+      Conversar sobre o legado
+    </h2>
+
+    <p class="section-text--center">
+      Para imprensa, gravações e parcerias, entre em contato.
+    </p>
+
+    <div class="contact-actions">
+      <a class="btn btn-primary">Instagram</a>
+      <a class="btn btn-secondary">E-mail</a>
+      <a class="btn btn-secondary">LinkedIn</a>
+    </div>
+
+  </div>
+</section>
+
 </body>
 </html>
