@@ -1,38 +1,19 @@
 (() => {
-  const $ = (sel, scope = document) => scope.querySelector(sel);
-  const $$ = (sel, scope = document) => Array.from(scope.querySelectorAll(sel));
+  const $ = (selector, scope = document) => scope.querySelector(selector);
+  const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
   /* =========================
-     CONFIG BÁSICA DE IDIOMA
+     IDIOMA BÁSICO
   ========================= */
   const translations = {
-    pt: {
-      rotateTitle: "Gire o dispositivo",
-      rotateText: "Este site foi pensado para navegação vertical.",
-      rotateButton: "Continuar assim mesmo"
-    },
-    en: {
-      rotateTitle: "Rotate your device",
-      rotateText: "This website was designed for vertical browsing.",
-      rotateButton: "Continue anyway"
-    },
-    es: {
-      rotateTitle: "Gira el dispositivo",
-      rotateText: "Este sitio fue pensado para navegación vertical.",
-      rotateButton: "Continuar de todos modos"
-    }
+    pt: {},
+    en: {},
+    es: {}
   };
 
   const applyLanguage = (lang) => {
-    const dict = translations[lang] || translations.pt;
-
     document.documentElement.lang =
       lang === "pt" ? "pt-BR" : lang === "en" ? "en" : "es";
-
-    $$("[data-i18n]").forEach((node) => {
-      const key = node.dataset.i18n;
-      if (dict[key]) node.textContent = dict[key];
-    });
 
     $$(".lang-btn").forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.lang === lang);
@@ -77,31 +58,41 @@
         document.body.classList.remove("menu-open");
       });
     });
+
+    document.addEventListener("click", (event) => {
+      const clickedInsideMenu = mobileMenu.contains(event.target);
+      const clickedToggle = menuToggle.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedToggle && mobileMenu.classList.contains("is-open")) {
+        mobileMenu.classList.remove("is-open");
+        document.body.classList.remove("menu-open");
+      }
+    });
   }
 
   /* =========================
      SCROLL SUAVE
   ========================= */
   $$('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const id = link.getAttribute("href");
-      if (!id || id === "#") return;
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+      if (!targetId || targetId === "#") return;
 
-      const target = $(id);
+      const target = $(targetId);
       if (!target) return;
 
-      e.preventDefault();
+      event.preventDefault();
       target.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
 
-      history.replaceState(null, "", id);
+      history.replaceState(null, "", targetId);
     });
   });
 
   /* =========================
-     REVEAL ON SCROLL
+     REVEAL
   ========================= */
   const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -114,45 +105,7 @@
     { threshold: 0.14 }
   );
 
-  $$(".reveal").forEach((el) => revealObserver.observe(el));
-
-  /* =========================
-     ORIENTATION OVERLAY
-  ========================= */
-  const rotateOverlay = $("#rotateOverlay");
-  const dismissBtn = rotateOverlay?.querySelector("[data-rotate-dismiss]");
-  const dismissedKey = "edney_rotate_dismissed";
-
-  dismissBtn?.addEventListener("click", () => {
-    rotateOverlay.classList.remove("is-on");
-    try {
-      localStorage.setItem(dismissedKey, "1");
-    } catch (error) {
-      console.warn("Não foi possível salvar dismiss do overlay:", error);
-    }
-  });
-
-  const checkOrientation = () => {
-    if (!rotateOverlay) return;
-
-    const dismissed = (() => {
-      try {
-        return localStorage.getItem(dismissedKey) === "1";
-      } catch {
-        return false;
-      }
-    })();
-
-    if (dismissed) return;
-
-    const isLandscapeMobile =
-      window.innerWidth > window.innerHeight && window.innerWidth < 980;
-
-    rotateOverlay.classList.toggle("is-on", isLandscapeMobile);
-  };
-
-  window.addEventListener("resize", checkOrientation, { passive: true });
-  checkOrientation();
+  $$(".reveal").forEach((element) => revealObserver.observe(element));
 
   /* =========================
      HERO MOTION
@@ -167,10 +120,7 @@
     const viewport = window.innerHeight;
     const start = viewport * 0.86;
     const end = -viewport * 0.22;
-    const progress = Math.min(
-      1,
-      Math.max(0, (start - rect.top) / (start - end))
-    );
+    const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
 
     const scale = 1 - 0.12 * progress;
     const translateY = 16 * progress;
@@ -189,12 +139,15 @@
   /* =========================
      COUNTERS
   ========================= */
-  const formatCounter = (value) => {
-    if (value >= 1000000) {
+  const formatCounter = (value, target) => {
+    if (target >= 1000000) {
       const short = value / 1000000;
       return `+${Number.isInteger(short) ? short : short.toFixed(1)}M`;
     }
-    return `${value}+`;
+    if (target === 44) {
+      return `${value}+`;
+    }
+    return String(value);
   };
 
   const animateCounter = (el) => {
@@ -209,13 +162,7 @@
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(target * eased);
 
-      if (target >= 1000000) {
-        el.textContent = formatCounter(current);
-      } else if (target === 44) {
-        el.textContent = `${current}+`;
-      } else {
-        el.textContent = String(current);
-      }
+      el.textContent = formatCounter(current, target);
 
       if (progress < 1) {
         requestAnimationFrame(step);
@@ -234,11 +181,11 @@
   };
 
   const counterObserver = new IntersectionObserver(
-    (entries, obs) => {
+    (entries, observer) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         animateCounter(entry.target);
-        obs.unobserve(entry.target);
+        observer.unobserve(entry.target);
       });
     },
     { threshold: 0.5 }
@@ -332,20 +279,38 @@
 
     lightboxClose.addEventListener("click", close);
 
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) close();
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) close();
     });
 
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("is-open")) {
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
         close();
       }
     });
   };
 
   /* =========================
+     ÁUDIOS: 1 POR VEZ
+  ========================= */
+  const bindAudioPause = () => {
+    const audios = $$("audio");
+
+    audios.forEach((audio) => {
+      audio.addEventListener("play", () => {
+        audios.forEach((other) => {
+          if (other !== audio) other.pause();
+        });
+      });
+    });
+  };
+
+  /* =========================
      INIT
   ========================= */
-  renderTracks();
+  renderTracks().then(() => {
+    bindAudioPause();
+  });
+
   bindLightbox();
 })();
