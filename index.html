@@ -7,7 +7,7 @@
   <title>Edney Fernandes | Memorial Oficial</title>
   <meta
     name="description"
-    content="Memorial oficial de Edney Fernandes. Manifesto, biografia, canções gravadas por outros artistas, registros em vídeo, catálogo, projetos e legado musical."
+    content="Memorial oficial de Edney Fernandes. Manifesto, biografia, trajetória, canções gravadas por outros artistas, projetos, catálogo e legado musical."
   />
   <link rel="canonical" href="https://edneyfernandes.com/" />
 
@@ -26,28 +26,18 @@
 <body>
   <div class="noise"></div>
 
-  <div class="rotate-overlay" id="rotateOverlay" aria-hidden="true">
-    <div class="rotate-overlay__content">
-      <p data-i18n="rotateTitle">Gire o dispositivo</p>
-      <span data-i18n="rotateText">Este site foi pensado para navegação vertical.</span>
-      <button type="button" class="btn btn-ghost" data-rotate-dismiss data-i18n="rotateButton">
-        Continuar assim mesmo
-      </button>
-    </div>
-  </div>
-
   <header class="site-header">
     <a href="#hero" class="logo" aria-label="Edney Fernandes">
       <img src="assets/img/logo-laia-music.png" alt="Laiá Music" />
     </a>
 
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Navegação principal">
       <a href="#manifesto">Manifesto</a>
       <a href="#biografia">Biografia</a>
       <a href="#relevancia">Relevância</a>
       <a href="#trajetoria">Trajetória</a>
       <a href="#cancoes">Canções</a>
-      <a href="#videos">Vídeos</a>
+      <a href="#registros">Registros</a>
       <a href="#projetos">Projetos</a>
       <a href="#catalogo">Catálogo</a>
       <a href="#ineditas">Inéditas</a>
@@ -57,12 +47,12 @@
 
     <div class="header-right">
       <div class="lang-switcher" aria-label="Selecionar idioma">
-        <button class="lang-btn is-active" data-lang="pt">PT</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn is-active" data-lang="pt" type="button">PT</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="es" type="button">ES</button>
       </div>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu">
         <span></span>
         <span></span>
       </button>
@@ -75,7 +65,7 @@
     <a href="#relevancia">Relevância</a>
     <a href="#trajetoria">Trajetória</a>
     <a href="#cancoes">Canções</a>
-    <a href="#videos">Vídeos</a>
+    <a href="#registros">Registros</a>
     <a href="#projetos">Projetos</a>
     <a href="#catalogo">Catálogo</a>
     <a href="#ineditas">Inéditas</a>
@@ -105,8 +95,8 @@
         </p>
 
         <div class="hero-actions hero-actions--right">
-          <a href="#manifesto" class="btn btn-primary">Ler manifesto</a>
-          <a href="#catalogo" class="btn btn-secondary">Explorar catálogo</a>
+          <a href="#catalogo" class="btn btn-primary">Explorar catálogo</a>
+          <a href="#manifesto" class="btn btn-secondary">Ler manifesto</a>
         </div>
 
         <div class="hero-social">
@@ -167,9 +157,6 @@
               Ao longo de sua trajetória, também se destacou como compositor, com obras regravadas por diferentes artistas e grupos, ampliando sua presença dentro do universo do samba e do pagode.
             </p>
             <p>
-              Antes de falecer, começou a se dedicar à sua carreira solo, deixando sem finalizar seu último CD, que agora ganha continuidade como parte central de seu legado artístico.
-            </p>
-            <p>
               Sua obra passou a ser conhecida em outras vozes, outros grupos e outras leituras, mantendo viva uma presença autoral que continua reconhecível. Hoje, este memorial organiza sua trajetória como memória e legado cultural, preservando uma produção que segue relevante para o presente e aberta ao futuro.
             </p>
           </div>
@@ -177,7 +164,7 @@
       </div>
     </section>
 
-    <!-- ALCANCE E RELEVÂNCIA -->
+    <!-- RELEVÂNCIA -->
     <section id="relevancia" class="section reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center eyebrow--large">Alcance & Relevância</span>
@@ -186,18 +173,18 @@
           As obras de Edney Fernandes continuam sendo lembradas em rodas de samba, plataformas digitais e repertórios de diversos intérpretes do samba e do pagode.
         </p>
 
-        <div class="impact-grid impact-grid--center impact-grid--elegant">
-          <article class="impact-card impact-card--refined reveal">
+        <div class="impact-grid impact-grid--center">
+          <article class="impact-card reveal">
             <strong data-counter="6000000">+6M</strong>
             <span>de visualizações em interpretações das músicas do catálogo</span>
           </article>
 
-          <article class="impact-card impact-card--refined reveal">
+          <article class="impact-card reveal">
             <strong data-counter="44">44+</strong>
             <span>obras registradas oficialmente</span>
           </article>
 
-          <article class="impact-card impact-card--refined reveal">
+          <article class="impact-card reveal">
             <strong>Anos 90–Hoje</strong>
             <span>presença contínua no samba e pagode brasileiro</span>
           </article>
@@ -219,7 +206,6 @@
               <span class="logo-wordmark">WARNER MUSIC</span>
               <span class="logo-wordmark">|</span>
               <span class="logo-wordmark">PEER MUSIC</span>
-
               <span class="logo-wordmark">|</span>
               <span class="logo-wordmark">ABRAMUS</span>
               <span class="logo-wordmark">|</span>
@@ -234,13 +220,13 @@
       </div>
     </section>
 
-    <!-- TRAJETÓRIA & COLABORAÇÕES -->
+    <!-- TRAJETÓRIA -->
     <section id="trajetoria" class="section reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center eyebrow--large">Trajetória & Colaborações</span>
         <h2 class="section-title section-title--center">Presença na música brasileira</h2>
         <p class="section-lead section-text--center">
-          Entre projetos fonográficos, rodas de samba, estúdio e encontros artísticos, Edney Fernandes construiu uma trajetória viva dentro da música popular brasileira e do universo que seguimos reconhecendo como samba e pagode.
+          Entre projetos fonográficos, rodas de samba, estúdio e encontros artísticos, Edney Fernandes construiu uma trajetória viva dentro da música popular brasileira.
         </p>
 
         <div class="feature-grid feature-grid--three">
@@ -248,7 +234,7 @@
             <div class="feature-card__body">
               <h3>Colaborações & Parcerias</h3>
               <p>
-                Ao longo de sua trajetória, Edney Fernandes construiu vínculos com artistas, produtores, compositores e músicos que ajudaram a formar uma memória viva da música brasileira. Entre esses nomes estão Thaís Nascimento, Valtinho Jota, Marcelo Lombardo, Lua Lafaiette, Almirzinho, Bete Carvalho, Netinho de Paula, Billy SP, Papa Caça, Dedé Paraíso e outros artistas ligados ao samba, ao pagode e à música popular brasileira.
+                Ao longo de sua trajetória, Edney Fernandes construiu vínculos com artistas, produtores, compositores e músicos que ajudaram a formar uma memória viva da música brasileira. Entre esses nomes estão Thaís Nascimento, Valtinho Jota, Marcelo Lombardo, Lua Lafaiette, Almirzinho, Bete Carvalho, Netinho de Paula, Billy SP, Papacaça, Dedé Paraíso e outros artistas ligados ao samba, ao pagode e à música popular brasileira.
               </p>
             </div>
           </article>
@@ -298,7 +284,7 @@
       </div>
     </section>
 
-    <!-- CANÇÕES GRAVADAS POR OUTROS ARTISTAS -->
+    <!-- CANÇÕES -->
     <section id="cancoes" class="section reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center eyebrow--large">Canções</span>
@@ -327,34 +313,37 @@
       </div>
     </section>
 
-    <!-- REGISTROS EM VÍDEO -->
-    <section id="videos" class="section reveal">
+    <!-- REGISTROS -->
+    <section id="registros" class="section reveal">
       <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large">Registros em vídeo</span>
+        <span class="eyebrow eyebrow--center eyebrow--large">Registros</span>
         <h2 class="section-title section-title--center">Registros em vídeo</h2>
+        <p class="section-lead section-text--center">
+          Registros que preservam presença, contexto e memória de uma trajetória artística viva.
+        </p>
 
-        <div class="videos-layout">
-          <article class="video-feature reveal">
-            <div class="video-thumb video-thumb--main"></div>
-            <div class="video-copy">
+        <div class="feature-grid feature-grid--three">
+          <article class="feature-card feature-card--text reveal">
+            <div class="feature-card__body">
               <h3>Registro em destaque</h3>
-              <p>
-                Registros que preservam presença, contexto e memória de uma trajetória artística viva.
-              </p>
-              <a class="btn btn-secondary" href="https://youtube.com/" target="_blank" rel="noopener">Assistir</a>
+              <p>Curadoria de vídeos ligados à memória musical de Edney Fernandes.</p>
+              <a class="btn btn-secondary btn-small" href="https://youtube.com/" target="_blank" rel="noopener">Assistir</a>
             </div>
           </article>
 
-          <div class="video-side-list">
-            <article class="video-mini reveal">
-              <h4>Outros momentos</h4>
+          <article class="feature-card feature-card--text reveal">
+            <div class="feature-card__body">
+              <h3>Outros momentos</h3>
               <p>Apresentações, registros e fragmentos de trajetória.</p>
-            </article>
-            <article class="video-mini reveal">
-              <h4>Outros registros</h4>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--text reveal">
+            <div class="feature-card__body">
+              <h3>Outros registros</h3>
               <p>Curadoria de vídeos ligados à memória musical de Edney Fernandes.</p>
-            </article>
-          </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -375,7 +364,7 @@
               <span class="project-tag">Projeto fonográfico</span>
               <h3>Terra Brasil — Pagode de Mesa 3</h3>
               <p>
-                Projeto fonográfico ao vivo lançado no início dos anos 2000, dentro do universo do samba e do pagode, reunindo diferentes intérpretes em um formato de roda que marcou a estética do gênero e sua presença em registros musicais da época.
+                Projeto fonográfico ao vivo ligado ao universo do samba e do pagode, reunindo diferentes intérpretes em formato de roda e consolidando uma estética importante do gênero em registros musicais da época.
               </p>
               <div class="project-links">
                 <a class="btn btn-secondary btn-small" href="https://youtu.be/D8xTQV4Zrcs?feature=shared" target="_blank" rel="noopener">YouTube</a>
@@ -396,6 +385,25 @@
                 <a class="btn btn-secondary btn-small" href="#" aria-disabled="true">Cifras</a>
                 <a class="btn btn-secondary btn-small" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
                 <a class="btn btn-secondary btn-small" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
+              </div>
+
+              <div class="mini-player-list">
+                <div class="mini-player-item">
+                  <span>A Hora é Essa</span>
+                  <audio controls preload="none" src="assets/audios/ed-tripulacao-a-hora-e-essa.mp3"></audio>
+                </div>
+                <div class="mini-player-item">
+                  <span>Baby</span>
+                  <audio controls preload="none" src="assets/audios/ed-tripulacao-baby.mp3"></audio>
+                </div>
+                <div class="mini-player-item">
+                  <span>Faz de Conta</span>
+                  <audio controls preload="none" src="assets/audios/ed-tripulacao-faz-de-conta.mp3"></audio>
+                </div>
+                <div class="mini-player-item">
+                  <span>Não é da Minha Conta</span>
+                  <audio controls preload="none" src="assets/audios/ed-tripulacao-nao-e-da-minha-conta.mp3"></audio>
+                </div>
               </div>
             </div>
           </article>
@@ -436,7 +444,7 @@
       </div>
     </section>
 
-    <!-- CANÇÕES INÉDITAS -->
+    <!-- INÉDITAS -->
     <section id="ineditas" class="section reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center eyebrow--large">Inéditas</span>
@@ -446,15 +454,6 @@
         </p>
 
         <div class="tracks-grid tracks-grid--compact" id="tracks"></div>
-      </div>
-    </section>
-
-    <!-- FAIXA EDITORIAL -->
-    <section class="section editorial-band reveal">
-      <div class="container container--center">
-        <p class="editorial-quote">
-          O tempo não apaga o que permanece.
-        </p>
       </div>
     </section>
 
@@ -468,41 +467,31 @@
 
         <div class="memory-ribbon">
           <figure class="memory-card">
-            <img src="assets/img/memorial/memorial-08.jpg" alt="Família" />
+            <img src="assets/img/memorial/memorial-08.jpg" alt="Memória afetiva 08" />
           </figure>
           <figure class="memory-card">
-            <img src="assets/img/memorial/memorial-10.jpg" alt="Edney em roda de samba" />
+            <img src="assets/img/memorial/memorial-10.jpg" alt="Memória afetiva 10" />
           </figure>
           <figure class="memory-card">
-            <img src="assets/img/memorial/memorial-19.jpg" alt="Gabi beijando Edney" />
+            <img src="assets/img/memorial/memorial-19.jpg" alt="Memória afetiva 19" />
           </figure>
           <figure class="memory-card">
-            <img src="assets/img/memorial/memorial-20.jpg" alt="Edney beijando Gabi" />
+            <img src="assets/img/memorial/memorial-20.jpg" alt="Memória afetiva 20" />
           </figure>
         </div>
-      </div>
-    </section>
-
-    <!-- MEMÓRIA INSTITUCIONAL -->
-    <section class="section reveal">
-      <div class="container container--center">
-        <h2 class="section-title section-title--center">Faça parte dessa memória</h2>
-        <p class="section-lead section-text--center">
-          Acompanhe, preserve e mantenha viva a obra de Edney Fernandes.
-        </p>
       </div>
     </section>
 
     <!-- CONTATO -->
     <section id="contato" class="section section-narrow reveal">
       <div class="container container--center">
-        <span class="eyebrow eyebrow--center eyebrow--large eyebrow--contact">Contato</span>
-        <h2 class="section-title section-title--center contact-title--accent">Contato</h2>
+        <span class="eyebrow eyebrow--center eyebrow--large">Contato</span>
+        <h2 class="section-title section-title--center contact-title--accent">Converse sobre o legado</h2>
         <p class="section-text--center">
-          Para licenciamento, imprensa, projetos culturais e contato institucional, fale com a curadoria do projeto.
+          Para imprensa, parcerias, gravações, licenciamento ou contato institucional, fale com a curadoria do projeto.
         </p>
 
-        <div class="contact-actions contact-actions--center">
+        <div class="contact-actions">
           <a class="btn btn-primary" href="https://www.instagram.com/edneyfernandes.memorial" target="_blank" rel="noopener">Instagram</a>
           <a class="btn btn-secondary" href="mailto:contact@edneyfernandes.com">Email</a>
           <a class="btn btn-secondary" href="https://www.linkedin.com/company/lai%C3%A1-music1/" target="_blank" rel="noopener">LinkedIn</a>
@@ -524,4 +513,3 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
