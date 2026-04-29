@@ -73,12 +73,16 @@
         "Projeto póstumo que dá continuidade à trajetória solo de Edney Fernandes, a partir de um trabalho que ficou sem ser concluído em vida e que hoje retorna como parte de seu legado artístico.",
 
       catalogoTitle: "Obras abertas a novas interpretações",
-      catalogoPositioning: "Obras que fizeram parte do repertório do pagode dos anos 90 e seguem circulando até hoje — disponíveis para gravação, licenciamento e novos projetos.",
-      catalogoCtaGravar: "🎤 Quero gravar uma música",
-      catalogoCtaCatalogo: "📩 Solicitar catálogo completo",
-      catalogoCtaOuvir: "🎧 Ouvir demos",
+      catalogoP1:
+        "Este catálogo reúne composições que fizeram parte de uma geração e seguem tocando até hoje, prontas para ganhar novas leituras, gravações e caminhos de interpretação.",
+      catalogoP2:
+        "Um repertório vivo, com identidade própria, presença histórica e potencial para circular novamente na voz de novos artistas.",
+      catalogoCardTitle: "Grave uma obra",
+      catalogoCardText:
+        "Conheça composições disponíveis, possibilidades de licenciamento e caminhos de interpretação do catálogo de Edney Fernandes.",
+      catalogoCardBtn: "Quero gravar uma obra",
 
-      ineditasTitle: "Composições",
+      ineditasTitle: "Composições inéditas",
       ineditasLead:
         "Três canções foram selecionadas deste acervo como forma de apresentar um lado mais íntimo da obra de Edney Fernandes. São composições que não chegaram a ser lançadas em vida, mas que hoje revelam caminhos, emoções e nuances importantes da sua trajetória autoral.",
       trackBadge: "Inédita",
@@ -167,12 +171,16 @@
         "A posthumous project that continues Edney Fernandes' solo path, based on a work that remained unfinished during his lifetime and now returns as part of his artistic legacy.",
 
       catalogoTitle: "Works open to new interpretations",
-      catalogoPositioning: "Works that shaped the pagode repertoire of the 90s and still circulate today — available for recording, licensing and new projects.",
-      catalogoCtaGravar: "🎤 I want to record a song",
-      catalogoCtaCatalogo: "📩 Request full catalog",
-      catalogoCtaOuvir: "🎧 Listen to demos",
+      catalogoP1:
+        "This catalog brings together compositions that were part of a generation and still resonate today, ready to gain new readings, recordings and paths of interpretation.",
+      catalogoP2:
+        "A living repertoire with its own identity, historical presence and potential to circulate again through new artists' voices.",
+      catalogoCardTitle: "Record a song",
+      catalogoCardText:
+        "Discover available compositions, licensing possibilities and paths for interpreting Edney Fernandes' catalog.",
+      catalogoCardBtn: "I want to record a song",
 
-      ineditasTitle: "Compositions",
+      ineditasTitle: "Unreleased compositions",
       ineditasLead:
         "Three songs were selected from this archive as a way of presenting a more intimate side of Edney Fernandes' work. They are compositions that were not released during his lifetime, but today reveal paths, emotions and important nuances of his authorial trajectory.",
       trackBadge: "Unreleased",
@@ -261,12 +269,16 @@
         "Proyecto póstumo que da continuidad a la trayectoria solista de Edney Fernandes, a partir de un trabajo que quedó sin concluir en vida y que hoy regresa como parte de su legado artístico.",
 
       catalogoTitle: "Obras abiertas a nuevas interpretaciones",
-      catalogoPositioning: "Obras que formaron parte del repertorio del pagode de los 90 y siguen circulando hasta hoy — disponibles para grabación, licencia y nuevos proyectos.",
-      catalogoCtaGravar: "🎤 Quiero grabar una canción",
-      catalogoCtaCatalogo: "📩 Solicitar catálogo completo",
-      catalogoCtaOuvir: "🎧 Escuchar demos",
+      catalogoP1:
+        "Este catálogo reúne composiciones que formaron parte de una generación y que siguen sonando hasta hoy, listas para ganar nuevas lecturas, grabaciones y caminos de interpretación.",
+      catalogoP2:
+        "Un repertorio vivo, con identidad propia, presencia histórica y potencial para volver a circular en la voz de nuevos artistas.",
+      catalogoCardTitle: "Graba una obra",
+      catalogoCardText:
+        "Conoce composiciones disponibles, posibilidades de licencia y caminos de interpretación del catálogo de Edney Fernandes.",
+      catalogoCardBtn: "Quiero grabar una obra",
 
-      ineditasTitle: "Composiciones",
+      ineditasTitle: "Composiciones inéditas",
       ineditasLead:
         "Tres canciones fueron seleccionadas de este acervo como forma de presentar un lado más íntimo de la obra de Edney Fernandes. Son composiciones que no llegaron a ser lanzadas en vida, pero que hoy revelan caminos, emociones y matices importantes de su trayectoria autoral.",
       trackBadge: "Inédita",
@@ -474,49 +486,51 @@
       });
     });
   });
+})();
 
-/* ── Strip arrow click handlers ── */
-const initStripArrows = (stripEl) => {
-  if (!stripEl) return;
-  const track = stripEl.querySelector(".edge-strip__track, .projects-marquee__track");
-  const prevBtn = stripEl.querySelector(".strip-arrow--prev");
-  const nextBtn = stripEl.querySelector(".strip-arrow--next");
-  if (!track) return;
-  const getScrollAmount = () => {
-    const first = track.firstElementChild;
-    return first ? first.offsetWidth + 16 : 320;
+// === Final premium motion pass ===
+(function(){
+  const header = document.querySelector('.site-header');
+  const updateHeader = () => {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
   };
-  prevBtn?.addEventListener("click", () => track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" }));
-  nextBtn?.addEventListener("click", () => track.scrollBy({ left: getScrollAmount(), behavior: "smooth" }));
-};
-["#stripPresenca","#stripProjetos","#stripCancoes","#stripRegistros","#stripMemorial"]
-  .forEach(id => initStripArrows(document.querySelector(id)));
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('load', updateHeader);
+  updateHeader();
 
-/* ── Autoplay: slow continuous drift, pause on hover/touch ── */
-const initAutoplay = (trackEl, speed = 0.55) => {
-  if (!trackEl) return;
-  let pos = 0, paused = false;
-  const tick = () => {
-    if (!paused) {
-      pos += speed;
-      if (pos >= trackEl.scrollWidth / 2) pos = 0;
-      trackEl.scrollLeft = pos;
+  const reveals = Array.from(document.querySelectorAll('.reveal, .reveal-soft, .reveal-lift'));
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.16,
+    rootMargin: '0px 0px -8% 0px'
+  });
+  reveals.forEach((el) => revealObserver.observe(el));
+
+  const heroFrame = document.getElementById('heroFrame');
+  const heroSection = document.getElementById('hero');
+  let ticking = false;
+  const parallaxHero = () => {
+    if (!heroFrame || !heroSection) return;
+    const rect = heroSection.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+    const y = progress * 22;
+    heroFrame.style.transform = `translate3d(0, ${y}px, 0) scale(${1 + progress * 0.02})`;
+    ticking = false;
+  };
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(parallaxHero);
+      ticking = true;
     }
-    requestAnimationFrame(tick);
   };
-  trackEl.addEventListener("mouseenter", () => { paused = true; });
-  trackEl.addEventListener("mouseleave", () => { paused = false; });
-  trackEl.addEventListener("touchstart", () => { paused = true; }, { passive: true });
-  trackEl.addEventListener("touchend", () => { setTimeout(() => { paused = false; }, 2000); }, { passive: true });
-  requestAnimationFrame(tick);
-};
-
-// Photo strips: autoplay. Video strips: manual only (iframes need user intent).
-const presencaTrack = document.querySelector("#stripPresenca .edge-strip__track");
-const cancoesTrack  = document.querySelector("#stripCancoes .edge-strip__track");
-const memorialTrack = document.querySelector("#stripMemorial .edge-strip__track");
-if (presencaTrack) initAutoplay(presencaTrack, 0.55);
-if (cancoesTrack)  initAutoplay(cancoesTrack, 0.50);
-if (memorialTrack) initAutoplay(memorialTrack, 0.55);
-
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  parallaxHero();
 })();
