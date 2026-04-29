@@ -50,7 +50,7 @@
       cancoesLead:
         "A obra de Edney Fernandes seguiu adiante em outras vozes, outros grupos e outras interpretações, mantendo viva sua presença no repertório do samba e do pagode.",
 
-      registrosTitle: "Registros televisivos",
+      registrosTitle: "Registros, prensa y memoria",
       registrosLead:
         "Imagens raras de uma trajetória que marcou quem viu, ouviu e viveu o pagode nos anos 90.",
       registrosBody:
@@ -158,7 +158,7 @@
       cancoesLead:
         "Edney Fernandes' work moved forward in other voices, other groups and other interpretations, keeping his presence alive in the repertoire of samba and pagode.",
 
-      registrosTitle: "TV records",
+      registrosTitle: "Records, press and memory",
       registrosLead:
         "Rare images of a journey that marked those who saw, heard and lived pagode in the 1990s.",
       registrosBody:
@@ -264,7 +264,7 @@
       cancoesLead:
         "La obra de Edney Fernandes siguió adelante en otras voces, otros grupos y otras interpretaciones, manteniendo viva su presencia en el repertorio del samba y del pagode.",
 
-      registrosTitle: "Registros televisivos",
+      registrosTitle: "Registros, prensa y memoria",
       registrosLead:
         "Imágenes raras de una trayectoria que marcó a quienes vieron, escucharon y vivieron el pagode en los años 90.",
       registrosBody:
@@ -548,29 +548,12 @@
 })();
 
 
-(function(){
-  const counters = Array.from(document.querySelectorAll('[data-counter]'));
-  const formatInt = (value) => new Intl.NumberFormat('pt-BR').format(Math.round(value));
-  const animateIntCounter = (el) => {
-    const target = Number(el.dataset.counter || 0);
-    if (!target) return;
-    const duration = 1600;
-    const start = performance.now();
-    const tick = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      el.textContent = formatInt(target * eased);
-      if (progress < 1) requestAnimationFrame(tick);
-      else el.textContent = formatInt(target);
-    };
-    requestAnimationFrame(tick);
-  };
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      animateIntCounter(entry.target);
-      obs.unobserve(entry.target);
-    });
-  }, { threshold: 0.5 });
-  counters.forEach((el) => io.observe(el));
-})();
+const initHeaderScroll = () => {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 32);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+};
+
+initHeaderScroll();
