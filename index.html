@@ -114,7 +114,7 @@
     </section>
 
     <!-- MANIFESTO -->
-    <section id="manifesto" class="section section-narrow reveal reveal-soft">
+    <section id="manifesto" class="section section-narrow reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center" data-i18n="manifestoEyebrow">Manifesto</span>
 
@@ -131,7 +131,7 @@
     </section>
 
     <!-- BIOGRAFIA -->
-    <section id="biografia" class="section bio-section reveal reveal-soft">
+    <section id="biografia" class="section bio-section reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="biografiaEyebrow">Biografia</span>
 
@@ -166,7 +166,7 @@
     </section>
 
     <!-- RELEVÂNCIA -->
-    <section id="relevancia" class="section reveal reveal-soft">
+    <section id="relevancia" class="section reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="relevanciaTitle">Relevância da obra</span>
 
@@ -215,7 +215,7 @@
     </section>
 
     <!-- PRESENÇA -->
-    <section id="presenca" class="section reveal reveal-soft">
+    <section id="presenca" class="section reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="presencaTitle">Presença na música brasileira</span>
 
@@ -254,7 +254,7 @@
 
     <div id="obras">
       <!-- PROJETOS -->
-      <section id="projetos" class="section reveal reveal-lift">
+      <section id="projetos" class="section reveal">
         <div class="container container--center">
           <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="projetosTitle">
             Projetos que marcaram a trajetória
@@ -327,7 +327,7 @@
       </section>
 
       <!-- CURADORIA -->
-      <section id="curadoria" class="section reveal reveal-soft">
+      <section id="curadoria" class="section reveal">
         <div class="container container--center">
           <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="curadoriaTitle">
             O Pagode dos Anos 90
@@ -361,7 +361,7 @@
       </section>
 
       <!-- CANÇÕES GRAVADAS -->
-      <section id="cancoes" class="section reveal reveal-lift">
+      <section id="cancoes" class="section reveal">
         <div class="container container--center">
           <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="cancoesTitle">
             Composições gravadas por outros artistas
@@ -414,40 +414,37 @@
       </section>
 
       <!-- REGISTROS TELEVISIVOS -->
-      <section id="registros" class="section reveal reveal-soft">
-        <div class="container container--center">
-          <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="registrosTitle">
-            Registros televisivos
-          </span>
-
-          <p class="section-lead section-text--center" data-i18n="registrosLead">
-            Imagens raras de uma trajetória que marcou quem viu, ouviu e viveu o pagode nos anos 90.
-          </p>
-
-          <p class="section-text--center" data-i18n="registrosBody">
-            Poucos registros em imagem e som que atravessam o tempo e revelam o carisma, a presença e a força artística de Edney Fernandes.
-          </p>
-        </div>
-
-        <div class="edge-strip edge-strip--videos" data-scroll-row>
-          <button class="strip-arrow strip-arrow--prev" data-scroll-prev type="button" aria-label="Voltar">‹</button>
-
-          <div class="edge-strip__track">
-            <article class="video-square">
-              <iframe src="https://www.youtube.com/embed/W9txK6dAXY0" title="Programa Guto Moreno" allowfullscreen></iframe>
-            </article>
-
-            <article class="video-square">
-              <iframe src="https://www.youtube.com/embed/ZMlJcangTng" title="A Hora é Essa" allowfullscreen></iframe>
-            </article>
+      <section id="registros" class="section reveal">
+      <div class="container">
+        <span class="eyebrow eyebrow--large" data-i18n="registrosTitle">Registros televisivos</span>
+        <div class="tv-feature reveal is-visible">
+          <div class="tv-feature__media">
+            <iframe src="https://www.youtube.com/embed/W9txK6dAXY0" title="Programa Guto Moreno" allowfullscreen loading="lazy"></iframe>
           </div>
-
-          <button class="strip-arrow strip-arrow--next" data-scroll-next type="button" aria-label="Avançar">›</button>
+          <div class="tv-feature__content">
+            <p class="section-lead" data-i18n="registrosLead">Imagens raras de uma trajetória que marcou quem viu, ouviu e viveu o pagode nos anos 90.</p>
+            <p data-i18n="registrosBody">Poucos registros em imagem e som que atravessam o tempo e revelam o carisma, a presença e a força artística de Edney Fernandes.</p>
+            <div class="tv-feature__actions">
+              <a class="btn btn-primary" href="https://www.youtube.com/watch?v=W9txK6dAXY0" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a>
+            </div>
+          </div>
         </div>
-      </section>
+        <div class="tv-secondary reveal">
+          <button class="strip-arrow strip-arrow--prev tv-nav" type="button" aria-label="Voltar"></button>
+          <article class="tv-secondary__card">
+            <iframe src="https://www.youtube.com/embed/ZMlJcangTng" title="A Hora É Essa" allowfullscreen loading="lazy"></iframe>
+            <div class="tv-secondary__meta">
+              <h3>A Hora É Essa</h3>
+              <p>Registro complementar da trajetória e da presença de Edney Fernandes na televisão.</p>
+            </div>
+          </article>
+          <button class="strip-arrow strip-arrow--next tv-nav" type="button" aria-label="Avançar"></button>
+        </div>
+      </div>
+    </section>
 
       <!-- CATÁLOGO -->
-      <section id="catalogo" class="section reveal reveal-lift section-tight-top">
+      <section id="catalogo" class="section reveal">
         <div class="container container--center">
           <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="catalogoTitle">
             Obras abertas a novas interpretações
@@ -476,7 +473,7 @@
       </section>
 
       <!-- COMPOSIÇÕES -->
-      <section id="ineditas" class="section reveal reveal-soft section-tight-top">
+      <section id="ineditas" class="section reveal">
         <div class="container container--center">
           <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="ineditasTitle">
             Composições
@@ -528,7 +525,7 @@
     </div>
 
     <!-- MEMORIAL -->
-    <section id="memorial" class="section reveal reveal-soft">
+    <section id="memorial" class="section reveal">
       <div class="container container--center">
         <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="memorialTitle">
           Presenças que permanecem
@@ -565,7 +562,7 @@
     </section>
 
     <!-- CONTATO -->
-    <section id="contato" class="section reveal reveal-lift section-tight-top">
+    <section id="contato" class="section reveal">
       <div class="contact-banner">
         <div class="contact-banner__content">
           <span class="eyebrow eyebrow--center eyebrow--large" data-i18n="contatoTitle">
