@@ -4,35 +4,38 @@
 
   const translations = {
     pt: {
-      navManifesto: "Manifesto",
+      navCatalogo: "Catálogo",
       navBiografia: "Biografia",
       navObras: "Obras",
       navContato: "Contato",
 
-      heroKicker: "Memorial Oficial",
+      heroKicker: "",
       heroTitle: "Edney Fernandes",
-      heroManifest: "Canções que permanecem mesmo depois da despedida.",
-      heroSubtitle: "Uma presença que continua através das canções.",
+      heroManifest: "Canções que permanecem depois da despedida",
+      heroSubtitle: "Uma presença que continua através das canções e de gerações",
       heroCtaPrimary: "Explorar catálogo",
-      heroCtaSecondary: "Ler manifesto",
+      heroCtaSecondary: "Ler história",
+      heroSpotify: "Ouvir no Spotify",
       heroScroll: "Role para descobrir",
 
       manifestoEyebrow: "Manifesto",
       manifestoP1:
-        "Há vozes que, mesmo depois da despedida, não se apagam. Atravessam o invisível, o tempo e a ausência, e continuam ecoando. Edney Fernandes foi uma dessas vozes e um artista que transformou sentimentos em melodia, cotidiano em poesia e memórias em composições.",
+        "Há vozes que, mesmo depois da despedida, não se apagam. Atravessam o invisível, o tempo e a ausência, e continuam ecoando.",
       manifestoP2:
+        "Edney Fernandes foi uma dessas vozes: um artista que transformou sentimentos em melodia, o cotidiano em poesia e memórias em composições.",
+      manifestoP3:
         "Este projeto é um reencontro entre passado e futuro: um espaço para preservar sua obra, apresentar sua trajetória e abrir caminho para novas vozes e interpretações.",
 
       biografiaEyebrow: "Biografia",
 
-      relevanciaTitle: "Relevância da obra",
+      relevanciaTitle: "A permanência da obra",
       relevanciaLead:
         "As obras de Edney Fernandes continuam sendo lembradas em rodas de samba, plataformas digitais e repertórios de diversos intérpretes do samba e do pagode.",
-      metricViews:
-        "visualizações acumuladas em gravações e interpretações do catálogo",
+      metric1: "de visualizações em interpretações das músicas do catálogo",
       metric2: "obras registradas oficialmente",
       metric3Title: "Anos 90–Hoje",
       metric3: "presença contínua no samba e pagode brasileiro",
+      relevanciaNote: "Uma obra que segue sendo ouvida, reinterpretada e lembrada.",
       partnersTitle: "Catálogo em Editoras e Entidades",
 
       presencaTitle: "Presença na música brasileira",
@@ -42,6 +45,16 @@
         "Ao longo desse percurso, trabalhou com artistas, produtores, compositores e parceiros que fizeram parte da sua história e do movimento do samba e do pagode. Entre esses nomes estão Thaís Nascimento, Valtinho Jota, Marcelo Lombardo, Lua Lafaiette, Almirzinho, Bete Carvalho, Netinho de Paula, Billy SP, Dedé Paraíso e outros nomes ligados à música brasileira.",
       presencaP3:
         "Foi uma trajetória feita de trabalho, criação e presença em projetos que ajudaram a consolidar a história do samba e do pagode.",
+
+      cancoesTitle: "Composições gravadas por outros artistas",
+      cancoesLead:
+        "A obra de Edney Fernandes seguiu adiante em outras vozes, outros grupos e outras interpretações, mantendo viva sua presença no repertório do samba e do pagode.",
+
+      registrosTitle: "Registros televisivos",
+      registrosLead:
+        "Imagens raras de uma trajetória que marcou quem viu, ouviu e viveu o pagode nos anos 90.",
+      registrosBody:
+        "Poucos registros em imagem e som que atravessam o tempo e revelam o carisma, a presença e a força artística de Edney Fernandes.",
 
       projetosTitle: "Projetos que marcaram a trajetória",
       projetosLead:
@@ -59,20 +72,6 @@
       gestoText:
         "Projeto póstumo que dá continuidade à trajetória solo de Edney Fernandes, a partir de um trabalho que ficou sem ser concluído em vida e que hoje retorna como parte de seu legado artístico.",
 
-      curadoriaTitle: "O Pagode dos Anos 90",
-      curadoriaLead:
-        "Antes de ouvir as composições, conheça o universo musical que influenciou essa trajetória.",
-
-      cancoesTitle: "Composições gravadas por outros artistas",
-      cancoesLead:
-        "A obra de Edney Fernandes seguiu adiante em outras vozes, outros grupos e outras interpretações, mantendo viva sua presença no repertório do samba e do pagode.",
-
-      registrosTitle: "Registros televisivos",
-      registrosLead:
-        "Imagens raras de uma trajetória que marcou quem viu, ouviu e viveu o pagode nos anos 90.",
-      registrosBody:
-        "Poucos registros em imagem e som que atravessam o tempo e revelam o carisma, a presença e a força artística de Edney Fernandes.",
-
       catalogoTitle: "Obras abertas a novas interpretações",
       catalogoP1:
         "Este catálogo reúne composições que fizeram parte de uma geração e seguem tocando até hoje, prontas para ganhar novas leituras, gravações e caminhos de interpretação.",
@@ -85,8 +84,8 @@
 
       ineditasTitle: "Composições",
       ineditasLead:
-        "Três composições foram selecionadas deste acervo como forma de apresentar um lado mais íntimo da obra de Edney Fernandes. São registros que revelam emoções, caminhos e nuances importantes da sua trajetória autoral.",
-      spotifySoon: "Disponível em breve no Spotify",
+        "Três canções foram selecionadas deste acervo como forma de apresentar um lado mais íntimo da obra de Edney Fernandes. São composições que não chegaram a ser lançadas em vida, mas que hoje revelam caminhos, emoções e nuances importantes da sua trajetória autoral.",
+      trackBadge: "Inédita",
 
       memorialTitle: "Presenças que permanecem",
       memorialLead: "Fragmentos íntimos de uma trajetória que continua viva.",
@@ -102,35 +101,39 @@
     },
 
     en: {
-      navManifesto: "Manifesto",
+      navCatalogo: "Catalog",
       navBiografia: "Biography",
       navObras: "Works",
       navContato: "Contact",
 
-      heroKicker: "Official Memorial",
+      heroKicker: "",
       heroTitle: "Edney Fernandes",
-      heroManifest: "Songs that remain even after farewell.",
-      heroSubtitle: "A presence that continues through songs.",
+      heroManifest: "Songs that remain after farewell",
+      heroSubtitle: "A presence that continues through songs and generations",
       heroCtaPrimary: "Explore catalog",
-      heroCtaSecondary: "Read manifesto",
+      heroCtaSecondary: "Read story",
+      heroSpotify: "Listen on Spotify",
       heroScroll: "Scroll to discover",
 
       manifestoEyebrow: "Manifesto",
       manifestoP1:
-        "There are voices that do not fade after farewell. They cross the invisible, time and absence, and keep resonating. Edney Fernandes was one of those voices and an artist who transformed feelings into melody, daily life into poetry and memories into compositions.",
+        "There are voices that do not fade after farewell. They cross the invisible, time and absence, and keep resonating.",
       manifestoP2:
+        "Edney Fernandes was one of those voices: an artist who transformed feelings into melody, everyday life into poetry and memories into compositions.",
+      manifestoP3:
         "This project is a reunion between past and future: a space to preserve his work, present his journey and open paths for new voices and interpretations.",
 
       biografiaEyebrow: "Biography",
 
-      relevanciaTitle: "Relevance of the work",
+      relevanciaTitle: "The permanence of the work",
       relevanciaLead:
         "Edney Fernandes' works continue to be remembered in samba circles, digital platforms and in the repertoires of several samba and pagode performers.",
-      metricViews:
-        "accumulated views across recordings and interpretations of the catalog",
+      metric1: "views across interpretations of songs from the catalog",
       metric2: "officially registered works",
       metric3Title: "90s–Today",
       metric3: "continuous presence in Brazilian samba and pagode",
+      relevanciaNote:
+        "A body of work that continues to be heard, reinterpreted and remembered.",
       partnersTitle: "Catalog in Publishers and Entities",
 
       presencaTitle: "Presence in Brazilian music",
@@ -140,6 +143,16 @@
         "Along the way, he worked with artists, producers, composers and partners who became part of his story and of the samba and pagode movement. Among these names are Thaís Nascimento, Valtinho Jota, Marcelo Lombardo, Lua Lafaiette, Almirzinho, Bete Carvalho, Netinho de Paula, Billy SP, Dedé Paraíso and other names connected to Brazilian music.",
       presencaP3:
         "It was a path built on work, creation and presence in projects that helped consolidate the history of samba and pagode.",
+
+      cancoesTitle: "Songs recorded by other artists",
+      cancoesLead:
+        "Edney Fernandes' work moved forward in other voices, other groups and other interpretations, keeping his presence alive in the repertoire of samba and pagode.",
+
+      registrosTitle: "TV records",
+      registrosLead:
+        "Rare images of a journey that marked those who saw, heard and lived pagode in the 1990s.",
+      registrosBody:
+        "Few records in image and sound that cross time and reveal Edney Fernandes' charisma, presence and artistic strength.",
 
       projetosTitle: "Projects that shaped the journey",
       projetosLead:
@@ -157,20 +170,6 @@
       gestoText:
         "A posthumous project that continues Edney Fernandes' solo path, based on a work that remained unfinished during his lifetime and now returns as part of his artistic legacy.",
 
-      curadoriaTitle: "Pagode of the 1990s",
-      curadoriaLead:
-        "Before listening to the compositions, discover the musical universe that influenced this journey.",
-
-      cancoesTitle: "Songs recorded by other artists",
-      cancoesLead:
-        "Edney Fernandes' work moved forward in other voices, other groups and other interpretations, keeping his presence alive in the repertoire of samba and pagode.",
-
-      registrosTitle: "TV records",
-      registrosLead:
-        "Rare images of a journey that marked those who saw, heard and lived pagode in the 1990s.",
-      registrosBody:
-        "Few records in image and sound that cross time and reveal Edney Fernandes' charisma, presence and artistic strength.",
-
       catalogoTitle: "Works open to new interpretations",
       catalogoP1:
         "This catalog brings together compositions that were part of a generation and still resonate today, ready to gain new readings, recordings and paths of interpretation.",
@@ -183,8 +182,8 @@
 
       ineditasTitle: "Compositions",
       ineditasLead:
-        "Three compositions were selected from this archive as a way of presenting a more intimate side of Edney Fernandes' work. They are recordings that reveal emotions, paths and important nuances of his authorial trajectory.",
-      spotifySoon: "Coming soon on Spotify",
+        "Three songs were selected from this archive as a way of presenting a more intimate side of Edney Fernandes' work. They are compositions that were not released during his lifetime, but today reveal paths, emotions and important nuances of his authorial trajectory.",
+      trackBadge: "Unreleased",
 
       memorialTitle: "Presences that remain",
       memorialLead: "Intimate fragments of a journey that remains alive.",
@@ -200,35 +199,39 @@
     },
 
     es: {
-      navManifesto: "Manifiesto",
+      navCatalogo: "Catálogo",
       navBiografia: "Biografía",
       navObras: "Obras",
       navContato: "Contacto",
 
-      heroKicker: "Memorial Oficial",
+      heroKicker: "",
       heroTitle: "Edney Fernandes",
-      heroManifest: "Canciones que permanecen incluso después de la despedida.",
-      heroSubtitle: "Una presencia que continúa a través de las canciones.",
+      heroManifest: "Canciones que permanecen después de la despedida",
+      heroSubtitle: "Una presencia que continúa a través de las canciones y de generaciones",
       heroCtaPrimary: "Explorar catálogo",
-      heroCtaSecondary: "Leer manifiesto",
+      heroCtaSecondary: "Leer historia",
+      heroSpotify: "Escuchar en Spotify",
       heroScroll: "Desliza para descubrir",
 
       manifestoEyebrow: "Manifiesto",
       manifestoP1:
-        "Hay voces que, incluso después de la despedida, no se apagan. Atraviesan lo invisible, el tiempo y la ausencia, y siguen resonando. Edney Fernandes fue una de esas voces y un artista que transformó sentimientos en melodía, lo cotidiano en poesía y memorias en composiciones.",
+        "Hay voces que, incluso después de la despedida, no se apagan. Atraviesan lo invisible, el tiempo y la ausencia, y siguen resonando.",
       manifestoP2:
+        "Edney Fernandes fue una de esas voces: un artista que transformó sentimientos en melodía, la vida cotidiana en poesía y memorias en composiciones.",
+      manifestoP3:
         "Este proyecto es un reencuentro entre pasado y futuro: un espacio para preservar su obra, presentar su trayectoria y abrir camino a nuevas voces e interpretaciones.",
 
       biografiaEyebrow: "Biografía",
 
-      relevanciaTitle: "Relevancia de la obra",
+      relevanciaTitle: "La permanencia de la obra",
       relevanciaLead:
         "Las obras de Edney Fernandes siguen siendo recordadas en rodas de samba, plataformas digitales y repertorios de diversos intérpretes del samba y del pagode.",
-      metricViews:
-        "visualizaciones acumuladas en grabaciones e interpretaciones del catálogo",
+      metric1: "de visualizaciones en interpretaciones de canciones del catálogo",
       metric2: "obras registradas oficialmente",
       metric3Title: "Años 90–Hoy",
       metric3: "presencia continua en el samba y pagode brasileño",
+      relevanciaNote:
+        "Una obra que sigue siendo escuchada, reinterpretada y recordada.",
       partnersTitle: "Catálogo en Editoras y Entidades",
 
       presencaTitle: "Presencia en la música brasileña",
@@ -238,6 +241,16 @@
         "A lo largo de este recorrido, trabajó con artistas, productores, compositores y socios que formaron parte de su historia y del movimiento del samba y del pagode. Entre esos nombres están Thaís Nascimento, Valtinho Jota, Marcelo Lombardo, Lua Lafaiette, Almirzinho, Bete Carvalho, Netinho de Paula, Billy SP, Dedé Paraíso y otros nombres ligados a la música brasileña.",
       presencaP3:
         "Fue una trayectoria hecha de trabajo, creación y presencia en proyectos que ayudaron a consolidar la historia del samba y del pagode.",
+
+      cancoesTitle: "Composiciones grabadas por otros artistas",
+      cancoesLead:
+        "La obra de Edney Fernandes siguió adelante en otras voces, otros grupos y otras interpretaciones, manteniendo viva su presencia en el repertorio del samba y del pagode.",
+
+      registrosTitle: "Registros televisivos",
+      registrosLead:
+        "Imágenes raras de una trayectoria que marcó a quienes vieron, escucharon y vivieron el pagode en los años 90.",
+      registrosBody:
+        "Pocos registros en imagen y sonido que atraviesan el tiempo y revelan el carisma, la presencia y la fuerza artística de Edney Fernandes.",
 
       projetosTitle: "Proyectos que marcaron la trayectoria",
       projetosLead:
@@ -255,20 +268,6 @@
       gestoText:
         "Proyecto póstumo que da continuidad a la trayectoria solista de Edney Fernandes, a partir de un trabajo que quedó sin concluir en vida y que hoy regresa como parte de su legado artístico.",
 
-      curadoriaTitle: "El Pagode de los Años 90",
-      curadoriaLead:
-        "Antes de escuchar las composiciones, conoce el universo musical que influenció esta trayectoria.",
-
-      cancoesTitle: "Composiciones grabadas por otros artistas",
-      cancoesLead:
-        "La obra de Edney Fernandes siguió adelante en otras voces, otros grupos y otras interpretaciones, manteniendo viva su presencia en el repertorio del samba y del pagode.",
-
-      registrosTitle: "Registros televisivos",
-      registrosLead:
-        "Imágenes raras de una trayectoria que marcó a quienes vieron, escucharon y vivieron el pagode en los años 90.",
-      registrosBody:
-        "Pocos registros en imagen y sonido que atraviesan el tiempo y revelan el carisma, la presencia y la fuerza artística de Edney Fernandes.",
-
       catalogoTitle: "Obras abiertas a nuevas interpretaciones",
       catalogoP1:
         "Este catálogo reúne composiciones que formaron parte de una generación y que siguen sonando hasta hoy, listas para ganar nuevas lecturas, grabaciones y caminos de interpretación.",
@@ -281,8 +280,8 @@
 
       ineditasTitle: "Composiciones",
       ineditasLead:
-        "Tres composiciones fueron seleccionadas de este acervo como forma de presentar un lado más íntimo de la obra de Edney Fernandes. Son registros que revelan emociones, caminos y matices importantes de su trayectoria autoral.",
-      spotifySoon: "Disponible próximamente en Spotify",
+        "Tres canciones fueron seleccionadas de este acervo como forma de presentar un lado más íntimo de la obra de Edney Fernandes. Son composiciones que no llegaron a ser lanzadas en vida, pero que hoy revelan caminos, emociones y matices importantes de su trayectoria autoral.",
+      trackBadge: "Inédita",
 
       memorialTitle: "Presencias que permanecen",
       memorialLead: "Fragmentos íntimos de una trayectoria que sigue viva.",
@@ -344,14 +343,13 @@
     link.addEventListener("click", (e) => {
       const id = link.getAttribute("href");
       if (!id || id === "#") return;
-
       const target = $(id);
       if (!target) return;
 
       e.preventDefault();
       target.scrollIntoView({ behavior: "smooth", block: "start" });
 
-      mobileMenu?.classList.remove("is-open");
+      $("#mobileMenu")?.classList.remove("is-open");
       document.body.classList.remove("menu-open");
     });
   });
@@ -379,10 +377,10 @@
     const end = -viewport * 0.22;
     const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
 
-    const scale = 1 - 0.08 * progress;
-    const translateY = 10 * progress;
-    const radius = 22 * progress;
-    const alpha = 0.3 * progress;
+    const scale = 1 - 0.1 * progress;
+    const translateY = 14 * progress;
+    const radius = 24 * progress;
+    const alpha = 0.36 * progress;
 
     heroFrame.style.transform = `translateY(${translateY}px) scale(${scale})`;
     heroFrame.style.borderRadius = `${radius}px`;
@@ -394,22 +392,25 @@
   animateHero();
 
   const formatCounter = (value) => {
-    const rounded = Math.floor(value);
-    return `+${rounded.toLocaleString("pt-BR")}`;
+    if (value >= 1000000) {
+      const short = value / 1000000;
+      return `+${Number.isInteger(short) ? short : short.toFixed(1)}M`;
+    }
+    if (value === 44) return "44+";
+    return String(value);
   };
 
   const animateCounter = (el) => {
     const target = Number(el.dataset.counter || 0);
     if (!target) return;
 
-    const duration = target > 1000000 ? 1800 : 1200;
+    const duration = 1400;
     const startTime = performance.now();
 
     const step = (now) => {
       const progress = Math.min((now - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(target * eased);
-
       el.textContent = formatCounter(current);
 
       if (progress < 1) {
@@ -434,90 +435,6 @@
   );
 
   $$("[data-counter]").forEach((el) => counterObserver.observe(el));
-
-  const setupHorizontalRow = (row) => {
-    const track = $(".edge-strip__track, .projects-marquee__track", row);
-    const prev = $("[data-scroll-prev]", row);
-    const next = $("[data-scroll-next]", row);
-
-    if (!track) return;
-
-    const originalItems = Array.from(track.children);
-
-    if (originalItems.length && !track.dataset.cloned) {
-      originalItems.forEach((item) => {
-        const clone = item.cloneNode(true);
-        clone.setAttribute("aria-hidden", "true");
-        track.appendChild(clone);
-      });
-
-      track.dataset.cloned = "true";
-    }
-
-    let isPaused = false;
-    let rafId = null;
-    const speed = row.dataset.speed ? Number(row.dataset.speed) : 0.35;
-
-    const getLoopPoint = () => track.scrollWidth / 2;
-
-    const autoScroll = () => {
-      if (!isPaused && track.scrollWidth > track.clientWidth) {
-        track.scrollLeft += speed;
-
-        if (track.scrollLeft >= getLoopPoint()) {
-          track.scrollLeft = 0;
-        }
-      }
-
-      rafId = requestAnimationFrame(autoScroll);
-    };
-
-    const scrollByAmount = () => Math.min(track.clientWidth * 0.85, 520);
-
-    prev?.addEventListener("click", () => {
-      isPaused = true;
-      track.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
-
-      window.setTimeout(() => {
-        isPaused = false;
-      }, 1200);
-    });
-
-    next?.addEventListener("click", () => {
-      isPaused = true;
-      track.scrollBy({ left: scrollByAmount(), behavior: "smooth" });
-
-      window.setTimeout(() => {
-        isPaused = false;
-      }, 1200);
-    });
-
-    row.addEventListener("mouseenter", () => {
-      isPaused = true;
-    });
-
-    row.addEventListener("mouseleave", () => {
-      isPaused = false;
-    });
-
-    row.addEventListener("touchstart", () => {
-      isPaused = true;
-    }, { passive: true });
-
-    row.addEventListener("touchend", () => {
-      window.setTimeout(() => {
-        isPaused = false;
-      }, 1400);
-    }, { passive: true });
-
-    autoScroll();
-
-    row.addEventListener("DOMNodeRemoved", () => {
-      if (rafId) cancelAnimationFrame(rafId);
-    });
-  };
-
-  $$("[data-scroll-row]").forEach(setupHorizontalRow);
 
   const lightbox = $("#lightbox");
   const lightboxImage = $("#lightboxImage");
@@ -562,7 +479,6 @@
   }
 
   const audios = $$("audio");
-
   audios.forEach((audio) => {
     audio.addEventListener("play", () => {
       audios.forEach((other) => {
@@ -570,4 +486,116 @@
       });
     });
   });
+})();
+
+// === Final premium motion pass ===
+(function(){
+  const header = document.querySelector('.site-header');
+  const updateHeader = () => {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
+  };
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('load', updateHeader);
+  updateHeader();
+
+  const reveals = Array.from(document.querySelectorAll('.reveal, .reveal-soft, .reveal-lift'));
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.16,
+    rootMargin: '0px 0px -8% 0px'
+  });
+  reveals.forEach((el) => revealObserver.observe(el));
+
+  const heroFrame = document.getElementById('heroFrame');
+  const heroSection = document.getElementById('hero');
+  let ticking = false;
+  const parallaxHero = () => {
+    if (!heroFrame || !heroSection) return;
+    const rect = heroSection.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+    const y = progress * 22;
+    heroFrame.style.transform = `translate3d(0, ${y}px, 0) scale(${1 + progress * 0.02})`;
+    ticking = false;
+  };
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(parallaxHero);
+      ticking = true;
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  parallaxHero();
+
+  // Autoplay + loop dos carrosséis/faixas horizontais
+  const setupHorizontalRow = (row) => {
+    const track = row.querySelector('.edge-strip__track, .projects-marquee__track');
+    const prev = row.querySelector('[data-scroll-prev]');
+    const next = row.querySelector('[data-scroll-next]');
+    if (!track) return;
+
+    const originalItems = Array.from(track.children);
+    if (originalItems.length && !track.dataset.cloned) {
+      originalItems.forEach((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+      track.dataset.cloned = 'true';
+    }
+
+    let isPaused = false;
+    const speed = row.dataset.speed ? Number(row.dataset.speed) : 0.35;
+    const loopPoint = () => track.scrollWidth / 2;
+
+    const tick = () => {
+      if (!isPaused && track.scrollWidth > track.clientWidth) {
+        track.scrollLeft += speed;
+        if (track.scrollLeft >= loopPoint()) track.scrollLeft = 0;
+      }
+      requestAnimationFrame(tick);
+    };
+
+    const amount = () => Math.min(track.clientWidth * 0.85, 520);
+
+    prev?.addEventListener('click', () => {
+      isPaused = true;
+      track.scrollBy({ left: -amount(), behavior: 'smooth' });
+      window.setTimeout(() => { isPaused = false; }, 1200);
+    });
+
+    next?.addEventListener('click', () => {
+      isPaused = true;
+      track.scrollBy({ left: amount(), behavior: 'smooth' });
+      window.setTimeout(() => { isPaused = false; }, 1200);
+    });
+
+    row.addEventListener('mouseenter', () => { isPaused = true; });
+    row.addEventListener('mouseleave', () => { isPaused = false; });
+    row.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+    row.addEventListener('touchend', () => {
+      window.setTimeout(() => { isPaused = false; }, 1400);
+    }, { passive: true });
+
+    tick();
+  };
+
+  document.querySelectorAll('[data-scroll-row]').forEach(setupHorizontalRow);
+
+  // Só um áudio toca por vez
+  document.querySelectorAll('audio').forEach((audio) => {
+    audio.addEventListener('play', () => {
+      document.querySelectorAll('audio').forEach((other) => {
+        if (other !== audio) other.pause();
+      });
+    });
+  });
+
 })();
